@@ -664,7 +664,7 @@ class Component extends DCLogic {
   constructor(props) {
     super(props);
     var pm = (typeof location !== 'undefined') ? /[?&]p=(\d)/.exec(location.search || '') : null;
-    this.state = { selected: null, openFaq: 0, sent: false, slide: pm ? Math.min(5, +pm[1]) : 0, menuOpen: false, wantMaint: false, fab: false };
+    this.state = { selected: null, openFaq: 0, sent: false, slide: pm ? Math.min(5, +pm[1]) : 0, menuOpen: false, wantMaint: false, fab: false, allInd: false };
   }
   componentDidMount() {
     var self = this;
@@ -764,6 +764,10 @@ class Component extends DCLogic {
       spots: { total: SPOTS_TOTAL, left: SPOTS_LEFT, month: SPOTS_MONTH, barStyle: 'height: 100%; border-radius: 999px; background: linear-gradient(90deg, #7C5CFF, #A99BFF); width: ' + Math.round((SPOTS_TOTAL - SPOTS_LEFT) / SPOTS_TOTAL * 100) + '%;' },
       indGo: { g0: go(0), g1: go(1), g2: go(2), g3: go(3), g4: go(4), g5: go(5) },
       fab: this.state.fab,
+      allInd: this.state.allInd,
+      allIndExp: this.state.allInd ? 'true' : 'false',
+      indBtn: this.state.allInd ? 'Show fewer industries' : 'View all industries',
+      toggleInd: function () { self.setState({ allInd: !self.state.allInd }); },
       menuOpen: this.state.menuOpen,
       menuExpanded: this.state.menuOpen ? 'true' : 'false',
       menuLabel: this.state.menuOpen ? 'Close menu' : 'Open menu',
