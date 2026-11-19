@@ -41,6 +41,11 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 @media (max-width:640px){.vfab{left:16px !important;right:16px !important;bottom:16px !important;justify-content:center}}
 .vind-more{transition:gap .25s ease}
 .vtile:hover .vind-more{gap:12px !important}
+.vind{transition:transform .35s ease,box-shadow .35s ease}
+.vind img{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.vind:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(124,92,255,.55)}
+.vind:hover img{transform:scale(1.06)}
+.vind:hover .vind-more{gap:12px !important}
 @keyframes vpulse{0%,100%{opacity:1}50%{opacity:.35}}
 .vpulse{animation:vpulse 1.6s ease-in-out infinite}
 @media (max-width:860px){.vnavlinks{display:none !important}.vhide-sm{display:none !important}.vmenu-btn{display:flex !important}.vnav-cta{display:none !important}}
