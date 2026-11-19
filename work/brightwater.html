@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brightwater Plumbing — VERO Digital concept website</title>
+<meta name="description" content="A concept website designed by VERO Digital for a fictional business.">
+<link rel="icon" type="image/png" href="../images/vero-mark.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F3F6F9}
+a{color:#1D7CF2}a:hover{color:#1563C9}
+.bw-btn{transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease;cursor:pointer}
+.bw-btn:hover{transform:translateY(-2px)}
+.bw-blue:hover{background:#1563C9 !important;box-shadow:0 14px 30px -14px rgba(29,124,242,.8)}
+.bw-navy:hover{background:#1D7CF2 !important}
+.bw-white:hover{box-shadow:0 14px 30px -16px rgba(16,35,63,.35)}
+.bw-nav a{transition:color .2s ease}
+.bw-nav a:hover{color:#1D7CF2 !important}
+.bw-card{transition:transform .3s ease,box-shadow .3s ease}
+.bw-card:hover{transform:translateY(-6px);box-shadow:0 26px 50px -30px rgba(16,35,63,.45)}
+.bw-img{overflow:hidden}
+.bw-img img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.bw-img:hover img,.bw-card:hover img{transform:scale(1.05)}
+.bw-town{transition:background-color .2s ease,color .2s ease}
+.bw-town:hover{background:#1D7CF2 !important;color:#FFFFFF !important}
+.bw-town:hover svg{stroke:#FFFFFF}
+.bw-faq{cursor:pointer}
+.bw-foot a{color:#526175;text-decoration:none}
+.bw-foot a:hover{color:#1D7CF2}
+input,select,textarea{font:inherit}
+input:focus,select:focus,textarea:focus{outline:2px solid #1D7CF2;outline-offset:1px}
+@keyframes bwup{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.bw-up{animation:bwup .9s cubic-bezier(.2,.7,.2,1) both}
+.bw-up2{animation:bwup .9s .15s cubic-bezier(.2,.7,.2,1) both}
+.bw-sticky{display:none}
+@media (max-width:860px){.bw-links{display:none !important}.bw-mob{display:flex !important}.bw-sticky{display:flex !important}.bw-hide{display:none !important}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+</style>
+
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+
+
+<div style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #10233F; background: #FFFFFF; width: 100%; overflow-x: hidden">
+
+<!-- EMERGENCY BAR -->
+<a href="tel:5550104471" style="display: flex; justify-content: center; align-items: center; gap: 10px; background: #1D7CF2; color: #FFFFFF; text-decoration: none; font-size: 13px; font-weight: 600; padding: 10px 20px; text-align: center">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+Plumbing emergency? Call (555) 010-4471 · 24/7 emergency line
+</a>
+
+<!-- HERO -->
+<section id="top" style="background: #F3F6F9">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(14px, 1.7vw, 24px) clamp(20px, 8.3vw, 120px) clamp(48px, 6.6vw, 96px); box-sizing: border-box">
+<nav class="bw-nav" aria-label="Main" style="background: #FFFFFF; border-radius: 999px; padding: 10px 10px 10px clamp(18px, 2vw, 28px); display: flex; justify-content: space-between; align-items: center; gap: 20px; box-shadow: 0 18px 48px -24px rgba(16,35,63,0.25)">
+<a href="#top" aria-label="Brightwater Plumbing home" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
+<span aria-hidden="true" style="width: 40px; height: 40px; border-radius: 50%; background: #1D7CF2; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5S12.5 5 12 2.5c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7z"></path></svg></span>
+<span style="font-weight: 800; font-size: 22px; letter-spacing: -0.03em; color: #10233F">bright<span style="color: #1D7CF2">water</span></span>
+</a>
+<div class="bw-links" style="display: flex; gap: 34px; font-size: 15px; font-weight: 500">
+<a href="#services" style="color: #10233F; text-decoration: none">Services</a>
+<a href="#about" style="color: #10233F; text-decoration: none">About</a>
+<a href="#projects" style="color: #10233F; text-decoration: none">Projects</a>
+<a href="#areas" style="color: #10233F; text-decoration: none">Areas</a>
+<a href="#faq" style="color: #10233F; text-decoration: none">FAQ</a>
+</div>
+<a class="bw-btn bw-navy bw-links" href="#contact" style="background: #10233F; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; padding: 14px 24px; border-radius: 999px; display: inline-flex; align-items: center; gap: 8px">Book a Plumber <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+<button class="bw-mob" type="button" aria-label="Open menu" style="display: none; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #F3F6F9; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10233F" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+</nav>
+
+<div style="text-align: center; max-width: 980px; margin: clamp(40px, 5vw, 72px) auto 0">
+<div class="bw-up" style="display: inline-flex; align-items: center; gap: 8px; background: #E6F1FE; color: #1D7CF2; border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 600"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5S12.5 5 12 2.5c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7z"></path></svg>Residential plumbing · Lakemont County</div>
+<h1 class="bw-up" style="font-weight: 800; font-size: clamp(40px, 5.3vw, 76px); line-height: 1.04; letter-spacing: -0.04em; margin: 24px 0 0">Fast fixes. Fair prices. Friendly plumbers.</h1>
+<p class="bw-up2" style="font-size: clamp(16px, 1.3vw, 19px); line-height: 1.6; color: #526175; max-width: 720px; margin: 22px auto 0">Leaks, clogs, water heaters and bathroom upgrades, handled by courteous plumbers who show up prepared and leave your home spotless.</p>
+<div class="bw-up2" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px">
+<a class="bw-btn bw-blue" href="#contact" style="background: #1D7CF2; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; padding: 18px 30px; border-radius: 999px; display: inline-flex; align-items: center; gap: 10px">Book a Plumber <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+<a class="bw-btn bw-white" href="tel:5550104471" style="background: #FFFFFF; color: #10233F; border: 1px solid #DFE6EF; text-decoration: none; font-weight: 600; font-size: 16px; padding: 17px 28px; border-radius: 999px; display: inline-flex; align-items: center; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1D7CF2" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>Call (555) 010-4471</a>
+</div>
+</div>
+
+<div class="bw-up2" style="margin-top: clamp(36px, 4.4vw, 64px); position: relative">
+<img src="../images/plumb-01-hero.jpg" alt="Smiling Brightwater plumber installing a chrome faucet in a bright bathroom" style="display: block; width: 100%; height: clamp(280px, 41vw, 600px); object-fit: cover; object-position: center 30%; border-radius: clamp(24px, 2.5vw, 36px)">
+<div style="position: relative; margin: -56px clamp(12px, 3vw, 48px) 0; background: #FFFFFF; border-radius: 24px; padding: clamp(18px, 2vw, 28px); display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; box-shadow: 0 24px 60px -30px rgba(16,35,63,0.35)">
+<sc-for list="{{trust}}" as="t" hint-placeholder-count="4">
+<div style="display: flex; align-items: center; gap: 14px"><span style="width: 48px; height: 48px; border-radius: 50%; background: #E6F1FE; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D7CF2" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span><span style="display: block; font-weight: 700; font-size: 16px">{{t.t}}</span><span style="display: block; font-size: 13px; color: #526175; margin-top: 2px">{{t.d}}</span></span></div>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES (bento) -->
+<section id="services" style="background: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 8.3vw, 120px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="text-align: center">
+<div style="display: inline-flex; align-items: center; gap: 8px; background: #E6F1FE; color: #1D7CF2; border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 600">Our services</div>
+<h2 style="font-weight: 800; font-size: clamp(32px, 3.6vw, 52px); letter-spacing: -0.03em; line-height: 1.1; margin: 16px 0 0">Plumbing help for every room.</h2>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: clamp(36px, 3.3vw, 48px)">
+<a class="bw-card" href="#contact" style="flex: 1 1 400px; min-width: 0; background: #10233F; color: #FFFFFF; border-radius: 28px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column">
+<div style="overflow: hidden"><img src="../images/plumb-05-bathroom.jpg" alt="Modern bathroom with a walk-in glass shower and matte black fixtures" style="display: block; width: 100%; height: clamp(240px, 29vw, 420px); object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1)"></div>
+<div style="padding: clamp(24px, 2.5vw, 36px); flex: 1">
+<h3 style="font-weight: 700; font-size: clamp(22px, 1.9vw, 28px); margin: 0">Bathroom &amp; Fixture Upgrades</h3>
+<p style="font-size: 16px; line-height: 1.6; color: #A9B8CC; margin: 12px 0 0">New showers, vanities, toilets and fixtures, installed cleanly and plumbed properly.</p>
+<span style="display: inline-flex; align-items: center; gap: 8px; color: #7DB4FF; font-weight: 600; font-size: 15px; margin-top: 16px">Plan your upgrade <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<div style="flex: 1 1 520px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px">
+<a class="bw-card" href="#contact" style="background: #F3F6F9; border-radius: 24px; overflow: hidden; text-decoration: none; color: #10233F">
+<div style="overflow: hidden"><img src="../images/plumb-03-repair.jpg" alt="Plumber tightening a drain fitting under a sink" style="display: block; width: 100%; height: 180px; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1)"></div>
+<div style="padding: 22px 24px"><h3 style="font-weight: 700; font-size: 19px; margin: 0">Leak &amp; Pipe Repair</h3><p style="font-size: 15px; line-height: 1.55; color: #526175; margin: 8px 0 0">Fast diagnosis and lasting repairs for leaks, pipes and fittings.</p></div>
+</a>
+<a class="bw-card" href="#contact" style="background: #F3F6F9; border-radius: 24px; overflow: hidden; text-decoration: none; color: #10233F">
+<div style="overflow: hidden"><img src="../images/plumb-04-water-heater.jpg" alt="Tankless water heater installed on a garage wall with copper piping" style="display: block; width: 100%; height: 180px; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1)"></div>
+<div style="padding: 22px 24px"><h3 style="font-weight: 700; font-size: 19px; margin: 0">Water Heaters</h3><p style="font-size: 15px; line-height: 1.55; color: #526175; margin: 8px 0 0">Tank and tankless repair, replacement and installation.</p></div>
+</a>
+<a class="bw-card" href="#contact" style="background: #E6F1FE; border-radius: 24px; padding: 24px; text-decoration: none; color: #10233F">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1D7CF2" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+<h3 style="font-weight: 700; font-size: 18px; margin: 14px 0 0">Drain Cleaning &amp; Camera Inspection</h3><p style="font-size: 15px; line-height: 1.55; color: #526175; margin: 8px 0 0">Clear stubborn clogs and see exactly what’s happening inside your lines.</p>
+</a>
+<a class="bw-card" href="#contact" style="background: #E6F1FE; border-radius: 24px; padding: 24px; text-decoration: none; color: #10233F">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1D7CF2" stroke-width="1.8" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+<h3 style="font-weight: 700; font-size: 18px; margin: 14px 0 0">Repiping &amp; Re-routes</h3><p style="font-size: 15px; line-height: 1.55; color: #526175; margin: 8px 0 0">Replace aging pipes with modern materials and minimal disruption.</p>
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background: #F3F6F9">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 8.3vw, 120px) clamp(20px, 8.3vw, 120px); box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 40px clamp(40px, 6.6vw, 96px)">
+<div style="flex: 1 1 420px; min-width: 0">
+<div style="display: inline-flex; background: #E6F1FE; color: #1D7CF2; border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 600">About Brightwater</div>
+<h2 style="font-weight: 800; font-size: clamp(32px, 3.6vw, 52px); letter-spacing: -0.03em; line-height: 1.1; margin: 16px 0 0">The plumber you’ll actually want to call back.</h2>
+<p style="font-size: clamp(16px, 1.25vw, 18px); line-height: 1.65; color: #526175; margin: 20px 0 0">Brightwater Plumbing serves homeowners across Lakemont County with dependable repairs and thoughtful upgrades. We explain the problem, show you the options and give you the price before we start.</p>
+<p style="font-size: clamp(16px, 1.25vw, 18px); line-height: 1.65; color: #526175; margin: 14px 0 0">Our plumbers arrive in clean uniforms, protect your floors and leave your home the way they found it, just with better plumbing.</p>
+<ul style="list-style: none; padding: 0; margin: 24px 0 0; display: flex; flex-direction: column; gap: 12px">
+<li style="display: flex; align-items: center; gap: 10px; font-weight: 500"><span style="width: 22px; height: 22px; border-radius: 50%; background: #1D7CF2; display: flex; align-items: center; justify-content: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Clear explanations, no jargon</li>
+<li style="display: flex; align-items: center; gap: 10px; font-weight: 500"><span style="width: 22px; height: 22px; border-radius: 50%; background: #1D7CF2; display: flex; align-items: center; justify-content: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Upfront, written pricing</li>
+<li style="display: flex; align-items: center; gap: 10px; font-weight: 500"><span style="width: 22px; height: 22px; border-radius: 50%; background: #1D7CF2; display: flex; align-items: center; justify-content: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Tidy, respectful plumbers</li>
+</ul>
+</div>
+<div style="flex: 1 1 440px; min-width: 0; display: flex; gap: 20px; align-items: flex-start">
+<div class="bw-img" style="flex: 1 1 0; min-width: 0; border-radius: 28px"><img src="../images/plumb-02-about.jpg" alt="Brightwater plumber walking up to a customer's front door with a tool bag" style="display: block; width: 100%; height: clamp(360px, 36vw, 520px); object-fit: cover"></div>
+<div class="bw-img bw-hide" style="flex: 1 1 0; min-width: 0; border-radius: 28px; margin-top: 80px"><img src="../images/plumb-06-fixtures.jpg" alt="Brushed brass faucet over a natural stone vessel sink" style="display: block; width: 100%; height: clamp(320px, 31vw, 440px); object-fit: cover"></div>
+</div>
+</div>
+</section>
+
+<!-- WHY -->
+<section aria-labelledby="why-h" style="background: #1D7CF2; color: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 7.6vw, 110px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="text-align: center">
+<div style="display: inline-flex; background: rgba(255,255,255,0.16); border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 600">Why Brightwater</div>
+<h2 id="why-h" style="font-weight: 800; font-size: clamp(32px, 3.6vw, 52px); letter-spacing: -0.03em; line-height: 1.1; margin: 16px 0 0">Good plumbing. Better service.</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; margin-top: clamp(36px, 3.9vw, 56px)">
+<sc-for list="{{why}}" as="w" hint-placeholder-count="4">
+<div style="background: rgba(255,255,255,0.1); border-radius: 24px; padding: 28px">
+<span style="width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1D7CF2" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>
+<h3 style="font-weight: 700; font-size: 19px; margin: 18px 0 0">{{w.t}}</h3>
+<p style="font-size: 15px; line-height: 1.6; color: #DCEBFF; margin: 10px 0 0">{{w.d}}</p>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section aria-labelledby="proc-h" style="background: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 8.3vw, 120px) clamp(20px, 8.3vw, 120px); box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 40px clamp(40px, 6.6vw, 96px)">
+<div style="flex: 1 1 380px; min-width: 0">
+<div style="display: inline-flex; background: #E6F1FE; color: #1D7CF2; border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 600">How it works</div>
+<h2 id="proc-h" style="font-weight: 800; font-size: clamp(32px, 3.6vw, 52px); letter-spacing: -0.03em; line-height: 1.1; margin: 16px 0 0">Book in minutes. Fixed right the first time.</h2>
+<a class="bw-btn bw-blue" href="#contact" style="margin-top: 28px; background: #1D7CF2; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; padding: 17px 28px; border-radius: 999px; display: inline-flex; align-items: center; gap: 10px">Book a Plumber <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+</div>
+<ol style="flex: 1 1 440px; min-width: 0; list-style: none; padding: 0; margin: 0">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+<li style="display: flex; gap: 20px">
+<div style="display: flex; flex-direction: column; align-items: center"><span style="{{s.dot}}">{{s.n}}</span><span style="{{s.line}}"></span></div>
+<div style="padding: 8px 0 36px"><h3 style="font-weight: 700; font-size: 20px; margin: 0">{{s.t}}</h3><p style="font-size: 16px; line-height: 1.6; color: #526175; margin: 6px 0 0">{{s.d}}</p></div>
+</li>
+</sc-for>
+</ol>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background: #F3F6F9">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 8.3vw, 120px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="display: inline-flex; background: #E6F1FE; color: #1D7CF2; border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 600">Recent projects</div>
+<h2 style="font-weight: 800; font-size: clamp(32px, 3.6vw, 52px); letter-spacing: -0.03em; line-height: 1.1; margin: 16px 0 0">Fresh installs &amp; finished bathrooms.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: clamp(32px, 3.3vw, 48px)">
+<figure style="margin: 0"><div class="bw-img" style="border-radius: 24px"><img src="../images/plumb-05-bathroom.jpg" alt="Primary bathroom with walk-in shower" style="display: block; width: 100%; height: clamp(260px, 26vw, 380px); object-fit: cover"></div><figcaption style="font-weight: 700; font-size: 17px; margin-top: 14px">Primary bath refresh</figcaption><div style="font-size: 14px; color: #526175; margin-top: 4px">Walk-in shower · Riverside Park</div></figure>
+<figure style="margin: 0"><div class="bw-img" style="border-radius: 24px"><img src="../images/plumb-04-water-heater.jpg" alt="New tankless water heater" style="display: block; width: 100%; height: clamp(260px, 26vw, 380px); object-fit: cover"></div><figcaption style="font-weight: 700; font-size: 17px; margin-top: 14px">Tankless water heater install</figcaption><div style="font-size: 14px; color: #526175; margin-top: 4px">Garage install · Oak Hollow</div></figure>
+<figure style="margin: 0"><div class="bw-img" style="border-radius: 24px"><img src="../images/plumb-06-fixtures.jpg" alt="Brass faucet and stone vessel sink" style="display: block; width: 100%; height: clamp(260px, 26vw, 380px); object-fit: cover"></div><figcaption style="font-weight: 700; font-size: 17px; margin-top: 14px">Powder room fixture upgrade</figcaption><div style="font-size: 14px; color: #526175; margin-top: 4px">Brass fixtures · Westbrook</div></figure>
+</div>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section aria-labelledby="rev-h" style="background: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 8.3vw, 120px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="text-align: center">
+<div style="display: inline-flex; background: #E6F1FE; color: #1D7CF2; border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 600">Reviews</div>
+<h2 id="rev-h" style="font-weight: 800; font-size: clamp(32px, 3.6vw, 52px); letter-spacing: -0.03em; line-height: 1.1; margin: 16px 0 0">Neighbors who called Brightwater.</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: clamp(32px, 3.3vw, 48px)">
+<sc-for list="{{reviews}}" as="r" hint-placeholder-count="3">
+<figure class="bw-card" style="margin: 0; background: #F3F6F9; border-radius: 28px; padding: clamp(26px, 2.5vw, 36px); display: flex; flex-direction: column">
+<div role="img" aria-label="5 out of 5 stars" style="display: flex; gap: 3px"><svg width="18" height="18" viewBox="0 0 24 24" fill="#F5B301" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#F5B301" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#F5B301" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#F5B301" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#F5B301" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
+<blockquote style="margin: 18px 0 0; font-size: 17px; line-height: 1.6; font-weight: 500; flex: 1">“{{r.q}}”</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 12px; margin-top: 22px"><span style="width: 44px; height: 44px; border-radius: 50%; background: #1D7CF2; color: #FFFFFF; font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center">{{r.i}}</span><span><span style="display: block; font-weight: 700; font-size: 15px">{{r.n}}</span><span style="display: block; font-size: 14px; color: #526175">{{r.m}}</span></span></figcaption>
+</figure>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section id="areas" style="background: #F3F6F9">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 7.6vw, 110px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="background: #FFFFFF; border-radius: 32px; padding: clamp(28px, 3.3vw, 56px); display: flex; flex-wrap: wrap; align-items: center; gap: 32px 64px">
+<div style="flex: 1 1 340px; min-width: 0">
+<div style="display: inline-flex; background: #E6F1FE; color: #1D7CF2; border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 600">Service areas</div>
+<h2 style="font-weight: 800; font-size: clamp(30px, 3.3vw, 48px); letter-spacing: -0.03em; line-height: 1.1; margin: 16px 0 0">Serving homes across Lakemont County.</h2>
+<p style="font-size: 17px; line-height: 1.6; color: #526175; margin: 16px 0 0">Tap your town to see it on the map. Not listed? Call us, we may still cover you.</p>
+</div>
+<ul style="flex: 1.2 1 420px; min-width: 0; list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{towns}}" as="t" hint-placeholder-count="8">
+<li><a class="bw-town" href="{{t.url}}" target="_blank" rel="noopener" aria-label="{{t.label}}" style="display: inline-flex; align-items: center; gap: 8px; background: #E6F1FE; color: #10233F; text-decoration: none; border-radius: 999px; padding: 12px 18px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1D7CF2" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>{{t.name}}</a></li>
+</sc-for>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background: #FFFFFF">
+<div style="max-width: 1000px; margin: 0 auto; padding: clamp(64px, 8.3vw, 120px) clamp(20px, 5vw, 40px); box-sizing: border-box">
+<div style="text-align: center">
+<div style="display: inline-flex; background: #E6F1FE; color: #1D7CF2; border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 600">FAQ</div>
+<h2 style="font-weight: 800; font-size: clamp(32px, 3.6vw, 52px); letter-spacing: -0.03em; line-height: 1.1; margin: 16px 0 0">Common questions</h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px; margin-top: clamp(32px, 3.3vw, 48px)">
+<sc-for list="{{faqs}}" as="f" hint-placeholder-count="5">
+<div style="{{f.box}}">
+<button class="bw-faq" type="button" onClick="{{f.toggle}}" aria-expanded="{{f.expanded}}" style="width: 100%; background: transparent; border: 0; padding: 22px 26px; display: flex; justify-content: space-between; align-items: center; gap: 16px; text-align: left; color: #10233F; font-family: inherit; font-weight: 700; font-size: clamp(16px, 1.25vw, 18px); min-height: 44px">
+<span>{{f.q}}</span>
+<span style="{{f.icon}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span>
+</button>
+<sc-if value="{{f.open}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; padding: 0 26px 24px; font-size: 16px; line-height: 1.65; color: #526175">{{f.a}}</p>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; padding: 0 clamp(12px, 2.8vw, 40px) clamp(32px, 8.3vw, 120px); box-sizing: border-box">
+<div style="background: #10233F; color: #FFFFFF; border-radius: clamp(28px, 2.8vw, 40px); padding: clamp(36px, 5.5vw, 80px) clamp(20px, 5.5vw, 80px); display: flex; flex-wrap: wrap; align-items: center; gap: 40px clamp(40px, 5vw, 72px)">
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<h2 style="font-weight: 800; font-size: clamp(34px, 3.8vw, 54px); letter-spacing: -0.03em; line-height: 1.08; margin: 0">Need a plumber? We’re ready when you are.</h2>
+<p style="font-size: 18px; line-height: 1.6; color: #A9B8CC; margin: 0">Send a request and we’ll confirm your appointment. For emergencies, call us directly.</p>
+<a href="tel:5550104471" style="display: flex; align-items: center; gap: 12px; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px"><span style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>(555) 010-4471</a>
+<a href="mailto:hello@brightwaterplumbing.com" style="display: flex; align-items: center; gap: 12px; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px"><span style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg></span>hello@brightwaterplumbing.com</a>
+<div style="display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 16px"><span style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>2290 Willow Creek Drive, Riverside Park</div>
+<div style="display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 16px"><span style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></span>Mon–Sat 7am–7pm · 24/7 emergencies</div>
+</div>
+<div style="flex: 1 1 420px; min-width: 0; background: #FFFFFF; color: #10233F; border-radius: 28px; padding: clamp(22px, 2.5vw, 36px); box-sizing: border-box">
+<sc-if value="{{notSent}}" hint-placeholder-val="{{ true }}">
+<form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 16px">
+<h3 style="font-weight: 700; font-size: 24px; margin: 0">Book a plumber</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px">
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600">Name<input type="text" name="name" required="required" autocomplete="name" placeholder="Your name" style="height: 54px; border: 1px solid #DFE6EF; background: #F3F6F9; border-radius: 14px; padding: 0 18px; font-size: 15px; font-weight: 400"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600">Phone<input type="tel" name="phone" required="required" autocomplete="tel" placeholder="(555) 000-0000" style="height: 54px; border: 1px solid #DFE6EF; background: #F3F6F9; border-radius: 14px; padding: 0 18px; font-size: 15px; font-weight: 400"></label>
+</div>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600">Email<input type="email" name="email" autocomplete="email" placeholder="you@email.com" style="height: 54px; border: 1px solid #DFE6EF; background: #F3F6F9; border-radius: 14px; padding: 0 18px; font-size: 15px; font-weight: 400"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600">What do you need help with?<select name="service" style="height: 54px; border: 1px solid #DFE6EF; background: #F3F6F9; border-radius: 14px; padding: 0 14px; font-size: 15px; font-weight: 400"><option>Leak or pipe repair</option><option>Drain cleaning</option><option>Water heater</option><option>Bathroom or fixture upgrade</option><option>Repiping</option><option>Something else</option></select></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600">Details<textarea name="details" rows="4" placeholder="Describe the issue…" style="border: 1px solid #DFE6EF; background: #F3F6F9; border-radius: 14px; padding: 14px 18px; font-size: 15px; font-weight: 400; resize: vertical"></textarea></label>
+<button class="bw-btn bw-blue" type="submit" style="background: #1D7CF2; color: #FFFFFF; border: 0; border-radius: 999px; font-family: inherit; font-weight: 600; font-size: 16px; padding: 18px 28px; min-height: 56px; display: flex; align-items: center; justify-content: center; gap: 10px">Request appointment <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></button>
+</form>
+</sc-if>
+<sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+<div style="text-align: center; padding: 32px 8px">
+<div style="width: 64px; height: 64px; border-radius: 50%; background: #E6F1FE; margin: 0 auto; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1D7CF2" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></div>
+<h3 style="font-weight: 800; font-size: 26px; margin: 20px 0 0">You’re on our schedule.</h3>
+<p style="font-size: 16px; line-height: 1.6; color: #526175; margin: 10px 0 0">We’ll call shortly to confirm your appointment window.</p>
+<button class="bw-btn" type="button" onClick="{{resetForm}}" style="margin-top: 22px; background: #F3F6F9; border: 0; border-radius: 999px; padding: 12px 22px; font-family: inherit; font-size: 15px; font-weight: 600; color: #10233F; min-height: 44px">Send another request</button>
+</div>
+</sc-if>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bw-foot" style="background: #F3F6F9; color: #526175">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(48px, 5.5vw, 80px) clamp(20px, 8.3vw, 120px) clamp(96px, 3vw, 32px); box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; gap: 36px 64px">
+<div style="flex: 1.4 1 260px; min-width: 0">
+<div style="display: flex; align-items: center; gap: 10px">
+<span aria-hidden="true" style="width: 40px; height: 40px; border-radius: 50%; background: #1D7CF2; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5S12.5 5 12 2.5c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7z"></path></svg></span>
+<span style="font-weight: 800; font-size: 22px; letter-spacing: -0.03em; color: #10233F">bright<span style="color: #1D7CF2">water</span></span>
+</div>
+<p style="font-size: 15px; line-height: 1.6; margin: 16px 0 0; max-width: 320px">Friendly, dependable residential plumbing for Lakemont County.</p>
+</div>
+<div style="flex: 1 1 160px"><div style="font-weight: 700; font-size: 15px; color: #10233F">Services</div><ul style="list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><li><a href="#services">Leak &amp; Pipe Repair</a></li><li><a href="#services">Water Heaters</a></li><li><a href="#services">Drain Cleaning</a></li><li><a href="#services">Bathroom Upgrades</a></li></ul></div>
+<div style="flex: 1 1 160px"><div style="font-weight: 700; font-size: 15px; color: #10233F">Company</div><ul style="list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><li><a href="#about">About</a></li><li><a href="#projects">Projects</a></li><li><a href="#areas">Service Areas</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+<div style="flex: 1 1 220px"><div style="font-weight: 700; font-size: 15px; color: #10233F">Contact</div><ul style="list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px"><li><a href="tel:5550104471">(555) 010-4471</a></li><li><a href="mailto:hello@brightwaterplumbing.com">hello@brightwaterplumbing.com</a></li><li>2290 Willow Creek Drive, Riverside Park</li><li>Lic. #PL-48213</li></ul></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; border-top: 1px solid #DFE6EF; padding-top: 24px; margin-top: 48px; font-size: 13px">
+<span>© 2026 Brightwater Plumbing</span><span>VERO concept project · fictional business</span>
+</div>
+</div>
+</footer>
+
+<!-- MOBILE STICKY CALL BAR -->
+<div class="bw-sticky" style="position: sticky; bottom: 0; z-index: 30; background: #FFFFFF; border-top: 1px solid #DFE6EF; padding: 12px 16px; gap: 10px; box-shadow: 0 -12px 30px -18px rgba(16,35,63,0.3)">
+<a href="tel:5550104471" style="flex: 1; background: #1D7CF2; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 999px; padding: 14px 0; text-align: center">Call now</a>
+<a href="#contact" style="flex: 1; background: #E6F1FE; color: #1D7CF2; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 999px; padding: 14px 0; text-align: center">Book online</a>
+</div>
+
+</div>
+</template>
+<script id="logic" type="text/plain">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { openFaq: 0, sent: false };
+  }
+  renderVals() {
+    var self = this;
+    var faqData = [
+      ['Do you handle plumbing emergencies?', 'Yes. Our emergency line is answered 24/7 at (555) 010-4471 for burst pipes, major leaks and no-water situations.'],
+      ['Will I know the price before you start?', 'Always. We diagnose the problem and give you a price to approve before any work begins.'],
+      ['Do you install tankless water heaters?', 'Yes. We repair, replace and install both tank and tankless water heaters.'],
+      ['Can you help with a bathroom remodel?', 'We handle the plumbing for remodels, including showers, tubs, vanities and fixture upgrades.'],
+      ['Which areas do you serve?', 'Homes throughout Lakemont County. See the service area list above.']
+    ];
+    var stepData = [
+      ['Book online or call', 'Pick a time that works or call for urgent help.'],
+      ['We arrive prepared', 'Your plumber arrives in the window with a fully stocked truck.'],
+      ['Approve the price', 'We diagnose, explain and quote before starting.'],
+      ['Fixed & cleaned up', 'We test our work, clean up and walk you through it.']
+    ];
+    return {
+      trust: [
+        { t: 'Upfront pricing', d: 'Know the price before we start' },
+        { t: 'Licensed & insured', d: 'Lic. #PL-48213' },
+        { t: 'On-time arrivals', d: 'Arrival window + heads-up call' },
+        { t: 'Spotless finish', d: 'Shoe covers & full cleanup' }
+      ],
+      why: [
+        { t: 'Responsive scheduling', d: 'We answer, we confirm and we show up when we say we will.' },
+        { t: 'No-surprise pricing', d: 'You approve the price before we pick up a wrench.' },
+        { t: 'Clean, careful work', d: 'Shoe covers, drop cloths and a full cleanup on every visit.' },
+        { t: 'Work we stand behind', d: 'If something isn’t right, we come back and make it right.' }
+      ],
+      steps: stepData.map(function (s, i) {
+        return { n: String(i + 1), t: s[0], d: s[1],
+          dot: 'width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; flex-shrink: 0; ' + (i === 0 ? 'background: #1D7CF2; color: #FFFFFF;' : 'background: #E6F1FE; color: #1D7CF2;'),
+          line: i < stepData.length - 1 ? 'width: 2px; flex: 1; background: #DFE6EF; min-height: 24px;' : 'display: none;' };
+      }),
+      reviews: [
+        { i: 'SL', n: 'Sarah L.', m: 'Riverside Park · Water heater replacement', q: 'Our water heater started leaking on a Friday night. They answered right away, had a new tankless unit in by Saturday afternoon, and cleaned up so well you’d never know anyone had been in the garage.' },
+        { i: 'MG', n: 'Marcus G.', m: 'Fairview Heights · Drain cleaning', q: 'Kitchen sink kept backing up no matter what I tried. The plumber ran a camera, showed me the problem on his screen, cleared it and gave me the price before touching anything. Fair, quick and friendly.' },
+        { i: 'EH', n: 'Emily H.', m: 'Westbrook · Bathroom fixture upgrade', q: 'We had them install a new walk-in shower valve and brass fixtures in two bathrooms. Showed up on time both days, wore shoe covers the whole time and the finished work looks beautiful.' }
+      ],
+      towns: ['North Lakemont', 'Riverside Park', 'Oak Hollow', 'Westbrook', 'Fairview Heights', 'Pine Ridge', 'Cedar Point', 'Millbrook'].map(function (t) {
+        return { name: t, label: t + ' on Google Maps (opens in a new tab)', url: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(t + ', Lakemont County') };
+      }),
+      faqs: faqData.map(function (f, i) {
+        var open = self.state.openFaq === i;
+        return {
+          q: f[0], a: f[1], open: open, expanded: open ? 'true' : 'false',
+          box: 'border-radius: 20px; ' + (open ? 'background: #F3F6F9;' : 'background: #FFFFFF; border: 1px solid #DFE6EF;'),
+          icon: 'width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform .25s ease; ' + (open ? 'background: #1D7CF2; color: #FFFFFF; transform: rotate(45deg);' : 'background: #E6F1FE; color: #1D7CF2;'),
+          toggle: function () { self.setState({ openFaq: open ? -1 : i }); }
+        };
+      }),
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submit: function (e) { if (e && e.preventDefault) e.preventDefault(); self.setState({ sent: true }); },
+      resetForm: function () { self.setState({ sent: false }); }
+    };
+  }
+}
+</script>
+<script>(function () {
+  function DCLogic(props) { this.props = props || {}; this.state = {}; }
+  DCLogic.prototype.setState = function (p) {
+    var next = typeof p === 'function' ? p(this.state) : p;
+    for (var k in next) this.state[k] = next[k];
+    schedule();
+  };
+  var code = document.getElementById('logic').textContent;
+  var Component = new Function('DCLogic', code + '\n;return Component;')(DCLogic);
+  // allow ES class to extend our function-based base
+  var inst = new Component({});
+  var tpl = document.getElementById('tpl').content;
+  var app = document.getElementById('app');
+  var HOLE = /\{\{\s*([^}]+?)\s*\}\}/g;
+
+  function lookup(path, scope) {
+    path = path.trim();
+    if (path === 'true') return true; if (path === 'false') return false;
+    var parts = path.split('.'), v = (parts[0] in scope) ? scope[parts[0]] : undefined;
+    for (var i = 1; i < parts.length && v != null; i++) v = v[parts[i]];
+    return v;
+  }
+  function fill(str, scope) {
+    return str.replace(HOLE, function (_, p) { var v = lookup(p, scope); return v == null || v === false ? '' : String(v); });
+  }
+  function whole(str) { var m = /^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/.exec(str); return m ? m[1] : null; }
+
+  function render(node, scope, parent) {
+    if (node.nodeType === 3) { parent.appendChild(document.createTextNode(fill(node.nodeValue, scope))); return; }
+    if (node.nodeType !== 1) return;
+    var tag = node.tagName.toLowerCase();
+    if (tag === 'sc-for') {
+      var list = lookup(whole(node.getAttribute('list')), scope) || [];
+      var as = node.getAttribute('as');
+      for (var i = 0; i < list.length; i++) {
+        var s = Object.create(scope); s[as] = list[i];
+        for (var c = node.firstChild; c; c = c.nextSibling) render(c, s, parent);
+      }
+      return;
+    }
+    if (tag === 'sc-if') {
+      if (lookup(whole(node.getAttribute('value')), scope)) for (var c2 = node.firstChild; c2; c2 = c2.nextSibling) render(c2, scope, parent);
+      return;
+    }
+    var el = node.namespaceURI === 'http://www.w3.org/2000/svg' ? document.createElementNS(node.namespaceURI, node.localName) : document.createElement(node.localName);
+    for (var a = 0; a < node.attributes.length; a++) {
+      var at = node.attributes[a], name = at.name, val = at.value;
+      if (name.indexOf('hint-') === 0) continue;
+      if (name.indexOf('on') === 0 && whole(val)) {
+        var fn = lookup(whole(val), scope);
+        if (typeof fn === 'function') el.addEventListener(name.slice(2), fn);
+        continue;
+      }
+      var w = whole(val);
+      if (w) { var v = lookup(w, scope); if (v == null || v === false) continue; val = String(v); }
+      else if (val.indexOf('{{') >= 0) val = fill(val, scope);
+      if (at.namespaceURI) el.setAttributeNS(at.namespaceURI, name, val); else el.setAttribute(name, val);
+    }
+    for (var ch = node.firstChild; ch; ch = ch.nextSibling) render(ch, scope, el);
+    parent.appendChild(el);
+  }
+
+  function draw() {
+    var keep = {}, focusName = null, act = document.activeElement;
+    app.querySelectorAll('input,select,textarea').forEach(function (f) { if (f.name) keep[f.name] = f.type === 'checkbox' ? f.checked : f.value; });
+    if (act && act.name && app.contains(act)) focusName = act.name;
+    var frag = document.createDocumentFragment();
+    var vals = inst.renderVals();
+    for (var c = tpl.firstChild; c; c = c.nextSibling) render(c, vals, frag);
+    app.replaceChildren(frag);
+    app.querySelectorAll('input,select,textarea').forEach(function (f) {
+      if (f.name in keep) { if (f.type === 'checkbox') f.checked = keep[f.name]; else f.value = keep[f.name]; }
+    });
+    if (focusName) { var fe = app.querySelector('[name="' + focusName + '"]'); if (fe) fe.focus({ preventScroll: true }); }
+  }
+  var pending = false;
+  function schedule() { if (pending) return; pending = true; requestAnimationFrame(function () { pending = false; draw(); }); }
+  draw();
+  if (inst.componentDidMount) inst.componentDidMount();
+  if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
+})();
+</script>
+<a href="../work.html#work" style="position:fixed;left:16px;bottom:16px;z-index:9999;display:inline-flex;align-items:center;gap:10px;background:#0A0A0C;color:#fff;text-decoration:none;font:600 14px/1 Inter,system-ui,sans-serif;padding:12px 16px 12px 12px;border-radius:999px;box-shadow:0 14px 34px -10px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.14)"><img src="../images/vero-mark.png" alt="" style="height:18px;width:auto">← Back to VERO<span style="color:#A99BFF;font-weight:500">· Concept project</span></a>
+</body>
+</html>

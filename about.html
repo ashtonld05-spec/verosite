@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — VERO Digital</title>
+<meta name="description" content="Why local businesses choose VERO Digital for their website.">
+<link rel="icon" type="image/png" href="images/vero-mark.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Jost:wght@400;500&amp;family=Space+Grotesk:wght@500;600;700&amp;family=Sora:wght@600;700&amp;family=Archivo+Black&amp;family=Barlow+Condensed:wght@700&amp;family=Fraunces:opsz,wght@9..144,600&amp;display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#0A0A0C}
+a{color:#7C5CFF}a:hover{color:#6A48F0}
+.vbtn{transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease,border-color .2s ease;cursor:pointer}
+.vbtn:hover{transform:translateY(-2px)}
+.vbtn-primary:hover{background:#6A48F0 !important;box-shadow:0 14px 30px -12px rgba(124,92,255,.7)}
+.vbtn-ghost:hover{border-color:#B9AEFF !important}
+.vnavlink{transition:color .2s ease}
+.vnavlink:hover{color:#FFFFFF !important}
+.vtile{transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+.vtile:hover{transform:translateY(-6px);border-color:#7C5CFF !important;box-shadow:0 24px 48px -28px rgba(124,92,255,.55)}
+.vshot{transition:transform .45s ease}
+.vcard:hover .vshot{transform:translateY(-6px) scale(1.01)}
+.vrow{transition:background-color .25s ease}
+.vrow:hover{background:#F4F4F6}
+.vfoot a{color:#A1A1AA;text-decoration:none}
+.vfoot a:hover{color:#FFFFFF}
+.vfaq-q{transition:background-color .2s ease}
+.vfaq-q:hover{background:#F4F4F6}
+input,select,textarea{font:inherit}
+input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset:1px}
+@keyframes vup{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.vup{animation:vup .9s cubic-bezier(.2,.7,.2,1) both}
+.vup2{animation:vup .9s .15s cubic-bezier(.2,.7,.2,1) both}
+.vup3{animation:vup 1s .3s cubic-bezier(.2,.7,.2,1) both}
+@keyframes vfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.vfloat{animation:vfloat 6s ease-in-out infinite}
+.vmenu-btn{display:none}
+@media (max-width:640px){.vfab{left:16px !important;right:16px !important;bottom:16px !important;justify-content:center}}
+.vind-more{transition:gap .25s ease}
+.vtile:hover .vind-more{gap:12px !important}
+@keyframes vpulse{0%,100%{opacity:1}50%{opacity:.35}}
+.vpulse{animation:vpulse 1.6s ease-in-out infinite}
+@media (max-width:860px){.vnavlinks{display:none !important}.vhide-sm{display:none !important}.vmenu-btn{display:flex !important}.vnav-cta{display:none !important}}
+@media (max-width:640px){
+#industries,#work,#services,#why,#process,#results,#about,#faq,#contact{padding-top:84px !important;padding-bottom:84px !important;padding-left:20px !important;padding-right:20px !important}
+.vm-hero{padding:56px 20px 72px !important;gap:40px !important}
+.vm-pad{padding:28px 22px !important}
+.vm-price{font-size:64px !important}
+.vm-full{width:100% !important;justify-content:center !important;box-sizing:border-box !important}
+.vm-faqq{font-size:17px !important;padding:20px 4px !important}
+.vm-faqa{padding:0 8px 22px 4px !important}
+.vm-form{padding:26px 20px !important}
+.vm-bar{font-size:12px !important}
+.vm-badge{left:0 !important}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
+</style>
+<meta property="og:title" content="About — VERO Digital"><meta property="og:image" content="images/vero-logo-full.png">
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+
+
+<div style="font-family: Inter, system-ui, sans-serif; color: #0E0E12; background: #FFFFFF; width: 100%; overflow-x: hidden">
+
+<!-- 1. NAVIGATION -->
+<header style="position: sticky; top: 0; z-index: 50; background: rgba(10, 10, 12, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196, 190, 230, 0.14)">
+<a class="vm-bar" href="book.html#contact" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 6px 12px; padding: 9px 20px; background: #7C5CFF; color: #FFFFFF; text-decoration: none; font-size: 14px; font-weight: 500; text-align: center">
+<span style="display: inline-flex; align-items: center; gap: 8px"><span class="vpulse" style="width: 8px; height: 8px; border-radius: 50%; background: #FFFFFF"></span>Now booking {{spots.month}} · only <strong>{{spots.left}} of {{spots.total}}</strong> project spots left</span>
+<span style="font-weight: 700; text-decoration: underline; text-underline-offset: 3px">Book a free consultation →</span>
+</a>
+<nav aria-label="Main" style="max-width: 1240px; margin: 0 auto; padding: 0 24px; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+<a href="index.html" aria-label="VERO home" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #FFFFFF">
+<img src="images/vero-mark.png" alt="" style="display: block; height: 30px; width: auto">
+<span style="display: flex; flex-direction: column; line-height: 1"><span style="font-family: Jost, sans-serif; font-weight: 500; font-size: 21px; letter-spacing: 0.32em; color: #FFFFFF">VERO</span><span style="font-family: Jost, sans-serif; font-weight: 400; font-size: 8.5px; letter-spacing: 0.62em; color: #A1A1AA; margin-top: 5px">DIGITAL</span></span>
+</a>
+<div class="vnavlinks" style="display: flex; align-items: center; gap: 34px; font-size: 15px; font-weight: 500">
+<a class="vnavlink" href="index.html" style="color: #C9C9D1; text-decoration: none">Home</a>
+<a class="vnavlink" href="work.html#work" style="color: #C9C9D1; text-decoration: none">Our Work</a>
+<a class="vnavlink" href="pricing.html#services" style="color: #C9C9D1; text-decoration: none">Pricing</a>
+<a class="vnavlink" href="about.html#about" style="color: #C9C9D1; text-decoration: none">About</a>
+<a class="vnavlink" href="book.html#contact" style="color: #C9C9D1; text-decoration: none">Contact</a>
+</div>
+<a class="vbtn vbtn-primary vnav-cta" href="book.html#book" style="background: #7C5CFF; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; padding: 13px 22px; border-radius: 999px; white-space: nowrap; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Book a Consultation</a>
+<button class="vmenu-btn" type="button" onClick="{{toggleMenu}}" aria-label="{{menuLabel}}" aria-expanded="{{menuExpanded}}" style="width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(196,190,230,0.3); background: transparent; color: #FFFFFF; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="{{menuIcon}}"></path></svg></button>
+</nav>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<div style="border-top: 1px solid rgba(196,190,230,0.14); padding: 12px 20px 22px; display: flex; flex-direction: column">
+<a href="index.html" onClick="{{closeMenu}}" style="color: #FFFFFF; text-decoration: none; font-size: 18px; font-weight: 500; padding: 14px 4px; border-bottom: 1px solid rgba(196,190,230,0.1)">Home</a>
+<a href="work.html#work" onClick="{{closeMenu}}" style="color: #FFFFFF; text-decoration: none; font-size: 18px; font-weight: 500; padding: 14px 4px; border-bottom: 1px solid rgba(196,190,230,0.1)">Our Work</a>
+<a href="pricing.html#services" onClick="{{closeMenu}}" style="color: #FFFFFF; text-decoration: none; font-size: 18px; font-weight: 500; padding: 14px 4px; border-bottom: 1px solid rgba(196,190,230,0.1)">Pricing</a>
+<a href="about.html#about" onClick="{{closeMenu}}" style="color: #FFFFFF; text-decoration: none; font-size: 18px; font-weight: 500; padding: 14px 4px; border-bottom: 1px solid rgba(196,190,230,0.1)">About</a>
+<a href="pricing.html#faq" onClick="{{closeMenu}}" style="color: #FFFFFF; text-decoration: none; font-size: 18px; font-weight: 500; padding: 14px 4px; border-bottom: 1px solid rgba(196,190,230,0.1)">FAQ</a>
+<a class="vbtn vbtn-primary" href="book.html#book" onClick="{{closeMenu}}" style="margin-top: 18px; background: #7C5CFF; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; padding: 16px 24px; border-radius: 999px; text-align: center">Book a Free Consultation</a>
+</div>
+</sc-if>
+</header>
+<sc-if value="{{fab}}" hint-placeholder-val="{{ false }}">
+<a class="vbtn vbtn-primary vfab vup" href="book.html#book" style="position: fixed; right: 24px; bottom: 24px; z-index: 60; background: #7C5CFF; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; padding: 16px 24px; border-radius: 999px; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 18px 40px -12px rgba(124,92,255,0.7)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>Book a Free Consultation</a>
+</sc-if>
+
+<!-- 9. ABOUT VERO -->
+<section id="about" style="background: #F4F4F6; padding: 130px 24px">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 56px 72px; align-items: stretch">
+<div style="flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column">
+<div style="font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #7C5CFF">About VERO</div>
+<h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(36px, 4.4vw, 58px); line-height: 1.04; letter-spacing: -0.03em; margin: 16px 0 0">Helping Businesses Make a Better First Impression.</h2>
+<p style="font-size: 18px; line-height: 1.7; color: #5B5B66; margin: 26px 0 0">At VERO, we believe every business deserves a professional online presence. We create modern, custom websites that help local businesses showcase their services, build trust, and connect with more customers.</p>
+<p style="font-size: 18px; line-height: 1.7; color: #5B5B66; margin: 18px 0 0">The trades are built on reputation, and today that reputation starts online. We design every site around the way your customers actually decide who to call.</p>
+<div style="margin-top: 36px; padding: 26px 0 0 26px; border-left: 3px solid #7C5CFF">
+<p style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(22px, 2vw, 28px); line-height: 1.3; font-weight: 600; margin: 0">“Your website is often the first thing a customer sees. We make sure it shows the quality of the work you do.”</p>
+<div style="display: flex; align-items: center; gap: 12px; margin-top: 18px; font-size: 14px; color: #5B5B66"><img src="images/vero-mark.png" alt="" style="height: 18px; width: auto; filter: invert(1) brightness(0.25)">The VERO Digital promise</div>
+</div>
+<div style="flex: 1; min-height: 28px"></div>
+<a class="vbtn vbtn-primary" href="book.html#book" style="align-self: flex-start; margin-top: 12px; background: #7C5CFF; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; padding: 16px 28px; border-radius: 999px; display: inline-flex; align-items: center; gap: 10px">Work With VERO <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+<div style="flex: 1.15 1 480px; min-width: 0; background: #0A0A0C; color: #FFFFFF; border-radius: 28px; padding: clamp(32px, 4vw, 52px); position: relative; overflow: hidden">
+<img src="images/vero-mark.png" alt="" aria-hidden="true" style="position: absolute; right: -60px; top: -40px; width: 380px; height: auto; opacity: 0.07">
+<div aria-hidden="true" style="position: absolute; width: 460px; height: 460px; left: -200px; bottom: -260px; border-radius: 50%; background: radial-gradient(circle, rgba(124,92,255,0.4), rgba(124,92,255,0) 65%)"></div>
+<div style="position: relative">
+<div style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #A99BFF">What we stand for</div>
+<ol style="list-style: none; padding: 0; margin: 28px 0 0">
+<li style="display: flex; gap: 24px; padding: 26px 0; border-top: 1px solid rgba(196,190,230,0.16)"><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; color: #A99BFF; width: 28px; flex-shrink: 0">01</span><div><h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin: 0">Our mission</h3><p style="color: #A1A1AA; line-height: 1.6; margin: 8px 0 0">Give local businesses a website that looks as professional as the work they do, at a price that makes sense.</p></div></li>
+<li style="display: flex; gap: 24px; padding: 26px 0; border-top: 1px solid rgba(196,190,230,0.16)"><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; color: #A99BFF; width: 28px; flex-shrink: 0">02</span><div><h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin: 0">Our design philosophy</h3><p style="color: #A1A1AA; line-height: 1.6; margin: 8px 0 0">Clean, purposeful design with no templates. Every layout is built around your services, your customers and your brand.</p></div></li>
+<li style="display: flex; gap: 24px; padding: 26px 0; border-top: 1px solid rgba(196,190,230,0.16)"><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; color: #A99BFF; width: 28px; flex-shrink: 0">03</span><div><h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin: 0">Our commitment to quality</h3><p style="color: #A1A1AA; line-height: 1.6; margin: 8px 0 0">Careful typography, optimized images and testing on every screen size before anything goes live.</p></div></li>
+<li style="display: flex; gap: 24px; padding: 26px 0 0; border-top: 1px solid rgba(196,190,230,0.16)"><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; color: #A99BFF; width: 28px; flex-shrink: 0">04</span><div><h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin: 0">Our focus on local businesses</h3><p style="color: #A1A1AA; line-height: 1.6; margin: 8px 0 0">We specialize in HVAC, roofing, plumbing, electrical, landscaping and construction, so we know what your customers look for.</p></div></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 6. WHY CHOOSE VERO -->
+<section id="why" style="background: #FFFFFF; padding: 130px 24px">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 64px">
+<div style="flex: 1 1 380px; min-width: 0">
+<div style="font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #7C5CFF">Why choose VERO</div>
+<h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(36px, 4.4vw, 58px); line-height: 1.04; letter-spacing: -0.03em; margin: 16px 0 0">A creative studio's quality, at a local business price.</h2>
+<p style="font-size: 18px; line-height: 1.65; color: #5B5B66; margin: 24px 0 0">VERO makes professional websites simple and affordable. You get a site designed around your business, built properly, and priced so you know exactly what you're paying from day one.</p>
+<div style="margin-top: 40px; background: #0A0A0C; color: #FFFFFF; border-radius: 22px; padding: 30px; display: flex; gap: 22px; align-items: center">
+<div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 46px; line-height: 1; color: #A99BFF">1</div>
+<div style="font-size: 16px; line-height: 1.55; color: #C9C9D1"><strong style="color: #FFFFFF">One service. One price.</strong> No confusing packages, no surprise upsells: a custom website for $800.</div>
+</div>
+</div>
+<ol style="flex: 1.3 1 480px; min-width: 0; list-style: none; margin: 0; padding: 0; border-top: 1px solid #E2E2E8">
+<sc-for list="{{reasons}}" as="r" hint-placeholder-count="8">
+<li class="vrow" style="display: flex; gap: 28px; padding: 24px 16px; border-bottom: 1px solid #E2E2E8; align-items: baseline">
+<span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; color: #7C5CFF; width: 28px; flex-shrink: 0">{{r.n}}</span>
+<div style="flex: 1; min-width: 0">
+<div style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600">{{r.t}}</div>
+<div style="color: #5B5B66; line-height: 1.55; margin-top: 6px">{{r.d}}</div>
+</div>
+</li>
+</sc-for>
+</ol>
+</div>
+</section>
+
+<!-- 7. PROCESS -->
+<section id="process" style="background: #101014; color: #FFFFFF; padding: 130px 24px; position: relative; overflow: hidden">
+<div style="max-width: 1240px; margin: 0 auto; position: relative">
+<div style="max-width: 680px">
+<div style="font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #A99BFF">Our process</div>
+<h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(36px, 4.4vw, 58px); line-height: 1.04; letter-spacing: -0.03em; margin: 16px 0 0">From first call to launch, in four clear steps.</h2>
+</div>
+<div style="position: relative; margin-top: 72px">
+<div aria-hidden="true" class="vhide-sm" style="position: absolute; left: 28px; right: 28px; top: 28px; height: 2px; background: linear-gradient(90deg, #7C5CFF, rgba(169,155,255,0.25))"></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 40px 32px; position: relative">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+<div>
+<div style="width: 56px; height: 56px; border-radius: 50%; background: #7C5CFF; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; box-shadow: 0 0 0 8px #101014">{{s.n}}</div>
+<h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; margin: 28px 0 0">{{s.t}}</h3>
+<p style="color: #A1A1AA; line-height: 1.6; margin: 10px 0 0; font-size: 16px">{{s.d}}</p>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 8. RESULTS / BENEFITS -->
+<section id="results" style="background: #FFFFFF; padding: 130px 24px">
+<div style="max-width: 1240px; margin: 0 auto">
+<div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+<div style="flex: 1 1 360px; min-width: 0">
+<div style="font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #7C5CFF">What a better website does</div>
+<h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(36px, 4.4vw, 56px); line-height: 1.04; letter-spacing: -0.03em; margin: 16px 0 0">Your website works for you, even after hours.</h2>
+<p style="font-size: 17px; line-height: 1.65; color: #5B5B66; margin: 22px 0 0">Most customers look you up online before they call. A professional website makes that first impression count.</p>
+</div>
+<div style="flex: 1.6 1 520px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0 40px">
+<sc-for list="{{benefits}}" as="b" hint-placeholder-count="7">
+<div style="padding: 28px 0; border-top: 2px solid #E7E7EC; display: flex; gap: 16px">
+<div style="width: 10px; height: 10px; border-radius: 3px; background: #7C5CFF; margin-top: 9px; flex-shrink: 0"></div>
+<div>
+<h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 21px; margin: 0">{{b.t}}</h3>
+<p style="color: #5B5B66; line-height: 1.6; margin: 8px 0 0">{{b.d}}</p>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 11. FINAL CTA + QUOTE FORM -->
+<section id="contact" style="background: #0A0A0C; color: #FFFFFF; padding: 130px 24px; position: relative; overflow: hidden">
+<div aria-hidden="true" style="position: absolute; width: 900px; height: 900px; left: -300px; bottom: -500px; border-radius: 50%; background: radial-gradient(circle, rgba(124,92,255,0.45), rgba(124,92,255,0) 65%)"></div>
+<div style="max-width: 1240px; margin: 0 auto; position: relative; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 440px; min-width: 0">
+<h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(40px, 5.2vw, 76px); line-height: 1.0; letter-spacing: -0.03em; margin: 0">Ready to Give Your Business a <span style="color: #A99BFF">Better Website?</span></h2>
+<p style="font-size: 19px; line-height: 1.6; color: #C9C9D1; margin: 26px 0 0; max-width: 520px">Let's create a professional website that represents your business and helps you stand out.</p>
+<div style="margin-top: 28px; max-width: 460px; background: rgba(255,255,255,0.05); border: 1px solid rgba(196,190,230,0.16); border-radius: 16px; padding: 16px 18px">
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px"><span style="color: #C9C9D1">{{spots.month}} build spots</span><strong>{{spots.left}} of {{spots.total}} left</strong></div>
+<div style="height: 8px; border-radius: 999px; background: rgba(255,255,255,0.1); margin-top: 12px; overflow: hidden"><div style="{{spots.barStyle}}"></div></div>
+<div style="font-size: 13px; color: #A1A1AA; margin-top: 10px">Spots are held in the order consultations are booked.</div>
+</div>
+<div style="display: flex; align-items: baseline; gap: 12px; margin-top: 32px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 44px">$800</span>
+<span style="color: #A1A1AA; font-size: 16px">one-time, for a complete custom website</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px">
+<a class="vbtn vbtn-primary" href="book.html#book" style="background: #7C5CFF; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 17px; padding: 18px 30px; border-radius: 999px">Book My Consultation</a>
+<a class="vbtn vbtn-ghost" href="work.html#work" style="border: 1px solid rgba(196,190,230,0.4); color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 17px; padding: 17px 30px; border-radius: 999px">View Our Work</a>
+</div>
+</div>
+
+<div id="book" class="vm-form" style="flex: 1 1 480px; min-width: 0; background: #FFFFFF; color: #0E0E12; border-radius: 26px; padding: 32px; box-shadow: 0 40px 80px -40px rgba(0,0,0,0.7); scroll-margin-top: 120px">
+<div style="display: flex; align-items: center; gap: 12px"><span style="width: 44px; height: 44px; border-radius: 12px; background: #ECE8FF; color: #7C5CFF; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg></span><div><h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin: 0">Book your free consultation</h3><p style="margin: 4px 0 0; color: #5B5B66; font-size: 14px">Video call · no obligation · no payment needed</p></div></div>
+<sc-if value="{{booking.hasCal}}" hint-placeholder-val="{{ false }}">
+<iframe src="{{booking.src}}" title="Book a consultation with VERO Digital" loading="lazy" style="display: block; width: 100%; height: 680px; border: 0; border-radius: 16px; margin-top: 22px; background: #F4F4F6"></iframe>
+</sc-if>
+<sc-if value="{{booking.noCal}}" hint-placeholder-val="{{ true }}">
+<div style="margin-top: 22px; background: #F4F4F6; border-radius: 16px; padding: 28px; text-align: center">
+<div style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px">Pick a time that works for you</div>
+<p style="color: #5B5B66; font-size: 15px; line-height: 1.6; margin: 8px 0 0">Email us and we'll send you available times for a quick call.</p>
+<a class="vbtn vbtn-primary vm-full" href="mailto:clients.verodigitalweb@gmail.com?subject=Free%20consultation%20request" style="margin-top: 18px; background: #7C5CFF; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; padding: 16px 26px; border-radius: 999px; display: inline-flex; align-items: center; gap: 10px">Request a Consultation <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</sc-if>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; margin-top: 18px; font-size: 14px; color: #5B5B66"><span>Prefer email? <a href="mailto:clients.verodigitalweb@gmail.com">clients.verodigitalweb@gmail.com</a></span><span>No payment is taken when you book.</span></div>
+</div>
+</div>
+</section>
+
+<!-- 12. FOOTER -->
+<footer class="vfoot" style="background: #060607; color: #A1A1AA; padding: 0 20px 40px; border-top: 1px solid rgba(196,190,230,0.12)">
+<div style="max-width: 1240px; margin: 0 auto">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; padding: 56px 0; border-bottom: 1px solid rgba(196,190,230,0.12)">
+<div style="min-width: 0">
+<div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(26px, 3vw, 40px); line-height: 1.1; letter-spacing: -0.02em; color: #FFFFFF">Your business deserves a <span style="color: #A99BFF">better website.</span></div>
+<div style="display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 14px"><span class="vpulse" style="width: 8px; height: 8px; border-radius: 50%; background: #A99BFF"></span>{{spots.left}} of {{spots.total}} {{spots.month}} build spots left</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a class="vbtn vbtn-primary vm-full" href="book.html#book" style="background: #7C5CFF; color: #FFFFFF !important; text-decoration: none; font-weight: 600; font-size: 16px; padding: 16px 28px; border-radius: 999px; display: inline-flex; align-items: center; gap: 10px">Book a Free Consultation <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a class="vbtn vbtn-ghost vm-full" href="index.html" style="border: 1px solid rgba(196,190,230,0.3); color: #FFFFFF !important; text-decoration: none; font-weight: 600; font-size: 16px; padding: 15px 24px; border-radius: 999px; display: inline-flex; align-items: center; gap: 10px">Back to top <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></a>
+</div>
+</div>
+<div style="height: 64px"></div>
+<div style="display: flex; flex-wrap: wrap; gap: 48px; justify-content: space-between">
+<div style="flex: 1 1 280px; max-width: 340px">
+<div style="display: flex; align-items: center; gap: 10px; color: #FFFFFF">
+<img src="images/vero-logo-full.png" alt="VERO Digital" style="display: block; width: 150px; height: auto">
+</div>
+<p style="line-height: 1.65; margin: 18px 0 0; font-size: 15px">Custom websites for local service businesses. Professional websites, one simple price: $800 one-time, with optional $50/month maintenance.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 56px">
+<div>
+<div style="color: #FFFFFF; font-weight: 600; font-size: 15px">Navigate</div>
+<ul style="list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<li><a href="index.html">Home</a></li><li><a href="work.html#work">Our Work</a></li><li><a href="pricing.html#services">Services</a></li><li><a href="about.html#about">About</a></li><li><a href="pricing.html#faq">FAQ</a></li><li><a href="book.html#contact">Contact</a></li>
+</ul>
+</div>
+<div>
+<div style="color: #FFFFFF; font-weight: 600; font-size: 15px">Services</div>
+<ul style="list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<li><a href="pricing.html#services">Custom Website — $800</a></li><li><a href="pricing.html#services">Maintenance — $50/mo</a></li><li><a href="book.html#book">Free Consultation</a></li><li><a href="work.html#work">Portfolio</a></li>
+</ul>
+</div>
+<div>
+<div style="color: #FFFFFF; font-weight: 600; font-size: 15px">Industries</div>
+<ul style="list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<li><a href="work.html?p=0#work">HVAC</a></li><li><a href="work.html?p=1#work">Roofing</a></li><li><a href="work.html?p=2#work">Plumbing</a></li><li><a href="work.html?p=3#work">Electrical</a></li><li><a href="work.html?p=4#work">Landscaping</a></li><li><a href="work.html?p=5#work">Construction</a></li>
+</ul>
+</div>
+<div>
+<div style="color: #FFFFFF; font-weight: 600; font-size: 15px">Contact</div>
+<ul style="list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<li><a href="mailto:clients.verodigitalweb@gmail.com">clients.verodigitalweb@gmail.com</a></li><li><a href="book.html#book">Book a consultation</a></li><li>[YOUR PHONE]</li>
+</ul>
+</div>
+</div>
+</div>
+<div style="margin-top: 64px; padding-top: 24px; border-top: 1px solid rgba(196,190,230,0.12); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 14px">
+<span>© 2026 VERO Digital. All rights reserved.</span>
+<span>Portfolio projects shown are concept designs for fictional brands.</span>
+</div>
+</div>
+</footer>
+
+</div>
+</template>
+<script id="logic" type="text/plain">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    var pm = (typeof location !== 'undefined') ? /[?&]p=(\d)/.exec(location.search || '') : null;
+    this.state = { selected: null, openFaq: 0, sent: false, slide: pm ? Math.min(5, +pm[1]) : 0, menuOpen: false, wantMaint: false, fab: false };
+  }
+  componentDidMount() {
+    var self = this;
+    this.onScroll = function () { var on = (window.scrollY || 0) > 600; if (on !== self.state.fab) self.setState({ fab: on }); };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+  }
+  renderVals() {
+    var self = this;
+    var raw = [
+      { hidden: true, id: 'nw', brand: 'Northwind Air', industry: 'HVAC', headline: 'Comfort, on call.', cta: 'Book Service', bg: '#0E2A47', fg: '#FFFFFF', accent: '#FFB547', ctaText: '#0E2A47', tile: 'rgba(255,255,255,0.08)', bar: 'rgba(255,255,255,0.18)', font: "Sora, sans-serif", fontName: 'Sora', upper: false,
+        direction: 'Calm, cool confidence: deep night blue with a warm amber signal for comfort.',
+        sub: 'Heating and cooling repair, installs and seasonal tune-ups for homes and small offices.',
+        story: 'A brand built on reassurance. Deep blue reads as cool and dependable, while amber marks every action: book, call, schedule. Big type and generous space keep it calm for stressed homeowners.' },
+      { hidden: true, id: 'sr', brand: 'Summit Ridge Roofing', industry: 'Roofing', headline: 'ROOFS BUILT FOR THE STORM.', cta: 'Free Inspection', bg: '#2B211C', fg: '#FFF6EF', accent: '#E2572B', ctaText: '#FFFFFF', tile: 'rgba(255,246,239,0.08)', bar: 'rgba(255,246,239,0.2)', font: "'Archivo Black', sans-serif", fontName: 'Archivo Black', upper: true,
+        direction: 'Rugged and bold: heavy condensed type over charcoal with a burnt-orange edge.',
+        sub: 'Residential and commercial roofing, repairs and storm damage restoration.',
+        story: 'Weighty, uppercase headlines communicate strength. A charcoal-brown base nods to shingles and timber; burnt orange gives the inspection CTA urgency without feeling alarmist.' },
+      { hidden: true, id: 'cl', brand: 'Clearline Plumbing', industry: 'Plumbing', headline: 'Fast fixes. Fair prices.', cta: 'Tap to Call', bg: '#F2F8FB', fg: '#0B3B5C', accent: '#12A4D9', ctaText: '#FFFFFF', tile: '#DCEBF3', bar: '#CFE3EE', font: "'Space Grotesk', sans-serif", fontName: 'Space Grotesk', upper: false,
+        direction: 'Clean and bright: fresh water blues on an airy light layout built for phones.',
+        sub: 'Emergency repairs, drains, water heaters and fixture installs.',
+        story: 'Designed mobile-first for urgent searches. A light, clean canvas feels hygienic and honest, and the call button is the most prominent thing on every screen.' },
+      { hidden: true, id: 'vl', brand: 'Voltline Electric', industry: 'Electrical', headline: 'POWER YOU CAN TRUST.', cta: 'Get an Estimate', bg: '#111111', fg: '#FFFFFF', accent: '#F5D90A', ctaText: '#111111', tile: 'rgba(255,255,255,0.08)', bar: 'rgba(255,255,255,0.2)', font: "'Barlow Condensed', sans-serif", fontName: 'Barlow Condensed', upper: true,
+        direction: 'High-voltage contrast: near-black and safety yellow with tight condensed type.',
+        sub: 'Panel upgrades, EV chargers, lighting and code-compliant wiring.',
+        story: 'Black and safety yellow borrow the visual language of the trade itself. The condensed type feels technical and precise: the brand of an electrician who does it to code.' },
+      { hidden: true, id: 'gf', brand: 'Greenfield Yardworks', industry: 'Landscaping', headline: 'Outdoor spaces, grown right.', cta: 'Plan My Yard', bg: '#F4F1E8', fg: '#23402A', accent: '#3F7D3A', ctaText: '#FFFFFF', tile: '#E3DECD', bar: '#DCD6C2', font: "Fraunces, serif", fontName: 'Fraunces', upper: false,
+        direction: 'Warm and organic: soft cream, garden greens and an elegant serif headline.',
+        sub: 'Landscape design, lawn care, hardscaping and seasonal cleanups.',
+        story: 'A softer, editorial direction that lets project photos lead. Cream and forest green feel natural and premium, ideal for higher-value design and hardscape work.' },
+      { hidden: true, id: 'if', brand: 'Ironframe Builders', industry: 'Construction', headline: 'Built on our word.', cta: 'Start a Project', bg: '#1C2128', fg: '#F2F4F7', accent: '#F08A24', ctaText: '#1C2128', tile: 'rgba(242,244,247,0.08)', bar: 'rgba(242,244,247,0.2)', font: "Inter, sans-serif", fontName: 'Inter (Bold, tight)', upper: false,
+        direction: 'Structured and established: steel grey, safety orange and a disciplined grid.',
+        sub: 'Custom homes, additions and commercial build-outs.',
+        story: 'A grid-led layout that feels engineered. Steel grey signals scale and experience; safety orange highlights calls to action and project milestones.' }
+    ];
+    raw = raw.filter(function (c) { return !c.hidden; });
+    var concepts = raw.map(function (c) {
+      var hs = 'font-family: ' + c.font + '; font-weight: 700; letter-spacing: ' + (c.upper ? '0.01em' : '-0.02em') + '; line-height: 1.02;';
+      return Object.assign({}, c, {
+        siteStyle: 'background: ' + c.bg + '; color: ' + c.fg + '; padding: 18px 20px 22px; height: 230px; box-sizing: border-box;',
+        logoStyle: 'font-family: ' + c.font + '; font-weight: 700; font-size: 13px; color: ' + c.fg + ';',
+        headStyle: hs + ' font-size: 28px; margin-top: 22px; max-width: 260px;',
+        barStyle: 'display: block; height: 5px; width: 70%; border-radius: 3px; background: ' + c.bar + ';',
+        barStyle2: 'display: block; height: 5px; width: 50%; border-radius: 3px; background: ' + c.bar + ';',
+        ctaStyle: 'background: ' + c.accent + '; color: ' + c.ctaText + '; font-size: 10px; font-weight: 700; padding: 7px 11px; border-radius: 6px;',
+        cta2Style: 'border: 1px solid ' + c.bar + '; font-size: 10px; font-weight: 600; padding: 6px 11px; border-radius: 6px;',
+        tileStyle: 'display: block; height: 36px; border-radius: 6px; background: ' + c.tile + ';',
+        bigSiteStyle: 'background: ' + c.bg + '; color: ' + c.fg + '; padding: 30px 34px 36px;',
+        bigLogoStyle: 'font-family: ' + c.font + '; font-weight: 700; font-size: 18px; color: ' + c.fg + ';',
+        bigHeadStyle: hs + ' font-size: clamp(34px, 4vw, 54px); margin-top: 40px; max-width: 520px;',
+        bigCtaStyle: 'background: ' + c.accent + '; color: ' + c.ctaText + '; font-size: 14px; font-weight: 700; padding: 12px 18px; border-radius: 8px;',
+        bigCta2Style: 'border: 1px solid ' + c.bar + '; font-size: 14px; font-weight: 600; padding: 11px 18px; border-radius: 8px;',
+        bigTileStyle: 'display: block; height: 70px; border-radius: 10px; background: ' + c.tile + ';',
+        sw1: 'width: 44px; height: 44px; border-radius: 12px; border: 1px solid #E2E2E8; background: ' + c.bg + ';',
+        sw2: 'width: 44px; height: 44px; border-radius: 12px; border: 1px solid #E2E2E8; background: ' + c.accent + ';',
+        sw3: 'width: 44px; height: 44px; border-radius: 12px; border: 1px solid #E2E2E8; background: ' + c.fg + ';',
+        pick: function () { self.setState({ selected: c.id }); }
+      });
+    });
+    var sel = null;
+    for (var i = 0; i < concepts.length; i++) { if (concepts[i].id === this.state.selected) sel = concepts[i]; }
+
+    var faqData = [
+      ['How much does a website cost?', 'A custom website from VERO is $800, paid once. If you want ongoing help after launch, optional maintenance is $50 per month.'],
+      ['What is included in the $800 website package?', 'A custom design tailored to your business, professional development, mobile-responsive layouts for desktop, tablet and phone, professional typography, industry-specific imagery, homepage, business information and services sections, click-to-call, contact or quote request forms, clear call-to-action buttons, basic on-page SEO, optimized images, social media links, professional navigation and footer, and testing before launch.'],
+      ['Is the $800 payment one-time?', 'Yes. The $800 website fee is a one-time payment, not a subscription.'],
+      ['Is the $50 monthly maintenance plan required?', 'No. Maintenance is completely optional. It is a separate $50 monthly payment for clients who want VERO to help look after their site after launch.'],
+      ['What does website maintenance include?', 'Routine website updates, basic text and content changes, image replacements, software and security updates where applicable, website functionality checks, basic troubleshooting and general website support.'],
+      ['How long does it take to build a website?', 'Most projects take [X–Y weeks] from discovery to launch. Timing depends on your project and how quickly content and feedback come in.'],
+      ['Will my website work on mobile?', 'Yes. Every VERO website is built mobile-first and tested on phones, tablets and desktop computers before launch.'],
+      ['Can you redesign my existing website?', 'Yes. We can replace your current site with a brand-new custom design. Tell us about your existing website when you request a quote.'],
+      ['Do you provide hosting?', 'Hosting is not included in the $800 package unless agreed upon in advance. We can talk through hosting options with you during the project.'],
+      ['Is domain registration included?', 'Domain registration is not included unless agreed upon in advance. If you already own a domain, let us know when you request your quote.'],
+      ['How do I get started?', 'Book a free consultation using the calendar on this page. We will talk through your business and what your website needs. There is no payment until after the call.'],
+      ['When and how do I pay?', 'Only after your consultation, once we both agree the project is the right fit. We then send you a secure Stripe payment link for the one-time $800, plus the optional $50/month maintenance if you want it.']
+    ];
+    var faqs = faqData.map(function (f, idx) {
+      var open = self.state.openFaq === idx;
+      return {
+        q: f[0], a: f[1], open: open, expanded: open ? 'true' : 'false',
+        iconStyle: 'flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform .25s ease, background-color .25s ease; ' + (open ? 'transform: rotate(45deg); background: #7C5CFF; color: #FFFFFF;' : 'background: #ECE8FF; color: #7C5CFF;'),
+        toggle: function () { self.setState({ openFaq: open ? -1 : idx }); }
+      };
+    });
+
+    // ---- Availability: update these to match your real schedule ----
+    var SPOTS_TOTAL = 5, SPOTS_LEFT = 3, SPOTS_MONTH = 'December';
+    // ---- Booking & payment links: paste yours here ----
+    var CAL_LINK = 'https://cal.com/ashton-doughty-fcfppx/vero-website-consultation';
+    var wm = this.state.wantMaint;
+    var go = function (k) { return function () { self.setState({ slide: k, menuOpen: false }); }; };
+    return {
+      booking: { hasCal: !!CAL_LINK, noCal: !CAL_LINK, src: CAL_LINK ? CAL_LINK + (CAL_LINK.indexOf('?') >= 0 ? '&' : '?') + 'embed=true&theme=light' : '' },
+      spots: { total: SPOTS_TOTAL, left: SPOTS_LEFT, month: SPOTS_MONTH, barStyle: 'height: 100%; border-radius: 999px; background: linear-gradient(90deg, #7C5CFF, #A99BFF); width: ' + Math.round((SPOTS_TOTAL - SPOTS_LEFT) / SPOTS_TOTAL * 100) + '%;' },
+      indGo: { g0: go(0), g1: go(1), g2: go(2), g3: go(3), g4: go(4), g5: go(5) },
+      fab: this.state.fab,
+      menuOpen: this.state.menuOpen,
+      menuExpanded: this.state.menuOpen ? 'true' : 'false',
+      menuLabel: this.state.menuOpen ? 'Close menu' : 'Open menu',
+      menuIcon: this.state.menuOpen ? 'M6 6l12 12M18 6 6 18' : 'M4 8h16M4 16h16',
+      toggleMenu: function () { self.setState({ menuOpen: !self.state.menuOpen }); },
+      closeMenu: function () { self.setState({ menuOpen: false }); },
+      chooseWebsite: function () { self.setState({ wantMaint: false }); },
+      addMaint: function () { self.setState({ wantMaint: true }); },
+      toggleMaint: function () { self.setState({ wantMaint: !self.state.wantMaint }); },
+      maintPressed: wm ? 'true' : 'false',
+      maintTick: wm ? '✓' : '',
+      maintStyle: 'width: 100%; margin-top: 10px; min-height: 48px; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 12px; font-family: inherit; font-size: 15px; color: #0E0E12; cursor: pointer; transition: background-color .2s ease, border-color .2s ease; ' + (wm ? 'background: #ECE8FF; border: 1.5px solid #7C5CFF;' : 'background: #FFFFFF; border: 1.5px dashed #D4D4DC;'),
+      maintBox: 'width: 22px; height: 22px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #FFFFFF; ' + (wm ? 'background: #7C5CFF;' : 'background: #FFFFFF; border: 1.5px solid #D4D4DC; box-sizing: border-box;'),
+      concepts: concepts,
+      car: (function () {
+        var o = {};
+        for (var k = 0; k < 6; k++) {
+          var on = self.state.slide === k;
+          o['s' + k] = 'grid-area: 1 / 1; min-width: 0; transition: opacity .6s ease, transform .6s ease; ' + (on ? 'opacity: 1; transform: none; visibility: visible; z-index: 1;' : 'opacity: 0; transform: translateX(28px); visibility: hidden; pointer-events: none;');
+        }
+        return o;
+      })(),
+      tabs: ['HVAC · Harbor Peak', 'Roofing · Stonegate', 'Plumbing · Brightwater', 'Electrical · Ampere', 'Landscaping · Wildacre', 'Construction · Meridian'].map(function (name, k) {
+        var on = self.state.slide === k;
+        return {
+          ind: name.split(' · ')[0], label: 'Show ' + name, pressed: on ? 'true' : 'false',
+          style: 'min-height: 44px; padding: 10px 18px; border-radius: 999px; font-family: inherit; font-size: 14px; font-weight: 600; ' + (on ? 'background: #A99BFF; color: #0E0E12; border: 1px solid #A99BFF;' : 'background: transparent; color: #C9C9D1; border: 1px solid rgba(196,190,230,0.3);'),
+          dot: 'display: block; height: 8px; border-radius: 999px; transition: width .3s ease, background-color .3s ease; ' + (on ? 'width: 28px; background: #A99BFF;' : 'width: 8px; background: rgba(196,190,230,0.35);'),
+          go: function () { self.setState({ slide: k }); }
+        };
+      }),
+      counter: '0' + (this.state.slide + 1) + ' / 06',
+      prevSlide: function () { self.setState({ slide: (self.state.slide + 5) % 6 }); },
+      nextSlide: function () { self.setState({ slide: (self.state.slide + 1) % 6 }); },
+      hasSel: !!sel,
+      sel: sel || concepts[0],
+      closeSel: function () { self.setState({ selected: null }); },
+      included: ['Custom website design tailored to your business', 'Professional website development', 'Mobile-responsive design', 'Desktop, tablet & mobile optimization', 'Modern, premium layouts', 'Professional typography', 'Industry-specific imagery', 'Homepage & business information sections', 'Services section', 'Click-to-call phone functionality', 'Contact or quote request forms', 'Clear call-to-action buttons', 'Basic on-page SEO setup', 'Optimized images', 'Social media links', 'Professional navigation & footer', 'Website testing before launch'],
+      maint: ['Routine website updates', 'Basic text & content changes', 'Image replacements', 'Software & security updates where applicable', 'Website functionality checks', 'Basic troubleshooting', 'General website support'],
+      reasons: [
+        { n: '01', t: 'Custom designs, never generic templates', d: 'Every site starts from a blank canvas and is designed around your business.' },
+        { n: '02', t: 'Modern, premium aesthetics', d: 'The polish of a creative studio, so your business looks as good as its work.' },
+        { n: '03', t: 'Mobile-first development', d: 'Built for the phones your customers are searching on.' },
+        { n: '04', t: 'Fast-loading websites', d: 'Optimized images and lean builds so visitors don’t wait.' },
+        { n: '05', t: 'Conversion-focused layouts', d: 'Calls, quote requests and contact options placed where people look for them.' },
+        { n: '06', t: 'Professional communication', d: 'Clear updates and straight answers from first call to launch.' },
+        { n: '07', t: 'Affordable, transparent pricing', d: '$800 one-time. Optional $50/month maintenance. Nothing hidden.' },
+        { n: '08', t: 'Industry-specific designs', d: 'Layouts, imagery and messaging that fit how your trade wins customers.' }
+      ],
+      steps: [
+        { n: '1', t: 'Discovery', d: 'We learn about your business, your customers and your goals for the website.' },
+        { n: '2', t: 'Design', d: 'We create a custom website design in Figma for you to review.' },
+        { n: '3', t: 'Development', d: 'We build the website and integrate custom, industry-specific imagery.' },
+        { n: '4', t: 'Launch', d: 'We test, optimize and publish your finished website.' }
+      ],
+      benefits: [
+        { t: 'Build Trust', d: 'Give potential customers confidence with a professional online presence.' },
+        { t: 'Look More Professional', d: 'Present your business with a modern design that reflects the quality of your services.' },
+        { t: 'Stand Out From Competitors', d: 'Differentiate yourself from competitors with outdated or poorly designed websites.' },
+        { t: 'Be Available 24/7', d: 'Let potential customers discover your business and learn about your services anytime.' },
+        { t: 'Generate More Opportunities', d: 'Give visitors convenient ways to call, request quotes and contact you.' },
+        { t: 'Mobile-Friendly Experience', d: 'A website that works beautifully on smartphones, tablets and computers.' },
+        { t: 'Showcase Your Services', d: 'Clearly explain what you offer and why customers should choose you.' }
+      ],
+      faqs: faqs,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submit: function (e) {
+        if (e && e.preventDefault) e.preventDefault();
+        var f = e && e.target && e.target.elements ? e.target.elements : null;
+        var v = function (n) { return f && f[n] ? (f[n].value || '') : ''; };
+        var body = 'Name: ' + v('name') + '\nBusiness: ' + v('business') + '\nEmail: ' + v('email') + '\nPhone: ' + v('phone') + '\nIndustry: ' + v('industry') + '\nPlan: Custom website ($800 one-time)' + (self.state.wantMaint ? ' + maintenance ($50/month)' : '') + '\n\n' + v('message');
+        var url = 'mailto:clients.verodigitalweb@gmail.com?subject=' + encodeURIComponent('New website request: ' + (v('business') || v('name'))) + '&body=' + encodeURIComponent(body);
+        try { var a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener'; document.body.appendChild(a); a.click(); a.remove(); } catch (err) {}
+        self.setState({ sent: true });
+      },
+      resetForm: function () { self.setState({ sent: false }); }
+    };
+  }
+}
+</script>
+<script>(function () {
+  function DCLogic(props) { this.props = props || {}; this.state = {}; }
+  DCLogic.prototype.setState = function (p) {
+    var next = typeof p === 'function' ? p(this.state) : p;
+    for (var k in next) this.state[k] = next[k];
+    schedule();
+  };
+  var code = document.getElementById('logic').textContent;
+  var Component = new Function('DCLogic', code + '\n;return Component;')(DCLogic);
+  // allow ES class to extend our function-based base
+  var inst = new Component({});
+  var tpl = document.getElementById('tpl').content;
+  var app = document.getElementById('app');
+  var HOLE = /\{\{\s*([^}]+?)\s*\}\}/g;
+
+  function lookup(path, scope) {
+    path = path.trim();
+    if (path === 'true') return true; if (path === 'false') return false;
+    var parts = path.split('.'), v = (parts[0] in scope) ? scope[parts[0]] : undefined;
+    for (var i = 1; i < parts.length && v != null; i++) v = v[parts[i]];
+    return v;
+  }
+  function fill(str, scope) {
+    return str.replace(HOLE, function (_, p) { var v = lookup(p, scope); return v == null || v === false ? '' : String(v); });
+  }
+  function whole(str) { var m = /^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/.exec(str); return m ? m[1] : null; }
+
+  function render(node, scope, parent) {
+    if (node.nodeType === 3) { parent.appendChild(document.createTextNode(fill(node.nodeValue, scope))); return; }
+    if (node.nodeType !== 1) return;
+    var tag = node.tagName.toLowerCase();
+    if (tag === 'sc-for') {
+      var list = lookup(whole(node.getAttribute('list')), scope) || [];
+      var as = node.getAttribute('as');
+      for (var i = 0; i < list.length; i++) {
+        var s = Object.create(scope); s[as] = list[i];
+        for (var c = node.firstChild; c; c = c.nextSibling) render(c, s, parent);
+      }
+      return;
+    }
+    if (tag === 'sc-if') {
+      if (lookup(whole(node.getAttribute('value')), scope)) for (var c2 = node.firstChild; c2; c2 = c2.nextSibling) render(c2, scope, parent);
+      return;
+    }
+    var el = node.namespaceURI === 'http://www.w3.org/2000/svg' ? document.createElementNS(node.namespaceURI, node.localName) : document.createElement(node.localName);
+    for (var a = 0; a < node.attributes.length; a++) {
+      var at = node.attributes[a], name = at.name, val = at.value;
+      if (name.indexOf('hint-') === 0) continue;
+      if (name.indexOf('on') === 0 && whole(val)) {
+        var fn = lookup(whole(val), scope);
+        if (typeof fn === 'function') el.addEventListener(name.slice(2), fn);
+        continue;
+      }
+      var w = whole(val);
+      if (w) { var v = lookup(w, scope); if (v == null || v === false) continue; val = String(v); }
+      else if (val.indexOf('{{') >= 0) val = fill(val, scope);
+      if (at.namespaceURI) el.setAttributeNS(at.namespaceURI, name, val); else el.setAttribute(name, val);
+    }
+    for (var ch = node.firstChild; ch; ch = ch.nextSibling) render(ch, scope, el);
+    parent.appendChild(el);
+  }
+
+  function draw() {
+    var keep = {}, focusName = null, act = document.activeElement;
+    app.querySelectorAll('input,select,textarea').forEach(function (f) { if (f.name) keep[f.name] = f.type === 'checkbox' ? f.checked : f.value; });
+    if (act && act.name && app.contains(act)) focusName = act.name;
+    var frag = document.createDocumentFragment();
+    var vals = inst.renderVals();
+    for (var c = tpl.firstChild; c; c = c.nextSibling) render(c, vals, frag);
+    app.replaceChildren(frag);
+    app.querySelectorAll('input,select,textarea').forEach(function (f) {
+      if (f.name in keep) { if (f.type === 'checkbox') f.checked = keep[f.name]; else f.value = keep[f.name]; }
+    });
+    if (focusName) { var fe = app.querySelector('[name="' + focusName + '"]'); if (fe) fe.focus({ preventScroll: true }); }
+  }
+  var pending = false;
+  function schedule() { if (pending) return; pending = true; requestAnimationFrame(function () { pending = false; draw(); }); }
+  draw();
+  if (inst.componentDidMount) inst.componentDidMount();
+  if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
+})();
+</script>
+
+</body>
+</html>

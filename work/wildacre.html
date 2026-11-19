@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wildacre Landscape Studio — VERO Digital concept website</title>
+<meta name="description" content="A concept website designed by VERO Digital for a fictional business.">
+<link rel="icon" type="image/png" href="../images/vero-mark.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F6F1E6}
+a{color:#2F4A35}a:hover{color:#22301F}
+.wa-btn{transition:transform .2s ease,background-color .2s ease,color .2s ease;cursor:pointer}
+.wa-btn:hover{transform:translateY(-2px)}
+.wa-forest:hover{background:#22301F !important}
+.wa-ghost:hover{background:#22301F !important;color:#F6F1E6 !important}
+.wa-sage:hover{background:#C9D3BE !important}
+.wa-nav a{transition:color .2s ease}
+.wa-nav a:hover{color:#2F4A35 !important}
+.wa-img{overflow:hidden}
+.wa-img img{transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.wa-img:hover img{transform:scale(1.04)}
+.wa-more{transition:gap .25s ease}
+.wa-more:hover{gap:16px !important}
+.wa-town{transition:padding-left .25s ease,color .2s ease}
+.wa-town:hover{padding-left:10px !important;color:#2F4A35 !important}
+.wa-town:hover .wa-pin{transform:translate(2px,-2px)}
+.wa-pin{transition:transform .25s ease}
+.wa-faq{cursor:pointer;transition:color .2s ease}
+.wa-faq:hover{color:#2F4A35 !important}
+.wa-foot a{color:#F6F1E6;text-decoration:none}
+.wa-foot a:hover{color:#A7B89A}
+input,select,textarea{font:inherit}
+input:focus,select:focus,textarea:focus{outline:none;border-bottom-color:#2F4A35 !important}
+@keyframes waup{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.wa-up{animation:waup 1.1s cubic-bezier(.2,.7,.2,1) both}
+.wa-up2{animation:waup 1.1s .2s cubic-bezier(.2,.7,.2,1) both}
+@media (max-width:860px){.wa-links{display:none !important}.wa-mob{display:flex !important}.wa-hide{display:none !important}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+</style>
+
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+
+
+<div style="font-family: 'DM Sans', system-ui, sans-serif; color: #22301F; background: #F6F1E6; width: 100%; overflow-x: hidden">
+
+<!-- NAV -->
+<header style="position: sticky; top: 0; z-index: 40; background: rgba(246,241,230,0.94); backdrop-filter: blur(10px); border-bottom: 1px solid #D9CDB6">
+<nav class="wa-nav" aria-label="Main" style="max-width: 1440px; margin: 0 auto; padding: 0 clamp(20px, 8.3vw, 120px); height: 86px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; gap: 20px">
+<div class="wa-links" style="flex: 1; display: flex; gap: 36px; font-size: 15px; font-weight: 500">
+<a href="#services" style="color: #22301F; text-decoration: none">Services</a>
+<a href="#projects" style="color: #22301F; text-decoration: none">Projects</a>
+<a href="#studio" style="color: #22301F; text-decoration: none">Studio</a>
+</div>
+<a href="#top" aria-label="Wildacre Landscape Studio home" style="display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #22301F">
+<span style="display: flex; align-items: center; gap: 6px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F4A35" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 30px; letter-spacing: -0.01em">Wildacre</span></span>
+<span style="font-size: 9px; font-weight: 500; letter-spacing: 0.34em; color: #2F4A35">LANDSCAPE STUDIO</span>
+</a>
+<div class="wa-links" style="flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 28px; font-size: 15px; font-weight: 500">
+<a href="#areas" style="color: #22301F; text-decoration: none">Areas</a>
+<a href="#faq" style="color: #22301F; text-decoration: none">FAQ</a>
+<a class="wa-btn wa-forest" href="#contact" style="background: #2F4A35; color: #F6F1E6; text-decoration: none; font-weight: 600; font-size: 14px; padding: 13px 22px; border-radius: 999px">Book a Consultation</a>
+</div>
+<button class="wa-mob" type="button" aria-label="Open menu" style="display: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(34,48,31,0.3); background: transparent; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22301F" stroke-width="1.8" aria-hidden="true"><path d="M4 8h16M4 16h16"></path></svg></button>
+</nav>
+</header>
+
+<!-- HERO -->
+<section id="top">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(40px, 5.5vw, 80px) clamp(20px, 8.3vw, 120px); box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: flex-end; gap: 40px clamp(40px, 5vw, 72px)">
+<div class="wa-up" style="flex: 1 1 440px; min-width: 0; padding-bottom: clamp(0px, 2.8vw, 40px)">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #2F4A35">Landscape design · build · care</div>
+<h1 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(52px, 7.2vw, 104px); line-height: 0.92; letter-spacing: -0.02em; margin: 26px 0 0">Outdoor spaces,<br><em style="font-weight: 500; color: #2F4A35">thoughtfully grown.</em></h1>
+<p style="font-size: clamp(16px, 1.25vw, 18px); line-height: 1.7; color: #5E6A5A; margin: 28px 0 0; max-width: 520px">Wildacre designs, builds and cares for gardens, patios and outdoor living spaces across Lakemont County, with a studio’s eye for detail and a gardener’s patience.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px">
+<a class="wa-btn wa-forest" href="#contact" style="background: #2F4A35; color: #F6F1E6; text-decoration: none; font-weight: 600; font-size: 15px; padding: 17px 30px; border-radius: 999px; display: inline-flex; align-items: center; gap: 10px">Book a Consultation <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+<a class="wa-btn wa-ghost" href="tel:5550106630" style="border: 1px solid rgba(34,48,31,0.35); color: #22301F; text-decoration: none; font-weight: 600; font-size: 15px; padding: 16px 28px; border-radius: 999px">(555) 010-6630</a>
+</div>
+</div>
+<div class="wa-up2" style="flex: 1 1 460px; min-width: 0; display: flex; gap: 20px; align-items: flex-end">
+<div class="wa-img" style="flex: 1 1 0; min-width: 0; border-radius: 300px 300px 4px 4px"><img src="../images/land-01-hero.jpg" alt="Stone patio with a fire pit and wicker seating in a landscaped backyard at golden hour" style="display: block; width: 100%; height: clamp(420px, 48vw, 700px); object-fit: cover"></div>
+<div class="wa-img wa-hide" style="flex: 0 0 clamp(150px, 14vw, 200px); border-radius: 100px 100px 4px 4px"><img src="../images/land-06-garden.jpg" alt="Cottage garden with a winding gravel path and climbing roses" style="display: block; width: 100%; height: clamp(230px, 21vw, 300px); object-fit: cover"></div>
+</div>
+</div>
+</section>
+
+<!-- TRUST BAND -->
+<section aria-label="Our commitments" style="background: #2F4A35; color: #F6F1E6">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(22px, 2vw, 28px) clamp(20px, 8.3vw, 120px); box-sizing: border-box; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 32px">
+<sc-for list="{{trust}}" as="t" hint-placeholder-count="4">
+<div style="display: flex; align-items: center; gap: 12px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; font-size: clamp(19px, 1.5vw, 22px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A7B89A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>{{t}}</div>
+</sc-for>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="studio">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(72px, 9.7vw, 140px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="text-align: center; max-width: 1040px; margin: 0 auto">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #2F4A35">The studio</div>
+<p style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(30px, 3.3vw, 48px); line-height: 1.2; margin: 24px 0 0">We believe a great landscape should feel like it was always meant to be there: rooted in place, easy to live with and beautiful in every season.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 32px 40px; margin-top: clamp(48px, 5vw, 72px)">
+<div class="wa-img" style="flex: 1 1 380px; min-width: 0; border-radius: 4px"><img src="../images/land-02-about.jpg" alt="Wildacre landscaper planting ornamental grasses in a fresh garden bed" style="display: block; width: 100%; height: clamp(440px, 39vw, 560px); object-fit: cover"></div>
+<div style="flex: 1 1 380px; min-width: 0; padding-top: clamp(0px, 8.3vw, 120px); display: flex; flex-direction: column; gap: 24px">
+<p style="font-size: clamp(16px, 1.25vw, 18px); line-height: 1.75; color: #5E6A5A; margin: 0">Wildacre Landscape Studio brings design and craftsmanship together. We start by understanding how you want to use your outdoor space, then shape a plan around light, soil, views and the way you live.</p>
+<p style="font-size: clamp(16px, 1.25vw, 18px); line-height: 1.75; color: #5E6A5A; margin: 0">From planting plans to stone patios and ongoing garden care, our team builds every detail with intention.</p>
+<a class="wa-more" href="#contact" style="display: inline-flex; align-self: flex-start; align-items: center; gap: 10px; color: #2F4A35; text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid #2F4A35">Meet the studio <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+<div class="wa-img" style="border-radius: 4px"><img src="../images/land-03-design.jpg" alt="Garden design plan surrounded by potted perennials on a wooden workbench" style="display: block; width: 100%; height: clamp(260px, 22vw, 320px); object-fit: cover"></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="background: #E3D5BD">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(72px, 9vw, 130px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="text-align: center">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #2F4A35">Services</div>
+<h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(40px, 4.4vw, 64px); line-height: 1; margin: 18px 0 0">From first sketch to full bloom.</h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: clamp(56px, 6.6vw, 96px); margin-top: clamp(48px, 5.5vw, 80px)">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px clamp(40px, 5.5vw, 80px)">
+<div class="wa-img" style="flex: 1 1 420px; min-width: 0; border-radius: 4px"><img src="../images/land-03-design.jpg" alt="Hand-drawn garden plan with plants laid out for a new design" style="display: block; width: 100%; height: clamp(280px, 30vw, 440px); object-fit: cover"></div>
+<div style="flex: 1 1 380px; min-width: 0"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 40px; color: #2F4A35">01</div><h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(34px, 3.3vw, 48px); line-height: 1.05; margin: 8px 0 0">Landscape Design</h3><p style="font-size: 17px; line-height: 1.7; color: #5E6A5A; margin: 16px 0 0">Planting plans, layouts and 3D concepts that shape your property into a cohesive, livable landscape.</p><a class="wa-more" href="#contact" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; color: #2F4A35; text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid #2F4A35">Start a design <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a></div>
+</div>
+<div style="display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 28px clamp(40px, 5.5vw, 80px)">
+<div style="flex: 1 1 380px; min-width: 0"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 40px; color: #2F4A35">02</div><h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(34px, 3.3vw, 48px); line-height: 1.05; margin: 8px 0 0">Hardscape &amp; Patios</h3><p style="font-size: 17px; line-height: 1.7; color: #5E6A5A; margin: 16px 0 0">Natural stone patios, walkways, walls and steps, built on proper bases to last for decades.</p><a class="wa-more" href="#contact" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; color: #2F4A35; text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid #2F4A35">Plan a patio <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a></div>
+<div class="wa-img" style="flex: 1 1 420px; min-width: 0; border-radius: 4px"><img src="../images/land-04-hardscape.jpg" alt="Flagstone patio with built-in stone seating and low lighting at dusk" style="display: block; width: 100%; height: clamp(280px, 30vw, 440px); object-fit: cover"></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px clamp(40px, 5.5vw, 80px)">
+<div class="wa-img" style="flex: 1 1 420px; min-width: 0; border-radius: 4px"><img src="../images/land-07-outdoor-living.jpg" alt="Covered outdoor kitchen and dining table under a timber pergola" style="display: block; width: 100%; height: clamp(280px, 30vw, 440px); object-fit: cover"></div>
+<div style="flex: 1 1 380px; min-width: 0"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 40px; color: #2F4A35">03</div><h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(34px, 3.3vw, 48px); line-height: 1.05; margin: 8px 0 0">Outdoor Living</h3><p style="font-size: 17px; line-height: 1.7; color: #5E6A5A; margin: 16px 0 0">Outdoor kitchens, fire features and dining areas designed for long evenings outside.</p><a class="wa-more" href="#contact" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; color: #2F4A35; text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid #2F4A35">Design your space <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a></div>
+</div>
+<div style="display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 28px clamp(40px, 5.5vw, 80px)">
+<div style="flex: 1 1 380px; min-width: 0"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 40px; color: #2F4A35">04</div><h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(34px, 3.3vw, 48px); line-height: 1.05; margin: 8px 0 0">Garden Care</h3><p style="font-size: 17px; line-height: 1.7; color: #5E6A5A; margin: 16px 0 0">Seasonal maintenance, pruning and lawn care that keeps your landscape looking its best all year.</p><a class="wa-more" href="#contact" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; color: #2F4A35; text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid #2F4A35">Ask about care plans <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a></div>
+<div class="wa-img" style="flex: 1 1 420px; min-width: 0; border-radius: 4px"><img src="../images/land-05-maintenance.jpg" alt="Striped lawn and clipped boxwood hedges in front of an elegant stone home" style="display: block; width: 100%; height: clamp(280px, 30vw, 440px); object-fit: cover"></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- WHY -->
+<section aria-labelledby="why-h">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(72px, 9vw, 130px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #2F4A35">Why Wildacre</div>
+<h2 id="why-h" style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(40px, 4.4vw, 64px); line-height: 1; margin: 18px 0 0">Considered from root to finish.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 32px 40px; margin-top: clamp(40px, 4.4vw, 64px)">
+<sc-for list="{{why}}" as="w" hint-placeholder-count="4">
+<div style="border-top: 1px solid rgba(47,74,53,0.35); padding-top: 24px"><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 32px; color: #2F4A35">{{w.n}}</div><h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 26px; margin: 10px 0 0">{{w.t}}</h3><p style="font-size: 15px; line-height: 1.7; color: #5E6A5A; margin: 10px 0 0">{{w.d}}</p></div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section aria-labelledby="proc-h" style="background: #2F4A35; color: #F6F1E6">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(72px, 8.3vw, 120px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="text-align: center">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #A7B89A">Our process</div>
+<h2 id="proc-h" style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(38px, 4.2vw, 60px); line-height: 1.05; margin: 18px 0 0">How a Wildacre landscape comes together.</h2>
+</div>
+<ol style="list-style: none; padding: 0; margin: clamp(44px, 4.4vw, 64px) 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px 32px; text-align: center">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+<li style="display: flex; flex-direction: column; align-items: center">
+<span style="width: 76px; height: 76px; border-radius: 50%; border: 1px solid #A7B89A; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 30px">{{s.n}}</span>
+<h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 30px; margin: 18px 0 0">{{s.t}}</h3>
+<p style="font-size: 15px; line-height: 1.7; color: #C9D3BE; margin: 10px 0 0; max-width: 280px">{{s.d}}</p>
+</li>
+</sc-for>
+</ol>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(72px, 9vw, 130px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px">
+<div><div style="font-size: 13px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #2F4A35">Selected projects</div><h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(40px, 4.4vw, 64px); line-height: 1; margin: 18px 0 0">Gardens we’ve grown.</h2></div>
+<a class="wa-more" href="#contact" style="display: inline-flex; align-items: center; gap: 10px; color: #2F4A35; text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid #2F4A35">Start your project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px; margin-top: clamp(36px, 3.3vw, 48px)">
+<figure style="flex: 1.2 1 440px; min-width: 0; margin: 0"><div class="wa-img" style="border-radius: 4px"><img src="../images/land-01-hero.jpg" alt="Fire pit terrace with wicker seating and lush plantings" style="display: block; width: 100%; height: clamp(300px, 44vw, 640px); object-fit: cover"></div><figcaption style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; margin-top: 14px">Fire terrace &amp; perennial borders · Oak Hollow</figcaption></figure>
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 24px; padding-top: clamp(0px, 6.6vw, 96px)">
+<figure style="margin: 0"><div class="wa-img" style="border-radius: 4px"><img src="../images/land-07-outdoor-living.jpg" alt="Covered outdoor kitchen under a timber pergola" style="display: block; width: 100%; height: clamp(240px, 22vw, 320px); object-fit: cover"></div><figcaption style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; margin-top: 14px">Covered outdoor kitchen · Pine Ridge</figcaption></figure>
+<figure style="margin: 0"><div class="wa-img" style="border-radius: 4px"><img src="../images/land-06-garden.jpg" alt="Cottage perennial garden with gravel path" style="display: block; width: 100%; height: clamp(240px, 22vw, 320px); object-fit: cover"></div><figcaption style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; margin-top: 14px">Cottage perennial garden · Millbrook</figcaption></figure>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIAL CAROUSEL -->
+<section aria-label="Client words" aria-roledescription="carousel" style="background: #E3D5BD">
+<div style="max-width: 1100px; margin: 0 auto; padding: clamp(72px, 9vw, 130px) clamp(20px, 8.3vw, 120px); box-sizing: border-box; text-align: center">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #2F4A35">Kind words</div>
+<div aria-live="polite" style="display: grid; margin-top: 28px">
+<sc-for list="{{reviews}}" as="r" hint-placeholder-count="3">
+<figure style="{{r.style}}">
+<blockquote style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; font-size: clamp(28px, 3.2vw, 46px); line-height: 1.25; margin: 0">“{{r.q}}”</blockquote>
+<figcaption style="font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #5E6A5A; margin-top: 26px">{{r.n}} · {{r.m}}</figcaption>
+</figure>
+</sc-for>
+</div>
+<div style="display: flex; justify-content: center; gap: 4px; margin-top: 28px">
+<sc-for list="{{reviews}}" as="r" hint-placeholder-count="3">
+<button type="button" onClick="{{r.go}}" aria-label="{{r.label}}" style="width: 44px; height: 44px; background: transparent; border: 0; display: flex; align-items: center; justify-content: center; cursor: pointer"><span style="{{r.dot}}"></span></button>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section id="areas">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(72px, 8.3vw, 120px) clamp(20px, 8.3vw, 120px); box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 40px clamp(48px, 5.5vw, 80px)">
+<div style="flex: 1 1 380px; min-width: 0">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #2F4A35">Where we work</div>
+<h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(40px, 4.4vw, 64px); line-height: 1; margin: 18px 0 0">Lakemont County &amp; surrounding towns.</h2>
+<p style="font-size: 17px; line-height: 1.7; color: #5E6A5A; margin: 20px 0 0">We take on design projects throughout the region and offer garden care within our core service area. Select a town to see it on the map.</p>
+</div>
+<ul style="flex: 1 1 420px; min-width: 0; list-style: none; padding: 0; margin: 0; border-top: 1px solid #D9CDB6">
+<sc-for list="{{towns}}" as="t" hint-placeholder-count="6">
+<li style="border-bottom: 1px solid #D9CDB6"><a class="wa-town" href="{{t.url}}" target="_blank" rel="noopener" aria-label="{{t.label}}" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; color: #22301F; text-decoration: none; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(24px, 2.1vw, 30px)">{{t.name}}<svg class="wa-pin" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F4A35" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a></li>
+</sc-for>
+</ul>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background: #E3D5BD">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(72px, 9vw, 130px) clamp(20px, 8.3vw, 120px); box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 32px clamp(48px, 6.6vw, 96px)">
+<div style="flex: 1 1 300px; min-width: 0">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #2F4A35">Questions</div>
+<h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(40px, 4.4vw, 64px); line-height: 1; margin: 18px 0 0">Before we begin.</h2>
+</div>
+<div style="flex: 1.5 1 480px; min-width: 0; border-top: 1px solid rgba(47,74,53,0.3)">
+<sc-for list="{{faqs}}" as="f" hint-placeholder-count="5">
+<div style="border-bottom: 1px solid rgba(47,74,53,0.3)">
+<button class="wa-faq" type="button" onClick="{{f.toggle}}" aria-expanded="{{f.expanded}}" style="width: 100%; background: transparent; border: 0; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; text-align: left; color: #22301F; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(22px, 1.8vw, 26px); min-height: 44px">
+<span>{{f.q}}</span>
+<span style="{{f.icon}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F4A35" stroke-width="1.6" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span>
+</button>
+<sc-if value="{{f.open}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; padding: 0 48px 24px 0; font-size: 16px; line-height: 1.7; color: #5E6A5A">{{f.a}}</p>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background: #22301F; color: #F6F1E6">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(72px, 9vw, 130px) clamp(20px, 8.3vw, 120px); box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 48px clamp(48px, 6.6vw, 96px)">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #A7B89A">Begin your project</div>
+<h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(48px, 5.8vw, 84px); line-height: 0.95; margin: 0">Let’s grow<br><em style="font-weight: 500; color: #A7B89A">something beautiful.</em></h2>
+<p style="font-size: 17px; line-height: 1.7; color: #C9D3BE; margin: 0">Share a little about your property and we’ll be in touch to arrange a consultation.</p>
+<a href="tel:5550106630" style="display: flex; align-items: center; gap: 12px; color: #F6F1E6; text-decoration: none; font-weight: 500; font-size: 16px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A7B89A" stroke-width="1.6" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>(555) 010-6630</a>
+<a href="mailto:studio@wildacrestudio.com" style="display: flex; align-items: center; gap: 12px; color: #F6F1E6; text-decoration: none; font-weight: 500; font-size: 16px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A7B89A" stroke-width="1.6" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg>studio@wildacrestudio.com</a>
+<div style="display: flex; align-items: center; gap: 12px; font-weight: 500; font-size: 16px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A7B89A" stroke-width="1.6" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>88 Meadowbrook Lane, Oak Hollow</div>
+<div style="display: flex; align-items: center; gap: 12px; font-weight: 500; font-size: 16px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A7B89A" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>Studio visits by appointment · Mon–Sat</div>
+</div>
+<div style="flex: 1 1 440px; min-width: 0; background: #F6F1E6; color: #22301F; border-radius: 4px; padding: clamp(24px, 3.3vw, 48px); box-sizing: border-box">
+<sc-if value="{{notSent}}" hint-placeholder-val="{{ true }}">
+<form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 22px">
+<h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 32px; margin: 0">Request a consultation</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 22px 20px">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #5E6A5A">Name<input type="text" name="name" required="required" autocomplete="name" placeholder="Your name" style="background: transparent; border: 0; border-bottom: 1px solid #22301F; padding: 10px 0; font-size: 16px; color: #22301F; letter-spacing: 0; text-transform: none"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #5E6A5A">Phone<input type="tel" name="phone" autocomplete="tel" placeholder="(555) 000-0000" style="background: transparent; border: 0; border-bottom: 1px solid #22301F; padding: 10px 0; font-size: 16px; color: #22301F; letter-spacing: 0; text-transform: none"></label>
+</div>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #5E6A5A">Email<input type="email" name="email" required="required" autocomplete="email" placeholder="you@email.com" style="background: transparent; border: 0; border-bottom: 1px solid #22301F; padding: 10px 0; font-size: 16px; color: #22301F; letter-spacing: 0; text-transform: none"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #5E6A5A">Interested in<select name="interest" style="background: transparent; border: 0; border-bottom: 1px solid #22301F; padding: 10px 0; font-size: 16px; color: #22301F; letter-spacing: 0; text-transform: none"><option>Landscape design</option><option>Hardscape &amp; patios</option><option>Outdoor living</option><option>Garden care</option></select></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #5E6A5A">About your property<textarea name="details" rows="3" placeholder="Tell us about your space…" style="background: transparent; border: 0; border-bottom: 1px solid #22301F; padding: 10px 0; font-size: 16px; color: #22301F; letter-spacing: 0; text-transform: none; resize: vertical"></textarea></label>
+<button class="wa-btn wa-forest" type="submit" style="background: #2F4A35; color: #F6F1E6; border: 0; border-radius: 999px; font-family: inherit; font-weight: 600; font-size: 15px; padding: 18px 28px; min-height: 56px; display: flex; align-items: center; justify-content: center; gap: 10px">Send request <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></button>
+</form>
+</sc-if>
+<sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+<div style="text-align: center; padding: 32px 8px">
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2F4A35" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>
+<h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 34px; margin: 16px 0 0">Thank you.</h3>
+<p style="font-size: 16px; line-height: 1.7; color: #5E6A5A; margin: 10px 0 0">We’ll be in touch shortly to arrange your consultation.</p>
+<button class="wa-btn wa-ghost" type="button" onClick="{{resetForm}}" style="margin-top: 22px; background: transparent; border: 1px solid rgba(34,48,31,0.35); color: #22301F; border-radius: 999px; padding: 12px 22px; font-family: inherit; font-size: 15px; font-weight: 600; min-height: 44px">Send another</button>
+</div>
+</sc-if>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="wa-foot" style="background: #2F4A35; color: #C9D3BE">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(56px, 6.6vw, 96px) clamp(20px, 8.3vw, 120px) 32px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center">
+<div style="display: flex; flex-direction: column; align-items: center; color: #F6F1E6">
+<span style="display: flex; align-items: center; gap: 6px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A7B89A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg><span style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 34px">Wildacre</span></span>
+<span style="font-size: 9px; font-weight: 500; letter-spacing: 0.34em; color: #A7B89A">LANDSCAPE STUDIO</span>
+</div>
+<p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(22px, 1.8vw, 26px); margin: 0">Landscape design, build and care for Lakemont County.</p>
+<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 40px; font-size: 15px; font-weight: 500"><a href="#services">Services</a><a href="#projects">Projects</a><a href="#studio">Studio</a><a href="#areas">Service Areas</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></nav>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 32px; font-size: 14px"><a href="tel:5550106630">(555) 010-6630</a><a href="mailto:studio@wildacrestudio.com">studio@wildacrestudio.com</a><span>88 Meadowbrook Lane, Oak Hollow</span><span>Lic. #LC-72604</span></div>
+<div style="width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; border-top: 1px solid rgba(167,184,154,0.3); padding-top: 24px; margin-top: 16px; font-size: 13px">
+<span>© 2026 Wildacre Landscape Studio</span><span>VERO concept project · fictional business</span>
+</div>
+</div>
+</footer>
+
+</div>
+</template>
+<script id="logic" type="text/plain">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { openFaq: 0, sent: false, rev: 0 };
+  }
+  componentDidMount() {
+    var self = this;
+    this.timer = setInterval(function () { self.setState({ rev: (self.state.rev + 1) % 3 }); }, 6000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+  renderVals() {
+    var self = this;
+    var faqData = [
+      ['How does the design process work?', 'We start with an on-site consultation, then prepare a design and written proposal. Once approved, we schedule your build.'],
+      ['Do you only design, or also build?', 'Both. Our team designs, builds and can maintain your landscape.'],
+      ['When is the best time to start a project?', 'Design can begin any time of year. Planting and construction are scheduled around the seasons.'],
+      ['Do you offer ongoing garden care?', 'Yes. Seasonal care plans are available for clients in our core service area.'],
+      ['How much does a landscape project cost?', 'Every property is different. We provide a written proposal after your consultation, with options to phase the work.']
+    ];
+    var revData = [
+      { n: 'Claire & David M.', m: 'Oak Hollow · Fire terrace & borders', q: 'They listened to how we actually use our backyard and designed around it. Two summers in, the fire terrace is where we spend every evening.' },
+      { n: 'Hannah R.', m: 'Millbrook · Cottage garden', q: 'Wildacre turned a tired lawn into the cottage garden I’ve always wanted. Something is blooming from April to October.' },
+      { n: 'James O.', m: 'Pine Ridge · Outdoor kitchen', q: 'From the first sketch to the final planting, the whole team was thoughtful, tidy and on schedule. The outdoor kitchen feels like another room of the house.' }
+    ];
+    var restart = function (i) { clearInterval(self.timer); self.timer = setInterval(function () { self.setState({ rev: (self.state.rev + 1) % 3 }); }, 6000); self.setState({ rev: i }); };
+    return {
+      trust: ['Design-led approach', 'Written proposals & clear pricing', 'Licensed & insured · Lic. #LC-72604', 'Careful, tidy crews'],
+      why: [
+        { n: 'i.', t: 'Design-first thinking', d: 'Every project starts with a plan that fits your home, your site and your style.' },
+        { n: 'ii.', t: 'Plants that thrive', d: 'We select plants suited to Lakemont’s soil, sun and seasons.' },
+        { n: 'iii.', t: 'Quality construction', d: 'Proper bases, drainage and materials for hardscape that lasts.' },
+        { n: 'iv.', t: 'One team, start to finish', d: 'The people who design your landscape oversee how it’s built.' }
+      ],
+      steps: [
+        { n: '01', t: 'Consult', d: 'We walk your property together and talk through goals, budget and timing.' },
+        { n: '02', t: 'Design', d: 'We prepare a design and written proposal for your review.' },
+        { n: '03', t: 'Build', d: 'Our crew installs your landscape with care and clear communication.' },
+        { n: '04', t: 'Nurture', d: 'Optional garden care keeps everything healthy as it grows in.' }
+      ],
+      reviews: revData.map(function (r, i) {
+        var on = self.state.rev === i;
+        return { n: r.n, m: r.m, q: r.q, label: 'Show review ' + (i + 1),
+          style: 'grid-area: 1 / 1; margin: 0; transition: opacity .8s ease, transform .8s ease; ' + (on ? 'opacity: 1; transform: none; visibility: visible;' : 'opacity: 0; transform: translateY(12px); visibility: hidden;'),
+          dot: 'display: block; height: 8px; border-radius: 999px; transition: width .3s ease, background-color .3s ease; ' + (on ? 'width: 26px; background: #2F4A35;' : 'width: 8px; background: rgba(47,74,53,0.3);'),
+          go: function () { restart(i); } };
+      }),
+      towns: ['North Lakemont', 'Riverside Park', 'Oak Hollow', 'Westbrook', 'Fairview Heights', 'Pine Ridge'].map(function (t) {
+        return { name: t, label: t + ' on Google Maps (opens in a new tab)', url: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(t + ', Lakemont County') };
+      }),
+      faqs: faqData.map(function (f, i) {
+        var open = self.state.openFaq === i;
+        return {
+          q: f[0], a: f[1], open: open, expanded: open ? 'true' : 'false',
+          icon: 'flex-shrink: 0; display: flex; transition: transform .25s ease; ' + (open ? 'transform: rotate(45deg);' : ''),
+          toggle: function () { self.setState({ openFaq: open ? -1 : i }); }
+        };
+      }),
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submit: function (e) { if (e && e.preventDefault) e.preventDefault(); self.setState({ sent: true }); },
+      resetForm: function () { self.setState({ sent: false }); }
+    };
+  }
+}
+</script>
+<script>(function () {
+  function DCLogic(props) { this.props = props || {}; this.state = {}; }
+  DCLogic.prototype.setState = function (p) {
+    var next = typeof p === 'function' ? p(this.state) : p;
+    for (var k in next) this.state[k] = next[k];
+    schedule();
+  };
+  var code = document.getElementById('logic').textContent;
+  var Component = new Function('DCLogic', code + '\n;return Component;')(DCLogic);
+  // allow ES class to extend our function-based base
+  var inst = new Component({});
+  var tpl = document.getElementById('tpl').content;
+  var app = document.getElementById('app');
+  var HOLE = /\{\{\s*([^}]+?)\s*\}\}/g;
+
+  function lookup(path, scope) {
+    path = path.trim();
+    if (path === 'true') return true; if (path === 'false') return false;
+    var parts = path.split('.'), v = (parts[0] in scope) ? scope[parts[0]] : undefined;
+    for (var i = 1; i < parts.length && v != null; i++) v = v[parts[i]];
+    return v;
+  }
+  function fill(str, scope) {
+    return str.replace(HOLE, function (_, p) { var v = lookup(p, scope); return v == null || v === false ? '' : String(v); });
+  }
+  function whole(str) { var m = /^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/.exec(str); return m ? m[1] : null; }
+
+  function render(node, scope, parent) {
+    if (node.nodeType === 3) { parent.appendChild(document.createTextNode(fill(node.nodeValue, scope))); return; }
+    if (node.nodeType !== 1) return;
+    var tag = node.tagName.toLowerCase();
+    if (tag === 'sc-for') {
+      var list = lookup(whole(node.getAttribute('list')), scope) || [];
+      var as = node.getAttribute('as');
+      for (var i = 0; i < list.length; i++) {
+        var s = Object.create(scope); s[as] = list[i];
+        for (var c = node.firstChild; c; c = c.nextSibling) render(c, s, parent);
+      }
+      return;
+    }
+    if (tag === 'sc-if') {
+      if (lookup(whole(node.getAttribute('value')), scope)) for (var c2 = node.firstChild; c2; c2 = c2.nextSibling) render(c2, scope, parent);
+      return;
+    }
+    var el = node.namespaceURI === 'http://www.w3.org/2000/svg' ? document.createElementNS(node.namespaceURI, node.localName) : document.createElement(node.localName);
+    for (var a = 0; a < node.attributes.length; a++) {
+      var at = node.attributes[a], name = at.name, val = at.value;
+      if (name.indexOf('hint-') === 0) continue;
+      if (name.indexOf('on') === 0 && whole(val)) {
+        var fn = lookup(whole(val), scope);
+        if (typeof fn === 'function') el.addEventListener(name.slice(2), fn);
+        continue;
+      }
+      var w = whole(val);
+      if (w) { var v = lookup(w, scope); if (v == null || v === false) continue; val = String(v); }
+      else if (val.indexOf('{{') >= 0) val = fill(val, scope);
+      if (at.namespaceURI) el.setAttributeNS(at.namespaceURI, name, val); else el.setAttribute(name, val);
+    }
+    for (var ch = node.firstChild; ch; ch = ch.nextSibling) render(ch, scope, el);
+    parent.appendChild(el);
+  }
+
+  function draw() {
+    var keep = {}, focusName = null, act = document.activeElement;
+    app.querySelectorAll('input,select,textarea').forEach(function (f) { if (f.name) keep[f.name] = f.type === 'checkbox' ? f.checked : f.value; });
+    if (act && act.name && app.contains(act)) focusName = act.name;
+    var frag = document.createDocumentFragment();
+    var vals = inst.renderVals();
+    for (var c = tpl.firstChild; c; c = c.nextSibling) render(c, vals, frag);
+    app.replaceChildren(frag);
+    app.querySelectorAll('input,select,textarea').forEach(function (f) {
+      if (f.name in keep) { if (f.type === 'checkbox') f.checked = keep[f.name]; else f.value = keep[f.name]; }
+    });
+    if (focusName) { var fe = app.querySelector('[name="' + focusName + '"]'); if (fe) fe.focus({ preventScroll: true }); }
+  }
+  var pending = false;
+  function schedule() { if (pending) return; pending = true; requestAnimationFrame(function () { pending = false; draw(); }); }
+  draw();
+  if (inst.componentDidMount) inst.componentDidMount();
+  if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
+})();
+</script>
+<a href="../work.html#work" style="position:fixed;left:16px;bottom:16px;z-index:9999;display:inline-flex;align-items:center;gap:10px;background:#0A0A0C;color:#fff;text-decoration:none;font:600 14px/1 Inter,system-ui,sans-serif;padding:12px 16px 12px 12px;border-radius:999px;box-shadow:0 14px 34px -10px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.14)"><img src="../images/vero-mark.png" alt="" style="height:18px;width:auto">← Back to VERO<span style="color:#A99BFF;font-weight:500">· Concept project</span></a>
+</body>
+</html>

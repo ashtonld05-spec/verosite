@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stonegate Roofing Co. — VERO Digital concept website</title>
+<meta name="description" content="A concept website designed by VERO Digital for a fictional business.">
+<link rel="icon" type="image/png" href="../images/vero-mark.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&amp;family=Archivo:wght@800&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F4EFE7}
+a{color:#1E3B30}a:hover{color:#1F2326}
+.sg-btn{transition:transform .2s ease,background-color .2s ease,color .2s ease;cursor:pointer}
+.sg-btn:hover{transform:translateY(-2px)}
+.sg-stone:hover{background:#FFFFFF !important}
+.sg-ghost:hover{background:#FFFFFF !important;color:#1F2326 !important}
+.sg-green:hover{background:#163027 !important}
+.sg-nav a{transition:color .2s ease}
+.sg-nav a:hover{color:#D9CBB3 !important}
+.sg-img{overflow:hidden}
+.sg-img img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.sg-img:hover img,.sg-row:hover img{transform:scale(1.05)}
+.sg-row{transition:background-color .25s ease}
+.sg-row:hover{background:#F4EFE7}
+.sg-arrow{transition:background-color .25s ease,transform .25s ease}
+.sg-row:hover .sg-arrow{background:#1E3B30;transform:rotate(-45deg)}
+.sg-row:hover .sg-arrow svg{stroke:#FFFFFF}
+.sg-town{transition:color .2s ease,padding-left .25s ease}
+.sg-town:hover{color:#D9CBB3 !important;padding-left:8px !important}
+.sg-town-arrow{opacity:0;transition:opacity .2s ease,transform .2s ease}
+.sg-town:hover .sg-town-arrow{opacity:1;transform:translateX(4px)}
+.sg-faq{cursor:pointer;transition:color .2s ease}
+.sg-faq:hover{color:#1E3B30 !important}
+.sg-foot a{color:#B8BDB9;text-decoration:none}
+.sg-foot a:hover{color:#FFFFFF}
+input,select,textarea{font:inherit}
+input:focus,select:focus,textarea:focus{outline:2px solid #1E3B30;outline-offset:1px}
+@keyframes sgup{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.sg-up{animation:sgup 1s cubic-bezier(.2,.7,.2,1) both}
+.sg-up2{animation:sgup 1s .15s cubic-bezier(.2,.7,.2,1) both}
+@media (max-width:860px){.sg-links{display:none !important}.sg-mob{display:flex !important}.sg-hide{display:none !important}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+</style>
+
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+
+
+<div style="font-family: 'Source Sans 3', system-ui, sans-serif; color: #1F2326; background: #FFFFFF; width: 100%; overflow-x: hidden">
+
+<!-- HERO with overlay nav -->
+<section id="top" style="position: relative; min-height: clamp(720px, 62vw, 900px); display: flex; flex-direction: column; justify-content: space-between; color: #FFFFFF; overflow: hidden">
+<img src="../images/roof-01-hero.jpg" alt="Aerial view of a large home with a new charcoal shingle roof at sunset" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,22,24,0.6) 0%, rgba(20,22,24,0.1) 40%, rgba(20,22,24,0.88) 100%)"></div>
+<nav class="sg-nav" aria-label="Main" style="position: relative; border-bottom: 1px solid rgba(255,255,255,0.18)">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(16px, 2vw, 28px) clamp(20px, 8.3vw, 120px); box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; gap: 24px">
+<a href="#top" aria-label="Stonegate Roofing home" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #FFFFFF">
+<span aria-hidden="true" style="width: 40px; height: 40px; background: #D9CBB3; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F2326" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12 12 4l10 8"></path><path d="M5 10v10h14V10"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 20px; letter-spacing: 0.06em">STONEGATE</span><span style="font-size: 10px; font-weight: 600; letter-spacing: 0.3em; color: #D9CBB3">ROOFING CO.</span></span>
+</a>
+<div class="sg-links" style="display: flex; gap: 40px; font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase">
+<a href="#services" style="color: #FFFFFF; text-decoration: none">Roofing</a>
+<a href="#about" style="color: #FFFFFF; text-decoration: none">About</a>
+<a href="#work" style="color: #FFFFFF; text-decoration: none">Our Work</a>
+<a href="#areas" style="color: #FFFFFF; text-decoration: none">Areas</a>
+<a href="#faq" style="color: #FFFFFF; text-decoration: none">FAQ</a>
+</div>
+<div class="sg-links" style="display: flex; align-items: center; gap: 24px">
+<a href="tel:5550103184" style="color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 16px; letter-spacing: 0.04em">(555) 010-3184</a>
+<a class="sg-btn sg-stone" href="#contact" style="background: #D9CBB3; color: #1F2326; text-decoration: none; font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 22px">Get an Estimate</a>
+</div>
+<div class="sg-mob" style="display: none; gap: 10px">
+<a href="tel:5550103184" aria-label="Call Stonegate Roofing" style="width: 44px; height: 44px; background: #D9CBB3; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F2326" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
+<button type="button" aria-label="Open menu" style="width: 44px; height: 44px; border: 1px solid rgba(255,255,255,0.5); background: transparent; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+</div>
+</div>
+</nav>
+<div style="position: relative; max-width: 1440px; width: 100%; margin: 0 auto; padding: 0 clamp(20px, 8.3vw, 120px) clamp(40px, 6.6vw, 96px); box-sizing: border-box">
+<div class="sg-up" style="display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #D9CBB3"><span style="width: 28px; height: 2px; background: #D9CBB3"></span>Residential &amp; Commercial Roofing</div>
+<h1 class="sg-up" style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: clamp(52px, 7.8vw, 112px); line-height: 0.92; text-transform: uppercase; margin: 24px 0 0; max-width: 980px">Built to stand up to every storm.</h1>
+<div class="sg-up2" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 48px; margin-top: 30px">
+<p style="font-size: clamp(17px, 1.4vw, 20px); line-height: 1.55; color: #E9E4DA; max-width: 560px; margin: 0">Roof replacement, repair and inspections for Lakemont County homes and businesses, installed by a crew that takes pride in every line of shingles.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a class="sg-btn sg-stone" href="#contact" style="background: #D9CBB3; color: #1F2326; text-decoration: none; font-weight: 700; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; padding: 18px 28px; display: inline-flex; align-items: center; gap: 10px">Get an Estimate <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+<a class="sg-btn sg-ghost" href="tel:5550103184" style="border: 1px solid rgba(255,255,255,0.6); color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; padding: 17px 28px">Call (555) 010-3184</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TRUST -->
+<section aria-label="Our commitments" style="background: #1E3B30; color: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(22px, 2vw, 30px) clamp(20px, 8.3vw, 120px); box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px 24px">
+<sc-for list="{{trust}}" as="t" hint-placeholder-count="4">
+<div style="display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D9CBB3" stroke-width="2.5" aria-hidden="true" style="flex-shrink: 0"><path d="M20 6 9 17l-5-5"></path></svg>{{t}}</div>
+</sc-for>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background: #F4EFE7">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 9vw, 130px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #1E3B30"><span style="width: 28px; height: 2px; background: #1E3B30"></span>About Stonegate</div>
+<h2 style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: clamp(38px, 4.4vw, 64px); line-height: 0.98; text-transform: uppercase; margin: 22px 0 0; max-width: 900px">A roof is only as good as the crew that builds it.</h2>
+<div style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 40px clamp(40px, 5.5vw, 80px); margin-top: clamp(36px, 4.4vw, 64px)">
+<div class="sg-img" style="flex: 1 1 380px; min-width: 0; position: relative"><img src="../images/roof-02-about.jpg" alt="Roofer in a safety harness nailing shingles on a steep roof" style="display: block; width: 100%; height: 100%; min-height: 460px; object-fit: cover"><div style="position: absolute; left: 0; bottom: 0; background: #1E3B30; color: #FFFFFF; padding: 18px 22px; max-width: 280px"><div style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: 22px; text-transform: uppercase">Crew-led, start to finish</div><div style="font-size: 14px; color: #C6D1CA; margin-top: 4px">The same lead on your roof from day one to final walkthrough.</div></div></div>
+<div style="flex: 1.2 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+<p style="font-size: clamp(19px, 1.5vw, 22px); line-height: 1.55; color: #1F2326; margin: 0">Stonegate Roofing Co. installs and repairs roofs across Lakemont County. Every project is run by a dedicated crew lead who walks the job with you before work starts and after the final cleanup.</p>
+<p style="font-size: 17px; line-height: 1.65; color: #5B6166; margin: 0">We use quality materials, follow the manufacturer’s installation specifications and treat your property with care from the first tear-off to the last magnet sweep.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px">
+<div style="background: #FFFFFF; padding: 22px; border-top: 3px solid #1E3B30"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1E3B30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"></path></svg><div style="font-weight: 700; font-size: 17px; margin-top: 12px">Crew lead on every job</div><div style="font-size: 15px; line-height: 1.5; color: #5B6166; margin-top: 6px">One point of contact from start to finish.</div></div>
+<div style="background: #FFFFFF; padding: 22px; border-top: 3px solid #1E3B30"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1E3B30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"></path><circle cx="12" cy="13" r="3"></circle></svg><div style="font-weight: 700; font-size: 17px; margin-top: 12px">Photo-documented work</div><div style="font-size: 15px; line-height: 1.5; color: #5B6166; margin-top: 6px">See what we found and what we fixed.</div></div>
+<div style="background: #FFFFFF; padding: 22px; border-top: 3px solid #1E3B30"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1E3B30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg><div style="font-weight: 700; font-size: 17px; margin-top: 12px">Thorough cleanup</div><div style="font-size: 15px; line-height: 1.5; color: #5B6166; margin-top: 6px">Magnetic nail sweep and debris removal, every day.</div></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; padding-top: 24px; border-top: 1px solid rgba(31,35,38,0.15)">
+<a class="sg-btn sg-green" href="#contact" style="background: #1E3B30; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; padding: 17px 26px; display: inline-flex; align-items: center; gap: 10px">Schedule an Inspection <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+<a href="tel:5550103184" style="display: flex; flex-direction: column; text-decoration: none; color: #1F2326"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #5B6166">Or call us</span><span style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: 24px">(555) 010-3184</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="background: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 9vw, 130px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px">
+<div>
+<div style="display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #1E3B30"><span style="width: 28px; height: 2px; background: #1E3B30"></span>What we do</div>
+<h2 style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: clamp(38px, 4.4vw, 64px); line-height: 0.98; text-transform: uppercase; margin: 20px 0 0">Roofing services</h2>
+</div>
+<p style="font-size: 18px; line-height: 1.6; color: #5B6166; max-width: 420px; margin: 0">From a single leak to a full replacement, every job gets the same attention to detail.</p>
+</div>
+<div style="margin-top: clamp(32px, 3.9vw, 56px); border-bottom: 1px solid rgba(31,35,38,0.15)">
+<a class="sg-row" href="#contact" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 48px; padding: 32px 0; border-top: 1px solid rgba(31,35,38,0.15); text-decoration: none; color: #1F2326">
+<span style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: 40px; color: #1E3B30; width: 72px">01</span>
+<span style="flex: 1 1 360px; min-width: 0"><span style="display: block; font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: clamp(28px, 2.5vw, 36px); text-transform: uppercase">Roof Replacement</span><span style="display: block; font-size: 17px; line-height: 1.6; color: #5B6166; margin-top: 8px">Complete tear-off and installation of architectural shingle systems, with new underlayment, flashing and ventilation.</span></span>
+<span class="sg-img" style="flex: 0 1 300px; min-width: 0"><img src="../images/roof-03-replacement.jpg" alt="Roofing crew installing new shingles" style="display: block; width: 100%; height: 180px; object-fit: cover"></span>
+<span class="sg-arrow sg-hide" style="width: 56px; height: 56px; border: 1px solid rgba(31,35,38,0.3); display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F2326" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span>
+</a>
+<a class="sg-row" href="#contact" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 48px; padding: 32px 0; border-top: 1px solid rgba(31,35,38,0.15); text-decoration: none; color: #1F2326">
+<span style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: 40px; color: #1E3B30; width: 72px">02</span>
+<span style="flex: 1 1 360px; min-width: 0"><span style="display: block; font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: clamp(28px, 2.5vw, 36px); text-transform: uppercase">Roof Repair</span><span style="display: block; font-size: 17px; line-height: 1.6; color: #5B6166; margin-top: 8px">Leak tracing, flashing repair and storm damage fixes, documented with photos so you know exactly what was done.</span></span>
+<span class="sg-img" style="flex: 0 1 300px; min-width: 0"><img src="../images/roof-04-repair.jpg" alt="Roofer securing metal flashing around a brick chimney" style="display: block; width: 100%; height: 180px; object-fit: cover"></span>
+<span class="sg-arrow sg-hide" style="width: 56px; height: 56px; border: 1px solid rgba(31,35,38,0.3); display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F2326" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span>
+</a>
+<a class="sg-row" href="#contact" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 48px; padding: 32px 0; border-top: 1px solid rgba(31,35,38,0.15); text-decoration: none; color: #1F2326">
+<span style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: 40px; color: #1E3B30; width: 72px">03</span>
+<span style="flex: 1 1 360px; min-width: 0"><span style="display: block; font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: clamp(28px, 2.5vw, 36px); text-transform: uppercase">Metal Roofing</span><span style="display: block; font-size: 17px; line-height: 1.6; color: #5B6166; margin-top: 8px">Standing-seam metal roofs for homeowners who want a long-lasting, low-maintenance roof with a modern look.</span></span>
+<span class="sg-img" style="flex: 0 1 300px; min-width: 0"><img src="../images/roof-05-metal.jpg" alt="Modern farmhouse with a dark standing-seam metal roof" style="display: block; width: 100%; height: 180px; object-fit: cover"></span>
+<span class="sg-arrow sg-hide" style="width: 56px; height: 56px; border: 1px solid rgba(31,35,38,0.3); display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F2326" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span>
+</a>
+<a class="sg-row" href="#contact" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 48px; padding: 32px 0; border-top: 1px solid rgba(31,35,38,0.15); text-decoration: none; color: #1F2326">
+<span style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: 40px; color: #1E3B30; width: 72px">04</span>
+<span style="flex: 1 1 360px; min-width: 0"><span style="display: block; font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: clamp(28px, 2.5vw, 36px); text-transform: uppercase">Roof Inspections</span><span style="display: block; font-size: 17px; line-height: 1.6; color: #5B6166; margin-top: 8px">Detailed inspections for homeowners, buyers and sellers, with a written report and photos.</span></span>
+<span class="sg-img" style="flex: 0 1 300px; min-width: 0"><img src="../images/roof-07-inspection.jpg" alt="Roof inspector on a ladder checking shingles" style="display: block; width: 100%; height: 180px; object-fit: cover"></span>
+<span class="sg-arrow sg-hide" style="width: 56px; height: 56px; border: 1px solid rgba(31,35,38,0.3); display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F2326" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span>
+</a>
+</div>
+</div>
+</section>
+
+<!-- WHY -->
+<section aria-labelledby="why-h" style="background: #1F2326; color: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 9vw, 130px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #D9CBB3"><span style="width: 28px; height: 2px; background: #D9CBB3"></span>Why Stonegate</div>
+<h2 id="why-h" style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: clamp(36px, 5vw, 72px); line-height: 1; text-transform: uppercase; margin: 24px 0 0; max-width: 1100px">We don’t cut corners on the one thing that protects everything else.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px 48px; margin-top: clamp(40px, 5vw, 72px)">
+<sc-for list="{{reasons}}" as="r" hint-placeholder-count="3">
+<div style="border-top: 2px solid rgba(217,203,179,0.5); padding-top: 28px">
+<h3 style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: 28px; text-transform: uppercase; margin: 0">{{r.t}}</h3>
+<p style="font-size: 17px; line-height: 1.6; color: #B8BDB9; margin: 12px 0 0">{{r.d}}</p>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section aria-labelledby="proc-h" style="background: #D9CBB3">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 8.3vw, 120px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase"><span style="width: 28px; height: 2px; background: #1F2326"></span>Our process</div>
+<h2 id="proc-h" style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: clamp(38px, 4.4vw, 64px); line-height: 0.98; text-transform: uppercase; margin: 20px 0 0">From first call to final sweep</h2>
+<ol style="list-style: none; padding: 0; margin: clamp(36px, 3.9vw, 56px) 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+<li style="border-left: 1px solid rgba(31,35,38,0.25); padding-left: 24px">
+<div style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: clamp(56px, 6.6vw, 96px); line-height: 0.9">{{s.n}}</div>
+<h3 style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: 26px; text-transform: uppercase; margin: 14px 0 0">{{s.t}}</h3>
+<p style="font-size: 16px; line-height: 1.6; color: #3E4347; margin: 10px 0 0">{{s.d}}</p>
+</li>
+</sc-for>
+</ol>
+</div>
+</section>
+
+<!-- OUR WORK -->
+<section id="work" style="background: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 9vw, 130px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #1E3B30"><span style="width: 28px; height: 2px; background: #1E3B30"></span>Project gallery</div>
+<h2 style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: clamp(38px, 4.4vw, 64px); line-height: 0.98; text-transform: uppercase; margin: 20px 0 0">Recent roofs</h2>
+<figure class="sg-img" style="margin: clamp(32px, 3.3vw, 48px) 0 0; position: relative">
+<img src="../images/roof-06-project.jpg" alt="Stone estate home with a finished slate-style roof at golden hour" style="display: block; width: 100%; height: clamp(260px, 39vw, 560px); object-fit: cover">
+<figcaption style="position: absolute; left: 0; bottom: 0; background: #1F2326; color: #FFFFFF; padding: 14px 20px; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Slate-style roof · Stone estate</figcaption>
+</figure>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 24px">
+<figure class="sg-img" style="margin: 0; position: relative"><img src="../images/roof-01-hero.jpg" alt="Craftsman home with a new architectural shingle roof" style="display: block; width: 100%; height: clamp(240px, 29vw, 420px); object-fit: cover"><figcaption style="position: absolute; left: 0; bottom: 0; background: #1F2326; color: #FFFFFF; padding: 12px 18px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Full replacement · Hillside home</figcaption></figure>
+<figure class="sg-img" style="margin: 0; position: relative"><img src="../images/roof-05-metal.jpg" alt="Farmhouse with a standing-seam metal roof" style="display: block; width: 100%; height: clamp(240px, 29vw, 420px); object-fit: cover"><figcaption style="position: absolute; left: 0; bottom: 0; background: #1F2326; color: #FFFFFF; padding: 12px 18px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Standing-seam metal · Farmhouse</figcaption></figure>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIAL CAROUSEL -->
+<section aria-label="Customer stories" aria-roledescription="carousel" style="background: #F4EFE7">
+<div style="max-width: 1100px; margin: 0 auto; padding: clamp(64px, 9vw, 130px) clamp(20px, 8.3vw, 120px); box-sizing: border-box; text-align: center">
+<div style="display: inline-flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #1E3B30"><span style="width: 28px; height: 2px; background: #1E3B30"></span>Customer stories<span style="width: 28px; height: 2px; background: #1E3B30"></span></div>
+<div role="img" aria-label="5 out of 5 stars" style="display: flex; justify-content: center; gap: 4px; margin-top: 28px"><svg width="22" height="22" viewBox="0 0 24 24" fill="#1E3B30" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="22" height="22" viewBox="0 0 24 24" fill="#1E3B30" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="22" height="22" viewBox="0 0 24 24" fill="#1E3B30" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="22" height="22" viewBox="0 0 24 24" fill="#1E3B30" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="22" height="22" viewBox="0 0 24 24" fill="#1E3B30" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
+<div aria-live="polite" style="display: grid; margin-top: 24px">
+<sc-for list="{{reviews}}" as="r" hint-placeholder-count="3">
+<figure style="{{r.style}}">
+<blockquote style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: clamp(26px, 3.1vw, 44px); line-height: 1.15; text-transform: uppercase; margin: 0">“{{r.q}}”</blockquote>
+<figcaption style="font-size: 16px; font-weight: 600; color: #5B6166; margin-top: 24px">{{r.n}} · {{r.m}}</figcaption>
+</figure>
+</sc-for>
+</div>
+<div style="display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 32px">
+<button class="sg-btn" type="button" onClick="{{prev}}" aria-label="Previous review" style="width: 44px; height: 44px; border: 1px solid rgba(31,35,38,0.3); background: transparent; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F2326" stroke-width="2" aria-hidden="true"><path d="M19 12H5M11 5l-7 7 7 7"></path></svg></button>
+<div style="display: flex; gap: 8px">
+<sc-for list="{{reviews}}" as="r" hint-placeholder-count="3">
+<button type="button" onClick="{{r.go}}" aria-label="{{r.label}}" style="width: 44px; height: 44px; background: transparent; border: 0; display: flex; align-items: center; justify-content: center; cursor: pointer"><span style="{{r.dot}}"></span></button>
+</sc-for>
+</div>
+<button class="sg-btn" type="button" onClick="{{next}}" aria-label="Next review" style="width: 44px; height: 44px; border: 1px solid rgba(31,35,38,0.3); background: transparent; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F2326" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></button>
+</div>
+</div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section id="areas" style="background: #1E3B30; color: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 7.6vw, 110px) clamp(20px, 8.3vw, 120px); box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 32px 80px">
+<div style="flex: 1 1 360px; min-width: 0">
+<div style="display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #D9CBB3"><span style="width: 28px; height: 2px; background: #D9CBB3"></span>Service areas</div>
+<h2 style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: clamp(38px, 4.4vw, 64px); line-height: 0.98; text-transform: uppercase; margin: 20px 0 0">Roofing across Lakemont County</h2>
+<p style="font-size: 18px; line-height: 1.6; color: #C6D1CA; margin: 18px 0 0">Commercial projects considered throughout the region.</p>
+</div>
+<ul style="flex: 1 1 420px; min-width: 0; list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); column-gap: 24px">
+<sc-for list="{{towns}}" as="t" hint-placeholder-count="8">
+<li style="border-bottom: 1px solid rgba(255,255,255,0.18)"><a class="sg-town" href="{{t.url}}" target="_blank" rel="noopener" aria-label="{{t.label}}" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 18px 0; color: #FFFFFF; text-decoration: none; font-size: 17px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase"><span style="display: flex; align-items: center; gap: 10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D9CBB3" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>{{t.name}}</span><svg class="sg-town-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D9CBB3" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a></li>
+</sc-for>
+</ul>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 9vw, 130px) clamp(20px, 8.3vw, 120px); box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 32px 96px">
+<div style="flex: 1 1 320px; min-width: 0">
+<div style="display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #1E3B30"><span style="width: 28px; height: 2px; background: #1E3B30"></span>FAQ</div>
+<h2 style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: clamp(38px, 4.4vw, 64px); line-height: 0.98; text-transform: uppercase; margin: 20px 0 0">Good questions</h2>
+<p style="font-size: 18px; line-height: 1.6; color: #5B6166; margin: 18px 0 0">Ask us anything about your roof. We’d rather you have the full picture.</p>
+</div>
+<div style="flex: 1.4 1 480px; min-width: 0; border-top: 1px solid rgba(31,35,38,0.15)">
+<sc-for list="{{faqs}}" as="f" hint-placeholder-count="5">
+<div style="border-bottom: 1px solid rgba(31,35,38,0.15)">
+<button class="sg-faq" type="button" onClick="{{f.toggle}}" aria-expanded="{{f.expanded}}" style="width: 100%; background: transparent; border: 0; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; text-align: left; color: #1F2326; font-family: 'Source Sans 3', sans-serif; font-weight: 700; font-size: clamp(17px, 1.4vw, 20px); min-height: 44px">
+<span>{{f.q}}</span>
+<span style="{{f.iconStyle}}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3B30" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span>
+</button>
+<sc-if value="{{f.open}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; padding: 0 48px 24px 0; font-size: 17px; line-height: 1.65; color: #5B6166">{{f.a}}</p>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background: #16191B; color: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 9vw, 130px) clamp(20px, 8.3vw, 120px); box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 40px 88px">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #D9CBB3"><span style="width: 28px; height: 2px; background: #D9CBB3"></span>Get an estimate</div>
+<h2 style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: clamp(44px, 5.5vw, 80px); line-height: 0.95; text-transform: uppercase; margin: 0">Let’s take a look at your roof.</h2>
+<p style="font-size: 18px; line-height: 1.6; color: #B8BDB9; margin: 0">Request an inspection and written estimate. We’ll reach out to schedule a time that works for you.</p>
+<a href="tel:5550103184" style="display: flex; align-items: center; gap: 12px; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 18px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9CBB3" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>(555) 010-3184</a>
+<a href="mailto:estimates@stonegateroofing.example" style="display: flex; align-items: center; gap: 12px; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 18px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9CBB3" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg>estimates@stonegateroofing.example</a>
+<div style="display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 18px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9CBB3" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>1847 Granite Ridge Way, North Lakemont</div>
+</div>
+<div style="flex: 1 1 420px; min-width: 0; background: #F4EFE7; color: #1F2326; padding: clamp(24px, 3vw, 44px); box-sizing: border-box">
+<sc-if value="{{notSent}}" hint-placeholder-val="{{ true }}">
+<form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 20px">
+<h3 style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: 30px; text-transform: uppercase; margin: 0">Request an estimate</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px">
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Name<input type="text" name="name" required="required" autocomplete="name" placeholder="Full name" style="height: 52px; border: 1px solid #CFC4B0; background: #FFFFFF; padding: 0 16px; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Phone<input type="tel" name="phone" required="required" autocomplete="tel" placeholder="(555) 000-0000" style="height: 52px; border: 1px solid #CFC4B0; background: #FFFFFF; padding: 0 16px; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none"></label>
+</div>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Property address<input type="text" name="address" autocomplete="street-address" placeholder="Street, town" style="height: 52px; border: 1px solid #CFC4B0; background: #FFFFFF; padding: 0 16px; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Project type<select name="type" style="height: 52px; border: 1px solid #CFC4B0; background: #FFFFFF; padding: 0 12px; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none"><option>Roof replacement</option><option>Roof repair</option><option>Metal roofing</option><option>Inspection</option><option>Storm damage</option></select></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Details<textarea name="details" rows="4" placeholder="Tell us about your roof…" style="border: 1px solid #CFC4B0; background: #FFFFFF; padding: 14px 16px; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none; resize: vertical"></textarea></label>
+<button class="sg-btn sg-green" type="submit" style="background: #1E3B30; color: #FFFFFF; border: 0; font-weight: 700; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; padding: 18px 24px; min-height: 56px; display: flex; align-items: center; justify-content: center; gap: 10px">Submit request <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></button>
+</form>
+</sc-if>
+<sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+<div style="padding: 24px 0">
+<h3 style="font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: 32px; text-transform: uppercase; margin: 0">Request received.</h3>
+<p style="font-size: 17px; line-height: 1.6; color: #5B6166; margin: 12px 0 0">Thanks. We’ll call to schedule your inspection.</p>
+<button class="sg-btn" type="button" onClick="{{resetForm}}" style="margin-top: 22px; background: transparent; border: 1px solid #1F2326; color: #1F2326; padding: 12px 20px; font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; min-height: 44px">Send another</button>
+</div>
+</sc-if>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="sg-foot" style="background: #1F2326; color: #B8BDB9">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(48px, 6vw, 88px) clamp(20px, 8.3vw, 120px) 32px; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; gap: 36px 64px">
+<div style="flex: 1.4 1 260px; min-width: 0">
+<div style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="width: 40px; height: 40px; background: #D9CBB3; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F2326" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12 12 4l10 8"></path><path d="M5 10v10h14V10"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 20px; letter-spacing: 0.06em; color: #FFFFFF">STONEGATE</span><span style="font-size: 10px; font-weight: 600; letter-spacing: 0.3em; color: #D9CBB3">ROOFING CO.</span></span>
+</div>
+<p style="font-size: 16px; line-height: 1.6; margin: 18px 0 0; max-width: 340px">Roof replacement, repair and inspections for Lakemont County homes and businesses.</p>
+</div>
+<div style="flex: 1 1 160px"><div style="font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #D9CBB3">Services</div><ul style="list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 16px"><li><a href="#services">Roof Replacement</a></li><li><a href="#services">Roof Repair</a></li><li><a href="#services">Metal Roofing</a></li><li><a href="#services">Inspections</a></li></ul></div>
+<div style="flex: 1 1 160px"><div style="font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #D9CBB3">Company</div><ul style="list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 16px"><li><a href="#about">About</a></li><li><a href="#work">Our Work</a></li><li><a href="#areas">Service Areas</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+<div style="flex: 1 1 220px"><div style="font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #D9CBB3">Contact</div><ul style="list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 16px"><li><a href="tel:5550103184">(555) 010-3184</a></li><li><a href="mailto:estimates@stonegateroofing.example">estimates@stonegateroofing.example</a></li><li>1847 Granite Ridge Way, North Lakemont</li><li>[License #]</li></ul></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px; margin-top: 56px; font-size: 14px">
+<span>© 2026 Stonegate Roofing Co.</span><span>VERO concept project · fictional business</span>
+</div>
+</div>
+</footer>
+
+</div>
+</template>
+<script id="logic" type="text/plain">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { openFaq: 0, sent: false, rev: 0 };
+  }
+  componentDidMount() {
+    var self = this;
+    this.timer = setInterval(function () { self.setState({ rev: (self.state.rev + 1) % 3 }); }, 5000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+  renderVals() {
+    var self = this;
+    var faqData = [
+      ['How do I know if I need a repair or a replacement?', 'We inspect and photograph your roof, then explain what we see. If a repair will do the job, we’ll tell you.'],
+      ['How long does a roof replacement take?', 'Most homes take [X days], depending on size, weather and material. We’ll give you a schedule in your estimate.'],
+      ['Do you help with storm damage?', 'Yes. We document damage with photos and can provide paperwork for your insurance claim.'],
+      ['What roofing materials do you install?', 'Architectural asphalt shingles and standing-seam metal. Ask about other materials.'],
+      ['Will you protect my landscaping?', 'Yes. We cover plants and surfaces and run a magnetic sweep for nails at the end of every day.']
+    ];
+    var revData = [
+      { n: 'Mark & Lisa T.', m: 'Pine Ridge · Full roof replacement', q: 'The crew lead walked our roof with us before they started and again when they finished. Not one nail left in the yard, and the new roof looks incredible.' },
+      { n: 'Angela W.', m: 'Cedar Point · Storm damage repair', q: 'A storm tore off a section of shingles on a Sunday night. They tarped it the next morning, documented everything for our insurance claim and had it permanently repaired within the week.' },
+      { n: 'Brian H.', m: 'Westbrook · Metal roof installation', q: 'We went with standing-seam metal. They walked us through every color and option with zero pressure, and the finished roof completely changed the look of our house.' }
+    ];
+    var restart = function (i) { clearInterval(self.timer); self.timer = setInterval(function () { self.setState({ rev: (self.state.rev + 1) % 3 }); }, 5000); self.setState({ rev: i }); };
+    var reviews = revData.map(function (r, i) {
+      var on = self.state.rev === i;
+      return { n: r.n, m: r.m, q: r.q, label: 'Show review ' + (i + 1),
+        style: 'grid-area: 1 / 1; margin: 0; transition: opacity .7s ease, transform .7s ease; ' + (on ? 'opacity: 1; transform: none; visibility: visible;' : 'opacity: 0; transform: translateY(12px); visibility: hidden;'),
+        dot: 'display: block; height: 10px; border-radius: 999px; transition: width .3s ease, background-color .3s ease; ' + (on ? 'width: 28px; background: #1E3B30;' : 'width: 10px; background: rgba(31,35,38,0.25);'),
+        go: function () { restart(i); } };
+    });
+    return {
+      reviews: reviews,
+      prev: function () { restart((self.state.rev + 2) % 3); },
+      next: function () { restart((self.state.rev + 1) % 3); },
+      trust: ['Written, line-item estimates', 'Licensed & insured · [License #]', 'Manufacturer warranty options', 'Clean job sites, every day'],
+      pillars: [
+        { t: 'Crew lead on every job', d: 'One point of contact from start to finish.' },
+        { t: 'Photo-documented work', d: 'See what we found and what we fixed.' },
+        { t: 'Thorough cleanup', d: 'Magnetic nail sweep and debris removal.' }
+      ],
+      reasons: [
+        { t: 'Built to spec', d: 'Installed to manufacturer specifications, so your warranty options stay intact.' },
+        { t: 'Honest scope', d: 'Line-item estimates that explain what’s included, and what isn’t.' },
+        { t: 'Respect for your home', d: 'Protected landscaping, tidy driveways and crews who communicate.' }
+      ],
+      steps: [
+        { n: '1', t: 'Inspect', d: 'We get on the roof, photograph the condition and listen to your goals.' },
+        { n: '2', t: 'Estimate', d: 'You receive a written, line-item estimate with material options.' },
+        { n: '3', t: 'Install', d: 'Your crew lead manages tear-off, installation and daily cleanup.' },
+        { n: '4', t: 'Walkthrough', d: 'We review the finished roof together and hand over your paperwork.' }
+      ],
+      towns: ['North Lakemont', 'Riverside Park', 'Oak Hollow', 'Westbrook', 'Fairview Heights', 'Pine Ridge', 'Cedar Point', 'Millbrook'].map(function (t) { return { name: t, label: t + ' on Google Maps (opens in a new tab)', url: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(t + ', Lakemont County') }; }),
+      faqs: faqData.map(function (f, i) {
+        var open = self.state.openFaq === i;
+        return {
+          q: f[0], a: f[1], open: open, expanded: open ? 'true' : 'false',
+          iconStyle: 'flex-shrink: 0; display: flex; transition: transform .25s ease; ' + (open ? 'transform: rotate(45deg);' : ''),
+          toggle: function () { self.setState({ openFaq: open ? -1 : i }); }
+        };
+      }),
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submit: function (e) { if (e && e.preventDefault) e.preventDefault(); self.setState({ sent: true }); },
+      resetForm: function () { self.setState({ sent: false }); }
+    };
+  }
+}
+</script>
+<script>(function () {
+  function DCLogic(props) { this.props = props || {}; this.state = {}; }
+  DCLogic.prototype.setState = function (p) {
+    var next = typeof p === 'function' ? p(this.state) : p;
+    for (var k in next) this.state[k] = next[k];
+    schedule();
+  };
+  var code = document.getElementById('logic').textContent;
+  var Component = new Function('DCLogic', code + '\n;return Component;')(DCLogic);
+  // allow ES class to extend our function-based base
+  var inst = new Component({});
+  var tpl = document.getElementById('tpl').content;
+  var app = document.getElementById('app');
+  var HOLE = /\{\{\s*([^}]+?)\s*\}\}/g;
+
+  function lookup(path, scope) {
+    path = path.trim();
+    if (path === 'true') return true; if (path === 'false') return false;
+    var parts = path.split('.'), v = (parts[0] in scope) ? scope[parts[0]] : undefined;
+    for (var i = 1; i < parts.length && v != null; i++) v = v[parts[i]];
+    return v;
+  }
+  function fill(str, scope) {
+    return str.replace(HOLE, function (_, p) { var v = lookup(p, scope); return v == null || v === false ? '' : String(v); });
+  }
+  function whole(str) { var m = /^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/.exec(str); return m ? m[1] : null; }
+
+  function render(node, scope, parent) {
+    if (node.nodeType === 3) { parent.appendChild(document.createTextNode(fill(node.nodeValue, scope))); return; }
+    if (node.nodeType !== 1) return;
+    var tag = node.tagName.toLowerCase();
+    if (tag === 'sc-for') {
+      var list = lookup(whole(node.getAttribute('list')), scope) || [];
+      var as = node.getAttribute('as');
+      for (var i = 0; i < list.length; i++) {
+        var s = Object.create(scope); s[as] = list[i];
+        for (var c = node.firstChild; c; c = c.nextSibling) render(c, s, parent);
+      }
+      return;
+    }
+    if (tag === 'sc-if') {
+      if (lookup(whole(node.getAttribute('value')), scope)) for (var c2 = node.firstChild; c2; c2 = c2.nextSibling) render(c2, scope, parent);
+      return;
+    }
+    var el = node.namespaceURI === 'http://www.w3.org/2000/svg' ? document.createElementNS(node.namespaceURI, node.localName) : document.createElement(node.localName);
+    for (var a = 0; a < node.attributes.length; a++) {
+      var at = node.attributes[a], name = at.name, val = at.value;
+      if (name.indexOf('hint-') === 0) continue;
+      if (name.indexOf('on') === 0 && whole(val)) {
+        var fn = lookup(whole(val), scope);
+        if (typeof fn === 'function') el.addEventListener(name.slice(2), fn);
+        continue;
+      }
+      var w = whole(val);
+      if (w) { var v = lookup(w, scope); if (v == null || v === false) continue; val = String(v); }
+      else if (val.indexOf('{{') >= 0) val = fill(val, scope);
+      if (at.namespaceURI) el.setAttributeNS(at.namespaceURI, name, val); else el.setAttribute(name, val);
+    }
+    for (var ch = node.firstChild; ch; ch = ch.nextSibling) render(ch, scope, el);
+    parent.appendChild(el);
+  }
+
+  function draw() {
+    var keep = {}, focusName = null, act = document.activeElement;
+    app.querySelectorAll('input,select,textarea').forEach(function (f) { if (f.name) keep[f.name] = f.type === 'checkbox' ? f.checked : f.value; });
+    if (act && act.name && app.contains(act)) focusName = act.name;
+    var frag = document.createDocumentFragment();
+    var vals = inst.renderVals();
+    for (var c = tpl.firstChild; c; c = c.nextSibling) render(c, vals, frag);
+    app.replaceChildren(frag);
+    app.querySelectorAll('input,select,textarea').forEach(function (f) {
+      if (f.name in keep) { if (f.type === 'checkbox') f.checked = keep[f.name]; else f.value = keep[f.name]; }
+    });
+    if (focusName) { var fe = app.querySelector('[name="' + focusName + '"]'); if (fe) fe.focus({ preventScroll: true }); }
+  }
+  var pending = false;
+  function schedule() { if (pending) return; pending = true; requestAnimationFrame(function () { pending = false; draw(); }); }
+  draw();
+  if (inst.componentDidMount) inst.componentDidMount();
+  if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
+})();
+</script>
+<a href="../work.html#work" style="position:fixed;left:16px;bottom:16px;z-index:9999;display:inline-flex;align-items:center;gap:10px;background:#0A0A0C;color:#fff;text-decoration:none;font:600 14px/1 Inter,system-ui,sans-serif;padding:12px 16px 12px 12px;border-radius:999px;box-shadow:0 14px 34px -10px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.14)"><img src="../images/vero-mark.png" alt="" style="height:18px;width:auto">← Back to VERO<span style="color:#A99BFF;font-weight:500">· Concept project</span></a>
+</body>
+</html>

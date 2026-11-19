@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meridian Build Group — VERO Digital concept website</title>
+<meta name="description" content="A concept website designed by VERO Digital for a fictional business.">
+<link rel="icon" type="image/png" href="../images/vero-mark.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#111111}
+a{color:#A9814F}
+.mb-btn{transition:transform .2s ease,background-color .2s ease,border-color .2s ease,color .2s ease;cursor:pointer}
+.mb-btn:hover{transform:translateY(-2px)}
+.mb-bronze:hover{background:#8F6B3F !important}
+.mb-ghost:hover{border-color:#FFFFFF !important;background:rgba(255,255,255,0.08) !important}
+.mb-dark:hover{background:#2A2724 !important}
+.mb-outline:hover{background:#111111 !important;color:#FFFFFF !important}
+.mb-nav a{transition:color .2s ease}
+.mb-nav a:hover{color:#FFFFFF !important}
+.mb-img{overflow:hidden}
+.mb-img img{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.mb-img:hover img,.mb-card:hover .mb-img img{transform:scale(1.05)}
+.mb-card{transition:border-color .3s ease,transform .3s ease}
+.mb-card:hover{border-color:#A9814F !important;transform:translateY(-4px)}
+.mb-more{transition:gap .25s ease}
+.mb-more:hover{gap:14px !important}
+.mb-town{transition:padding-left .25s ease,color .2s ease}
+.mb-town:hover{padding-left:10px !important;color:#A9814F !important}
+.mb-foot a{color:#B8AFA2;text-decoration:none}
+.mb-foot a:hover{color:#FFFFFF}
+input,select,textarea{font:inherit}
+input:focus,select:focus,textarea:focus{outline:2px solid #A9814F;outline-offset:1px}
+@keyframes mbup{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.mb-up{animation:mbup 1s cubic-bezier(.2,.7,.2,1) both}
+.mb-up2{animation:mbup 1s .18s cubic-bezier(.2,.7,.2,1) both}
+.mb-up3{animation:mbup 1s .34s cubic-bezier(.2,.7,.2,1) both}
+@keyframes mbzoom{from{transform:scale(1.08)}to{transform:scale(1)}}
+.mb-zoom{animation:mbzoom 2.4s cubic-bezier(.2,.7,.2,1) both}
+@media (max-width:900px){.mb-links{display:none !important}.mb-hide{display:none !important}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+</style>
+
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+
+
+<div style="font-family: Inter, system-ui, sans-serif; color: #111111; background: #F5F1EA; width: 100%; overflow-x: hidden">
+
+<!-- NAV -->
+<header style="position: sticky; top: 0; z-index: 40; background: rgba(17,17,17,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid #2A2724">
+<nav class="mb-nav" aria-label="Main" style="max-width: 1440px; margin: 0 auto; padding: 0 clamp(20px, 8.3vw, 120px); height: 88px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; gap: 24px">
+<a href="#top" aria-label="Meridian Build Group home" style="display: flex; align-items: center; gap: 12px; text-decoration: none">
+<span style="width: 36px; height: 36px; border: 2px solid #A9814F; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Syne, sans-serif; font-weight: 700; font-size: 17px; color: #A9814F">M</span>
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Syne, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: 0.06em; color: #FFFFFF; line-height: 1">MERIDIAN</span><span style="font-size: 9px; font-weight: 600; letter-spacing: 0.4em; color: #B8AFA2">BUILD GROUP</span></span>
+</a>
+<div class="mb-links" style="display: flex; gap: 36px; font-size: 15px; font-weight: 500">
+<a href="#services" style="color: #D9D2C7; text-decoration: none">Services</a>
+<a href="#projects" style="color: #D9D2C7; text-decoration: none">Projects</a>
+<a href="#process" style="color: #D9D2C7; text-decoration: none">Process</a>
+<a href="#about" style="color: #D9D2C7; text-decoration: none">About</a>
+<a href="#contact" style="color: #D9D2C7; text-decoration: none">Contact</a>
+</div>
+<div style="display: flex; align-items: center; gap: 22px">
+<a class="mb-hide" href="tel:5550107745" style="color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px">(555) 010-7745</a>
+<a class="mb-btn mb-bronze" href="#contact" style="background: #A9814F; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 14px; padding: 15px 22px; white-space: nowrap">Request a Consultation</a>
+</div>
+</nav>
+</header>
+
+<!-- HERO -->
+<section id="top" style="position: relative; background: #1B1A18; color: #FFFFFF; overflow: hidden; min-height: clamp(640px, 57vw, 820px); display: flex; align-items: center">
+<img class="mb-zoom" src="../images/build-01-hero.jpg" alt="Steel-and-timber custom home under construction at sunset" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(17,17,17,0.94) 0%, rgba(17,17,17,0.72) 42%, rgba(17,17,17,0.2) 75%, rgba(17,17,17,0.05) 100%)"></div>
+<div aria-hidden="true" style="position: absolute; inset: auto 0 0 0; height: 180px; background: linear-gradient(180deg, rgba(17,17,17,0), rgba(17,17,17,0.7))"></div>
+<div style="position: relative; width: 100%; max-width: 1440px; margin: 0 auto; padding: clamp(80px, 9vw, 130px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div class="mb-up" style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #C9A271">General Contractor · Custom Homes · Commercial</div>
+<h1 class="mb-up2" style="font-family: Syne, sans-serif; font-weight: 700; font-size: clamp(48px, 6vw, 86px); line-height: 0.98; letter-spacing: -0.03em; margin: 26px 0 0; max-width: 900px">Built with precision.<br>Delivered with integrity.</h1>
+<p class="mb-up2" style="font-size: clamp(16px, 1.3vw, 19px); line-height: 1.6; color: #D9D2C7; margin: 26px 0 0; max-width: 600px">Meridian Build Group plans and builds custom homes, renovations and commercial spaces across Harbor County, with one accountable team from first drawing to final walkthrough.</p>
+<div class="mb-up3" style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px">
+<a class="mb-btn mb-bronze" href="#contact" style="background: #A9814F; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; padding: 18px 30px; display: inline-flex; align-items: center; gap: 10px">Request a Consultation <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a class="mb-btn mb-ghost" href="#projects" style="border: 1px solid rgba(255,255,255,0.45); color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; padding: 17px 30px">View Our Projects</a>
+</div>
+<div class="mb-up3" style="display: flex; flex-wrap: wrap; gap: 10px 36px; margin-top: 44px; font-size: 14px; font-weight: 500; color: #D9D2C7">
+<span>— Licensed &amp; insured · Lic. #GC-58132</span><span>— Fixed-price proposals</span><span>— On-site project manager</span>
+</div>
+</div>
+</section>
+
+<!-- STATS -->
+<section aria-label="Company at a glance" style="background: #111111; color: #FFFFFF; border-top: 1px solid #2A2724">
+<div style="max-width: 1440px; margin: 0 auto; padding: 0 clamp(20px, 8.3vw, 120px); box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))">
+<sc-for list="{{stats}}" as="s" hint-placeholder-count="4">
+<div style="padding: 44px 28px 44px 0; border-right: 1px solid #2A2724">
+<div style="font-family: Syne, sans-serif; font-weight: 700; font-size: clamp(40px, 3.6vw, 52px); letter-spacing: -0.03em; line-height: 1">{{s.n}}</div>
+<div style="font-size: 14px; color: #B8AFA2; margin-top: 10px; line-height: 1.5">{{s.l}}</div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(80px, 9vw, 130px) clamp(20px, 8.3vw, 120px); box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 56px clamp(48px, 5.5vw, 80px)">
+<div style="flex: 1 1 420px; min-width: 0; position: relative; padding: 0 clamp(0px, 5vw, 70px) clamp(40px, 4vw, 60px) 0">
+<div class="mb-img"><img src="../images/build-02-about.jpg" alt="Meridian site lead in a hard hat reviewing blueprints on a job site" style="display: block; width: 100%; height: clamp(460px, 42vw, 600px); object-fit: cover; object-position: center 20%"></div>
+<div style="position: absolute; right: 0; bottom: 0; background: #A9814F; color: #FFFFFF; padding: 28px 30px">
+<div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase">Since 2004</div>
+<div style="font-family: Syne, sans-serif; font-weight: 700; font-size: 21px; line-height: 1.15; margin-top: 6px">Family-owned &amp;<br>locally operated</div>
+</div>
+</div>
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<div style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #A9814F">About Meridian</div>
+<h2 style="font-family: Syne, sans-serif; font-weight: 700; font-size: clamp(38px, 3.6vw, 52px); line-height: 1.04; letter-spacing: -0.03em; margin: 0">A builder you can hold to their word.</h2>
+<p style="font-size: 18px; line-height: 1.65; color: #6E675E; margin: 0">For more than two decades we have built homes and workplaces the careful way: detailed estimates, honest schedules and craftsmanship that holds up long after the keys are handed over.</p>
+<p style="font-size: 18px; line-height: 1.65; color: #6E675E; margin: 0">Every project is led by a dedicated project manager who keeps you informed each week, coordinates trades and protects your budget.</p>
+<ul style="list-style: none; padding: 0; margin: 6px 0; display: flex; flex-direction: column; gap: 14px; font-size: 16px; font-weight: 500">
+<li style="display: flex; align-items: center; gap: 14px"><span style="width: 10px; height: 10px; background: #A9814F; flex-shrink: 0"></span>Fixed-price proposals with no hidden allowances</li>
+<li style="display: flex; align-items: center; gap: 14px"><span style="width: 10px; height: 10px; background: #A9814F; flex-shrink: 0"></span>Weekly progress updates and photo reports</li>
+<li style="display: flex; align-items: center; gap: 14px"><span style="width: 10px; height: 10px; background: #A9814F; flex-shrink: 0"></span>2-year workmanship warranty on every build</li>
+</ul>
+<a class="mb-btn mb-dark" href="#contact" style="align-self: flex-start; background: #111111; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; padding: 17px 28px">Meet the Team</a>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="background: #1B1A18; color: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(80px, 9vw, 130px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="max-width: 680px"><div style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #C9A271">What we build</div><h2 style="font-family: Syne, sans-serif; font-weight: 700; font-size: clamp(38px, 3.6vw, 52px); line-height: 1.04; letter-spacing: -0.03em; margin: 18px 0 0">Construction services, from ground-up to fit-out.</h2></div>
+<p style="font-size: 17px; line-height: 1.6; color: #B8AFA2; margin: 0; max-width: 400px">Residential and commercial projects managed by one team, with a single point of contact and a clear schedule.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 64px">
+<article class="mb-card" style="background: #24221F; border: 1px solid #3A3632; display: flex; flex-direction: column">
+<div class="mb-img"><img src="../images/build-04-renovation.jpg" alt="Open-plan home renovation with new framing, plumbing and drywall in progress" style="display: block; width: 100%; height: 260px; object-fit: cover"></div>
+<div style="padding: 30px 28px 32px; display: flex; flex-direction: column; gap: 12px; flex: 1">
+<div style="font-size: 14px; font-weight: 600; letter-spacing: 0.1em; color: #C9A271">01</div>
+<h3 style="font-family: Syne, sans-serif; font-weight: 700; font-size: 26px; line-height: 1.1; margin: 0">Renovations &amp; Additions</h3>
+<p style="font-size: 15px; line-height: 1.65; color: #B8AFA2; margin: 0">Kitchens, whole-home remodels and additions that blend seamlessly with your existing home.</p>
+<div style="flex: 1"></div>
+<a class="mb-more" href="#contact" style="display: inline-flex; align-items: center; gap: 8px; color: #C9A271; text-decoration: none; font-size: 14px; font-weight: 600; margin-top: 8px">Discuss your project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</article>
+<article class="mb-card" style="background: #24221F; border: 1px solid #3A3632; display: flex; flex-direction: column">
+<div class="mb-img"><img src="../images/build-05-commercial.jpg" alt="Modern concrete and glass commercial building nearing completion" style="display: block; width: 100%; height: 260px; object-fit: cover"></div>
+<div style="padding: 30px 28px 32px; display: flex; flex-direction: column; gap: 12px; flex: 1">
+<div style="font-size: 14px; font-weight: 600; letter-spacing: 0.1em; color: #C9A271">02</div>
+<h3 style="font-family: Syne, sans-serif; font-weight: 700; font-size: 26px; line-height: 1.1; margin: 0">Commercial Build-Outs</h3>
+<p style="font-size: 15px; line-height: 1.65; color: #B8AFA2; margin: 0">Offices, retail and light industrial spaces delivered on schedule with minimal disruption.</p>
+<div style="flex: 1"></div>
+<a class="mb-more" href="#contact" style="display: inline-flex; align-items: center; gap: 8px; color: #C9A271; text-decoration: none; font-size: 14px; font-weight: 600; margin-top: 8px">Discuss your project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</article>
+<article class="mb-card" style="background: #24221F; border: 1px solid #3A3632; display: flex; flex-direction: column">
+<div class="mb-img"><img src="../images/build-06-interior.jpg" alt="Finished modern living space with stone floors and a timber ceiling" style="display: block; width: 100%; height: 260px; object-fit: cover"></div>
+<div style="padding: 30px 28px 32px; display: flex; flex-direction: column; gap: 12px; flex: 1">
+<div style="font-size: 14px; font-weight: 600; letter-spacing: 0.1em; color: #C9A271">03</div>
+<h3 style="font-family: Syne, sans-serif; font-weight: 700; font-size: 26px; line-height: 1.1; margin: 0">Interior Finishes</h3>
+<p style="font-size: 15px; line-height: 1.65; color: #B8AFA2; margin: 0">Millwork, tile, stone and custom cabinetry finished with a craftsman’s eye.</p>
+<div style="flex: 1"></div>
+<a class="mb-more" href="#contact" style="display: inline-flex; align-items: center; gap: 8px; color: #C9A271; text-decoration: none; font-size: 14px; font-weight: 600; margin-top: 8px">Discuss your project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<!-- FEATURED PROJECT -->
+<section id="projects">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(80px, 9vw, 130px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div><div style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #A9814F">Featured project</div><h2 style="font-family: Syne, sans-serif; font-weight: 700; font-size: clamp(38px, 3.6vw, 52px); line-height: 1.04; letter-spacing: -0.03em; margin: 18px 0 0">Recent work across Harbor County.</h2></div>
+<a class="mb-btn mb-outline" href="#contact" style="border: 1px solid rgba(17,17,17,0.3); color: #111111; text-decoration: none; font-weight: 600; font-size: 15px; padding: 16px 26px">Start Your Project</a>
+</div>
+<div style="position: relative; margin-top: 56px">
+<div class="mb-img"><img src="../images/build-03-custom-homes.jpg" alt="Ridgeview Residence, a modern stone and glass custom home with pool at dusk" style="display: block; width: 100%; height: clamp(420px, 46vw, 660px); object-fit: cover"></div>
+<div style="position: relative; margin: clamp(-120px, -7vw, -40px) 0 0 auto; width: min(560px, 100%); background: #111111; color: #FFFFFF; padding: clamp(26px, 2.6vw, 40px); box-sizing: border-box">
+<div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #C9A271">Custom Home · Completed 2025</div>
+<h3 style="font-family: Syne, sans-serif; font-weight: 700; font-size: clamp(28px, 2.4vw, 34px); margin: 12px 0 0">Ridgeview Residence</h3>
+<p style="font-size: 16px; line-height: 1.65; color: #B8AFA2; margin: 12px 0 0">A 4,800 sq ft hillside home in Oak Hollow with a stone-clad chimney, floor-to-ceiling glazing and a reflecting pool, delivered two weeks ahead of schedule.</p>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 22px; padding-top: 20px; border-top: 1px solid #3A3632">
+<div><div style="font-family: Syne, sans-serif; font-weight: 700; font-size: 22px">4,800</div><div style="font-size: 12px; color: #B8AFA2; margin-top: 4px">Square feet</div></div>
+<div><div style="font-family: Syne, sans-serif; font-weight: 700; font-size: 22px">14 mo</div><div style="font-size: 12px; color: #B8AFA2; margin-top: 4px">Build time</div></div>
+<div><div style="font-family: Syne, sans-serif; font-weight: 700; font-size: 22px">Oak Hollow</div><div style="font-size: 12px; color: #B8AFA2; margin-top: 4px">Location</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" style="background: #111111; color: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(80px, 8.3vw, 120px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #C9A271">How we work</div>
+<h2 style="font-family: Syne, sans-serif; font-weight: 700; font-size: clamp(36px, 3.4vw, 48px); line-height: 1.06; letter-spacing: -0.03em; margin: 18px 0 0; max-width: 780px">A clear process, from first meeting to final walkthrough.</h2>
+<ol style="list-style: none; padding: 0; margin: 64px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px 32px">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+<li style="border-top: 2px solid #A9814F; padding-top: 28px">
+<div style="font-size: 15px; font-weight: 600; letter-spacing: 0.1em; color: #C9A271">{{s.n}}</div>
+<h3 style="font-family: Syne, sans-serif; font-weight: 700; font-size: 26px; margin: 14px 0 0">{{s.t}}</h3>
+<p style="font-size: 15px; line-height: 1.65; color: #B8AFA2; margin: 12px 0 0">{{s.d}}</p>
+</li>
+</sc-for>
+</ol>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section aria-labelledby="rev-h" style="background: #E9E2D6">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(80px, 8.3vw, 120px) clamp(20px, 8.3vw, 120px); box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div><div style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #A9814F">Client reviews</div><h2 id="rev-h" style="font-family: Syne, sans-serif; font-weight: 700; font-size: clamp(36px, 3.4vw, 48px); line-height: 1.06; letter-spacing: -0.03em; margin: 18px 0 0">Trusted by homeowners and businesses.</h2></div>
+<div><div aria-hidden="true" style="color: #A9814F; font-size: 22px; letter-spacing: 3px">★★★★★</div><div style="font-size: 14px; font-weight: 500; color: #6E675E; margin-top: 6px">4.9 average from 120+ Google reviews</div></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 56px">
+<sc-for list="{{reviews}}" as="r" hint-placeholder-count="3">
+<figure style="margin: 0; background: #FFFFFF; padding: 36px 34px 34px; display: flex; flex-direction: column; gap: 22px">
+<div role="img" aria-label="5 out of 5 stars" style="color: #A9814F; font-size: 16px; letter-spacing: 3px">★★★★★</div>
+<blockquote style="margin: 0; font-size: 18px; line-height: 1.6; flex: 1">“{{r.q}}”</blockquote>
+<figcaption style="display: flex; align-items: center; gap: 14px">
+<span style="width: 44px; height: 44px; border-radius: 50%; background: #1B1A18; color: #C9A271; display: flex; align-items: center; justify-content: center; font-family: Syne, sans-serif; font-weight: 700; font-size: 15px; flex-shrink: 0">{{r.i}}</span>
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600; font-size: 15px">{{r.n}}</span><span style="font-size: 13px; color: #6E675E">{{r.m}}</span></span>
+</figcaption>
+</figure>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section id="areas">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(80px, 7.6vw, 110px) clamp(20px, 8.3vw, 120px); box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 40px clamp(48px, 5.5vw, 80px)">
+<div style="flex: 1 1 360px; min-width: 0">
+<div style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #A9814F">Service areas</div>
+<h2 style="font-family: Syne, sans-serif; font-weight: 700; font-size: clamp(34px, 3vw, 44px); line-height: 1.06; letter-spacing: -0.03em; margin: 18px 0 0">Building across Harbor County.</h2>
+<p style="font-size: 16px; line-height: 1.65; color: #6E675E; margin: 18px 0 0; max-width: 440px">Based in Harbor City and serving the surrounding communities. Select a town to see it on the map.</p>
+</div>
+<ul style="flex: 1.4 1 480px; min-width: 0; list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); column-gap: 40px">
+<sc-for list="{{towns}}" as="t" hint-placeholder-count="6">
+<li style="border-bottom: 1px solid rgba(17,17,17,0.15)"><a class="mb-town" href="{{t.url}}" target="_blank" rel="noopener" aria-label="{{t.label}}" style="display: flex; justify-content: space-between; align-items: center; padding: 24px 8px 24px 0; color: #111111; text-decoration: none; font-family: Syne, sans-serif; font-weight: 600; font-size: 22px">{{t.name}}<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A9814F" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a></li>
+</sc-for>
+</ul>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background: #1B1A18; color: #FFFFFF">
+<div style="max-width: 1440px; margin: 0 auto; padding: clamp(80px, 9vw, 130px) clamp(20px, 8.3vw, 120px); box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 48px clamp(48px, 5.5vw, 80px)">
+<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<div style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #C9A271">Start your project</div>
+<h2 style="font-family: Syne, sans-serif; font-weight: 700; font-size: clamp(44px, 4.2vw, 60px); line-height: 1.0; letter-spacing: -0.03em; margin: 0">Let’s build something that lasts.</h2>
+<p style="font-size: 18px; line-height: 1.6; color: #B8AFA2; margin: 0; max-width: 520px">Tell us about your project and we will schedule a consultation within two business days.</p>
+<div style="display: flex; flex-direction: column; gap: 14px; font-size: 16px; font-weight: 500; margin-top: 6px">
+<a href="tel:5550107745" style="color: #FFFFFF; text-decoration: none">(555) 010-7745</a>
+<a href="mailto:build@meridianbuildgroup.com" style="color: #FFFFFF; text-decoration: none">build@meridianbuildgroup.com</a>
+<span>400 Ironwood Avenue, Suite 210, Harbor City</span>
+<span style="color: #B8AFA2">Mon–Fri 7:00am–5:00pm · Lic. #GC-58132</span>
+</div>
+</div>
+<div style="flex: 1 1 460px; min-width: 0; background: #F5F1EA; color: #111111; padding: clamp(26px, 3vw, 44px); box-sizing: border-box">
+<sc-if value="{{notSent}}" hint-placeholder-val="{{ true }}">
+<form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 20px">
+<h3 style="font-family: Syne, sans-serif; font-weight: 700; font-size: 28px; margin: 0">Request a consultation</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px">
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6E675E">Name<input type="text" name="name" required="required" autocomplete="name" placeholder="Your full name" style="height: 52px; border: 1px solid rgba(17,17,17,0.18); background: #FFFFFF; padding: 0 16px; font-size: 15px; color: #111111; letter-spacing: 0; text-transform: none"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6E675E">Phone<input type="tel" name="phone" autocomplete="tel" placeholder="(555) 000-0000" style="height: 52px; border: 1px solid rgba(17,17,17,0.18); background: #FFFFFF; padding: 0 16px; font-size: 15px; color: #111111; letter-spacing: 0; text-transform: none"></label>
+</div>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6E675E">Email<input type="email" name="email" required="required" autocomplete="email" placeholder="you@email.com" style="height: 52px; border: 1px solid rgba(17,17,17,0.18); background: #FFFFFF; padding: 0 16px; font-size: 15px; color: #111111; letter-spacing: 0; text-transform: none"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6E675E">Project type<select name="type" style="height: 52px; border: 1px solid rgba(17,17,17,0.18); background: #FFFFFF; padding: 0 12px; font-size: 15px; color: #111111; letter-spacing: 0; text-transform: none"><option>Custom home</option><option>Renovation or addition</option><option>Commercial build-out</option><option>Interior finishes</option></select></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6E675E">Project details<textarea name="details" rows="4" placeholder="Location, size, timeline and budget range…" style="border: 1px solid rgba(17,17,17,0.18); background: #FFFFFF; padding: 14px 16px; font-size: 15px; color: #111111; letter-spacing: 0; text-transform: none; resize: vertical"></textarea></label>
+<button class="mb-btn mb-bronze" type="submit" style="background: #A9814F; color: #FFFFFF; border: 0; font-family: inherit; font-weight: 600; font-size: 16px; padding: 18px 24px; min-height: 56px">Send Request</button>
+</form>
+</sc-if>
+<sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+<div style="text-align: center; padding: 40px 8px">
+<div style="width: 60px; height: 60px; margin: 0 auto; background: #A9814F; display: flex; align-items: center; justify-content: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></div>
+<h3 style="font-family: Syne, sans-serif; font-weight: 700; font-size: 30px; margin: 22px 0 0">Request received.</h3>
+<p style="font-size: 16px; line-height: 1.65; color: #6E675E; margin: 10px 0 0">A Meridian project manager will contact you within two business days to schedule your consultation.</p>
+<button class="mb-btn mb-outline" type="button" onClick="{{resetForm}}" style="margin-top: 22px; background: transparent; border: 1px solid rgba(17,17,17,0.3); color: #111111; font-family: inherit; font-size: 15px; font-weight: 600; padding: 13px 22px; min-height: 44px">Send another request</button>
+</div>
+</sc-if>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="mb-foot" style="background: #111111; color: #B8AFA2">
+<div style="max-width: 1440px; margin: 0 auto; padding: 72px clamp(20px, 8.3vw, 120px) 32px; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px">
+<div style="max-width: 340px"><div style="font-family: Syne, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.06em; color: #FFFFFF">MERIDIAN</div><p style="font-size: 15px; line-height: 1.65; margin: 16px 0 0">Custom homes, renovations and commercial construction in Harbor County.</p></div>
+<div style="display: flex; flex-wrap: wrap; gap: 56px; font-size: 14px">
+<div style="display: flex; flex-direction: column; gap: 12px"><span style="color: #FFFFFF; font-weight: 600">Company</span><a href="#about">About</a><a href="#process">Process</a><a href="#projects">Projects</a><a href="#contact">Careers</a></div>
+<div style="display: flex; flex-direction: column; gap: 12px"><span style="color: #FFFFFF; font-weight: 600">Services</span><a href="#projects">Custom Homes</a><a href="#services">Renovations</a><a href="#services">Commercial</a><a href="#services">Interiors</a></div>
+<div style="display: flex; flex-direction: column; gap: 12px"><span style="color: #FFFFFF; font-weight: 600">Contact</span><a href="tel:5550107745">(555) 010-7745</a><a href="mailto:build@meridianbuildgroup.com">build@meridianbuildgroup.com</a><span>400 Ironwood Ave, Harbor City</span></div>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; border-top: 1px solid #2A2724; margin-top: 48px; padding-top: 28px; font-size: 13px">
+<span>© 2026 Meridian Build Group · Lic. #GC-58132</span><span>VERO concept project · fictional business</span>
+</div>
+</div>
+</footer>
+
+</div>
+</template>
+<script id="logic" type="text/plain">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sent: false };
+  }
+  renderVals() {
+    var self = this;
+    return {
+      stats: [
+        { n: '22', l: 'Years building in Harbor County' },
+        { n: '340+', l: 'Homes & spaces delivered' },
+        { n: '96%', l: 'Projects finished on schedule' },
+        { n: '1', l: 'Accountable team, start to finish' }
+      ],
+      steps: [
+        { n: '01', t: 'Consult', d: 'We meet on site, learn your goals and talk budget and timing honestly.' },
+        { n: '02', t: 'Plan & Price', d: 'Drawings, selections and a fixed-price proposal you can trust.' },
+        { n: '03', t: 'Build', d: 'A dedicated project manager runs the site with weekly updates.' },
+        { n: '04', t: 'Hand Over', d: 'Final walkthrough, documentation and a 2-year warranty.' }
+      ],
+      reviews: [
+        { i: 'LK', n: 'Laura & Ben K.', m: 'Custom home · Oak Hollow', q: 'Meridian built our home exactly as promised: on budget, two weeks early and with a level of finish our architect called exceptional.' },
+        { i: 'DO', n: 'Daniel Ortiz', m: 'Operations Director · Harbor Street Offices', q: 'They moved our office build-out through permits and construction without a single missed deadline. Our team never lost a day of work.' },
+        { i: 'MR', n: 'Melissa R.', m: 'Kitchen & addition · Westbrook', q: 'Weekly photo updates, a clean site every evening and a project manager who actually answered the phone. We would hire them again tomorrow.' }
+      ],
+      towns: ['Harbor City', 'Oak Hollow', 'Westbrook', 'Riverside Park', 'North Lakemont', 'Fairview Heights'].map(function (t) {
+        return { name: t, label: t + ' on Google Maps (opens in a new tab)', url: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(t + ', Harbor County') };
+      }),
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submit: function (e) { if (e && e.preventDefault) e.preventDefault(); self.setState({ sent: true }); },
+      resetForm: function () { self.setState({ sent: false }); }
+    };
+  }
+}
+</script>
+<script>(function () {
+  function DCLogic(props) { this.props = props || {}; this.state = {}; }
+  DCLogic.prototype.setState = function (p) {
+    var next = typeof p === 'function' ? p(this.state) : p;
+    for (var k in next) this.state[k] = next[k];
+    schedule();
+  };
+  var code = document.getElementById('logic').textContent;
+  var Component = new Function('DCLogic', code + '\n;return Component;')(DCLogic);
+  // allow ES class to extend our function-based base
+  var inst = new Component({});
+  var tpl = document.getElementById('tpl').content;
+  var app = document.getElementById('app');
+  var HOLE = /\{\{\s*([^}]+?)\s*\}\}/g;
+
+  function lookup(path, scope) {
+    path = path.trim();
+    if (path === 'true') return true; if (path === 'false') return false;
+    var parts = path.split('.'), v = (parts[0] in scope) ? scope[parts[0]] : undefined;
+    for (var i = 1; i < parts.length && v != null; i++) v = v[parts[i]];
+    return v;
+  }
+  function fill(str, scope) {
+    return str.replace(HOLE, function (_, p) { var v = lookup(p, scope); return v == null || v === false ? '' : String(v); });
+  }
+  function whole(str) { var m = /^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/.exec(str); return m ? m[1] : null; }
+
+  function render(node, scope, parent) {
+    if (node.nodeType === 3) { parent.appendChild(document.createTextNode(fill(node.nodeValue, scope))); return; }
+    if (node.nodeType !== 1) return;
+    var tag = node.tagName.toLowerCase();
+    if (tag === 'sc-for') {
+      var list = lookup(whole(node.getAttribute('list')), scope) || [];
+      var as = node.getAttribute('as');
+      for (var i = 0; i < list.length; i++) {
+        var s = Object.create(scope); s[as] = list[i];
+        for (var c = node.firstChild; c; c = c.nextSibling) render(c, s, parent);
+      }
+      return;
+    }
+    if (tag === 'sc-if') {
+      if (lookup(whole(node.getAttribute('value')), scope)) for (var c2 = node.firstChild; c2; c2 = c2.nextSibling) render(c2, scope, parent);
+      return;
+    }
+    var el = node.namespaceURI === 'http://www.w3.org/2000/svg' ? document.createElementNS(node.namespaceURI, node.localName) : document.createElement(node.localName);
+    for (var a = 0; a < node.attributes.length; a++) {
+      var at = node.attributes[a], name = at.name, val = at.value;
+      if (name.indexOf('hint-') === 0) continue;
+      if (name.indexOf('on') === 0 && whole(val)) {
+        var fn = lookup(whole(val), scope);
+        if (typeof fn === 'function') el.addEventListener(name.slice(2), fn);
+        continue;
+      }
+      var w = whole(val);
+      if (w) { var v = lookup(w, scope); if (v == null || v === false) continue; val = String(v); }
+      else if (val.indexOf('{{') >= 0) val = fill(val, scope);
+      if (at.namespaceURI) el.setAttributeNS(at.namespaceURI, name, val); else el.setAttribute(name, val);
+    }
+    for (var ch = node.firstChild; ch; ch = ch.nextSibling) render(ch, scope, el);
+    parent.appendChild(el);
+  }
+
+  function draw() {
+    var keep = {}, focusName = null, act = document.activeElement;
+    app.querySelectorAll('input,select,textarea').forEach(function (f) { if (f.name) keep[f.name] = f.type === 'checkbox' ? f.checked : f.value; });
+    if (act && act.name && app.contains(act)) focusName = act.name;
+    var frag = document.createDocumentFragment();
+    var vals = inst.renderVals();
+    for (var c = tpl.firstChild; c; c = c.nextSibling) render(c, vals, frag);
+    app.replaceChildren(frag);
+    app.querySelectorAll('input,select,textarea').forEach(function (f) {
+      if (f.name in keep) { if (f.type === 'checkbox') f.checked = keep[f.name]; else f.value = keep[f.name]; }
+    });
+    if (focusName) { var fe = app.querySelector('[name="' + focusName + '"]'); if (fe) fe.focus({ preventScroll: true }); }
+  }
+  var pending = false;
+  function schedule() { if (pending) return; pending = true; requestAnimationFrame(function () { pending = false; draw(); }); }
+  draw();
+  if (inst.componentDidMount) inst.componentDidMount();
+  if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
+})();
+</script>
+<a href="../work.html#work" style="position:fixed;left:16px;bottom:16px;z-index:9999;display:inline-flex;align-items:center;gap:10px;background:#0A0A0C;color:#fff;text-decoration:none;font:600 14px/1 Inter,system-ui,sans-serif;padding:12px 16px 12px 12px;border-radius:999px;box-shadow:0 14px 34px -10px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.14)"><img src="../images/vero-mark.png" alt="" style="height:18px;width:auto">← Back to VERO<span style="color:#A99BFF;font-weight:500">· Concept project</span></a>
+</body>
+</html>
