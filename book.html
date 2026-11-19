@@ -47,12 +47,12 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 @keyframes vshine{0%,55%{transform:translateX(-120%) skewX(-20deg)}75%,100%{transform:translateX(260%) skewX(-20deg)}}
 @keyframes vspin{to{transform:translate(-50%,-50%) rotate(360deg)}}
 @keyframes vtag{0%,100%{transform:rotate(-6deg) scale(1)}50%{transform:rotate(-6deg) scale(1.08)}}
-.vorbit{position:absolute;left:50%;top:50%;width:0;height:0;--r:228px;animation:vorb 28s linear infinite;z-index:3}
+.vorbit{position:absolute;left:50%;top:50%;width:0;height:0;--r:228px;animation:vorb 20s linear infinite;z-index:3}
 @keyframes vorb{to{transform:rotate(360deg)}}
 .varm{position:absolute;left:0;top:0;width:0;height:0;transform:rotate(var(--a)) translateY(calc(-1 * var(--r))) rotate(calc(-1 * var(--a)))}
-.vcw{position:absolute;left:0;top:0;width:0;height:0;animation:vorb 28s linear infinite reverse}
-.vc{position:absolute !important;left:0;top:0;translate:-50% -50%;white-space:nowrap;box-shadow:0 24px 50px -24px rgba(0,0,0,.8);animation:vact 28s var(--d,0s) linear infinite}
-.vc .vc-sub{overflow:hidden;animation:vsub 28s var(--d,0s) linear infinite}
+.vcw{position:absolute;left:0;top:0;width:0;height:0;animation:vorb 20s linear infinite reverse}
+.vc{position:absolute !important;left:0;top:0;translate:-50% -50%;white-space:nowrap;box-shadow:0 24px 50px -24px rgba(0,0,0,.8);animation:vact 20s var(--d,0s) linear infinite}
+.vc .vc-sub{overflow:hidden;animation:vsub 20s var(--d,0s) linear infinite}
 @keyframes vact{0%{opacity:.72;scale:var(--s0,.8);border-color:rgba(255,255,255,.12)}3%,22%{opacity:1;scale:var(--s1,1.12);border-color:rgba(169,155,255,.9)}25%,100%{opacity:.72;scale:var(--s0,.8);border-color:rgba(255,255,255,.12)}}
 @keyframes vsub{0%{max-height:0;opacity:0}3%,22%{max-height:24px;opacity:1}25%,100%{max-height:0;opacity:0}}
 .vc3{box-shadow:0 24px 50px -20px rgba(0,0,0,.7)}
