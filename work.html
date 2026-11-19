@@ -123,6 +123,34 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 .vsale-long{display:none !important}
 .vsale-bar{font-size:13px !important;padding:8px 12px !important}
 }
+.vm-only{display:none}
+@media (max-width:640px){
+.vm-hide{display:none !important}
+.vm-only{display:flex !important}
+.vcol{display:none !important}
+.vm-vals{display:grid !important;grid-template-columns:1fr 1fr;gap:8px 12px !important;margin-top:18px !important;padding-top:16px !important;font-size:12.5px !important}
+.vm-vals svg{width:13px;height:13px;flex-shrink:0}
+.vm-vals > span{align-items:flex-start !important;gap:6px !important;line-height:1.35}
+.vm-ctrl{margin-top:22px !important;flex-wrap:nowrap !important;gap:10px !important}
+.vm-tabs{flex-wrap:nowrap !important;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;min-width:0;flex:1}
+.vm-tabs::-webkit-scrollbar{display:none}
+.vm-tabs button{flex-shrink:0;padding:8px 14px !important;font-size:13px !important}
+.vm-ctrl > div:last-child span{display:none}
+.vm-ctrl > div:last-child button{width:38px !important;height:38px !important}
+.vm-slide{gap:16px !important;padding:12px !important;border-radius:20px !important}
+.vm-prev{max-height:250px;overflow:hidden;padding-bottom:0 !important;-webkit-mask-image:linear-gradient(180deg,#000 75%,transparent);mask-image:linear-gradient(180deg,#000 75%,transparent)}
+.vm-slide h3{margin-top:10px !important}
+.vm-slide a.vbtn{margin-top:14px !important;padding:11px 16px !important;font-size:13.5px !important}
+.vm-txt{padding:0 6px 8px}
+.vm-txt > p:last-child{margin-top:10px !important;font-size:11px !important}
+#services .vm-pad{padding:24px 18px !important}
+.vm-steps{grid-template-columns:1fr 1fr !important;gap:8px !important}
+.vm-steps > div{padding:14px !important}
+.vm-steps p{display:none}
+.vm-steps > div > div:nth-child(2){font-size:14px !important;margin-top:10px !important;line-height:1.3}
+.vm-notes{gap:8px !important}
+.vm-notes > div{padding:12px 14px !important}
+}
 @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
 </style>
 
@@ -172,9 +200,9 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 <div style="font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #A99BFF">Our work</div>
 <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(36px, 4.6vw, 64px); line-height: 1.02; letter-spacing: -0.03em; margin: 16px 0 0">Websites built to make <span style="color: #A99BFF">the phone ring.</span></h1>
 </div>
-<p style="font-size: 16px; line-height: 1.6; color: #A1A1AA; max-width: 400px; margin: 0">Six trades, six completely different looks, zero templates. Each one is a full concept site VERO designed to show what yours could look like. Click any of them to explore.</p>
+<p class="vm-hide" style="font-size: 16px; line-height: 1.6; color: #A1A1AA; max-width: 400px; margin: 0">Six trades, six completely different looks, zero templates. Each one is a full concept site VERO designed to show what yours could look like. Click any of them to explore.</p>
 </div>
-<div style="display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 32px; padding-top: 28px; border-top: 1px solid rgba(196,190,230,0.14); font-size: 15px; color: #E4E4EA">
+<div class="vm-vals" style="display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 32px; padding-top: 28px; border-top: 1px solid rgba(196,190,230,0.14); font-size: 15px; color: #E4E4EA">
 <span style="display: inline-flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Click-to-call on every page</span>
 <span style="display: inline-flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Quote &amp; booking forms built in</span>
 <span style="display: inline-flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Designed for phones first</span>
@@ -182,8 +210,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 
 
-<div style="margin-top: 48px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px">
-<div role="group" aria-label="Choose a project" style="display: flex; flex-wrap: wrap; gap: 8px">
+<div class="vm-ctrl" style="margin-top: 48px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px">
+<div class="vm-tabs" role="group" aria-label="Choose a project" style="display: flex; flex-wrap: wrap; gap: 8px">
 
 <button class="vbtn" type="button" aria-pressed="true" style="min-height: 44px; padding: 10px 18px; border-radius: 999px; font-family: inherit; font-size: 14px; font-weight: 600; background: #A99BFF; color: #0E0E12; border: 1px solid #A99BFF;">HVAC</button>
 
@@ -207,8 +235,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 <div aria-roledescription="carousel" aria-label="Portfolio projects" style="display: grid; margin-top: 24px">
 <div style="grid-area: 1 / 1; min-width: 0; transition: opacity .6s ease, transform .6s ease; opacity: 1; transform: none; visibility: visible; z-index: 1;">
 
-<div style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap; align-items: center; gap: 40px">
-<div style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
+<div class="vm-slide" style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap; align-items: center; gap: 40px">
+<div class="vm-prev" style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
 <div class="vshot" style="border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 80px -40px rgba(0,0,0,0.8)">
 <div style="height: 32px; display: flex; align-items: center; gap: 6px; padding: 0 14px; background: #0F0F12"><span style="width: 9px; height: 9px; border-radius: 50%; background: #F87171"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #FBBF24"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #34D399"></span><span style="margin-left: 12px; flex: 1; max-width: 260px; height: 18px; border-radius: 6px; background: rgba(196,190,230,0.1); font-size: 11px; color: #A1A1AA; display: flex; align-items: center; padding-left: 10px">harborpeakair.com</span></div>
 <div style="background: #FFFFFF; color: #0B1F3A">
@@ -242,16 +270,16 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 </div>
 </div>
-<div style="flex: 1 1 300px; min-width: 0">
+<div class="vm-txt" style="flex: 1 1 300px; min-width: 0">
 <div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #A99BFF; border-radius: 999px; padding: 4px 10px">Featured project</span><span style="font-size: 12px; font-weight: 600; color: #B9AEFF; border: 1px solid rgba(196,190,230,0.35); border-radius: 999px; padding: 4px 10px">HVAC</span><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #ECE8FF; border-radius: 999px; padding: 4px 10px">Concept design</span></div>
 <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 2.5vw, 36px); letter-spacing: -0.02em; margin: 18px 0 0">Harbor Peak Heating &amp; Air</h3>
-<p style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A clean, trustworthy website for a residential heating and cooling company. Built around one goal: getting homeowners to book service or call, on any device.</p>
-<ul style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
+<p class="vm-hide" style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A clean, trustworthy website for a residential heating and cooling company. Built around one goal: getting homeowners to book service or call, on any device.</p>
+<ul class="vm-hide" style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Desktop &amp; mobile layouts</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Click-to-call &amp; service request form</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Custom industry photography</li>
 </ul>
-<div style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #0B1F3A; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #2F6FED"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #EEF2F6"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #FFFFFF"></span></div>
+<div class="vm-hide" style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #0B1F3A; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #2F6FED"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #EEF2F6"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #FFFFFF"></span></div>
 <a class="vbtn vbtn-primary" href="work/harbor-peak.html" style="margin-top: 26px; display: inline-flex; align-items: center; gap: 8px; background: #7C5CFF; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px 22px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">View Full Website <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
 <a class="vbtn vbtn-ghost" href="book.html#book" style="margin-top: 26px; margin-left: 8px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(196,190,230,0.35); color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 13px 20px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">Get a Site Like This</a>
 <p style="font-size: 12px; color: #A1A1AA; margin: 14px 0 0">Fictional business created by VERO to demonstrate our work.</p>
@@ -261,22 +289,22 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 <div style="grid-area: 1 / 1; min-width: 0; transition: opacity .6s ease, transform .6s ease; opacity: 0; transform: translateX(28px); visibility: hidden; pointer-events: none;">
 
-<div style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 40px">
-<div style="flex: 1 1 300px; min-width: 0">
+<div class="vm-slide" style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 40px">
+<div class="vm-txt" style="flex: 1 1 300px; min-width: 0">
 <div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #A99BFF; border-radius: 999px; padding: 4px 10px">Featured project</span><span style="font-size: 12px; font-weight: 600; color: #B9AEFF; border: 1px solid rgba(196,190,230,0.35); border-radius: 999px; padding: 4px 10px">Roofing</span><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #ECE8FF; border-radius: 999px; padding: 4px 10px">Concept design</span></div>
 <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 2.5vw, 36px); letter-spacing: -0.02em; margin: 18px 0 0">Stonegate Roofing Co.</h3>
-<p style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A bold, established look for a residential and commercial roofer. Full-screen photography, strong condensed type and a clear path to requesting an inspection.</p>
-<ul style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
+<p class="vm-hide" style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A bold, established look for a residential and commercial roofer. Full-screen photography, strong condensed type and a clear path to requesting an inspection.</p>
+<ul class="vm-hide" style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Full-screen photo hero</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Auto-rotating customer reviews</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Estimate request form &amp; click-to-call</li>
 </ul>
-<div style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #1F2326; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #1E3B30"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #D9CBB3"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #F4EFE7"></span></div>
+<div class="vm-hide" style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #1F2326; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #1E3B30"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #D9CBB3"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #F4EFE7"></span></div>
 <a class="vbtn vbtn-primary" href="work/stonegate.html" style="margin-top: 26px; display: inline-flex; align-items: center; gap: 8px; background: #7C5CFF; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px 22px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">View Full Website <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
 <a class="vbtn vbtn-ghost" href="book.html#book" style="margin-top: 26px; margin-left: 8px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(196,190,230,0.35); color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 13px 20px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">Get a Site Like This</a>
 <p style="font-size: 12px; color: #A1A1AA; margin: 18px 0 0">Fictional business created by VERO to demonstrate our work.</p>
 </div>
-<div style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
+<div class="vm-prev" style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
 <div class="vshot" style="border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 80px -40px rgba(0,0,0,0.8)">
 <div style="height: 32px; display: flex; align-items: center; gap: 6px; padding: 0 14px; background: #0F0F12"><span style="width: 9px; height: 9px; border-radius: 50%; background: #F87171"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #FBBF24"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #34D399"></span><span style="margin-left: 12px; flex: 1; max-width: 260px; height: 18px; border-radius: 6px; background: rgba(196,190,230,0.1); font-size: 11px; color: #A1A1AA; display: flex; align-items: center; padding-left: 10px">stonegateroofing.com</span></div>
 <div style="position: relative; height: clamp(240px, 22vw, 320px); color: #FFFFFF; overflow: hidden">
@@ -317,8 +345,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 <div style="grid-area: 1 / 1; min-width: 0; transition: opacity .6s ease, transform .6s ease; opacity: 0; transform: translateX(28px); visibility: hidden; pointer-events: none;">
 
-<div style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap; align-items: center; gap: 40px">
-<div style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
+<div class="vm-slide" style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap; align-items: center; gap: 40px">
+<div class="vm-prev" style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
 <div class="vshot" style="border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 80px -40px rgba(0,0,0,0.8)">
 <div style="height: 32px; display: flex; align-items: center; gap: 6px; padding: 0 14px; background: #0F0F12"><span style="width: 9px; height: 9px; border-radius: 50%; background: #F87171"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #FBBF24"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #34D399"></span><span style="margin-left: 12px; flex: 1; max-width: 260px; height: 18px; border-radius: 6px; background: rgba(196,190,230,0.1); font-size: 11px; color: #A1A1AA; display: flex; align-items: center; padding-left: 10px">brightwaterplumbing.com</span></div>
 <div style="background: #1D7CF2; color: #FFFFFF; font-size: 9px; font-weight: 600; text-align: center; padding: 5px 0">Plumbing emergency? Call (555) 010-4471 · 24/7 emergency line</div>
@@ -352,16 +380,16 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 </div>
 </div>
-<div style="flex: 1 1 300px; min-width: 0">
+<div class="vm-txt" style="flex: 1 1 300px; min-width: 0">
 <div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #A99BFF; border-radius: 999px; padding: 4px 10px">Featured project</span><span style="font-size: 12px; font-weight: 600; color: #B9AEFF; border: 1px solid rgba(196,190,230,0.35); border-radius: 999px; padding: 4px 10px">Plumbing</span><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #ECE8FF; border-radius: 999px; padding: 4px 10px">Concept design</span></div>
 <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 2.5vw, 36px); letter-spacing: -0.02em; margin: 18px 0 0">Brightwater Plumbing</h3>
-<p style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A bright, friendly website for a residential plumber. Soft rounded shapes, fresh blues and an emergency line that is always one tap away.</p>
-<ul style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
+<p class="vm-hide" style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A bright, friendly website for a residential plumber. Soft rounded shapes, fresh blues and an emergency line that is always one tap away.</p>
+<ul class="vm-hide" style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Emergency call bar &amp; mobile call button</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Service grid with custom photography</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Online booking form</li>
 </ul>
-<div style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #10233F; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #1D7CF2"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #E6F1FE"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #F3F6F9"></span></div>
+<div class="vm-hide" style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #10233F; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #1D7CF2"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #E6F1FE"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #F3F6F9"></span></div>
 <a class="vbtn vbtn-primary" href="work/brightwater.html" style="margin-top: 26px; display: inline-flex; align-items: center; gap: 8px; background: #7C5CFF; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px 22px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">View Full Website <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
 <a class="vbtn vbtn-ghost" href="book.html#book" style="margin-top: 26px; margin-left: 8px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(196,190,230,0.35); color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 13px 20px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">Get a Site Like This</a>
 <p style="font-size: 12px; color: #A1A1AA; margin: 18px 0 0">Fictional business created by VERO to demonstrate our work.</p>
@@ -371,22 +399,22 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 <div style="grid-area: 1 / 1; min-width: 0; transition: opacity .6s ease, transform .6s ease; opacity: 0; transform: translateX(28px); visibility: hidden; pointer-events: none;">
 
-<div style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 40px">
-<div style="flex: 1 1 300px; min-width: 0">
+<div class="vm-slide" style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 40px">
+<div class="vm-txt" style="flex: 1 1 300px; min-width: 0">
 <div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #A99BFF; border-radius: 999px; padding: 4px 10px">Featured project</span><span style="font-size: 12px; font-weight: 600; color: #B9AEFF; border: 1px solid rgba(196,190,230,0.35); border-radius: 999px; padding: 4px 10px">Electrical</span><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #ECE8FF; border-radius: 999px; padding: 4px 10px">Concept design</span></div>
 <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 2.5vw, 36px); letter-spacing: -0.02em; margin: 18px 0 0">Ampere &amp; Co. Electrical</h3>
-<p style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A dark, technical website for a precision electrical contractor. Engineered grid lines, spec-sheet details and electric-blue accents that signal safety and expertise.</p>
-<ul style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
+<p class="vm-hide" style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A dark, technical website for a precision electrical contractor. Engineered grid lines, spec-sheet details and electric-blue accents that signal safety and expertise.</p>
+<ul class="vm-hide" style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Spec-sheet style service grid</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Interactive coverage map links</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Quote request form &amp; click-to-call</li>
 </ul>
-<div style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #15181C; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #3AA0FF"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #9AA4B2"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #FFFFFF"></span></div>
+<div class="vm-hide" style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #15181C; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #3AA0FF"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #9AA4B2"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #FFFFFF"></span></div>
 <a class="vbtn vbtn-primary" href="work/ampere.html" style="margin-top: 26px; display: inline-flex; align-items: center; gap: 8px; background: #7C5CFF; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px 22px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">View Full Website <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
 <a class="vbtn vbtn-ghost" href="book.html#book" style="margin-top: 26px; margin-left: 8px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(196,190,230,0.35); color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 13px 20px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">Get a Site Like This</a>
 <p style="font-size: 12px; color: #A1A1AA; margin: 18px 0 0">Fictional business created by VERO to demonstrate our work.</p>
 </div>
-<div style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
+<div class="vm-prev" style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
 <div class="vshot" style="border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 80px -40px rgba(0,0,0,0.8)">
 <div style="height: 32px; display: flex; align-items: center; gap: 6px; padding: 0 14px; background: #0F0F12"><span style="width: 9px; height: 9px; border-radius: 50%; background: #F87171"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #FBBF24"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #34D399"></span><span style="margin-left: 12px; flex: 1; max-width: 260px; height: 18px; border-radius: 6px; background: rgba(196,190,230,0.1); font-size: 11px; color: #A1A1AA; display: flex; align-items: center; padding-left: 10px">ampereelectric.com</span></div>
 <div style="background: #15181C; color: #FFFFFF; position: relative">
@@ -431,8 +459,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 <div style="grid-area: 1 / 1; min-width: 0; transition: opacity .6s ease, transform .6s ease; opacity: 0; transform: translateX(28px); visibility: hidden; pointer-events: none;">
 
-<div style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap; align-items: center; gap: 40px">
-<div style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
+<div class="vm-slide" style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap; align-items: center; gap: 40px">
+<div class="vm-prev" style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
 <div class="vshot" style="border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 80px -40px rgba(0,0,0,0.8)">
 <div style="height: 32px; display: flex; align-items: center; gap: 6px; padding: 0 14px; background: #0F0F12"><span style="width: 9px; height: 9px; border-radius: 50%; background: #F87171"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #FBBF24"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #34D399"></span><span style="margin-left: 12px; flex: 1; max-width: 260px; height: 18px; border-radius: 6px; background: rgba(196,190,230,0.1); font-size: 11px; color: #A1A1AA; display: flex; align-items: center; padding-left: 10px">wildacrestudio.com</span></div>
 <div style="background: #F6F1E6; color: #22301F">
@@ -469,16 +497,16 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 </div>
 </div>
-<div style="flex: 1 1 300px; min-width: 0">
+<div class="vm-txt" style="flex: 1 1 300px; min-width: 0">
 <div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #A99BFF; border-radius: 999px; padding: 4px 10px">Featured project</span><span style="font-size: 12px; font-weight: 600; color: #B9AEFF; border: 1px solid rgba(196,190,230,0.35); border-radius: 999px; padding: 4px 10px">Landscaping</span><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #ECE8FF; border-radius: 999px; padding: 4px 10px">Concept design</span></div>
 <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 2.5vw, 36px); letter-spacing: -0.02em; margin: 18px 0 0">Wildacre Landscape Studio</h3>
-<p style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">An editorial, garden-studio website for a design-build landscaper. Elegant serif type, arched photography and soft forest greens that let the work speak.</p>
-<ul style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
+<p class="vm-hide" style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">An editorial, garden-studio website for a design-build landscaper. Elegant serif type, arched photography and soft forest greens that let the work speak.</p>
+<ul class="vm-hide" style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Magazine-style project gallery</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Rotating client testimonials</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Consultation request form</li>
 </ul>
-<div style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #2F4A35; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #A7B89A"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #E3D5BD"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #F6F1E6"></span></div>
+<div class="vm-hide" style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #2F4A35; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #A7B89A"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #E3D5BD"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #F6F1E6"></span></div>
 <a class="vbtn vbtn-primary" href="work/wildacre.html" style="margin-top: 26px; display: inline-flex; align-items: center; gap: 8px; background: #7C5CFF; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px 22px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">View Full Website <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
 <a class="vbtn vbtn-ghost" href="book.html#book" style="margin-top: 26px; margin-left: 8px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(196,190,230,0.35); color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 13px 20px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">Get a Site Like This</a>
 <p style="font-size: 12px; color: #A1A1AA; margin: 18px 0 0">Fictional business created by VERO to demonstrate our work.</p>
@@ -488,22 +516,22 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 <div style="grid-area: 1 / 1; min-width: 0; transition: opacity .6s ease, transform .6s ease; opacity: 0; transform: translateX(28px); visibility: hidden; pointer-events: none;">
 
-<div style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 40px">
-<div style="flex: 1 1 300px; min-width: 0">
+<div class="vm-slide" style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 40px">
+<div class="vm-txt" style="flex: 1 1 300px; min-width: 0">
 <div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #A99BFF; border-radius: 999px; padding: 4px 10px">Featured project</span><span style="font-size: 12px; font-weight: 600; color: #B9AEFF; border: 1px solid rgba(196,190,230,0.35); border-radius: 999px; padding: 4px 10px">Construction</span><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #ECE8FF; border-radius: 999px; padding: 4px 10px">Concept design</span></div>
 <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 2.5vw, 36px); letter-spacing: -0.02em; margin: 18px 0 0">Meridian Build Group</h3>
-<p style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A premium, architectural website for a general contractor. Cinematic full-screen photography, near-black and bronze tones, and a featured project that shows the quality of the finished work.</p>
-<ul style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
+<p class="vm-hide" style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A premium, architectural website for a general contractor. Cinematic full-screen photography, near-black and bronze tones, and a featured project that shows the quality of the finished work.</p>
+<ul class="vm-hide" style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Full-screen cinematic hero</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Featured project case study</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Consultation request form</li>
 </ul>
-<div style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #111111; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #A9814F"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #E9E2D6"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #F5F1EA"></span></div>
+<div class="vm-hide" style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #111111; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #A9814F"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #E9E2D6"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #F5F1EA"></span></div>
 <a class="vbtn vbtn-primary" href="work/meridian.html" style="margin-top: 26px; display: inline-flex; align-items: center; gap: 8px; background: #7C5CFF; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px 22px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">View Full Website <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
 <a class="vbtn vbtn-ghost" href="book.html#book" style="margin-top: 26px; margin-left: 8px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(196,190,230,0.35); color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 13px 20px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">Get a Site Like This</a>
 <p style="font-size: 12px; color: #A1A1AA; margin: 18px 0 0">Fictional business created by VERO to demonstrate our work.</p>
 </div>
-<div style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
+<div class="vm-prev" style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
 <div class="vshot" style="border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 80px -40px rgba(0,0,0,0.8)">
 <div style="height: 32px; display: flex; align-items: center; gap: 6px; padding: 0 14px; background: #0F0F12"><span style="width: 9px; height: 9px; border-radius: 50%; background: #F87171"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #FBBF24"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #34D399"></span><span style="margin-left: 12px; flex: 1; max-width: 260px; height: 18px; border-radius: 6px; background: rgba(196,190,230,0.1); font-size: 11px; color: #A1A1AA; display: flex; align-items: center; padding-left: 10px">meridianbuildgroup.com</span></div>
 <div style="position: relative; height: clamp(250px, 23vw, 330px); color: #FFFFFF; overflow: hidden; background: #1B1A18">
@@ -767,9 +795,9 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 <div style="font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #A99BFF">Our work</div>
 <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(36px, 4.6vw, 64px); line-height: 1.02; letter-spacing: -0.03em; margin: 16px 0 0">Websites built to make <span style="color: #A99BFF">the phone ring.</span></h1>
 </div>
-<p style="font-size: 16px; line-height: 1.6; color: #A1A1AA; max-width: 400px; margin: 0">Six trades, six completely different looks, zero templates. Each one is a full concept site VERO designed to show what yours could look like. Click any of them to explore.</p>
+<p class="vm-hide" style="font-size: 16px; line-height: 1.6; color: #A1A1AA; max-width: 400px; margin: 0">Six trades, six completely different looks, zero templates. Each one is a full concept site VERO designed to show what yours could look like. Click any of them to explore.</p>
 </div>
-<div style="display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 32px; padding-top: 28px; border-top: 1px solid rgba(196,190,230,0.14); font-size: 15px; color: #E4E4EA">
+<div class="vm-vals" style="display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 32px; padding-top: 28px; border-top: 1px solid rgba(196,190,230,0.14); font-size: 15px; color: #E4E4EA">
 <span style="display: inline-flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Click-to-call on every page</span>
 <span style="display: inline-flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Quote &amp; booking forms built in</span>
 <span style="display: inline-flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Designed for phones first</span>
@@ -777,8 +805,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 
 <!-- Portfolio carousel controls -->
-<div style="margin-top: 48px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px">
-<div role="group" aria-label="Choose a project" style="display: flex; flex-wrap: wrap; gap: 8px">
+<div class="vm-ctrl" style="margin-top: 48px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px">
+<div class="vm-tabs" role="group" aria-label="Choose a project" style="display: flex; flex-wrap: wrap; gap: 8px">
 <sc-for list="{{tabs}}" as="tb" hint-placeholder-count="6">
 <button class="vbtn" type="button" onClick="{{tb.go}}" aria-pressed="{{tb.pressed}}" style="{{tb.style}}">{{tb.ind}}</button>
 </sc-for>
@@ -792,8 +820,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 <div aria-roledescription="carousel" aria-label="Portfolio projects" style="display: grid; margin-top: 24px">
 <div style="{{car.s0}}">
 <!-- Featured project: Harbor Peak -->
-<div style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap; align-items: center; gap: 40px">
-<div style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
+<div class="vm-slide" style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap; align-items: center; gap: 40px">
+<div class="vm-prev" style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
 <div class="vshot" style="border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 80px -40px rgba(0,0,0,0.8)">
 <div style="height: 32px; display: flex; align-items: center; gap: 6px; padding: 0 14px; background: #0F0F12"><span style="width: 9px; height: 9px; border-radius: 50%; background: #F87171"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #FBBF24"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #34D399"></span><span style="margin-left: 12px; flex: 1; max-width: 260px; height: 18px; border-radius: 6px; background: rgba(196,190,230,0.1); font-size: 11px; color: #A1A1AA; display: flex; align-items: center; padding-left: 10px">harborpeakair.com</span></div>
 <div style="background: #FFFFFF; color: #0B1F3A">
@@ -827,16 +855,16 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 </div>
 </div>
-<div style="flex: 1 1 300px; min-width: 0">
+<div class="vm-txt" style="flex: 1 1 300px; min-width: 0">
 <div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #A99BFF; border-radius: 999px; padding: 4px 10px">Featured project</span><span style="font-size: 12px; font-weight: 600; color: #B9AEFF; border: 1px solid rgba(196,190,230,0.35); border-radius: 999px; padding: 4px 10px">HVAC</span><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #ECE8FF; border-radius: 999px; padding: 4px 10px">Concept design</span></div>
 <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 2.5vw, 36px); letter-spacing: -0.02em; margin: 18px 0 0">Harbor Peak Heating &amp; Air</h3>
-<p style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A clean, trustworthy website for a residential heating and cooling company. Built around one goal: getting homeowners to book service or call, on any device.</p>
-<ul style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
+<p class="vm-hide" style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A clean, trustworthy website for a residential heating and cooling company. Built around one goal: getting homeowners to book service or call, on any device.</p>
+<ul class="vm-hide" style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Desktop &amp; mobile layouts</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Click-to-call &amp; service request form</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Custom industry photography</li>
 </ul>
-<div style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #0B1F3A; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #2F6FED"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #EEF2F6"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #FFFFFF"></span></div>
+<div class="vm-hide" style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #0B1F3A; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #2F6FED"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #EEF2F6"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #FFFFFF"></span></div>
 <a class="vbtn vbtn-primary" href="work/harbor-peak.html" style="margin-top: 26px; display: inline-flex; align-items: center; gap: 8px; background: #7C5CFF; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px 22px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">View Full Website <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
 <a class="vbtn vbtn-ghost" href="book.html#book" style="margin-top: 26px; margin-left: 8px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(196,190,230,0.35); color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 13px 20px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">Get a Site Like This</a>
 <p style="font-size: 12px; color: #A1A1AA; margin: 14px 0 0">Fictional business created by VERO to demonstrate our work.</p>
@@ -846,22 +874,22 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 <div style="{{car.s1}}">
 <!-- Featured project: Stonegate Roofing (view only) -->
-<div style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 40px">
-<div style="flex: 1 1 300px; min-width: 0">
+<div class="vm-slide" style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 40px">
+<div class="vm-txt" style="flex: 1 1 300px; min-width: 0">
 <div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #A99BFF; border-radius: 999px; padding: 4px 10px">Featured project</span><span style="font-size: 12px; font-weight: 600; color: #B9AEFF; border: 1px solid rgba(196,190,230,0.35); border-radius: 999px; padding: 4px 10px">Roofing</span><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #ECE8FF; border-radius: 999px; padding: 4px 10px">Concept design</span></div>
 <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 2.5vw, 36px); letter-spacing: -0.02em; margin: 18px 0 0">Stonegate Roofing Co.</h3>
-<p style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A bold, established look for a residential and commercial roofer. Full-screen photography, strong condensed type and a clear path to requesting an inspection.</p>
-<ul style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
+<p class="vm-hide" style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A bold, established look for a residential and commercial roofer. Full-screen photography, strong condensed type and a clear path to requesting an inspection.</p>
+<ul class="vm-hide" style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Full-screen photo hero</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Auto-rotating customer reviews</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Estimate request form &amp; click-to-call</li>
 </ul>
-<div style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #1F2326; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #1E3B30"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #D9CBB3"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #F4EFE7"></span></div>
+<div class="vm-hide" style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #1F2326; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #1E3B30"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #D9CBB3"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #F4EFE7"></span></div>
 <a class="vbtn vbtn-primary" href="work/stonegate.html" style="margin-top: 26px; display: inline-flex; align-items: center; gap: 8px; background: #7C5CFF; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px 22px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">View Full Website <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
 <a class="vbtn vbtn-ghost" href="book.html#book" style="margin-top: 26px; margin-left: 8px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(196,190,230,0.35); color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 13px 20px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">Get a Site Like This</a>
 <p style="font-size: 12px; color: #A1A1AA; margin: 18px 0 0">Fictional business created by VERO to demonstrate our work.</p>
 </div>
-<div style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
+<div class="vm-prev" style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
 <div class="vshot" style="border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 80px -40px rgba(0,0,0,0.8)">
 <div style="height: 32px; display: flex; align-items: center; gap: 6px; padding: 0 14px; background: #0F0F12"><span style="width: 9px; height: 9px; border-radius: 50%; background: #F87171"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #FBBF24"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #34D399"></span><span style="margin-left: 12px; flex: 1; max-width: 260px; height: 18px; border-radius: 6px; background: rgba(196,190,230,0.1); font-size: 11px; color: #A1A1AA; display: flex; align-items: center; padding-left: 10px">stonegateroofing.com</span></div>
 <div style="position: relative; height: clamp(240px, 22vw, 320px); color: #FFFFFF; overflow: hidden">
@@ -902,8 +930,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 <div style="{{car.s2}}">
 <!-- Featured project: Brightwater Plumbing (view only) -->
-<div style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap; align-items: center; gap: 40px">
-<div style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
+<div class="vm-slide" style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap; align-items: center; gap: 40px">
+<div class="vm-prev" style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
 <div class="vshot" style="border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 80px -40px rgba(0,0,0,0.8)">
 <div style="height: 32px; display: flex; align-items: center; gap: 6px; padding: 0 14px; background: #0F0F12"><span style="width: 9px; height: 9px; border-radius: 50%; background: #F87171"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #FBBF24"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #34D399"></span><span style="margin-left: 12px; flex: 1; max-width: 260px; height: 18px; border-radius: 6px; background: rgba(196,190,230,0.1); font-size: 11px; color: #A1A1AA; display: flex; align-items: center; padding-left: 10px">brightwaterplumbing.com</span></div>
 <div style="background: #1D7CF2; color: #FFFFFF; font-size: 9px; font-weight: 600; text-align: center; padding: 5px 0">Plumbing emergency? Call (555) 010-4471 · 24/7 emergency line</div>
@@ -937,16 +965,16 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 </div>
 </div>
-<div style="flex: 1 1 300px; min-width: 0">
+<div class="vm-txt" style="flex: 1 1 300px; min-width: 0">
 <div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #A99BFF; border-radius: 999px; padding: 4px 10px">Featured project</span><span style="font-size: 12px; font-weight: 600; color: #B9AEFF; border: 1px solid rgba(196,190,230,0.35); border-radius: 999px; padding: 4px 10px">Plumbing</span><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #ECE8FF; border-radius: 999px; padding: 4px 10px">Concept design</span></div>
 <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 2.5vw, 36px); letter-spacing: -0.02em; margin: 18px 0 0">Brightwater Plumbing</h3>
-<p style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A bright, friendly website for a residential plumber. Soft rounded shapes, fresh blues and an emergency line that is always one tap away.</p>
-<ul style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
+<p class="vm-hide" style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A bright, friendly website for a residential plumber. Soft rounded shapes, fresh blues and an emergency line that is always one tap away.</p>
+<ul class="vm-hide" style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Emergency call bar &amp; mobile call button</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Service grid with custom photography</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Online booking form</li>
 </ul>
-<div style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #10233F; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #1D7CF2"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #E6F1FE"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #F3F6F9"></span></div>
+<div class="vm-hide" style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #10233F; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #1D7CF2"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #E6F1FE"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #F3F6F9"></span></div>
 <a class="vbtn vbtn-primary" href="work/brightwater.html" style="margin-top: 26px; display: inline-flex; align-items: center; gap: 8px; background: #7C5CFF; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px 22px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">View Full Website <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
 <a class="vbtn vbtn-ghost" href="book.html#book" style="margin-top: 26px; margin-left: 8px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(196,190,230,0.35); color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 13px 20px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">Get a Site Like This</a>
 <p style="font-size: 12px; color: #A1A1AA; margin: 18px 0 0">Fictional business created by VERO to demonstrate our work.</p>
@@ -956,22 +984,22 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 <div style="{{car.s3}}">
 <!-- Featured project: Ampere & Co. Electrical (view only) -->
-<div style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 40px">
-<div style="flex: 1 1 300px; min-width: 0">
+<div class="vm-slide" style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 40px">
+<div class="vm-txt" style="flex: 1 1 300px; min-width: 0">
 <div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #A99BFF; border-radius: 999px; padding: 4px 10px">Featured project</span><span style="font-size: 12px; font-weight: 600; color: #B9AEFF; border: 1px solid rgba(196,190,230,0.35); border-radius: 999px; padding: 4px 10px">Electrical</span><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #ECE8FF; border-radius: 999px; padding: 4px 10px">Concept design</span></div>
 <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 2.5vw, 36px); letter-spacing: -0.02em; margin: 18px 0 0">Ampere &amp; Co. Electrical</h3>
-<p style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A dark, technical website for a precision electrical contractor. Engineered grid lines, spec-sheet details and electric-blue accents that signal safety and expertise.</p>
-<ul style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
+<p class="vm-hide" style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A dark, technical website for a precision electrical contractor. Engineered grid lines, spec-sheet details and electric-blue accents that signal safety and expertise.</p>
+<ul class="vm-hide" style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Spec-sheet style service grid</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Interactive coverage map links</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Quote request form &amp; click-to-call</li>
 </ul>
-<div style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #15181C; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #3AA0FF"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #9AA4B2"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #FFFFFF"></span></div>
+<div class="vm-hide" style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #15181C; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #3AA0FF"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #9AA4B2"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #FFFFFF"></span></div>
 <a class="vbtn vbtn-primary" href="work/ampere.html" style="margin-top: 26px; display: inline-flex; align-items: center; gap: 8px; background: #7C5CFF; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px 22px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">View Full Website <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
 <a class="vbtn vbtn-ghost" href="book.html#book" style="margin-top: 26px; margin-left: 8px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(196,190,230,0.35); color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 13px 20px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">Get a Site Like This</a>
 <p style="font-size: 12px; color: #A1A1AA; margin: 18px 0 0">Fictional business created by VERO to demonstrate our work.</p>
 </div>
-<div style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
+<div class="vm-prev" style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
 <div class="vshot" style="border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 80px -40px rgba(0,0,0,0.8)">
 <div style="height: 32px; display: flex; align-items: center; gap: 6px; padding: 0 14px; background: #0F0F12"><span style="width: 9px; height: 9px; border-radius: 50%; background: #F87171"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #FBBF24"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #34D399"></span><span style="margin-left: 12px; flex: 1; max-width: 260px; height: 18px; border-radius: 6px; background: rgba(196,190,230,0.1); font-size: 11px; color: #A1A1AA; display: flex; align-items: center; padding-left: 10px">ampereelectric.com</span></div>
 <div style="background: #15181C; color: #FFFFFF; position: relative">
@@ -1016,8 +1044,8 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 <div style="{{car.s4}}">
 <!-- Featured project: Wildacre Landscape Studio (view only) -->
-<div style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap; align-items: center; gap: 40px">
-<div style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
+<div class="vm-slide" style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap; align-items: center; gap: 40px">
+<div class="vm-prev" style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
 <div class="vshot" style="border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 80px -40px rgba(0,0,0,0.8)">
 <div style="height: 32px; display: flex; align-items: center; gap: 6px; padding: 0 14px; background: #0F0F12"><span style="width: 9px; height: 9px; border-radius: 50%; background: #F87171"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #FBBF24"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #34D399"></span><span style="margin-left: 12px; flex: 1; max-width: 260px; height: 18px; border-radius: 6px; background: rgba(196,190,230,0.1); font-size: 11px; color: #A1A1AA; display: flex; align-items: center; padding-left: 10px">wildacrestudio.com</span></div>
 <div style="background: #F6F1E6; color: #22301F">
@@ -1054,16 +1082,16 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 </div>
 </div>
-<div style="flex: 1 1 300px; min-width: 0">
+<div class="vm-txt" style="flex: 1 1 300px; min-width: 0">
 <div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #A99BFF; border-radius: 999px; padding: 4px 10px">Featured project</span><span style="font-size: 12px; font-weight: 600; color: #B9AEFF; border: 1px solid rgba(196,190,230,0.35); border-radius: 999px; padding: 4px 10px">Landscaping</span><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #ECE8FF; border-radius: 999px; padding: 4px 10px">Concept design</span></div>
 <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 2.5vw, 36px); letter-spacing: -0.02em; margin: 18px 0 0">Wildacre Landscape Studio</h3>
-<p style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">An editorial, garden-studio website for a design-build landscaper. Elegant serif type, arched photography and soft forest greens that let the work speak.</p>
-<ul style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
+<p class="vm-hide" style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">An editorial, garden-studio website for a design-build landscaper. Elegant serif type, arched photography and soft forest greens that let the work speak.</p>
+<ul class="vm-hide" style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Magazine-style project gallery</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Rotating client testimonials</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Consultation request form</li>
 </ul>
-<div style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #2F4A35; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #A7B89A"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #E3D5BD"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #F6F1E6"></span></div>
+<div class="vm-hide" style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #2F4A35; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #A7B89A"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #E3D5BD"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #F6F1E6"></span></div>
 <a class="vbtn vbtn-primary" href="work/wildacre.html" style="margin-top: 26px; display: inline-flex; align-items: center; gap: 8px; background: #7C5CFF; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px 22px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">View Full Website <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
 <a class="vbtn vbtn-ghost" href="book.html#book" style="margin-top: 26px; margin-left: 8px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(196,190,230,0.35); color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 13px 20px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">Get a Site Like This</a>
 <p style="font-size: 12px; color: #A1A1AA; margin: 18px 0 0">Fictional business created by VERO to demonstrate our work.</p>
@@ -1073,22 +1101,22 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 <div style="{{car.s5}}">
 <!-- Featured project: Meridian Build Group (view only) -->
-<div style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 40px">
-<div style="flex: 1 1 300px; min-width: 0">
+<div class="vm-slide" style="margin-top: 0; background: #141418; border: 1px solid rgba(196,190,230,0.16); border-radius: 26px; padding: clamp(18px, 2.5vw, 36px); display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 40px">
+<div class="vm-txt" style="flex: 1 1 300px; min-width: 0">
 <div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #A99BFF; border-radius: 999px; padding: 4px 10px">Featured project</span><span style="font-size: 12px; font-weight: 600; color: #B9AEFF; border: 1px solid rgba(196,190,230,0.35); border-radius: 999px; padding: 4px 10px">Construction</span><span style="font-size: 12px; font-weight: 600; color: #0E0E12; background: #ECE8FF; border-radius: 999px; padding: 4px 10px">Concept design</span></div>
 <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 2.5vw, 36px); letter-spacing: -0.02em; margin: 18px 0 0">Meridian Build Group</h3>
-<p style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A premium, architectural website for a general contractor. Cinematic full-screen photography, near-black and bronze tones, and a featured project that shows the quality of the finished work.</p>
-<ul style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
+<p class="vm-hide" style="color: #A1A1AA; line-height: 1.65; font-size: 16px; margin: 12px 0 0">A premium, architectural website for a general contractor. Cinematic full-screen photography, near-black and bronze tones, and a featured project that shows the quality of the finished work.</p>
+<ul class="vm-hide" style="list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #E4E4EA">
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Full-screen cinematic hero</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Featured project case study</li>
 <li style="display: flex; gap: 10px; align-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Consultation request form</li>
 </ul>
-<div style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #111111; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #A9814F"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #E9E2D6"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #F5F1EA"></span></div>
+<div class="vm-hide" style="display: flex; gap: 8px; margin-top: 22px" aria-label="Brand palette"><span style="width: 34px; height: 34px; border-radius: 10px; background: #111111; border: 1px solid rgba(255,255,255,0.2)"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #A9814F"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #E9E2D6"></span><span style="width: 34px; height: 34px; border-radius: 10px; background: #F5F1EA"></span></div>
 <a class="vbtn vbtn-primary" href="work/meridian.html" style="margin-top: 26px; display: inline-flex; align-items: center; gap: 8px; background: #7C5CFF; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 14px 22px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">View Full Website <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
 <a class="vbtn vbtn-ghost" href="book.html#book" style="margin-top: 26px; margin-left: 8px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(196,190,230,0.35); color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 13px 20px; font-size: 15px; font-weight: 600; min-height: 44px; box-sizing: border-box">Get a Site Like This</a>
 <p style="font-size: 12px; color: #A1A1AA; margin: 18px 0 0">Fictional business created by VERO to demonstrate our work.</p>
 </div>
-<div style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
+<div class="vm-prev" style="flex: 1.7 1 560px; min-width: 0; position: relative; padding-bottom: 24px">
 <div class="vshot" style="border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 80px -40px rgba(0,0,0,0.8)">
 <div style="height: 32px; display: flex; align-items: center; gap: 6px; padding: 0 14px; background: #0F0F12"><span style="width: 9px; height: 9px; border-radius: 50%; background: #F87171"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #FBBF24"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #34D399"></span><span style="margin-left: 12px; flex: 1; max-width: 260px; height: 18px; border-radius: 6px; background: rgba(196,190,230,0.1); font-size: 11px; color: #A1A1AA; display: flex; align-items: center; padding-left: 10px">meridianbuildgroup.com</span></div>
 <div style="position: relative; height: clamp(250px, 23vw, 330px); color: #FFFFFF; overflow: hidden; background: #1B1A18">
@@ -1212,7 +1240,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 </div>
 </div>
 </div>
-<div style="flex: 1 1 300px; min-width: 0">
+<div class="vm-txt" style="flex: 1 1 300px; min-width: 0">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
 <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #7C5CFF">Concept design · {{sel.industry}}</span>
 <button class="vbtn" type="button" onClick="{{closeSel}}" aria-label="Close project" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid #E2E2E8; background: #FFFFFF; display: flex; align-items: center; justify-content: center; color: #0E0E12">
@@ -1494,10 +1522,15 @@ class Component extends DCLogic {
     // ---- Booking & payment links: paste yours here ----
     var CAL_LINK = 'https://cal.com/ashton-doughty-fcfppx/vero-website-consultation';
     var wm = this.state.wantMaint;
+    var inc = !!this.state.incOpen, ml = !!this.state.mlOpen;
     var go = function (k) { return function () { self.setState({ slide: k, menuOpen: false }); }; };
     return {
       booking: { hasCal: !!CAL_LINK, noCal: !CAL_LINK, src: CAL_LINK ? CAL_LINK + (CAL_LINK.indexOf('?') >= 0 ? '&' : '?') + 'embed=true&theme=light' : '' },
       sale: { daysLeft: saleDays },
+      incOpen: inc ? 'true' : 'false', incCls: inc ? '' : 'vcol', incLabel: inc ? 'Hide what\'s included' : 'See everything included (17 items)', incIcon: inc ? '−' : '+',
+      toggleInc: function () { self.setState({ incOpen: !inc }); },
+      mlOpen: ml ? 'true' : 'false', mlCls: ml ? '' : 'vcol', mlLabel: ml ? 'Hide maintenance details' : 'See what maintenance covers', mlIcon: ml ? '−' : '+',
+      toggleMaintList: function () { self.setState({ mlOpen: !ml }); },
       spots: { total: SPOTS_TOTAL, left: SPOTS_LEFT, month: SPOTS_MONTH, barStyle: 'height: 100%; border-radius: 999px; background: linear-gradient(90deg, #7C5CFF, #A99BFF); width: ' + Math.round((SPOTS_TOTAL - SPOTS_LEFT) / SPOTS_TOTAL * 100) + '%;' },
       indGo: { g0: go(0), g1: go(1), g2: go(2), g3: go(3), g4: go(4), g5: go(5) },
       fab: this.state.fab,
