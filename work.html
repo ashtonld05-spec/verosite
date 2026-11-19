@@ -47,12 +47,15 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 @keyframes vshine{0%,55%{transform:translateX(-120%) skewX(-20deg)}75%,100%{transform:translateX(260%) skewX(-20deg)}}
 @keyframes vspin{to{transform:translate(-50%,-50%) rotate(360deg)}}
 @keyframes vtag{0%,100%{transform:rotate(-6deg) scale(1)}50%{transform:rotate(-6deg) scale(1.08)}}
-.vc{transition:scale .3s ease}
-.vc:hover{scale:1.06}
-.vc1{animation:vpop .8s .35s cubic-bezier(.2,.8,.2,1) both,vdrift1 6s 1.2s ease-in-out infinite}
-.vc2{animation:vpop .8s .55s cubic-bezier(.2,.8,.2,1) both,vdrift2 7s 1.4s ease-in-out infinite}
-.vc3{animation:vpop .8s .75s cubic-bezier(.2,.8,.2,1) both,vdrift3 5.5s 1.6s ease-in-out infinite,vglow 2.4s 1.6s ease-out infinite}
-.vc4{animation:vpop .8s .95s cubic-bezier(.2,.8,.2,1) both,vdrift1 6.5s 1.8s ease-in-out infinite}
+.vorbit{position:absolute;left:50%;top:50%;width:0;height:0;--r:215px;animation:vorb 28s linear infinite;z-index:3}
+@keyframes vorb{to{transform:rotate(360deg)}}
+.varm{position:absolute;left:0;top:0;width:0;height:0;transform:rotate(var(--a)) translateY(calc(-1 * var(--r))) rotate(calc(-1 * var(--a)))}
+.vcw{position:absolute;left:0;top:0;width:0;height:0;animation:vorb 28s linear infinite reverse}
+.vc{position:absolute !important;left:0;top:0;translate:-50% -50%;white-space:nowrap;box-shadow:0 24px 50px -24px rgba(0,0,0,.8);animation:vact 28s var(--d,0s) linear infinite}
+.vc .vc-sub{overflow:hidden;animation:vsub 28s var(--d,0s) linear infinite}
+@keyframes vact{0%{opacity:.72;scale:var(--s0,.88);border-color:rgba(255,255,255,.12)}3%,22%{opacity:1;scale:1.12;border-color:rgba(169,155,255,.9)}25%,100%{opacity:.72;scale:var(--s0,.88);border-color:rgba(255,255,255,.12)}}
+@keyframes vsub{0%{max-height:0;opacity:0}3%,22%{max-height:24px;opacity:1}25%,100%{max-height:0;opacity:0}}
+.vc3{box-shadow:0 24px 50px -20px rgba(0,0,0,.7)}
 .vshine-in{position:absolute;inset:0;border-radius:inherit;overflow:hidden;pointer-events:none}
 .vshine-in::after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(124,92,255,.22),rgba(255,255,255,0));animation:vshine 3.2s 2s ease-in-out infinite;pointer-events:none}
 .vspin{animation:vspin 40s linear infinite}
@@ -109,13 +112,13 @@ input:focus,select:focus,textarea:focus{outline:2px solid #7C5CFF;outline-offset
 .vc{padding:9px 12px !important;gap:9px !important;border-radius:13px !important}
 .vc .vc-ic{width:30px !important;height:30px !important;border-radius:9px !important}
 .vc .vc-t{font-size:13px !important}
-.vc .vc-sub{display:none !important}
-.vc1{left:0 !important;top:6px !important}
-.vc2{right:0 !important;left:auto !important;top:64px !important}
-.vc3{left:0 !important;bottom:66px !important;padding:11px 14px !important}
+.vc .vc-sub{font-size:11px !important}
+.vorbit{--r:112px}
+.vm-vis img{width:27% !important}
+.vc{--s0:.72}
 .vc3 .vc-price{font-size:22px !important}
 .vc3 .vc-ic{display:none !important}
-.vc4{right:0 !important;left:auto !important;bottom:0 !important}
+.vc3{padding:10px 13px !important}
 .vsale-long{display:none !important}
 .vsale-bar{font-size:13px !important;padding:8px 12px !important}
 }
