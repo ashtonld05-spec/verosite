@@ -1431,7 +1431,7 @@ class Component extends DCLogic {
       ['Is the $800 payment one-time?', 'Yes. The $800 website fee is a one-time payment, not a subscription.'],
       ['Is the $50 monthly maintenance plan required?', 'No. Maintenance is completely optional. It is a separate $50 monthly payment for clients who want VERO to help look after their site after launch.'],
       ['What does website maintenance include?', 'Routine website updates, basic text and content changes, image replacements, software and security updates where applicable, website functionality checks, basic troubleshooting and general website support.'],
-      ['How long does it take to build a website?', 'Most projects take [X–Y weeks] from discovery to launch. Timing depends on your project and how quickly content and feedback come in.'],
+      ['How long does it take to build a website?', 'Most projects take 1–3 days from discovery to launch. Timing depends on your project and how quickly content and feedback come in.'],
       ['Will my website work on mobile?', 'Yes. Every VERO website is built mobile-first and tested on phones, tablets and desktop computers before launch.'],
       ['Can you redesign my existing website?', 'Yes. We can replace your current site with a brand-new custom design. Tell us about your existing website when you request a quote.'],
       ['Do you provide hosting?', 'Hosting is not included in the $800 package unless agreed upon in advance. We can talk through hosting options with you during the project.'],
@@ -1505,7 +1505,7 @@ class Component extends DCLogic {
           hasUid: !!st.bkUid, manageHref: st.bkUid ? 'https://cal.com/booking/' + encodeURIComponent(st.bkUid) : BK_LINK
         };
       })(),
-      faqHome: pick([0, 3, 11, 10, 6]),
+      faqHome: pick([0, 5, 3, 11, 10]),
       faqP: pick([0, 2, 3, 11, 9]), faqB: pick([10, 11, 3, 7]),
       faqG0: pick([0, 2, 3, 11]), faqG1: pick([1, 4, 8, 9]), faqG2: pick([10, 5, 7, 6]),
       calc: { val: '$' + jv.toLocaleString('en-US'), jobs: jobs, s: jobs === 1 ? '' : 's', blocks: Array.apply(null, Array(Math.min(jobs, 8))).map(function () { return 1; }),
