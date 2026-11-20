@@ -1107,7 +1107,7 @@ class Component extends DCLogic {
   componentDidMount() {
     var self = this;
     if (document.getElementById('vp-booker')) this.bkLoad();
-    this.onScroll = function () { var on = (window.scrollY || 0) > 600; if (on !== self.state.fab) self.setState({ fab: on }); };
+    this.onScroll = function () { var bk = document.getElementById('book'), r = bk && bk.getBoundingClientRect(); var on = (window.scrollY || 0) > 600 && !(r && r.top < window.innerHeight && r.bottom > 0); if (on !== self.state.fab) self.setState({ fab: on }); };
     window.addEventListener('scroll', this.onScroll, { passive: true });
     this.onScroll();
   }
