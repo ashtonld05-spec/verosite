@@ -557,6 +557,57 @@ section#industries,section#work,section#services,section#why,section#process,sec
 .vp-cta .vp-btn{width:100%;justify-content:center;box-sizing:border-box}
 .vp-cta > div:last-child{width:100%}
 }
+/* ---------- step-by-step booker ---------- */
+.vbk{margin-top:22px}
+.vbk-steps{list-style:none;padding:0;margin:0 0 18px;display:flex;align-items:center;gap:10px}
+.vbk-steps li{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:600;white-space:nowrap}
+.vbk-steps .vbk-line{flex:1;height:2px;border-radius:2px;min-width:16px}
+.vbk-dot{width:30px;height:30px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;flex-shrink:0;transition:all .25s}
+.vbk-panel{background:#FAFAFC;border:1px solid #EEEEF2;border-radius:20px;padding:24px;animation:vup .35s both}
+.vbk-loading{display:flex;align-items:center;justify-content:center;gap:12px;min-height:320px;color:#5B5B66;font-size:15px}
+.vbk-spin{width:22px;height:22px;border-radius:50%;border:3px solid #E2E2E8;border-top-color:#7C5CFF;animation:vbkspin .8s linear infinite}
+@keyframes vbkspin{to{transform:rotate(360deg)}}
+.vbk-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:18px}
+.vbk-kicker{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7C5CFF}
+.vbk-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;margin-top:4px;color:#0E0E12}
+.vbk-month{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px}
+.vbk-nav{width:36px;height:36px;border-radius:50%;border:1px solid #E2E2E8;background:#FFFFFF;font-size:20px;line-height:1;cursor:pointer;color:#0E0E12}
+.vbk-nav[aria-disabled="true"]{opacity:.35;cursor:default}
+.vbk-week,.vbk-days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.vbk-week span{text-align:center;font-size:12px;font-weight:600;color:#8A8A96;padding-bottom:6px}
+.vbk-day{height:46px;border-radius:12px;border:1px solid;font:inherit;font-size:15px;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.vbk-day[aria-disabled="false"]:hover{transform:scale(1.07)}
+.vbk-legend{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-top:16px;font-size:13px;color:#8A8A96}
+.vbk-legend span{display:inline-flex;align-items:center;gap:7px}
+.vbk-legend i{width:12px;height:12px;border-radius:4px;display:inline-block}
+.vbk-back{background:none;border:0;padding:0;margin:0 0 14px;color:#7C5CFF;font:inherit;font-weight:600;font-size:14px;cursor:pointer}
+.vbk-chosen{display:inline-flex;align-items:center;gap:8px;margin-top:12px;background:#ECE8FF;color:#3A2A9E;font-weight:600;font-size:14px;padding:8px 14px;border-radius:999px}
+.vbk-times{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.vbk-time{font:inherit;font-weight:600;font-size:15px;padding:13px 8px;border-radius:12px;border:1px solid #DCD3FF;background:#FFFFFF;color:#3A2A9E;cursor:pointer;transition:all .15s}
+.vbk-time:hover{border-color:#7C5CFF;background:#F2EEFF}
+.vbk-hint{font-size:13px;color:#8A8A96;margin:14px 0 0}
+.vbk-form{margin-top:20px;display:flex;flex-direction:column;gap:14px}
+.vbk-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.vbk-form label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;color:#0E0E12}
+.vbk-form input,.vbk-form textarea{font:inherit;font-weight:400;font-size:15px;padding:12px 14px;border-radius:12px;border:1px solid #D4D4DC;background:#FFFFFF;color:#0E0E12;outline:none;resize:vertical}
+.vbk-form input:focus,.vbk-form textarea:focus{border-color:#7C5CFF;box-shadow:0 0 0 4px #ECE8FF}
+.vbk-hp{position:absolute !important;left:-9999px !important;width:1px;height:1px;opacity:0}
+.vbk-submit{justify-content:center;width:100%;box-sizing:border-box;background:#7C5CFF;color:#FFFFFF;border:1px solid #7C5CFF;cursor:pointer;font:inherit;font-weight:600}
+.vbk-submit[aria-disabled="true"]{opacity:.6;cursor:wait}
+.vbk-err{background:#FFF1F3;color:#B4234A;border:1px solid #FFD0DA;border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.5}
+.vbk-fb{justify-content:center;background:#0E0E12;color:#FFFFFF;border:1px solid #0E0E12}
+.vbk-done{text-align:center;padding:40px 24px}
+.vbk-check{width:72px;height:72px;border-radius:50%;background:#7C5CFF;color:#FFFFFF;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;box-shadow:0 0 0 10px #ECE8FF;animation:vpop .6s both}
+.vbk-p{font-size:16px;line-height:1.6;color:#5B5B66;margin:10px auto 0;max-width:420px}
+@media (max-width:640px){
+.vbk-steps{gap:6px}.vbk-steps li{font-size:12px;gap:6px}.vbk-dot{width:26px;height:26px;font-size:12px}
+.vbk-steps li span:last-child{display:none}.vbk-steps li span.vbk-dot{display:flex}
+.vbk-panel{padding:16px}
+.vbk-title{font-size:20px}
+.vbk-week,.vbk-days{gap:4px}.vbk-day{font-size:14px;border-radius:9px;height:40px}
+.vbk-times{grid-template-columns:repeat(2,1fr)}
+.vbk-grid{grid-template-columns:1fr}
+}
 /* ===== /VERO inner pages ===== */
 
 @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
@@ -1206,14 +1257,52 @@ section#industries,section#work,section#services,section#why,section#process,sec
 </div>
 </template>
 <script id="logic" type="text/plain">
+var BK_LINK = 'https://cal.com/ashton-doughty-fcfppx/vero-website-consultation';
 class Component extends DCLogic {
   constructor(props) {
     super(props);
     var pm = (typeof location !== 'undefined') ? /[?&]p=(\d)/.exec(location.search || '') : null;
     this.state = { selected: null, openFaq: 0, sent: false, slide: pm ? Math.min(5, +pm[1]) : 0, menuOpen: false, wantMaint: false, fab: false, allInd: false };
   }
+  bkLoad() {
+    var self = this, m = (BK_LINK.match(/cal\.com\/([^\/?#]+)\/([^\/?#]+)/) || []);
+    var tz = 'America/Los_Angeles'; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || tz; } catch (e) {}
+    var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+    var ymd = function (d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); };
+    var now = new Date(), end = new Date(now.getTime() + 62 * 864e5);
+    var url = 'https://api.cal.com/v2/slots?username=' + encodeURIComponent(m[1] || '') + '&eventTypeSlug=' + encodeURIComponent(m[2] || '') + '&start=' + ymd(now) + '&end=' + ymd(end) + '&timeZone=' + encodeURIComponent(tz);
+    var done = false, fail = function () { if (!done) { done = true; self.setState({ bkFail: true }); } };
+    setTimeout(fail, 9000);
+    fetch(url, { headers: { 'cal-api-version': '2024-09-04' } }).then(function (r) { if (!r.ok) throw new Error('slots'); return r.json(); }).then(function (j) {
+      if (done) return; var d = (j && j.data) || {}, out = {};
+      Object.keys(d).forEach(function (k) { var arr = (d[k] || []).map(function (x) { return typeof x === 'string' ? x : (x && (x.start || x.time)); }).filter(Boolean); if (arr.length) out[k] = arr; });
+      done = true; self.setState({ bkSlots: out, bkTz: tz, bkUser: m[1], bkSlug: m[2] });
+    }).catch(fail);
+  }
+  bkSubmit(e) {
+    var self = this; if (e && e.preventDefault) e.preventDefault(); if (self.state.bkBusy) return;
+    var f = e && e.target, g = function (n) { var el = f && f.elements[n]; return el ? String(el.value || '').trim() : ''; };
+    if (g('website_url')) { self.setState({ bkStep: 4, bkStatus: 'pending' }); return; }
+    var name = g('bk_name'), email = g('bk_email'), phone = g('bk_phone'), biz = g('bk_biz'), notes = g('bk_notes');
+    if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || phone.replace(/\D/g, '').length < 7) { self.setState({ bkErr: 'Please enter your name, a valid email and a phone number.' }); return; }
+    self.setState({ bkBusy: true, bkErr: '' });
+    var start = new Date(self.state.bkTime).toISOString();
+    var body = { start: start, eventTypeSlug: self.state.bkSlug, username: self.state.bkUser,
+      attendee: { name: name, email: email, timeZone: self.state.bkTz, phoneNumber: phone, language: 'en' },
+      bookingFieldsResponses: { notes: (biz ? 'Business: ' + biz + '. ' : '') + notes } };
+    fetch('https://api.cal.com/v2/bookings', { method: 'POST', headers: { 'Content-Type': 'application/json', 'cal-api-version': '2024-08-13' }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (!res.ok || !res.j || res.j.status !== 'success') throw new Error((res.j && res.j.error && res.j.error.message) || 'booking');
+        var d = res.j.data || {}; d = d.length ? d[0] : d;
+        self.setState({ bkBusy: false, bkStep: 4, bkStatus: d.status || 'accepted' });
+      }).catch(function () {
+        self.setState({ bkBusy: false, bkErr: 'We could not finish the booking here. Use the button below to confirm the same time on our calendar page.', bkFallback: true, bkPre: { name: name, email: email } });
+      });
+  }
   componentDidMount() {
     var self = this;
+    if (document.getElementById('vp-booker')) this.bkLoad();
     this.onScroll = function () { var on = (window.scrollY || 0) > 600; if (on !== self.state.fab) self.setState({ fab: on }); };
     window.addEventListener('scroll', this.onScroll, { passive: true });
     this.onScroll();
@@ -1314,6 +1403,47 @@ class Component extends DCLogic {
     return {
       booking: { hasCal: !!CAL_LINK, noCal: !CAL_LINK, src: CAL_LINK ? CAL_LINK + (CAL_LINK.indexOf('?') >= 0 ? '&' : '?') + 'embed=true&theme=light' : '' },
       sale: { daysLeft: saleDays },
+      booker: (function () {
+        var st = self.state, slots = st.bkSlots, step = st.bkStep || 1, mo = st.bkMonth || 0;
+        var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+        var today = new Date(), base = new Date(today.getFullYear(), today.getMonth() + mo, 1);
+        var days = [], lead = base.getDay(), dim = new Date(base.getFullYear(), base.getMonth() + 1, 0).getDate();
+        for (var i = 0; i < lead; i++) days.push({ label: '', dis: 'true', style: 'visibility: hidden', pick: function () {} });
+        var anyAvail = false;
+        for (var d = 1; d <= dim; d++) { (function (d) {
+          var key = base.getFullYear() + '-' + pad(base.getMonth() + 1) + '-' + pad(d), av = !!(slots && slots[key]), sel = st.bkDate === key;
+          if (av) anyAvail = true;
+          days.push({ label: String(d), dis: av ? 'false' : 'true', aria: av ? 'Available' : 'Unavailable',
+            style: sel ? 'background: #7C5CFF; color: #FFFFFF; border-color: #7C5CFF' : (av ? 'background: #F2EEFF; color: #3A2A9E; border-color: #DCD3FF; font-weight: 700; cursor: pointer' : 'background: transparent; color: #C4C4CC; border-color: transparent; cursor: default'),
+            pick: function () { if (av) self.setState({ bkDate: key, bkStep: 2, bkTime: null, bkErr: '' }); } });
+        })(d); }
+        var tf = function (iso, o) { try { return new Date(iso).toLocaleString('en-US', Object.assign({ timeZone: st.bkTz }, o)); } catch (e) { return iso; } };
+        var times = (slots && st.bkDate && slots[st.bkDate] || []).map(function (iso) {
+          return { label: tf(iso, { hour: 'numeric', minute: '2-digit' }), style: st.bkTime === iso ? 'background: #7C5CFF; color: #FFFFFF; border-color: #7C5CFF' : '', pick: function () { self.setState({ bkTime: iso, bkStep: 3, bkErr: '' }); } };
+        });
+        var dl = st.bkDate ? tf(st.bkDate + 'T12:00:00', { weekday: 'long', month: 'long', day: 'numeric' }) : '';
+        var tl = st.bkTime ? tf(st.bkTime, { hour: 'numeric', minute: '2-digit' }) : '';
+        var sx = function (n) { return step > n ? 'background: #7C5CFF; color: #FFFFFF; border-color: #7C5CFF' : (step === n ? 'background: #FFFFFF; color: #7C5CFF; border-color: #7C5CFF; box-shadow: 0 0 0 4px #ECE8FF' : 'background: #FFFFFF; color: #A1A1AA; border-color: #E2E2E8'); };
+        var lx = function (n) { return step >= n ? 'color: #0E0E12' : 'color: #A1A1AA'; };
+        var bar = function (n) { return step > n ? 'background: #7C5CFF' : 'background: #E2E2E8'; };
+        var pre = st.bkPre || {};
+        var fb = BK_LINK + '?date=' + (st.bkDate || '') + (st.bkTime ? '&slot=' + encodeURIComponent(new Date(st.bkTime).toISOString()) : '') + (pre.name ? '&name=' + encodeURIComponent(pre.name) : '') + (pre.email ? '&email=' + encodeURIComponent(pre.email) : '');
+        return {
+          loading: !slots && !st.bkFail, ready: !!slots && !st.bkFail, fail: !!st.bkFail,
+          s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4,
+          st1: sx(1), st2: sx(2), st3: sx(3), l1: lx(1), l2: lx(2), l3: lx(3), b1: bar(1), b2: bar(2),
+          n1: step > 1 ? '✓' : '1', n2: step > 2 ? '✓' : '2', n3: step > 3 ? '✓' : '3',
+          monthLabel: base.toLocaleString('en-US', { month: 'long', year: 'numeric' }), days: days,
+          noneThisMonth: !!slots && !anyAvail,
+          prevDis: mo <= 0 ? 'true' : 'false', nextDis: mo >= 2 ? 'true' : 'false',
+          prev: function () { if (mo > 0) self.setState({ bkMonth: mo - 1 }); }, next: function () { if (mo < 2) self.setState({ bkMonth: mo + 1 }); },
+          times: times, dateLabel: dl, timeLabel: tl, tz: (st.bkTz || '').replace(/_/g, ' '),
+          toDate: function () { self.setState({ bkStep: 1, bkErr: '' }); }, toTime: function () { self.setState({ bkStep: 2, bkErr: '' }); },
+          submit: function (e) { self.bkSubmit(e); }, busy: !!st.bkBusy, notBusy: !st.bkBusy, btnLabel: st.bkBusy ? 'Booking…' : 'Confirm Booking',
+          err: !!st.bkErr, errMsg: st.bkErr || '', fallback: !!st.bkFallback, fbHref: fb,
+          pending: st.bkStatus === 'pending', accepted: st.bkStatus !== 'pending'
+        };
+      })(),
       faqP: pick([0, 2, 3, 11, 9]), faqB: pick([10, 11, 3, 7]),
       faqG0: pick([0, 2, 3, 11]), faqG1: pick([1, 4, 8, 9]), faqG2: pick([10, 5, 7, 6]),
       calc: { val: '$' + jv.toLocaleString('en-US'), jobs: jobs, s: jobs === 1 ? '' : 's', blocks: Array.apply(null, Array(Math.min(jobs, 8))).map(function () { return 1; }),
