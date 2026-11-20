@@ -598,6 +598,7 @@ section#industries,section#work,section#services,section#why,section#process,sec
 .vbk-fb{justify-content:center;background:#0E0E12;color:#FFFFFF;border:1px solid #0E0E12}
 .vbk-done{text-align:center;padding:40px 24px}
 .vbk-check{width:72px;height:72px;border-radius:50%;background:#7C5CFF;color:#FFFFFF;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;box-shadow:0 0 0 10px #ECE8FF;animation:vpop .6s both}
+.vbk-manage{justify-content:center;margin-top:18px;background:#0E0E12;color:#FFFFFF;border:1px solid #0E0E12}
 .vbk-p{font-size:16px;line-height:1.6;color:#5B5B66;margin:10px auto 0;max-width:420px}
 @media (max-width:640px){
 .vbk-steps{gap:6px}.vbk-steps li{font-size:12px;gap:6px}.vbk-dot{width:26px;height:26px;font-size:12px}
@@ -807,7 +808,7 @@ section#industries,section#work,section#services,section#why,section#process,sec
 <div>
 <div style="color: #FFFFFF; font-weight: 600; font-size: 15px">Contact</div>
 <ul style="list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px">
-<li><a href="mailto:clients.verodigitalweb@gmail.com">clients.verodigitalweb@gmail.com</a></li><li><a href="book.html#book">Book a consultation</a></li><li>[YOUR PHONE]</li>
+<li><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=clients.verodigitalweb@gmail.com&amp;su=Website%20consultation" target="_blank" rel="noopener">clients.verodigitalweb@gmail.com</a></li><li><a href="book.html#book">Book a consultation</a></li><li>[YOUR PHONE]</li>
 </ul>
 </div>
 </div>
@@ -1016,7 +1017,7 @@ section#industries,section#work,section#services,section#why,section#process,sec
 <div>
 <div style="color: #FFFFFF; font-weight: 600; font-size: 15px">Contact</div>
 <ul style="list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px">
-<li><a href="mailto:clients.verodigitalweb@gmail.com">clients.verodigitalweb@gmail.com</a></li><li><a href="book.html#book">Book a consultation</a></li><li>[YOUR PHONE]</li>
+<li><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=clients.verodigitalweb@gmail.com&amp;su=Website%20consultation" target="_blank" rel="noopener">clients.verodigitalweb@gmail.com</a></li><li><a href="book.html#book">Book a consultation</a></li><li>[YOUR PHONE]</li>
 </ul>
 </div>
 </div>
@@ -1069,7 +1070,7 @@ class Component extends DCLogic {
       .then(function (res) {
         if (!res.ok || !res.j || res.j.status !== 'success') throw new Error((res.j && res.j.error && res.j.error.message) || 'booking');
         var d = res.j.data || {}; d = d.length ? d[0] : d;
-        self.setState({ bkBusy: false, bkStep: 4, bkStatus: d.status || 'accepted' });
+        self.setState({ bkBusy: false, bkStep: 4, bkStatus: d.status || 'accepted', bkUid: d.uid || '' });
       }).catch(function () {
         self.setState({ bkBusy: false, bkErr: 'We could not finish the booking here. Use the button below to confirm the same time on our calendar page.', bkFallback: true, bkPre: { name: name, email: email } });
       });
@@ -1215,7 +1216,8 @@ class Component extends DCLogic {
           toDate: function () { self.setState({ bkStep: 1, bkErr: '' }); }, toTime: function () { self.setState({ bkStep: 2, bkErr: '' }); },
           submit: function (e) { self.bkSubmit(e); }, busy: !!st.bkBusy, notBusy: !st.bkBusy, btnLabel: st.bkBusy ? 'Booking…' : 'Confirm Booking',
           err: !!st.bkErr, errMsg: st.bkErr || '', fallback: !!st.bkFallback, fbHref: fb,
-          pending: st.bkStatus === 'pending', accepted: st.bkStatus !== 'pending'
+          pending: st.bkStatus === 'pending', accepted: st.bkStatus !== 'pending',
+          hasUid: !!st.bkUid, manageHref: st.bkUid ? 'https://cal.com/booking/' + encodeURIComponent(st.bkUid) : BK_LINK
         };
       })(),
       faqP: pick([0, 2, 3, 11, 9]), faqB: pick([10, 11, 3, 7]),
