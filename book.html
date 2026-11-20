@@ -1250,6 +1250,7 @@ class Component extends DCLogic {
           hasUid: !!st.bkUid, manageHref: st.bkUid ? 'https://cal.com/booking/' + encodeURIComponent(st.bkUid) : BK_LINK
         };
       })(),
+      faqHome: pick([0, 3, 11, 10, 6]),
       faqP: pick([0, 2, 3, 11, 9]), faqB: pick([10, 11, 3, 7]),
       faqG0: pick([0, 2, 3, 11]), faqG1: pick([1, 4, 8, 9]), faqG2: pick([10, 5, 7, 6]),
       calc: { val: '$' + jv.toLocaleString('en-US'), jobs: jobs, s: jobs === 1 ? '' : 's', blocks: Array.apply(null, Array(Math.min(jobs, 8))).map(function () { return 1; }),
