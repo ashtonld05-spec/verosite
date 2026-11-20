@@ -191,6 +191,15 @@ section#industries,section#work,section#services,section#why,section#process,sec
 .vfoot [style*="gap: 56px"]{gap:32px !important}
 .vfoot [style*="height: 64px"]{height:32px !important}
 }
+.vwhy-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+.vwhy-card{border:1px solid #E2E2E8;border-radius:22px;padding:26px;background:linear-gradient(180deg,#FFFFFF,#FAFAFC);transition:transform .3s ease,box-shadow .3s ease,border-color .3s}
+.vwhy-card:hover{transform:translateY(-4px);border-color:#DCD3FF;box-shadow:0 24px 50px -30px rgba(124,92,255,.5)}
+.vwhy-ic{width:46px;height:46px;border-radius:14px;background:#ECE8FF;color:#7C5CFF;display:flex;align-items:center;justify-content:center}
+.vwhy-t{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;margin-top:20px}
+.vwhy-d{font-size:15px;line-height:1.55;color:#5B5B66;margin-top:6px}
+.vwhy-more{display:inline-flex;align-items:center;gap:8px;color:#7C5CFF;font-weight:600;font-size:15px;text-decoration:none;white-space:nowrap}
+@media (max-width:1024px){.vwhy-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.vwhy-grid{grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}.vwhy-card{padding:16px;border-radius:16px}.vwhy-ic{width:36px;height:36px;border-radius:11px}.vwhy-ic svg{width:18px;height:18px}.vwhy-t{font-size:15px;margin-top:12px}.vwhy-d{display:none}}
 /* ===== VERO inner pages ===== */
 .vp-anchor{display:block;position:relative;top:-120px;height:0;visibility:hidden;padding:0 !important;margin:0 !important}
 .vp-wrap{max-width:1240px;margin:0 auto;position:relative}
@@ -557,6 +566,24 @@ section#industries,section#work,section#services,section#why,section#process,sec
 .vp-cta .vp-btn{width:100%;justify-content:center;box-sizing:border-box}
 .vp-cta > div:last-child{width:100%}
 }
+/* anatomy v2 */
+.vp-anat2{background:radial-gradient(ellipse at 50% 0%,#1A1240 0%,#0A0A0C 60%)}
+.vp-anat-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(169,155,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(169,155,255,.06) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 50% 45%,#000 20%,transparent 70%);mask-image:radial-gradient(ellipse at 50% 45%,#000 20%,transparent 70%);pointer-events:none}
+.vp-anat-row{display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:28px;align-items:center}
+.vp-anat-col{display:flex;flex-direction:column;gap:16px}
+.vp-call{position:relative;background:rgba(255,255,255,.045);border:1px solid rgba(196,190,230,.16);border-radius:20px;padding:20px;backdrop-filter:blur(8px);transition:transform .3s ease,border-color .3s,background .3s}
+.vp-call:hover{transform:translateY(-3px);border-color:rgba(169,155,255,.55);background:rgba(124,92,255,.12)}
+.vp-call-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.vp-call-n{width:30px;height:30px;border-radius:50%;background:#7C5CFF;color:#FFFFFF;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px rgba(124,92,255,.2)}
+.vp-call-ic{width:36px;height:36px;border-radius:11px;background:rgba(124,92,255,.18);color:#C9BFFF;display:flex;align-items:center;justify-content:center}
+.vp-anat-center{position:relative}
+.vp-anat-frame{padding:14px;border-radius:30px;background:linear-gradient(160deg,rgba(169,155,255,.45),rgba(124,92,255,.08) 40%,rgba(255,255,255,.04));box-shadow:0 60px 120px -50px rgba(124,92,255,.65)}
+.vp-anat-frame .vp-mock{box-shadow:none;border:0}
+.vp-anat-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:22px}
+.vp-anat-chips span{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#E4E4EA;background:rgba(255,255,255,.06);border:1px solid rgba(196,190,230,.2);padding:8px 13px;border-radius:999px}
+.vp-anat-chips svg{color:#A99BFF}
+@media (max-width:1024px){.vp-anat-row{grid-template-columns:1fr 1fr}.vp-anat-center{grid-column:1 / -1;order:-1}}
+@media (max-width:640px){.vp-anat-row{grid-template-columns:1fr;gap:14px}.vp-anat-col{gap:10px}.vp-call{padding:14px 16px;display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:center}.vp-call-top{margin:0;grid-row:span 2}.vp-call-ic{display:none}.vp-call .vp-li-d{font-size:13.5px;margin-top:2px}.vp-anat-frame{padding:8px;border-radius:20px}}
 /* ---------- step-by-step booker ---------- */
 .vbk{margin-top:22px}
 .vbk-steps{list-style:none;padding:0;margin:0 0 18px;display:flex;align-items:center;gap:10px}

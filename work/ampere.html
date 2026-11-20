@@ -45,10 +45,10 @@ input:focus,select:focus,textarea:focus{outline:2px solid #3AA0FF;outline-offset
 @media (max-width:860px){.am-links{display:none !important}.am-mob{display:flex !important}}
 @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
 </style>
-
+<style>.vback-bar{position:relative;z-index:10000;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#0A0A0C;color:#fff;padding:10px 20px;font:500 14px/1.3 Inter,system-ui,sans-serif;border-bottom:1px solid rgba(255,255,255,.12)}.vback-bar a{color:#fff;text-decoration:none}.vback-l{display:inline-flex;align-items:center;gap:10px;font-weight:600;padding:8px 14px 8px 10px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}.vback-l:hover{background:rgba(124,92,255,.35)}.vback-m{color:#A1A1AA}.vback-r{background:#7C5CFF;font-weight:600;padding:9px 16px;border-radius:999px}.vback-fab{position:fixed;left:16px;bottom:16px;z-index:9999;display:inline-flex;align-items:center;gap:8px;background:#0A0A0C;color:#fff;text-decoration:none;font:600 14px/1 Inter,system-ui,sans-serif;padding:12px 16px 12px 12px;border-radius:999px;box-shadow:0 14px 34px -10px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.16)}@media (max-width:640px){.vback-m,.vback-r{display:none}.vback-bar{padding:8px 12px}}</style>
 <meta name="robots" content="noindex, follow">
 </head>
-<body>
+<body><div class="vback-bar"><a class="vback-l" href="../work.html#case-3"><img src="../images/vero-mark.png" alt="" style="height:16px;width:auto">&larr; Back to Our Work</a><span class="vback-m">Concept website designed by VERO Digital</span><a class="vback-r" href="../book.html#book">Get a Site Like This</a></div>
 <div id="app">
 
 
@@ -847,6 +847,6 @@ class Component extends DCLogic {
   if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
 })();
 </script>
-<a href="../work.html#work" style="position:fixed;left:16px;bottom:16px;z-index:9999;display:inline-flex;align-items:center;gap:10px;background:#0A0A0C;color:#fff;text-decoration:none;font:600 14px/1 Inter,system-ui,sans-serif;padding:12px 16px 12px 12px;border-radius:999px;box-shadow:0 14px 34px -10px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.14)"><img src="../images/vero-mark.png" alt="" style="height:18px;width:auto">← Back to VERO<span style="color:#A99BFF;font-weight:500">· Concept project</span></a>
+<a class="vback-fab" href="../work.html#case-3">&larr; Back to Our Work</a>
 </body>
 </html>
