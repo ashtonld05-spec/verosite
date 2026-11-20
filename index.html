@@ -2508,11 +2508,14 @@ class Component extends DCLogic {
   componentDidMount() {
     var self = this;
     if (document.getElementById('vp-booker')) this.bkLoad();
+    this._seen = this.state.slide;
     if (document.querySelector('.vm-slide')) this.carT = setInterval(function () {
       var w = document.getElementById('work'), r = w && w.getBoundingClientRect(), ae = document.activeElement;
       if (!r || r.bottom < 80 || r.top > window.innerHeight - 80) return;
       if (ae && /INPUT|TEXTAREA|SELECT/.test(ae.tagName)) return;
-      self.setState({ slide: (self.state.slide + 1) % 6 });
+      if (self._seen !== self.state.slide) { self._seen = self.state.slide; return; }
+      var nx = (self.state.slide + 1) % 6; self._seen = nx;
+      self.setState({ slide: nx });
     }, 4000);
     this.onScroll = function () { var bk = document.getElementById('book'), r = bk && bk.getBoundingClientRect(); var on = (window.scrollY || 0) > 600 && !(r && r.top < window.innerHeight && r.bottom > 0); if (on !== self.state.fab) self.setState({ fab: on }); };
     window.addEventListener('scroll', this.onScroll, { passive: true });
