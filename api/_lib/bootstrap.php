@@ -33,6 +33,25 @@ function vero_db(): PDO {
     return $pdo;
 }
 
+// Adds any tables introduced after the first setup (safe to run repeatedly).
+const VERO_SCHEMA_V = '2';
+function vero_schema_ready(): void {
+    static $done = false;
+    if ($done) return;
+    $done = true;
+    if (setting('schema_v', '1') === VERO_SCHEMA_V) return;
+    require_once __DIR__ . '/schema.php';
+    vero_install_schema(vero_db(), vero_is_sqlite());
+    set_setting('schema_v', VERO_SCHEMA_V);
+}
+
+// Cal.com sends times like 2026-11-24T17:00:00.000Z; store as UTC "Y-m-d H:i:s".
+function to_utc_dt($s): ?string {
+    if (!is_string($s) || $s === '' || strlen($s) > 40) return null;
+    $t = strtotime($s);
+    return $t ? gmdate('Y-m-d H:i:s', $t) : null;
+}
+
 function vero_is_sqlite(): bool { return (vero_config()['driver'] ?? 'mysql') === 'sqlite'; }
 
 function now_utc(): string { return gmdate('Y-m-d H:i:s'); }

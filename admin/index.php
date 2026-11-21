@@ -107,13 +107,36 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:var(--v)
 .page{display:none}.page.on{display:block;animation:fade .25s ease}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .mob{display:none}
+.day-h{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;margin:22px 0 10px;display:flex;align-items:center;gap:8px}
+.day-h:first-child{margin-top:0}.day-h em{font-style:normal;font-family:Inter;font-weight:600;font-size:12px;color:var(--mut);background:#fff;border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.mt{display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 18px;margin-bottom:10px}
+.mt.soon{border-color:var(--v);box-shadow:0 0 0 3px var(--vl)}
+.mt-time{flex-shrink:0;width:86px;border-right:1px solid var(--line);padding-right:14px}
+.mt-time b{display:block;font-family:'Space Grotesk',sans-serif;font-size:18px;letter-spacing:-.01em}
+.mt-time span{font-size:12px;color:var(--mut)}
+.mt-b{min-width:0;flex:1}
+.mt-h{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.mt-n{font-weight:700;font-size:16px}
+.mt-c{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px;font-size:13.5px}
+.mt-c a{color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:5px}.mt-c a:hover{color:var(--v)}
+.mt-c svg{width:14px;height:14px;color:var(--mut)}
+.mt-notes{margin-top:10px;background:var(--bg);border-radius:12px;padding:10px 12px;font-size:13.5px;line-height:1.5;white-space:pre-wrap;word-break:break-word}
+.t-booked{background:var(--vl);color:#3A2A9E}.t-completed{background:#E8F7EE;color:#11733A}.t-no_show{background:#FFF4DE;color:#9A5B00}.t-cancelled,.t-rescheduled{background:#F1F1F4;color:#5B5B66}
+.nm{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px solid var(--line)}.nm:first-child{border-top:0}
+.nm .dt{flex-shrink:0;width:54px;text-align:center;background:var(--vl);color:#3A2A9E;border-radius:12px;padding:6px 0;line-height:1.1}
+.nm .dt b{display:block;font-family:'Space Grotesk',sans-serif;font-size:19px}.nm .dt span{font-size:11px;font-weight:700;text-transform:uppercase}
+.nm .who{min-width:0;flex:1}.nm .who div:first-child{font-weight:600}.nm .who div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hook{background:linear-gradient(135deg,#F3F0FF,#fff);border:1px solid #DCD4FF}
+.hook ol{margin:12px 0 0;padding-left:20px;font-size:14px;line-height:1.75}
+.code{display:flex;gap:8px;align-items:center;margin-top:8px}
+.code code{flex:1;min-width:0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:ui-monospace,Menlo,monospace}
 @media (max-width:1100px){.k4{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}
 @media (max-width:760px){
 .app{grid-template-columns:1fr}.side{display:none}
 .main{padding:18px 16px 96px}
 .top h1{font-size:23px}
 .mob{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;background:#0A0A0C;padding:8px 6px calc(8px + env(safe-area-inset-bottom));justify-content:space-around}
-.mob button{background:none;border:0;color:#A1A1AA;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:600;padding:4px 6px;position:relative;min-width:56px}
+.mob button{background:none;border:0;color:#A1A1AA;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10.5px;font-weight:600;padding:4px 2px;position:relative;flex:1;min-width:0}
 .mob button.on{color:#fff}.mob svg{width:22px;height:22px}
 .mob .pill{position:absolute;top:-2px;right:6px;margin:0;font-size:10px;padding:1px 6px;min-width:0}
 .kpi .n{font-size:28px}.card{padding:16px;border-radius:16px}
@@ -121,6 +144,7 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:var(--v)
 .mini{grid-template-columns:repeat(3,1fr)}
 .rv{padding:16px}
 .ev .w{display:none}
+.mt{gap:12px;padding:14px}.mt-time{width:68px;padding-right:10px}.mt-time b{font-size:16px}
 }
 </style></head><body>
 <?php if (!$authed): ?>
@@ -163,6 +187,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
 <section class="page on" id="p-overview">
 <div class="grid k4" id="kpis"></div>
+<div class="card" style="margin-top:16px"><div class="sec-t"><h2>Upcoming meetings</h2><button class="btn bo bsm" data-go="meetings">All meetings</button></div><div id="meetMini"></div></div>
 <div class="grid two">
 <div class="card"><div class="sec-t"><h2>Website visits · last 14 days</h2><span class="rv-b" id="viewsTotal"></span></div><div class="bars" id="chart"></div>
 <div class="mini" id="webMini"></div></div>
@@ -173,6 +198,12 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 <div class="card"><div class="sec-t"><h2>Recent activity</h2><button class="btn bo bsm" data-go="activity">See all</button></div><div class="feed" id="feedMini"></div></div>
 <div class="card"><div class="sec-t"><h2>Needs your review</h2><button class="btn bo bsm" data-go="reviews">Open reviews</button></div><div id="pendingMini"></div></div>
 </div>
+</section>
+
+<section class="page" id="p-meetings">
+<div class="tabs" id="mtabs"></div>
+<div id="mlist"></div>
+<div id="mhook" style="margin-top:18px"></div>
 </section>
 
 <section class="page" id="p-reviews">
@@ -234,6 +265,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
   var CSRF = <?= json_encode($csrf) ?>;
   var SITE = location.origin;
   var I = {
+    meetings: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M8 14h2v2H8z"/></svg>',
     overview: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>',
     reviews: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>',
     requests: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>',
@@ -246,10 +278,13 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     lock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',
     globe: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>',
     clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>',
+    phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>',
+    mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>',
+    video: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>',
     trash: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>'
   };
-  var PAGES = [['overview', 'Overview'], ['reviews', 'Reviews'], ['requests', 'Review requests'], ['activity', 'Activity'], ['settings', 'Settings']];
-  var state = { page: 'overview', filter: 'pending', pending: 0, lastPending: null, me: null };
+  var PAGES = [['overview', 'Overview'], ['meetings', 'Meetings'], ['reviews', 'Reviews'], ['requests', 'Review requests'], ['activity', 'Activity'], ['settings', 'Settings']];
+  var state = { page: 'overview', mview: 'upcoming', meetUp: 0, filter: 'pending', pending: 0, lastPending: null, me: null };
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function $(id) { return document.getElementById(id); }
@@ -277,7 +312,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
   // ---------- navigation ----------
   function renderNav() {
     var h = PAGES.map(function (p) {
-      var badge = p[0] === 'reviews' && state.pending ? '<span class="pill">' + state.pending + '</span>' : '';
+      var badge = p[0] === 'reviews' && state.pending ? '<span class="pill">' + state.pending + '</span>' : (p[0] === 'meetings' && state.meetUp ? '<span class="pill" style="background:#2A2A33">' + state.meetUp + '</span>' : '');
       return '<button data-go="' + p[0] + '" class="' + (state.page === p[0] ? 'on' : '') + '">' + I[p[0]] + '<span>' + p[1] + '</span>' + badge + '</button>';
     }).join('');
     $('nav').innerHTML = h;
@@ -292,7 +327,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     PAGES.forEach(function (x) { $('p-' + x[0]).classList.toggle('on', x[0] === p); });
     var t = PAGES.filter(function (x) { return x[0] === p; })[0][1];
     $('title').textContent = t;
-    $('subtitle').textContent = { overview: 'Your reviews and website at a glance', reviews: 'Approve, reject and publish customer reviews', requests: 'Text or email customers a link to review you', activity: 'Everything that has happened recently', settings: 'Notifications, password and account' }[p];
+    $('subtitle').textContent = { overview: 'Your meetings, reviews and website at a glance', meetings: 'Who you are meeting with, and how to reach them', reviews: 'Approve, reject and publish customer reviews', requests: 'Text or email customers a link to review you', activity: 'Everything that has happened recently', settings: 'Notifications, password and account' }[p];
     renderNav(); window.scrollTo(0, 0);
     load(p);
     try { history.replaceState(null, '', '#' + p); } catch (e) {}
@@ -302,6 +337,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
   function load(p) {
     if (p === 'overview') return loadOverview();
+    if (p === 'meetings') return loadMeetings();
     if (p === 'reviews') return loadReviews();
     if (p === 'requests') return loadRequests();
     if (p === 'activity') return loadActivity($('feed'), 80);
@@ -312,6 +348,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
   async function loadOverview() {
     try {
       var j = await api('overview'), s = j.stats, w = j.web;
+      renderMeetMini(j.meetings);
       setPending(s.pending);
       var k = [
         ['reviews', 'Total reviews', s.total, s.approved + ' approved · ' + s.rejected + ' rejected'],
@@ -377,17 +414,115 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     review_submitted: ['reviews', 'New review submitted'], review_approved: ['check', 'Review approved'], review_rejected: ['x', 'Review rejected'],
     review_published: ['globe', 'Review published'], review_unpublished: ['eye', 'Review removed from website'], review_deleted: ['trash', 'Review deleted'],
     review_request_sent: ['requests', 'Review request sent'], review_link_opened: ['eye', 'Review link opened'],
-    book_click: ['cal', 'Book button clicked'], booking_completed: ['cal', 'Consultation booked'],
+    book_click: ['cal', 'Book button clicked'], booking_completed: ['meetings', 'Consultation booked'], meeting_cancelled: ['x', 'Meeting cancelled'], meeting_rescheduled: ['clock', 'Meeting rescheduled'],
+    meeting_completed: ['check', 'Meeting marked done'], meeting_no_show: ['x', 'Marked as no-show'], meeting_restored: ['meetings', 'Meeting restored'], meeting_deleted: ['trash', 'Meeting deleted'], webhook_rejected: ['lock', 'Blocked a fake Cal.com update'],
     login: ['lock', 'Signed in'], login_failed: ['lock', 'Failed sign-in attempt'], logout: ['lock', 'Signed out'], password_changed: ['lock', 'Password changed'],
     settings_changed: ['settings', 'Settings updated'], test_email_sent: ['check', 'Test email sent'], notify_failed: ['x', 'Email could not be sent'], setup: ['check', 'Dashboard created']
   };
   async function loadActivity(el, n) {
     try {
       var j = await api('activity'), ev = j.events.slice(0, n);
-      el.innerHTML = ev.length ? ev.map(function (x) { var m = EV[x.type] || ['activity', x.type]; var bad = x.type === 'login_failed' || x.type === 'notify_failed';
+      el.innerHTML = ev.length ? ev.map(function (x) { var m = EV[x.type] || ['activity', x.type]; var bad = x.type === 'login_failed' || x.type === 'notify_failed' || x.type === 'webhook_rejected';
         return '<div class="ev"><span class="ic" style="' + (bad ? 'background:#FFF1F3;color:#B4234A' : '') + '">' + I[m[0]] + '</span><div><div class="t">' + m[1] + '</div><div class="d">' + esc(x.detail) + '</div></div><span class="w" title="' + esc(full(x.created_at)) + '">' + when(x.created_at) + '</span></div>'; }).join('') : '<div class="empty">No activity yet.</div>';
     } catch (e) { el.innerHTML = '<div class="err">' + esc(e.message) + '</div>'; }
   }
+
+  // ---------- meetings ----------
+  function dt(utc) { return new Date(String(utc).replace(' ', 'T') + 'Z'); }
+  function tme(d) { return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }); }
+  function dayKey(d) { return d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate(); }
+  function dayLabel(d) {
+    var t = new Date(), tm = new Date(); tm.setDate(t.getDate() + 1); var y = new Date(); y.setDate(t.getDate() - 1);
+    if (dayKey(d) === dayKey(t)) return 'Today'; if (dayKey(d) === dayKey(tm)) return 'Tomorrow'; if (dayKey(d) === dayKey(y)) return 'Yesterday';
+    return d.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: d.getFullYear() !== t.getFullYear() ? 'numeric' : undefined });
+  }
+  function telHref(p) { return 'tel:' + String(p).replace(/[^0-9+]/g, ''); }
+  function prettyPhone(p) { var d = String(p).replace(/\D/g, ''); if (d.length === 11 && d[0] === '1') d = d.slice(1); return d.length === 10 ? '(' + d.slice(0, 3) + ') ' + d.slice(3, 6) + '-' + d.slice(6) : p; }
+  function joinHref(m) { return m.meet_url || ('https://cal.com/booking/' + encodeURIComponent(m.uid)); }
+  var ML = { booked: 'Booked', completed: 'Done', no_show: 'No-show', cancelled: 'Cancelled', rescheduled: 'Moved' };
+  function renderMeetMini(mt) {
+    state.meetUp = mt.counts.upcoming; renderNav();
+    $('meetMini').innerHTML = mt.next.length ? mt.next.map(function (m) { var d = dt(m.start_at);
+      return '<div class="nm"><div class="dt"><span>' + d.toLocaleDateString('en-US', { month: 'short' }) + '</span><b>' + d.getDate() + '</b></div><div class="who"><div>' + esc(m.name) + (m.business ? ' <span class="rv-b">· ' + esc(m.business) + '</span>' : '') + '</div><div class="rv-b">' + dayLabel(d) + ' at ' + tme(d) + (m.phone ? ' · ' + esc(prettyPhone(m.phone)) : '') + '</div></div>' + (m.phone ? '<a class="btn bo bsm" href="' + esc(telHref(m.phone)) + '">Call</a>' : '') + '</div>'; }).join('')
+      : '<div class="empty" style="padding:18px">No upcoming meetings yet. New consultations show up here as soon as someone books.</div>';
+  }
+  async function loadMeetings() {
+    $('mlist').innerHTML = '<div class="empty">Loading…</div>';
+    try {
+      var j = await api('meetings', null, '&view=' + state.mview), c = j.counts;
+      state.meetUp = c.upcoming; renderNav();
+      $('mtabs').innerHTML = [['upcoming', 'Upcoming', c.upcoming], ['past', 'Past', c.past], ['cancelled', 'Cancelled', c.cancelled], ['all', 'All', c.all]]
+        .map(function (t) { return '<button data-mv="' + t[0] + '" class="' + (state.mview === t[0] ? 'on' : '') + '">' + t[1] + '<em>' + t[2] + '</em></button>'; }).join('');
+      if (!j.meetings.length) {
+        $('mlist').innerHTML = '<div class="card empty">' + ({ upcoming: 'No upcoming meetings. When someone books a consultation, they show up here with their phone, email and notes.', past: 'No past meetings yet.', cancelled: 'No cancelled meetings.', all: 'No meetings yet.' }[state.mview]) + '</div>';
+      } else {
+        var out = [], last = '', now = Date.now();
+        j.meetings.forEach(function (m) {
+          var d = dt(m.start_at), k = dayKey(d), end = m.end_at ? dt(m.end_at) : new Date(d.getTime() + 15 * 60000);
+          if (k !== last) { last = k; var n = j.meetings.filter(function (x) { return dayKey(dt(x.start_at)) === k; }).length; out.push('<div class="day-h">' + dayLabel(d) + '<em>' + n + (n === 1 ? ' meeting' : ' meetings') + '</em></div>'); }
+          var mins = Math.max(5, Math.round((end - d) / 60000)), upcoming = end.getTime() >= now && m.status === 'booked', soon = upcoming && d.getTime() - now < 3600000;
+          var tags = '<span class="tag t-' + esc(m.status) + '">' + (soon && d.getTime() <= now ? 'Happening now' : soon ? 'Starts soon' : (ML[m.status] || esc(m.status))) + '</span>';
+          var c2 = [];
+          if (m.phone) c2.push('<a href="' + esc(telHref(m.phone)) + '">' + I.phone + esc(prettyPhone(m.phone)) + '</a>');
+          if (m.email) c2.push('<a href="' + esc(gmailHref(m.email, 'Hi ' + (m.name || '').split(' ')[0] + ',\n\n')) + '" target="_blank" rel="noopener">' + I.mail + esc(m.email) + '</a>');
+          var a = [];
+          if (upcoming) {
+            a.push('<a class="btn bp bsm" href="' + esc(joinHref(m)) + '" target="_blank" rel="noopener">' + I.video.replace('<svg', '<svg width="15" height="15"') + (m.meet_url ? 'Join call' : 'Open in Cal.com') + '</a>');
+            if (m.phone) a.push('<a class="btn bo bsm" href="' + esc(smsHref(m.phone, 'Hi ' + (m.name || '').split(' ')[0] + ', this is VERO Digital. Just confirming our call ' + (/^(Today|Tomorrow)$/.test(dayLabel(d)) ? dayLabel(d).toLowerCase() : 'on ' + dayLabel(d)) + ' at ' + tme(d) + '. Talk soon!')) + '">Text</a>');
+            if (m.phone) a.push('<a class="btn bo bsm" href="' + esc(telHref(m.phone)) + '">Call</a>');
+          }
+          if (m.status === 'booked' && !upcoming) { a.push('<button class="btn bg bsm" data-mop="completed" data-id="' + m.id + '">' + I.check.replace('<svg', '<svg width="14" height="14"') + 'Mark done</button>'); a.push('<button class="btn bo bsm" data-mop="no_show" data-id="' + m.id + '">No-show</button>'); }
+          if (m.status === 'completed') a.push('<button class="btn bp bsm" data-ask="' + m.id + '">Ask for a review</button>');
+          if (m.status === 'completed' || m.status === 'no_show') a.push('<button class="btn bo bsm" data-mop="restore" data-id="' + m.id + '">Undo</button>');
+          if (upcoming) a.push('<button class="btn bo bsm" data-mop="completed" data-id="' + m.id + '">Mark done</button>');
+          a.push('<button class="btn bo bsm" data-mdel="' + m.id + '" title="Delete from dashboard">' + I.trash.replace('<svg', '<svg width="14" height="14"') + '</button>');
+          out.push('<div class="mt' + (soon ? ' soon' : '') + '" data-mid="' + m.id + '"><div class="mt-time"><b>' + tme(d) + '</b><span>' + mins + ' min</span></div><div class="mt-b"><div class="mt-h"><span class="mt-n">' + esc(m.name || 'Client') + '</span>' + tags + '</div>'
+            + (m.business ? '<div class="rv-b" style="margin-top:3px">' + esc(m.business) + '</div>' : '')
+            + (c2.length ? '<div class="mt-c">' + c2.join('') + '</div>' : '')
+            + (m.notes ? '<div class="mt-notes">' + esc(m.notes) + '</div>' : '')
+            + '<div class="rv-a">' + a.join('') + '</div></div></div>');
+        });
+        $('mlist').innerHTML = out.join('');
+        state.mrows = j.meetings;
+      }
+      var h = j.hook;
+      $('mhook').innerHTML = h.last
+        ? '<div class="card" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><span class="ic" style="background:#E8F7EE;color:#11733A">' + I.check + '</span><div style="flex:1;min-width:200px"><b>Connected to Cal.com</b><div class="rv-b">Cancellations, reschedules and bookings made on Cal.com update here automatically. Last update ' + esc(when(h.last)) + '.</div></div><button class="btn bo bsm" id="hookShow">Connection details</button></div><div id="hookBox" style="display:none;margin-top:12px"></div>'
+        : '<div id="hookBox"></div>';
+      var box = $('hookBox');
+      var steps = '<div class="card hook"><div class="sec-t"><h2>' + (h.last ? 'Cal.com connection' : 'Connect Cal.com (2 minutes, optional)') + '</h2></div>'
+        + '<p class="rv-b" style="font-size:14px;margin:0">Bookings made on your website already show up here. Connect Cal.com so <b>cancellations, reschedules</b> and bookings made on your Cal.com page show up too.</p>'
+        + '<ol><li>In Cal.com, go to <b>Settings → Developer → Webhooks</b> and click <b>New</b>.</li><li>Paste this into <b>Subscriber URL</b>:<div class="code"><code>' + esc(h.url) + '</code><button class="btn bo bsm" type="button" data-copy="' + esc(h.url) + '">Copy</button></div></li>'
+        + '<li>Paste this into <b>Secret</b>:<div class="code"><code>' + esc(h.secret) + '</code><button class="btn bo bsm" type="button" data-copy="' + esc(h.secret) + '">Copy</button></div></li>'
+        + '<li>Leave all event triggers on, then click <b>Create</b>. Use <b>Ping test</b> if you see it: this card will turn green.</li></ol>'
+        + '<div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn bo bsm" type="button" id="hookCheck">Check connection</button><button class="btn bo bsm" type="button" id="hookReset">Make a new secret</button></div>'
+        + '<p class="rv-b" style="margin:10px 0 0">Keep the secret private. It proves updates really come from your Cal.com account.</p></div>';
+      box.innerHTML = steps;
+    } catch (e) { $('mlist').innerHTML = '<div class="err">' + esc(e.message) + '</div>'; }
+  }
+  $('p-meetings').addEventListener('click', async function (e) {
+    var t = e.target.closest('button,a'); if (!t) return;
+    if (t.hasAttribute('data-mv')) { state.mview = t.getAttribute('data-mv'); return loadMeetings(); }
+    if (t.hasAttribute('data-copy')) { try { await navigator.clipboard.writeText(t.getAttribute('data-copy')); toast('Copied'); } catch (x) { toast('Select the text and copy it'); } return; }
+    if (t.id === 'hookShow') { var b = $('hookBox'); b.style.display = b.style.display === 'none' ? 'block' : 'none'; return; }
+    if (t.id === 'hookCheck') { await loadMeetings(); toast('Checked'); return; }
+    if (t.id === 'hookReset') { if (t.dataset.sure !== '1') { t.dataset.sure = '1'; t.textContent = 'Sure? Paste the new one into Cal.com after'; return; } try { await api('cal_secret_reset', {}); toast('New secret made. Paste it into your Cal.com webhook.'); loadMeetings(); } catch (x) { toast(x.message); } return; }
+    if (t.hasAttribute('data-ask')) {
+      var m = (state.mrows || []).filter(function (x) { return String(x.id) === t.getAttribute('data-ask'); })[0]; if (!m) return;
+      var f = $('reqForm'); f.name.value = m.name || ''; f.phone.value = m.phone ? prettyPhone(m.phone) : ''; f.email.value = m.email || '';
+      go('requests'); toast('Filled in ' + (m.name || 'the client') + '. Tap Send by text.'); return;
+    }
+    if (t.hasAttribute('data-mdel')) {
+      var id = t.getAttribute('data-mdel');
+      t.outerHTML = '<span class="confirm">Delete this meeting from your dashboard? <button class="btn br bsm" data-mop="delete" data-id="' + id + '">Delete</button><button class="btn bo bsm" data-mv="' + state.mview + '">Keep</button></span>';
+      return;
+    }
+    if (t.hasAttribute('data-mop')) {
+      t.disabled = true;
+      try { await api('meeting_update', { id: +t.getAttribute('data-id'), op: t.getAttribute('data-mop') }); toast({ completed: 'Marked as done', no_show: 'Marked as no-show', restore: 'Updated', delete: 'Deleted' }[t.getAttribute('data-mop')] || 'Updated'); loadMeetings(); }
+      catch (x) { t.disabled = false; toast(x.message); }
+    }
+  });
 
   // ---------- review requests ----------
   var lastReq = null;

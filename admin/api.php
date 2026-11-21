@@ -55,6 +55,29 @@ if ($action === 'login') {
 
 admin_require();
 if ($method !== 'GET') csrf_check();
+vero_schema_ready();
+
+function meeting_row(array $m): array {
+    $m['id'] = (int)$m['id']; $m['verified'] = (int)$m['verified'] === 1;
+    return $m;
+}
+function meeting_counts(PDO $db): array {
+    $now = now_utc();
+    $one = function (string $sql, array $p = []) use ($db) { $s = $db->prepare($sql); $s->execute($p); return (int)$s->fetchColumn(); };
+    $wk = gmdate('Y-m-d H:i:s', time() + 7 * 86400);
+    return [
+        'upcoming' => $one("SELECT COUNT(*) FROM meetings WHERE status = 'booked' AND COALESCE(end_at, start_at) >= ?", [$now]),
+        'week' => $one("SELECT COUNT(*) FROM meetings WHERE status = 'booked' AND start_at >= ? AND start_at <= ?", [$now, $wk]),
+        'past' => $one("SELECT COUNT(*) FROM meetings WHERE status IN ('booked','completed','no_show') AND COALESCE(end_at, start_at) < ?", [$now]),
+        'cancelled' => $one("SELECT COUNT(*) FROM meetings WHERE status IN ('cancelled','rescheduled')"),
+        'all' => $one('SELECT COUNT(*) FROM meetings'),
+    ];
+}
+function cal_hook_info(): array {
+    $sec = setting('cal_webhook_secret', '');
+    if ($sec === '') { $sec = bin2hex(random_bytes(24)); set_setting('cal_webhook_secret', $sec); }
+    return ['url' => site_url() . '/api/calhook.php', 'secret' => $sec, 'last' => setting('cal_webhook_last', '')];
+}
 
 function stats(PDO $db): array {
     $r = $db->query("SELECT COUNT(*) total,
@@ -122,7 +145,51 @@ switch ($action) {
         json_out(['me' => $st->fetch(), 'csrf' => $_SESSION['csrf'], 'notify_email' => setting('notify_email', ''), 'notify_on' => setting('notify_on', '1') === '1', 'site' => site_url()]);
 
     case 'overview':
-        json_out(['stats' => stats($db), 'web' => website($db)]);
+        $st = $db->prepare("SELECT * FROM meetings WHERE status = 'booked' AND COALESCE(end_at, start_at) >= ? ORDER BY start_at ASC LIMIT 4");
+        $st->execute([now_utc()]);
+        json_out(['stats' => stats($db), 'web' => website($db), 'meetings' => ['next' => array_map('meeting_row', $st->fetchAll()), 'counts' => meeting_counts($db)]]);
+
+    case 'meetings':
+        $view = (string)($_GET['view'] ?? 'upcoming');
+        $now = now_utc();
+        [$where, $order, $p] = match ($view) {
+            'past' => ["status IN ('booked','completed','no_show') AND COALESCE(end_at, start_at) < ?", 'start_at DESC', [$now]],
+            'cancelled' => ["status IN ('cancelled','rescheduled')", 'start_at DESC', []],
+            'all' => ['1=1', 'start_at DESC', []],
+            default => ["status = 'booked' AND COALESCE(end_at, start_at) >= ?", 'start_at ASC', [$now]],
+        };
+        $st = $db->prepare("SELECT * FROM meetings WHERE $where ORDER BY $order LIMIT 300");
+        $st->execute($p);
+        json_out(['meetings' => array_map('meeting_row', $st->fetchAll()), 'counts' => meeting_counts($db), 'hook' => cal_hook_info()]);
+
+    case 'meeting_update':
+        require_method('POST');
+        $d = body_json();
+        $id = (int)($d['id'] ?? 0);
+        $op = (string)($d['op'] ?? '');
+        $st = $db->prepare('SELECT * FROM meetings WHERE id = ?');
+        $st->execute([$id]);
+        $m = $st->fetch();
+        if (!$m) json_out(['error' => 'Meeting not found.'], 404);
+        $label = $m['name'] . ($m['business'] ? ' · ' . $m['business'] : '');
+        $set = ['completed' => 'completed', 'no_show' => 'no_show', 'restore' => 'booked', 'cancel' => 'cancelled'];
+        if (isset($set[$op])) {
+            $db->prepare('UPDATE meetings SET status = ?, updated_at = ? WHERE id = ?')->execute([$set[$op], now_utc(), $id]);
+            $ev = ['completed' => 'meeting_completed', 'no_show' => 'meeting_no_show', 'restore' => 'meeting_restored', 'cancel' => 'meeting_cancelled'][$op];
+            log_event($ev, $id, $label);
+        } elseif ($op === 'delete') {
+            $db->prepare('DELETE FROM meetings WHERE id = ?')->execute([$id]);
+            log_event('meeting_deleted', $id, $label);
+        } else {
+            json_out(['error' => 'Unknown action.'], 400);
+        }
+        json_out(['ok' => true, 'counts' => meeting_counts($db)]);
+
+    case 'cal_secret_reset':
+        require_method('POST');
+        set_setting('cal_webhook_secret', bin2hex(random_bytes(24)));
+        log_event('settings_changed', null, 'Cal.com connection secret replaced');
+        json_out(['ok' => true, 'hook' => cal_hook_info()]);
 
     case 'reviews':
         $status = (string)($_GET['status'] ?? 'all');

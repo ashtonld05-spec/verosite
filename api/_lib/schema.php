@@ -13,6 +13,7 @@ function vero_install_schema(PDO $db, bool $sqlite): void {
         "CREATE TABLE IF NOT EXISTS login_attempts (id $pk, ip_hash CHAR(64) NOT NULL, ok SMALLINT NOT NULL DEFAULT 0, created_at DATETIME NOT NULL)$tail",
         "CREATE TABLE IF NOT EXISTS rate_hits (id $pk, ip_hash CHAR(64) NOT NULL, kind VARCHAR(20) NOT NULL, created_at DATETIME NOT NULL)$tail",
         "CREATE TABLE IF NOT EXISTS settings (k VARCHAR(64) NOT NULL PRIMARY KEY, v TEXT NOT NULL)$tail",
+        "CREATE TABLE IF NOT EXISTS meetings (id $pk, uid VARCHAR(64) NOT NULL UNIQUE, name VARCHAR(120) NOT NULL DEFAULT '', email VARCHAR(190) NOT NULL DEFAULT '', phone VARCHAR(40) NOT NULL DEFAULT '', business VARCHAR(160) NOT NULL DEFAULT '', notes TEXT NOT NULL, start_at DATETIME NOT NULL, end_at DATETIME NULL, meet_url VARCHAR(500) NOT NULL DEFAULT '', status VARCHAR(16) NOT NULL DEFAULT 'booked', source VARCHAR(10) NOT NULL DEFAULT 'site', verified SMALLINT NOT NULL DEFAULT 0, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL)$tail",
     ];
     foreach ($q as $sql) $db->exec($sql);
     $idx = [
@@ -21,6 +22,7 @@ function vero_install_schema(PDO $db, bool $sqlite): void {
         'CREATE INDEX idx_pv_day ON pageviews (day)',
         'CREATE INDEX idx_rate ON rate_hits (ip_hash, kind, created_at)',
         'CREATE INDEX idx_login ON login_attempts (ip_hash, created_at)',
+        'CREATE INDEX idx_meet_start ON meetings (start_at)',
     ];
     foreach ($idx as $sql) { try { $db->exec($sql); } catch (Throwable $e) { /* already exists */ } }
 }

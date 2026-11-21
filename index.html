@@ -2561,7 +2561,7 @@ class Component extends DCLogic {
         if (!res.ok || !res.j || res.j.status !== 'success') throw new Error((res.j && res.j.error && res.j.error.message) || 'booking');
         var d = res.j.data || {}; d = d.length ? d[0] : d;
         self.setState({ bkBusy: false, bkStep: 4, bkStatus: d.status || 'accepted', bkUid: d.uid || '' });
-        self.track('booking_done');
+        self.saveBooking({ uid: d.uid || '', start: d.start || start, end: d.end || '', name: name, email: email, phone: e164, business: biz, notes: notes });
       }).catch(function (x) {
         var m = String((x && x.message) || ''), why = '';
         if (/limit|maximum|too many/i.test(m)) why = 'You already have the most consultations we allow per person booked. Check your email for your existing booking, or reply to it to change the time.';
@@ -2571,6 +2571,12 @@ class Component extends DCLogic {
         try { console.warn('[VERO booking] Cal.com said:', m); } catch (y) {}
         self.setState({ bkBusy: false, bkErr: why || 'We could not finish the booking here. Use the button below to confirm the same time on our calendar page.', bkFallback: !why, bkPre: { name: name, email: email } });
       });
+  }
+  saveBooking(b) {
+    try {
+      if (!b.uid || !/^https?:$/.test(location.protocol) || /claude\.ai|claudeusercontent|localhost:87/.test(location.host)) return;
+      fetch('/api/booking.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b), keepalive: true }).catch(function () {});
+    } catch (x) {}
   }
   track(e, extra) {
     try {
