@@ -1369,8 +1369,9 @@ class Component extends DCLogic {
     if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || phone.replace(/\D/g, '').length < 7) { self.setState({ bkErr: 'Please enter your name, a valid email and a phone number.' }); return; }
     self.setState({ bkBusy: true, bkErr: '' });
     var start = new Date(self.state.bkTime).toISOString();
+    var pd = phone.replace(/\D/g, ''), e164 = /^\s*\+/.test(phone) ? '+' + pd : pd.length === 10 ? '+1' + pd : (pd.length === 11 && pd[0] === '1') ? '+' + pd : '+' + pd;
     var body = { start: start, eventTypeSlug: self.state.bkSlug, username: self.state.bkUser,
-      attendee: { name: name, email: email, timeZone: self.state.bkTz, phoneNumber: phone, language: 'en' },
+      attendee: { name: name, email: email, timeZone: self.state.bkTz, phoneNumber: e164, language: 'en' },
       bookingFieldsResponses: { notes: (biz ? 'Business: ' + biz + '. ' : '') + notes } };
     fetch('https://api.cal.com/v2/bookings', { method: 'POST', headers: { 'Content-Type': 'application/json', 'cal-api-version': '2024-08-13' }, body: JSON.stringify(body) })
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
@@ -1379,8 +1380,14 @@ class Component extends DCLogic {
         var d = res.j.data || {}; d = d.length ? d[0] : d;
         self.setState({ bkBusy: false, bkStep: 4, bkStatus: d.status || 'accepted', bkUid: d.uid || '' });
         self.track('booking_done');
-      }).catch(function () {
-        self.setState({ bkBusy: false, bkErr: 'We could not finish the booking here. Use the button below to confirm the same time on our calendar page.', bkFallback: true, bkPre: { name: name, email: email } });
+      }).catch(function (x) {
+        var m = String((x && x.message) || ''), why = '';
+        if (/limit|maximum|too many/i.test(m)) why = 'You already have the most consultations we allow per person booked. Check your email for your existing booking, or reply to it to change the time.';
+        else if (/phone/i.test(m)) why = 'That phone number did not work. Please enter a 10-digit US number, like 702-555-1234.';
+        else if (/not available|no available|already|taken|busy|slot/i.test(m)) why = 'Sorry, that time was just taken. Please go back and pick another time.';
+        else if (/email/i.test(m)) why = 'That email address did not work. Please check it and try again.';
+        try { console.warn('[VERO booking] Cal.com said:', m); } catch (y) {}
+        self.setState({ bkBusy: false, bkErr: why || 'We could not finish the booking here. Use the button below to confirm the same time on our calendar page.', bkFallback: !why, bkPre: { name: name, email: email } });
       });
   }
   track(e, extra) {
