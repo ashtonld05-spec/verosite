@@ -107,6 +107,19 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:var(--v)
 .page{display:none}.page.on{display:block;animation:fade .25s ease}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .mob{display:none}
+.tx{margin-top:12px;border:1px solid #DCD4FF;background:#FAF9FF;border-radius:14px;padding:14px}
+.tx-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.tx-chips button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 11px;font:600 12.5px Inter,sans-serif;color:var(--ink);cursor:pointer}
+.tx-chips button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tx textarea{width:100%;min-height:96px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font:14.5px/1.5 Inter,sans-serif;resize:vertical;box-sizing:border-box;background:#fff}
+.tx textarea:focus{outline:2px solid var(--v);border-color:transparent}
+.tx-meta{display:flex;justify-content:space-between;gap:8px;font-size:12px;color:var(--mut);margin:6px 0 10px}
+.tx-go{display:flex;flex-wrap:wrap;gap:8px}
+.newbk{position:fixed;right:20px;top:20px;z-index:60;background:#fff;border:1px solid #DCD4FF;box-shadow:0 18px 50px rgba(30,20,90,.18);border-radius:18px;padding:16px 18px;max-width:340px;display:none}
+.newbk.show{display:block;animation:nbIn .35s ease}
+@keyframes nbIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.newbk .x{position:absolute;right:10px;top:8px;background:none;border:0;font-size:20px;color:var(--mut);cursor:pointer}
+@media (max-width:760px){.newbk{left:12px;right:12px;top:12px;max-width:none}}
 .day-h{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;margin:22px 0 10px;display:flex;align-items:center;gap:8px}
 .day-h:first-child{margin-top:0}.day-h em{font-style:normal;font-family:Inter;font-weight:600;font-size:12px;color:var(--mut);background:#fff;border:1px solid var(--line);border-radius:999px;padding:2px 9px}
 .mt{display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 18px;margin-bottom:10px}
@@ -260,6 +273,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 <nav class="mob" id="mob"></nav>
 </div>
 <div class="toast" id="toast"></div>
+<div class="newbk" id="newbk" role="status"></div>
 <script>
 (function () {
   var CSRF = <?= json_encode($csrf) ?>;
@@ -283,6 +297,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     video: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>',
     trash: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>'
   };
+  I.send = I.requests;
   var PAGES = [['overview', 'Overview'], ['meetings', 'Meetings'], ['reviews', 'Reviews'], ['requests', 'Review requests'], ['activity', 'Activity'], ['settings', 'Settings']];
   var state = { page: 'overview', mview: 'upcoming', meetUp: 0, filter: 'pending', pending: 0, lastPending: null, me: null };
 
@@ -329,8 +344,9 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     $('title').textContent = t;
     $('subtitle').textContent = { overview: 'Your meetings, reviews and website at a glance', meetings: 'Who you are meeting with, and how to reach them', reviews: 'Approve, reject and publish customer reviews', requests: 'Text or email customers a link to review you', activity: 'Everything that has happened recently', settings: 'Notifications, password and account' }[p];
     renderNav(); window.scrollTo(0, 0);
-    load(p);
+    var pr = load(p);
     try { history.replaceState(null, '', '#' + p); } catch (e) {}
+    return pr;
   }
   document.addEventListener('click', function (e) { var b = e.target.closest('[data-go]'); if (b) { e.preventDefault(); go(b.getAttribute('data-go')); } });
   $('bell').addEventListener('click', function () { state.filter = 'pending'; go('reviews'); });
@@ -415,7 +431,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     review_published: ['globe', 'Review published'], review_unpublished: ['eye', 'Review removed from website'], review_deleted: ['trash', 'Review deleted'],
     review_request_sent: ['requests', 'Review request sent'], review_link_opened: ['eye', 'Review link opened'],
     book_click: ['cal', 'Book button clicked'], booking_completed: ['meetings', 'Consultation booked'], meeting_cancelled: ['x', 'Meeting cancelled'], meeting_rescheduled: ['clock', 'Meeting rescheduled'],
-    meeting_completed: ['check', 'Meeting marked done'], meeting_no_show: ['x', 'Marked as no-show'], meeting_restored: ['meetings', 'Meeting restored'], meeting_deleted: ['trash', 'Meeting deleted'], webhook_rejected: ['lock', 'Blocked a fake Cal.com update'],
+    meeting_completed: ['check', 'Meeting marked done'], meeting_no_show: ['x', 'Marked as no-show'], meeting_restored: ['meetings', 'Meeting restored'], meeting_deleted: ['trash', 'Meeting deleted'], meeting_texted: ['send', 'Texted a client'], webhook_rejected: ['lock', 'Blocked a fake Cal.com update'],
     login: ['lock', 'Signed in'], login_failed: ['lock', 'Failed sign-in attempt'], logout: ['lock', 'Signed out'], password_changed: ['lock', 'Password changed'],
     settings_changed: ['settings', 'Settings updated'], test_email_sent: ['check', 'Test email sent'], notify_failed: ['x', 'Email could not be sent'], setup: ['check', 'Dashboard created']
   };
@@ -468,9 +484,9 @@ document.getElementById('loginForm').addEventListener('submit', async function (
           var a = [];
           if (upcoming) {
             a.push('<a class="btn bp bsm" href="' + esc(joinHref(m)) + '" target="_blank" rel="noopener">' + I.video.replace('<svg', '<svg width="15" height="15"') + (m.meet_url ? 'Join call' : 'Open in Cal.com') + '</a>');
-            if (m.phone) a.push('<a class="btn bo bsm" href="' + esc(smsHref(m.phone, 'Hi ' + (m.name || '').split(' ')[0] + ', this is VERO Digital. Just confirming our call ' + (/^(Today|Tomorrow)$/.test(dayLabel(d)) ? dayLabel(d).toLowerCase() : 'on ' + dayLabel(d)) + ' at ' + tme(d) + '. Talk soon!')) + '">Text</a>');
             if (m.phone) a.push('<a class="btn bo bsm" href="' + esc(telHref(m.phone)) + '">Call</a>');
           }
+          if (m.phone) a.splice(upcoming ? 1 : 0, 0, '<button class="btn ' + (upcoming ? 'bo' : 'bp') + ' bsm" data-text="' + m.id + '">' + I.send.replace('<svg', '<svg width="14" height="14"') + 'Text</button>');
           if (m.status === 'booked' && !upcoming) { a.push('<button class="btn bg bsm" data-mop="completed" data-id="' + m.id + '">' + I.check.replace('<svg', '<svg width="14" height="14"') + 'Mark done</button>'); a.push('<button class="btn bo bsm" data-mop="no_show" data-id="' + m.id + '">No-show</button>'); }
           if (m.status === 'completed') a.push('<button class="btn bp bsm" data-ask="' + m.id + '">Ask for a review</button>');
           if (m.status === 'completed' || m.status === 'no_show') a.push('<button class="btn bo bsm" data-mop="restore" data-id="' + m.id + '">Undo</button>');
@@ -480,7 +496,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
             + (m.business ? '<div class="rv-b" style="margin-top:3px">' + esc(m.business) + '</div>' : '')
             + (c2.length ? '<div class="mt-c">' + c2.join('') + '</div>' : '')
             + (m.notes ? '<div class="mt-notes">' + esc(m.notes) + '</div>' : '')
-            + '<div class="rv-a">' + a.join('') + '</div></div></div>');
+            + '<div class="rv-a">' + a.join('') + '</div><div class="tx" id="tx-' + m.id + '" hidden></div></div></div>');
         });
         $('mlist').innerHTML = out.join('');
         state.mrows = j.meetings;
@@ -500,7 +516,57 @@ document.getElementById('loginForm').addEventListener('submit', async function (
       box.innerHTML = steps;
     } catch (e) { $('mlist').innerHTML = '<div class="err">' + esc(e.message) + '</div>'; }
   }
+  var SITE = location.origin;
+  function when2(d) { var l = dayLabel(d); return (/^(Today|Tomorrow|Yesterday)$/.test(l) ? l.toLowerCase() : 'on ' + l) + ' at ' + tme(d); }
+  function textTemplates(m) {
+    var d = dt(m.start_at), first = (m.name || '').split(' ')[0] || 'there', now = Date.now(), end = m.end_at ? dt(m.end_at) : new Date(d.getTime() + 15 * 60000);
+    var join = m.meet_url ? ' Here is the link to join: ' + m.meet_url : '';
+    var resched = 'https://cal.com/reschedule/' + encodeURIComponent(m.uid);
+    var T = [];
+    if (m.status === 'booked' && end.getTime() >= now) {
+      T.push(['Confirm booking', 'Hi ' + first + ', this is Ashton from VERO Digital. Thanks for booking a free consultation! You are all set for ' + when2(d) + '.' + join + ' Talk soon!']);
+      T.push(['Reminder', 'Hi ' + first + ', quick reminder about our call ' + when2(d) + '. It only takes 15 minutes.' + join + ' See you then! - Ashton, VERO Digital']);
+      T.push(['Running late', 'Hi ' + first + ', this is Ashton from VERO Digital. I am running about 5 minutes behind for our call. Sorry about that, I will be right there!']);
+      T.push(['Need to move it?', 'Hi ' + first + ', it is Ashton from VERO Digital. If ' + when2(d).replace(/^on /, '') + ' no longer works, you can pick a new time here: ' + resched]);
+    } else if (m.status === 'no_show' || (m.status === 'booked' && end.getTime() < now)) {
+      T.push(['Missed you', 'Hi ' + first + ', this is Ashton from VERO Digital. Sorry we missed each other today! Want to pick a new time? ' + SITE + '/book.html']);
+      T.push(['Thank you', 'Hi ' + first + ', thanks for your time today! I will put together your website plan and send it over soon. Any questions, just text me. - Ashton, VERO Digital']);
+    } else if (m.status === 'completed') {
+      T.push(['Thank you', 'Hi ' + first + ', thanks for your time today! I will put together your website plan and send it over soon. Any questions, just text me. - Ashton, VERO Digital']);
+      T.push(['Follow up', 'Hi ' + first + ', Ashton from VERO Digital here. Just checking in on the website we talked about. Want me to get started? Our $800 holiday price is still open.']);
+    } else {
+      T.push(['Rebook', 'Hi ' + first + ', this is Ashton from VERO Digital. I saw our call was cancelled. No problem! If you still want a website, you can grab a new time here: ' + SITE + '/book.html']);
+    }
+    T.push(['Write my own', 'Hi ' + first + ', this is Ashton from VERO Digital. ']);
+    return T;
+  }
+  function openComposer(id) {
+    var m = (state.mrows || []).filter(function (x) { return String(x.id) === String(id); })[0], box = $('tx-' + id);
+    if (!m || !box) return;
+    if (!box.hidden) { box.hidden = true; return; }
+    var T = textTemplates(m), win = /Windows/i.test(navigator.userAgent);
+    box.innerHTML = '<div class="tx-chips">' + T.map(function (t, i) { return '<button type="button" data-tpl="' + i + '" class="' + (i === 0 ? 'on' : '') + '">' + esc(t[0]) + '</button>'; }).join('') + '</div>'
+      + '<textarea aria-label="Text message to ' + esc(m.name) + '"></textarea>'
+      + '<div class="tx-meta"><span>To ' + esc(m.name || 'client') + ' · ' + esc(prettyPhone(m.phone)) + '</span><span class="tx-n"></span></div>'
+      + '<div class="tx-go"><a class="btn bp bsm tx-send" href="#">' + I.send.replace('<svg', '<svg width="14" height="14"') + 'Open in Messages</a><button type="button" class="btn bo bsm tx-copy">Copy text</button><button type="button" class="btn bo bsm tx-close">Close</button></div>'
+      + (win ? '<p class="rv-b" style="margin:10px 0 0">On a Windows computer, Messages will not open. Tap <b>Copy text</b> and send it from your phone, or open this dashboard on your phone.</p>' : '<p class="rv-b" style="margin:10px 0 0">Opens Messages with this ready to go. It sends from your own phone number.</p>');
+    var ta = box.querySelector('textarea'), send = box.querySelector('.tx-send'), kind = T[0][0];
+    function sync() { send.href = smsHref(m.phone, ta.value); var n = ta.value.length; box.querySelector('.tx-n').textContent = n + ' characters' + (n > 160 ? ' · ' + Math.ceil(n / 153) + ' texts' : ''); }
+    ta.value = T[0][1]; sync();
+    ta.addEventListener('input', sync);
+    box.addEventListener('click', function (e) {
+      var b = e.target.closest('button,a'); if (!b) return;
+      if (b.hasAttribute('data-tpl')) { var t = T[+b.getAttribute('data-tpl')]; kind = t[0]; ta.value = t[1]; sync(); box.querySelectorAll('[data-tpl]').forEach(function (x) { x.classList.toggle('on', x === b); }); ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); return; }
+      if (b.classList.contains('tx-copy')) { e.preventDefault(); (navigator.clipboard ? navigator.clipboard.writeText(ta.value) : Promise.reject()).then(function () { toast('Copied. Paste it into a text to ' + prettyPhone(m.phone)); }, function () { ta.select(); toast('Press Ctrl+C to copy'); }); return; }
+      if (b.classList.contains('tx-close')) { box.hidden = true; return; }
+      if (b.classList.contains('tx-send')) { if (!ta.value.trim()) { e.preventDefault(); toast('Write a message first'); return; } api('meeting_texted', { id: m.id, kind: kind }).catch(function () {}); toast('Opening Messages…'); }
+    });
+    box.hidden = false;
+    ta.focus();
+    try { box.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } catch (x) {}
+  }
   $('p-meetings').addEventListener('click', async function (e) {
+    var tx = e.target.closest('[data-text]'); if (tx) { openComposer(tx.getAttribute('data-text')); return; }
     var t = e.target.closest('button,a'); if (!t) return;
     if (t.hasAttribute('data-mv')) { state.mview = t.getAttribute('data-mv'); return loadMeetings(); }
     if (t.hasAttribute('data-copy')) { try { await navigator.clipboard.writeText(t.getAttribute('data-copy')); toast('Copied'); } catch (x) { toast('Select the text and copy it'); } return; }
@@ -588,7 +654,33 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     state.lastPending = n; state.pending = n; renderNav();
     document.title = (n ? '(' + n + ') ' : '') + 'Dashboard — VERO Admin';
   }
-  setInterval(async function () { try { var j = await api('reviews', null, '&status=pending'); setPending(j.stats.pending); } catch (e) {} }, 45000);
+  var lastMeet = null;
+  function newBooking(m) {
+    var d = dt(m.start_at), el = $('newbk');
+    el.innerHTML = '<button class="x" aria-label="Close">×</button><div style="font-size:12px;font-weight:700;color:var(--v);text-transform:uppercase;letter-spacing:.06em">New booking</div><div style="font-weight:700;font-size:16px;margin-top:4px">' + esc(m.name || 'Someone') + (m.business ? ' <span class="rv-b" style="font-weight:500">· ' + esc(m.business) + '</span>' : '') + '</div><div class="rv-b" style="margin-top:2px">' + esc(dayLabel(d) + ' at ' + tme(d)) + '</div><div style="display:flex;gap:8px;margin-top:12px"><button class="btn bp bsm" data-nb="' + m.id + '">Text them</button><button class="btn bo bsm" data-nb-view="1">View</button></div>';
+    el.classList.add('show');
+    try { if (window.Notification && Notification.permission === 'granted') new Notification('New booking: ' + (m.name || 'someone'), { body: dayLabel(d) + ' at ' + tme(d) + '. Open the dashboard to text them.', icon: '/images/vero-mark.png' }); } catch (e) {}
+  }
+  $('newbk').addEventListener('click', async function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    $('newbk').classList.remove('show');
+    if (b.hasAttribute('data-nb') || b.hasAttribute('data-nb-view')) {
+      state.mview = 'upcoming'; await go('meetings');
+      if (b.hasAttribute('data-nb')) openComposer(b.getAttribute('data-nb'));
+    }
+  });
+  async function pulse() {
+    try {
+      var j = await api('pulse');
+      setPending(j.pending);
+      if (state.meetUp !== j.upcoming) { state.meetUp = j.upcoming; renderNav(); }
+      var id = j.last_meeting ? j.last_meeting.id : 0;
+      if (lastMeet !== null && id > lastMeet) { newBooking(j.last_meeting); if (state.page === 'meetings') loadMeetings(); }
+      lastMeet = id;
+    } catch (e) {}
+  }
+  pulse();
+  setInterval(pulse, 45000);
 
   api('me').then(function (j) { state.me = j; $('meEmail').textContent = j.me.email; }).catch(function () {});
   var start = (location.hash || '').slice(1);

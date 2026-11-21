@@ -185,6 +185,23 @@ switch ($action) {
         }
         json_out(['ok' => true, 'counts' => meeting_counts($db)]);
 
+    case 'pulse':
+        $st = $db->query("SELECT id, name, business, start_at FROM meetings WHERE status = 'booked' ORDER BY id DESC LIMIT 1");
+        $last = $st->fetch() ?: null;
+        if ($last) $last['id'] = (int)$last['id'];
+        json_out(['pending' => stats($db)['pending'], 'last_meeting' => $last, 'upcoming' => meeting_counts($db)['upcoming']]);
+
+    case 'meeting_texted':
+        require_method('POST');
+        $d = body_json();
+        $st = $db->prepare('SELECT name FROM meetings WHERE id = ?');
+        $st->execute([(int)($d['id'] ?? 0)]);
+        $n = $st->fetchColumn();
+        if ($n === false) json_out(['error' => 'Meeting not found.'], 404);
+        $kind = clean_text($d['kind'] ?? '', 40);
+        log_event('meeting_texted', (int)$d['id'], $n . ($kind ? ' · ' . $kind : ''));
+        json_out(['ok' => true]);
+
     case 'cal_secret_reset':
         require_method('POST');
         set_setting('cal_webhook_secret', bin2hex(random_bytes(24)));
