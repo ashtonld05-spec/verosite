@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /work/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /review.html
 
 Sitemap: https://deft-silver-penguin-61.hostingersite.com/sitemap.xml

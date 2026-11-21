@@ -200,6 +200,25 @@ section#industries,section#work,section#services,section#why,section#process,sec
 .vwhy-more{display:inline-flex;align-items:center;gap:8px;color:#7C5CFF;font-weight:600;font-size:15px;text-decoration:none;white-space:nowrap}
 @media (max-width:1024px){.vwhy-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:640px){.vwhy-grid{grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}.vwhy-card{padding:16px;border-radius:16px}.vwhy-ic{width:36px;height:36px;border-radius:11px}.vwhy-ic svg{width:18px;height:18px}.vwhy-t{font-size:15px;margin-top:12px}.vwhy-d{display:none}}
+/* reviews section */
+.vrev{background:#0A0A0C;color:#FFFFFF;padding:110px 24px}
+.vrev-in{max-width:1240px;margin:0 auto}
+.vrev-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:40px}
+.vrev-eye{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A99BFF}
+.vrev-h{font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,3.8vw,50px);letter-spacing:-.025em;margin:14px 0 0;line-height:1.06}
+.vrev-score{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.05);border:1px solid rgba(196,190,230,.18);border-radius:18px;padding:14px 20px}
+.vrev-avg{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:40px;line-height:1}
+.vrev-stars{color:#F5B83D;letter-spacing:2px;font-size:16px}
+.vrev-cnt{font-size:13px;color:#A1A1AA;margin-top:4px}
+.vrev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.vrev-card{margin:0;background:rgba(255,255,255,.04);border:1px solid rgba(196,190,230,.16);border-radius:22px;padding:26px;display:flex;flex-direction:column;gap:16px}
+.vrev-card blockquote{margin:0;font-size:16px;line-height:1.65;color:#E4E4EA;flex:1;white-space:pre-line}
+.vrev-card figcaption{display:flex;align-items:center;gap:12px}
+.vrev-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#7C5CFF,#4F3BD6);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700}
+.vrev-card b{display:block;font-size:15px}.vrev-card em{display:block;font-style:normal;font-size:13px;color:#A1A1AA}
+.vrev-cta{display:inline-block;margin-top:28px;color:#C9BFFF;font-weight:600;text-decoration:none}
+@media (max-width:1024px){.vrev-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.vrev{padding:64px 20px}.vrev-grid{grid-template-columns:1fr}.vrev-card{padding:20px}.vrev-h{font-size:27px}}
 /* ===== VERO inner pages ===== */
 .vp-anchor{display:block;position:relative;top:-120px;height:0;visibility:hidden;padding:0 !important;margin:0 !important}
 .vp-wrap{max-width:1240px;margin:0 auto;position:relative}
@@ -608,6 +627,19 @@ section#industries,section#work,section#services,section#why,section#process,sec
 .vp-anat-chips svg{color:#A99BFF}
 @media (max-width:1024px){.vp-anat-row{grid-template-columns:1fr 1fr}.vp-anat-center{grid-column:1 / -1;order:-1}}
 @media (max-width:640px){.vp-anat-row{grid-template-columns:1fr;gap:14px}.vp-anat-col{gap:10px}.vp-call{padding:14px 16px;display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:center}.vp-call-top{margin:0;grid-row:span 2}.vp-call-ic{display:none}.vp-call .vp-li-d{font-size:13.5px;margin-top:2px}.vp-anat-frame{padding:8px;border-radius:20px}}
+/* review page */
+.vrv-wrap{background:radial-gradient(ellipse at 50% 0%,#EDE8FF 0%,#F4F4F6 55%);padding-top:80px}
+.vrv-card{position:relative;background:#FFFFFF;border:1px solid #E2E2E8;border-radius:28px;padding:40px;box-shadow:0 50px 90px -50px rgba(58,42,158,.45)}
+.vrv-form{display:flex;flex-direction:column;gap:16px;margin-top:28px}
+.vrv-form label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;color:#0E0E12}
+.vrv-form input,.vrv-form textarea{font:inherit;font-weight:400;font-size:15px;padding:12px 14px;border-radius:12px;border:1px solid #D4D4DC;background:#FFFFFF;color:#0E0E12;outline:none;resize:vertical}
+.vrv-form input:focus,.vrv-form textarea:focus{border-color:#7C5CFF;box-shadow:0 0 0 4px #ECE8FF}
+.vrv-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.vrv-rate{text-align:center;background:#FAFAFC;border:1px solid #EEEEF2;border-radius:18px;padding:16px}
+.vrv-stars{display:flex;justify-content:center;gap:6px}
+.vrv-star{background:none;border:0;font-size:42px;line-height:1;cursor:pointer;padding:2px 4px;transition:transform .12s,color .12s}
+.vrv-lab{font-size:14px;font-weight:600;color:#5B5B66;margin-top:4px}
+@media (max-width:640px){.vrv-card{padding:26px 18px;border-radius:22px}.vrv-grid{grid-template-columns:1fr}.vrv-star{font-size:38px}.vrv-wrap{padding-top:40px}}
 /* ---------- step-by-step booker ---------- */
 .vbk{margin-top:22px}
 .vbk-steps{list-style:none;padding:0;margin:0 0 18px;display:flex;align-items:center;gap:10px}
@@ -684,7 +716,7 @@ section#industries,section#work,section#services,section#why,section#process,sec
 
 
 <header style="position: sticky; top: 0; z-index: 50; background: rgba(10, 10, 12, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196, 190, 230, 0.14)">
-<div class="vsale-bar" style="background: linear-gradient(90deg, #5B3FE0, #7C5CFF 50%, #5B3FE0); color: #FFFFFF; font-size: 14px; line-height: 1.4; text-align: center; padding: 9px 16px"><a href="book.html#book" style="text-decoration: none; display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 10px"><span class="vpulse" style="width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; flex-shrink: 0"></span><strong>Holiday Sale:</strong><span class="vsale-long">Custom websites</span><span><s style="opacity: 0.7">$1,500</s> <strong>$800</strong></span><span class="vsale-long">·</span><span>Only 3 December spots left</span><span class="vsale-long">· Ends in 42 days</span><span class="vsale-long" style="text-decoration: underline; text-underline-offset: 3px; font-weight: 600">Claim your spot →</span></a></div>
+<div class="vsale-bar" style="background: linear-gradient(90deg, #5B3FE0, #7C5CFF 50%, #5B3FE0); color: #FFFFFF; font-size: 14px; line-height: 1.4; text-align: center; padding: 9px 16px"><a href="book.html#book" style="text-decoration: none; display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 10px"><span class="vpulse" style="width: 7px; height: 7px; border-radius: 50%; background: #FFFFFF; flex-shrink: 0"></span><strong>Holiday Sale:</strong><span class="vsale-long">Custom websites</span><span><s style="opacity: 0.7">$1,500</s> <strong>$800</strong></span><span class="vsale-long">·</span><span>Only 3 December spots left</span><span class="vsale-long">· Ends in 41 days</span><span class="vsale-long" style="text-decoration: underline; text-underline-offset: 3px; font-weight: 600">Claim your spot →</span></a></div>
 
 <nav aria-label="Main" style="max-width: 1240px; margin: 0 auto; padding: 0 24px; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
 <a href="index.html" aria-label="VERO home" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #FFFFFF">
@@ -725,7 +757,7 @@ section#industries,section#work,section#services,section#why,section#process,sec
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
 <a class="vbtn vbtn-ghost" href="work.html#work" style="border: 1px solid rgba(196,190,230,0.4); color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 17px; padding: 17px 30px; border-radius: 999px">View Our Work</a>
 </div>
-<div class="vup3" style="display: flex; align-items: baseline; gap: 10px; margin-top: 22px; font-size: 14px; line-height: 1.5; color: #C9C9D1"><span class="vpulse" style="width: 8px; height: 8px; border-radius: 50%; background: #A99BFF; flex-shrink: 0; transform: translateY(-1px)"></span><span>Holiday pricing ends in 42 days. <strong style="color: #FFFFFF">Only 3 December spots left.</strong></span></div>
+<div class="vup3" style="display: flex; align-items: baseline; gap: 10px; margin-top: 22px; font-size: 14px; line-height: 1.5; color: #C9C9D1"><span class="vpulse" style="width: 8px; height: 8px; border-radius: 50%; background: #A99BFF; flex-shrink: 0; transform: translateY(-1px)"></span><span>Holiday pricing ends in 41 days. <strong style="color: #FFFFFF">Only 3 December spots left.</strong></span></div>
 <div class="vup3" style="display: flex; flex-wrap: wrap; gap: 28px; margin-top: 40px; font-size: 15px; color: #A1A1AA">
 <div style="display: flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>$800 holiday price (reg. $1,500)</div>
 <div style="display: flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Custom design, never templates</div>
@@ -1188,7 +1220,7 @@ section#industries,section#work,section#services,section#why,section#process,sec
 <span style="font-size: 15px; color: #C9C9D1; line-height: 1.5; padding-bottom: 6px"><strong style="color: #FFFFFF">One-time payment.</strong><br>No monthly fees required.</span>
 </div>
 <div style="margin-top: 28px; background: rgba(255,255,255,0.05); border: 1px solid rgba(196,190,230,0.16); border-radius: 16px; padding: 16px 18px">
-<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px"><span style="color: #C9C9D1">December availability · sale ends in 42 days</span><strong style="color: #FFFFFF">3 of 5 spots left</strong></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px"><span style="color: #C9C9D1">December availability · sale ends in 41 days</span><strong style="color: #FFFFFF">3 of 5 spots left</strong></div>
 <div style="height: 8px; border-radius: 999px; background: rgba(255,255,255,0.1); margin-top: 12px; overflow: hidden"><div style="height: 100%; border-radius: 999px; background: linear-gradient(90deg, #7C5CFF, #A99BFF); width: 40%;"></div></div>
 </div>
 <a class="vbtn vbtn-primary vm-full" href="book.html#book" style="margin-top: 24px; background: #7C5CFF; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 17px; padding: 18px 30px; border-radius: 999px; display: inline-flex; align-items: center; gap: 10px">Start With a Free Consultation <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
@@ -1385,6 +1417,10 @@ section#industries,section#work,section#services,section#why,section#process,sec
 </section>
 
 
+<div data-reviews="" hidden=""></div>
+
+
+
 <section id="faq" style="background: #FFFFFF; padding: 110px 24px">
 <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 56px">
 <div style="flex: 1 1 320px; min-width: 0">
@@ -1522,7 +1558,7 @@ section#industries,section#work,section#services,section#why,section#process,sec
 <div>
 <div style="color: #FFFFFF; font-weight: 600; font-size: 15px">Services</div>
 <ul style="list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px">
-<li><a href="pricing.html#services">Custom Website — $800</a></li><li><a href="pricing.html#services">Maintenance — $50/mo</a></li><li><a href="book.html#book">Free Consultation</a></li><li><a href="work.html#work">Portfolio</a></li>
+<li><a href="pricing.html#services">Custom Website — $800</a></li><li><a href="pricing.html#services">Maintenance — $50/mo</a></li><li><a href="book.html#book">Free Consultation</a></li><li><a href="work.html#work">Portfolio</a></li><li><a href="review.html">Leave a Review</a></li>
 </ul>
 </div>
 <div>
@@ -2271,6 +2307,29 @@ section#industries,section#work,section#services,section#why,section#process,sec
 </div>
 </section>
 
+<!-- 9b. REVIEWS (real, approved reviews from the dashboard) -->
+<div data-reviews="" hidden=""></div>
+<sc-if value="{{pub.has}}" hint-placeholder-val="{{ false }}">
+<section id="reviews" class="vrev">
+<div class="vrev-in">
+<div class="vrev-head">
+<div><div class="vrev-eye">Client reviews</div><h2 class="vrev-h">What our clients say.</h2></div>
+<div class="vrev-score"><span class="vrev-avg">{{pub.avg}}</span><div><div class="vrev-stars">★★★★★</div><div class="vrev-cnt">from {{pub.count}} review{{pub.plural}}</div></div></div>
+</div>
+<div class="vrev-grid">
+<sc-for list="{{pub.items}}" as="r" hint-placeholder-count="3">
+<figure class="vrev-card">
+<div class="vrev-stars">{{r.stars}}<span style="color: #3A3A42">{{r.dim}}</span></div>
+<blockquote>{{r.body}}</blockquote>
+<figcaption><span class="vrev-av">{{r.initial}}</span><span><b>{{r.name}}</b><em>{{r.business}}</em></span></figcaption>
+</figure>
+</sc-for>
+</div>
+<a class="vrev-cta" href="review.html">Worked with us? Leave a review →</a>
+</div>
+</section>
+</sc-if>
+
 <!-- 10. FAQ -->
 <section id="faq" style="background: #FFFFFF; padding: 110px 24px">
 <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 56px">
@@ -2435,7 +2494,7 @@ section#industries,section#work,section#services,section#why,section#process,sec
 <div>
 <div style="color: #FFFFFF; font-weight: 600; font-size: 15px">Services</div>
 <ul style="list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px">
-<li><a href="pricing.html#services">Custom Website — $800</a></li><li><a href="pricing.html#services">Maintenance — $50/mo</a></li><li><a href="book.html#book">Free Consultation</a></li><li><a href="work.html#work">Portfolio</a></li>
+<li><a href="pricing.html#services">Custom Website — $800</a></li><li><a href="pricing.html#services">Maintenance — $50/mo</a></li><li><a href="book.html#book">Free Consultation</a></li><li><a href="work.html#work">Portfolio</a></li><li><a href="review.html">Leave a Review</a></li>
 </ul>
 </div>
 <div>
@@ -2501,12 +2560,42 @@ class Component extends DCLogic {
         if (!res.ok || !res.j || res.j.status !== 'success') throw new Error((res.j && res.j.error && res.j.error.message) || 'booking');
         var d = res.j.data || {}; d = d.length ? d[0] : d;
         self.setState({ bkBusy: false, bkStep: 4, bkStatus: d.status || 'accepted', bkUid: d.uid || '' });
+        self.track('booking_done');
       }).catch(function () {
         self.setState({ bkBusy: false, bkErr: 'We could not finish the booking here. Use the button below to confirm the same time on our calendar page.', bkFallback: true, bkPre: { name: name, email: email } });
       });
   }
+  track(e, extra) {
+    try {
+      if (!/^https?:$/.test(location.protocol) || /claude\.ai|claudeusercontent|localhost:87/.test(location.host)) return;
+      var d = Object.assign({ e: e, p: location.pathname, r: document.referrer || '' }, extra || {});
+      var b = new Blob([JSON.stringify(d)], { type: 'application/json' });
+      if (!(navigator.sendBeacon && navigator.sendBeacon('/api/track.php', b))) fetch('/api/track.php', { method: 'POST', body: b, keepalive: true }).catch(function () {});
+    } catch (x) {}
+  }
+  rvSubmit(e) {
+    var self = this; if (e && e.preventDefault) e.preventDefault(); if (self.state.rvBusy) return;
+    var f = e && e.target, g = function (n) { var el = f && f.elements[n]; return el ? String(el.value || '').trim() : ''; };
+    var rating = self.state.rvRating || 0;
+    if (!rating) { self.setState({ rvErr: 'Please choose a star rating.' }); return; }
+    if (g('rv_name').length < 2) { self.setState({ rvErr: 'Please enter your name.' }); return; }
+    if (g('rv_body').length < 10) { self.setState({ rvErr: 'Please write at least a sentence about your experience.' }); return; }
+    self.setState({ rvBusy: true, rvErr: '' });
+    var q = new URLSearchParams(location.search);
+    fetch('/api/review.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({
+      name: g('rv_name'), business: g('rv_biz'), email: g('rv_email'), rating: rating, body: g('rv_body'), website: g('rv_site'),
+      token: q.get('r') || '', elapsed: Date.now() - (self.rvT0 || 0) }) })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) { if (!res.ok) throw new Error((res.j && res.j.error) || 'Could not send your review.'); self.setState({ rvBusy: false, rvDone: true }); window.scrollTo(0, 0); })
+      .catch(function (x) { self.setState({ rvBusy: false, rvErr: (x && x.message && x.message !== 'Failed to fetch') ? x.message : 'We could not send your review. Please check your connection and try again.' }); });
+  }
   componentDidMount() {
     var self = this;
+    this.rvT0 = Date.now();
+    this.track('pageview');
+    document.addEventListener('click', function (ev) { var a = ev.target.closest && ev.target.closest('a[href]'); if (a && /book\.html|#book$/.test(a.getAttribute('href') || '')) self.track('book_click'); }, true);
+    var rq = new URLSearchParams(location.search).get('r'); if (rq && document.getElementById('vp-review')) this.track('review_open', { t: rq });
+    if (document.querySelector('[data-reviews]')) fetch('/api/reviews.php').then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { if (j && j.reviews) self.setState({ pubReviews: j }); }).catch(function () {});
     if (document.getElementById('vp-booker')) this.bkLoad();
     this._seen = this.state.slide;
     if (document.querySelector('.vm-slide')) this.carT = setInterval(function () {
@@ -2618,6 +2707,23 @@ class Component extends DCLogic {
     return {
       booking: { hasCal: !!CAL_LINK, noCal: !CAL_LINK, src: CAL_LINK ? CAL_LINK + (CAL_LINK.indexOf('?') >= 0 ? '&' : '?') + 'embed=true&theme=light' : '' },
       sale: { daysLeft: saleDays },
+      pub: (function () {
+        var j = self.state.pubReviews, list = (j && j.reviews) || [];
+        return { has: list.length > 0, count: list.length, avg: j && j.average ? j.average.toFixed(1) : '', plural: list.length === 1 ? '' : 's',
+          items: list.slice(0, 6).map(function (r) { return { name: r.name, business: r.business, body: r.body, stars: '★★★★★'.slice(0, r.rating), dim: '★★★★★'.slice(0, 5 - r.rating), initial: (r.name || '?').charAt(0).toUpperCase() }; }) };
+      })(),
+      rv: (function () {
+        var st = self.state, n = st.rvRating || 0, hv = st.rvHover || 0;
+        var q = {}; try { q = Object.fromEntries(new URLSearchParams(location.search)); } catch (x) {}
+        var labels = ['', 'Poor', 'Fair', 'Good', 'Great', 'Excellent'];
+        return { done: !!st.rvDone, notDone: !st.rvDone, err: !!st.rvErr, errMsg: st.rvErr || '', busy: !!st.rvBusy ? 'true' : 'false', btn: st.rvBusy ? 'Sending…' : 'Submit review',
+          hi: q.n ? 'Hi ' + String(q.n).slice(0, 30) + ', how did we do?' : 'How did we do?', name0: q.n ? String(q.n).slice(0, 30) : '',
+          label: labels[hv || n] || 'Tap a star to rate',
+          stars: [1, 2, 3, 4, 5].map(function (i) { var on = i <= (hv || n); return { i: i, aria: i + ' star' + (i > 1 ? 's' : ''), pressed: i === n ? 'true' : 'false',
+            style: on ? 'color: #F5B83D; transform: scale(1.08)' : 'color: #D4D4DC',
+            pick: function () { self.setState({ rvRating: i, rvErr: '' }); }, over: function () { self.setState({ rvHover: i }); }, out: function () { self.setState({ rvHover: 0 }); } }; }),
+          submit: function (e) { self.rvSubmit(e); } };
+      })(),
       booker: (function () {
         var st = self.state, slots = st.bkSlots, step = st.bkStep || 1, mo = st.bkMonth || 0;
         var pad = function (n) { return (n < 10 ? '0' : '') + n; };
