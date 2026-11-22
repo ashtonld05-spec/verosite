@@ -128,10 +128,14 @@ function require_method(string $m): void {
     if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== $m) json_out(['error' => 'method_not_allowed'], 405);
 }
 
+// The site's public address. The site moved from the temporary *.hostingersite.com
+// address to veroagency.co, so links (review requests, emails, webhook URL) use the real domain.
+const VERO_DOMAIN = 'https://veroagency.co';
 function site_url(): string {
     $c = vero_config();
-    if (!empty($c['site_url'])) return rtrim($c['site_url'], '/');
-    return 'https://' . ($_SERVER['HTTP_HOST'] ?? 'localhost');
+    $u = rtrim((string)($c['site_url'] ?? ''), '/');
+    if ($u === '' || str_contains($u, '.hostingersite.com')) return VERO_DOMAIN;
+    return $u;
 }
 
 function send_mail(string $to, string $subject, string $text, ?string $replyTo = null): bool {
