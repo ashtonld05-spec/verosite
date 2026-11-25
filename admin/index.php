@@ -233,10 +233,12 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:var(--v)
 <h1 class="h" style="font-size:26px;margin:18px 0 6px">Admin sign in</h1>
 <p style="color:var(--mut);font-size:15px;margin:0 0 6px">Private dashboard for VERO Digital.</p>
 <?php if (isset($_GET['setup'])): ?><div class="okmsg">Your account is ready. Sign in with the email and password you just chose.</div><?php endif; ?>
+<?php if (isset($_GET['reset'])): ?><div class="okmsg">Password updated. Sign in with your new password.</div><?php endif; ?>
 <label class="field">Email<input name="email" type="email" required autocomplete="username"></label>
 <label class="field">Password<input name="password" type="password" required autocomplete="current-password"></label>
 <div id="loginErr" class="err" role="alert" style="display:none"></div>
 <button class="btn bp" type="submit" style="width:100%;margin-top:22px;padding:14px;font-size:16px">Sign in</button>
+<p style="text-align:center;margin:16px 0 0;font-size:14px"><a href="reset.php" style="font-weight:600;text-decoration:none">Forgot password?</a></p>
 </form>
 </div>
 <script>
@@ -551,7 +553,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     review_request_sent: ['requests', 'Review request sent'], review_link_opened: ['eye', 'Review link opened'],
     book_click: ['cal', 'Book button clicked'], booking_completed: ['meetings', 'Consultation booked'], meeting_cancelled: ['x', 'Meeting cancelled'], meeting_rescheduled: ['clock', 'Meeting rescheduled'],
     meeting_completed: ['check', 'Meeting marked done'], meeting_no_show: ['x', 'Marked as no-show'], meeting_restored: ['meetings', 'Meeting restored'], meeting_deleted: ['trash', 'Meeting deleted'], meeting_texted: ['send', 'Texted a client'], webhook_rejected: ['lock', 'Blocked a fake Cal.com update'],
-    login: ['lock', 'Signed in'], login_failed: ['lock', 'Failed sign-in attempt'], logout: ['lock', 'Signed out'], password_changed: ['lock', 'Password changed'],
+    login: ['lock', 'Signed in'], password_reset_sent: ['mail', 'Password reset link emailed'], login_failed: ['lock', 'Failed sign-in attempt'], logout: ['lock', 'Signed out'], password_changed: ['lock', 'Password changed'],
     settings_changed: ['settings', 'Settings updated'], lead_search: ['leads', 'Lead search finished'], lead_status: ['leads', 'Lead status changed'],
     lead_client: ['check', 'Lead became a client'], lead_deleted: ['trash', 'Lead deleted'], lead_keys: ['lock', 'Lead Finder keys updated'], test_email_sent: ['check', 'Test email sent'], notify_failed: ['x', 'Email could not be sent'], setup: ['check', 'Dashboard created']
   };
