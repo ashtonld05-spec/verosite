@@ -143,72 +143,6 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:var(--v)
 .hook ol{margin:12px 0 0;padding-left:20px;font-size:14px;line-height:1.75}
 .code{display:flex;gap:8px;align-items:center;margin-top:8px}
 .code code{flex:1;min-width:0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:ui-monospace,Menlo,monospace}
-/* ---- Lead Finder ---- */
-.lf-grid{display:grid;grid-template-columns:2fr 1.4fr 110px 110px;gap:12px;align-items:end}
-.lf-grid .field{margin-top:0}
-.lf-opts{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-top:14px}
-.lf-opts .toggle{margin-top:0}
-.lf-opts .sp{flex:1}
-.hint{font-weight:400;color:var(--mut);font-size:12px;margin-top:5px;display:block}
-.lprog{margin-top:16px;border:1px solid var(--line);border-radius:16px;padding:14px 16px;background:#FBFBFD}
-.lprog-h{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:14px}
-.lprog-h b{font-weight:700}.lprog-c{font-size:12.5px;color:var(--mut)}.lprog-c b{color:var(--ink);font-weight:700}
-.lbar{height:7px;background:#EEEEF2;border-radius:999px;overflow:hidden;margin:10px 0}
-.lbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--v2),var(--v));transition:width .3s}
-.llog{list-style:none;margin:0;padding:0;max-height:160px;overflow:auto;font:12.5px/1.6 ui-monospace,Menlo,monospace;color:#5B5B66}
-.llog li.ok{color:#11733A}.llog li.warn{color:#9A5B00}.llog li.bad{color:#B4234A}
-.spin{width:14px;height:14px;border:2px solid #D4D4DC;border-top-color:var(--v);border-radius:50%;display:inline-block;animation:sp .8s linear infinite;vertical-align:-2px;margin-right:6px}
-.spin.done{animation:none;border-color:var(--ok)}
-@keyframes sp{to{transform:rotate(360deg)}}
-.ltools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
-.ltools input,.ltools select{border:1px solid #D4D4DC;border-radius:999px;padding:9px 14px;font-size:14px;background:#fff;color:var(--ink);outline:none;max-width:200px}
-.ltools input{flex:1;min-width:180px;max-width:320px}
-.ltools input:focus,.ltools select:focus{border-color:var(--v)}
-.ltools .sp{flex:1}
-.ld{display:grid;grid-template-columns:30px 52px minmax(0,2.2fr) minmax(0,1.3fr) minmax(0,1.2fr) 90px 150px;gap:12px;align-items:center;padding:12px 6px;border-top:1px solid var(--line);cursor:pointer;border-radius:12px}
-.ld:first-child{border-top:0}.ld:hover{background:#FAFAFC}
-.ld.new{animation:lflash 1.6s ease}@keyframes lflash{from{background:#F1EDFF}to{background:transparent}}
-.ld-n{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ld-s{font-size:12.5px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sc{display:inline-flex;align-items:center;justify-content:center;width:46px;height:30px;border-radius:999px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px}
-.sc.Hot{background:#FFF1F3;color:#C21F4A}.sc.Warm{background:#FFF4DE;color:#9A5B00}.sc.Cold{background:#F1F1F4;color:#5B5B66}
-.star{background:none;border:0;font-size:19px;color:#D4D4DC;padding:0;line-height:1}.star.on{color:#F5B83D}
-.wtag{font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 9px;white-space:nowrap;display:inline-block}
-.w-bad{background:#FFF1F3;color:#B4234A}.w-warn{background:#FFF4DE;color:#9A5B00}.w-info{background:var(--vl);color:#3A2A9E}.w-n{background:#F1F1F4;color:#5B5B66}.w-ok{background:#E8F7EE;color:#11733A}
-.lsel{border:1px solid #D4D4DC;border-radius:999px;padding:7px 10px;font-size:13px;font-weight:600;background:#fff;color:var(--ink);width:100%}
-.lsel[data-s="Contacted"]{background:var(--vl);border-color:#CFC4FF}.lsel[data-s="Interested"]{background:#E8F7EE;border-color:#BFE8CF}
-.lsel[data-s="Not Interested"]{background:#F1F1F4}.lsel[data-s="Client"]{background:#0E0E12;color:#fff;border-color:#0E0E12}
-.lhead{display:grid;grid-template-columns:30px 52px minmax(0,2.2fr) minmax(0,1.3fr) minmax(0,1.2fr) 90px 150px;gap:12px;padding:0 6px 8px;font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#8A8A96}
-.lhead button{background:none;border:0;padding:0;font:inherit;color:inherit;text-transform:inherit;letter-spacing:inherit;text-align:left}
-.lhead button.on{color:var(--ink)}
-.lscrim{position:fixed;inset:0;background:rgba(10,10,12,.45);z-index:70;display:none}.lscrim.on{display:block}
-.ldw{position:fixed;top:0;right:0;height:100vh;width:min(640px,100vw);background:#fff;z-index:71;transform:translateX(105%);transition:transform .25s ease;overflow:auto;box-shadow:-20px 0 60px rgba(0,0,0,.18)}
-.ldw.on{transform:none}
-.ldw-in{padding:24px 26px 80px}
-.ldw-h{display:flex;gap:16px;align-items:flex-start}
-.ring{--p:0;width:66px;height:66px;border-radius:50%;flex:none;display:grid;place-items:center;background:conic-gradient(var(--c) calc(var(--p)*1%),#EEEEF2 0)}
-.ring b{width:52px;height:52px;border-radius:50%;background:#fff;display:grid;place-items:center;font-family:'Space Grotesk',sans-serif;font-size:19px}
-.ldw h2{font-family:'Space Grotesk',sans-serif;font-size:22px;margin:0;letter-spacing:-.01em}
-.ldw h3{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#8A8A96;margin:26px 0 10px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;background:#fff}
-.chip:hover{border-color:var(--v);color:var(--v)}
-.pitch{background:linear-gradient(180deg,#F5F2FF,#fff);border:1px solid #DCD4FF;border-radius:16px;padding:14px 16px;font-size:14.5px;line-height:1.6}
-.kv{display:grid;grid-template-columns:104px 1fr;gap:10px 14px;font-size:14px}
-.kv dt{color:var(--mut)}.kv dd{margin:0;word-break:break-word}
-.src{display:block;font-size:12px;margin-top:2px}.src.v{color:#11733A}.src.u{color:#9A5B00}.src.n{color:#8A8A96}
-.why{list-style:none;margin:0;padding:0}.why li{display:flex;gap:12px;padding:8px 0;border-top:1px solid var(--line);font-size:13.5px}.why li:first-child{border-top:0}
-.why b{flex:none;width:42px;text-align:right;font-family:'Space Grotesk',sans-serif}.why b.p{color:#C21F4A}.why b.m{color:#11733A}
-.chk{display:grid;grid-template-columns:1fr 1fr;gap:7px 16px;font-size:13.5px}.chk div{display:flex;gap:8px}
-.chk .y{color:#16A34A;font-weight:800}.chk .x{color:#E1325A;font-weight:800}
-.note{background:#FFF8E8;border:1px solid #FBE3B0;color:#7A4B00;border-radius:12px;padding:10px 12px;font-size:13px;margin-top:10px}
-.ldw textarea{width:100%;min-height:96px;border:1px solid #D4D4DC;border-radius:12px;padding:10px 12px;font:14px/1.5 Inter,sans-serif;resize:vertical;outline:none}
-.ldw textarea:focus{border-color:var(--v);box-shadow:0 0 0 4px var(--vl)}
-.keys .field input{font-family:ui-monospace,Menlo,monospace;font-size:13.5px}
-.keys .krow{display:flex;justify-content:space-between;align-items:center;gap:8px}
-.keys .krow button{background:none;border:0;color:#B4234A;font-size:12.5px;font-weight:600;padding:0}
-.lcall{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px solid var(--line)}.lcall:first-child{border-top:0}
-@media (max-width:1100px){.lf-grid{grid-template-columns:1fr 1fr}.ld,.lhead{grid-template-columns:30px 52px minmax(0,1fr) 140px}.ld .hide-m,.lhead .hide-m{display:none}}
-@media (max-width:760px){.ld,.lhead{grid-template-columns:26px 48px minmax(0,1fr)}.ld .hide-s,.lhead .hide-s{display:none}.ldw-in{padding:18px 16px 80px}.chk{grid-template-columns:1fr}.kv{grid-template-columns:88px 1fr}.lf-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:1100px){.k4{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}
 @media (max-width:760px){
 .app{grid-template-columns:1fr}.side{display:none}
@@ -269,7 +203,6 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 <section class="page on" id="p-overview">
 <div class="grid k4" id="kpis"></div>
 <div class="card" style="margin-top:16px"><div class="sec-t"><h2>Upcoming meetings</h2><button class="btn bo bsm" data-go="meetings">All meetings</button></div><div id="meetMini"></div></div>
-<div class="card" style="margin-top:16px"><div class="sec-t"><h2>Best leads to call</h2><button class="btn bo bsm" data-go="leads">All leads</button></div><div id="leadMini"></div></div>
 <div class="grid two">
 <div class="card"><div class="sec-t"><h2>Website visits · last 14 days</h2><span class="rv-b" id="viewsTotal"></span></div><div class="bars" id="chart"></div>
 <div class="mini" id="webMini"></div></div>
@@ -286,45 +219,6 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 <div class="tabs" id="mtabs"></div>
 <div id="mlist"></div>
 <div id="mhook" style="margin-top:18px"></div>
-</section>
-
-<section class="page" id="p-leads">
-<form class="card" id="lform" autocomplete="off">
-<div class="sec-t"><h2>Find new leads</h2><span class="rv-b">Nothing is sent to anyone</span></div>
-<div id="lkeyNote"></div>
-<div class="lf-grid">
-<label class="field">City or state<input name="location" required maxlength="200" value="Las Vegas, NV"><span class="hint">Several places? Separate with ; e.g. Henderson, NV; Reno, NV</span></label>
-<label class="field">Business category<select name="category" id="lcat"></select><input name="custom" id="lcustom" maxlength="80" placeholder="e.g. Window tinting" style="display:none;margin-top:8px"><span class="hint">&nbsp;</span></label>
-<label class="field">Leads to find<input name="count" type="number" min="1" max="500" value="20"><span class="hint">&nbsp;</span></label>
-<label class="field">Min. score<input name="min" type="number" min="0" max="100" value="0"><span class="hint">0 = keep all</span></label>
-</div>
-<div class="lf-opts">
-<label class="toggle"><input type="checkbox" name="pagespeed"> Google PageSpeed mobile test <span class="rv-b" style="font-weight:400">(slower)</span></label>
-<span class="sp"></span>
-<button class="btn bp" type="submit" id="lgo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Search</button>
-<button class="btn bo" type="button" id="lstop" disabled>Stop</button>
-</div>
-<div class="lprog" id="lprog" style="display:none">
-<div class="lprog-h"><div><span class="spin" id="lspin"></span><b id="ltitle">Searching…</b></div><div class="lprog-c" id="lcounts"></div></div>
-<div class="lbar"><i id="lbar"></i></div>
-<ol class="llog" id="llog"></ol>
-<p class="rv-b" style="margin:10px 0 0">Keep this page open while the search runs. You can use other tabs in your browser.</p>
-</div>
-</form>
-<div class="grid k4" id="lkpis" style="margin-top:16px"></div>
-<div class="tabs" id="ltabs" style="margin-top:16px"></div>
-<div class="card">
-<div class="ltools">
-<input id="lq" type="search" placeholder="Search name, phone, email, notes…">
-<select id="lfcat"><option value="">All categories</option></select>
-<select id="lfcity"><option value="">All cities</option></select>
-<span class="sp"></span>
-<button class="btn bo bsm" type="button" data-exp="csv">Export CSV</button>
-<button class="btn bo bsm" type="button" data-exp="xlsx">Export Excel</button>
-</div>
-<div class="lhead"><span></span><button data-ls="score">Score</button><button data-ls="name">Business</button><span class="hide-s hide-m">Website</span><span class="hide-s hide-m">Phone</span><button class="hide-s hide-m" data-ls="review_count">Reviews</button><button class="hide-s" data-ls="status">Status</button></div>
-<div id="llist"></div>
-</div>
 </section>
 
 <section class="page" id="p-reviews">
@@ -356,13 +250,6 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
 <section class="page" id="p-settings">
 <div class="req">
-<form class="card keys" id="keyForm" autocomplete="off">
-<div class="sec-t"><h2>Lead Finder API keys</h2></div>
-<p class="rv-b" style="font-size:14px;margin:0">Stored encrypted on your server. They are never shown again or sent to your browser. Leave a box empty to keep the saved key.</p>
-<div id="keyFields"></div>
-<div class="actions" style="display:flex;gap:8px;margin-top:18px"><button class="btn bp" type="submit">Save keys</button></div>
-<div id="keyMsg" style="display:none"></div>
-</form>
 <form class="card" id="setForm">
 <div class="sec-t"><h2>Review notifications</h2></div>
 <label class="field">Send new-review emails to<input name="notify_email" type="email" required></label>
@@ -388,8 +275,6 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 <nav class="mob" id="mob"></nav>
 </div>
 <div class="toast" id="toast"></div>
-<div class="lscrim" id="lscrim"></div>
-<aside class="ldw" id="ldw" aria-hidden="true"><div class="ldw-in" id="ldwIn"></div></aside>
 <div class="newbk" id="newbk" role="status"></div>
 <script>
 (function () {
@@ -415,9 +300,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     trash: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>'
   };
   I.send = I.requests;
-  I.leads = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>';
-  I.fire = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4 0 7-3 7-7 0-4-3-6-4-9-1 2-2 3-4 3 0-2-1-4-3-6 0 4-5 6-5 12 0 4 3 7 9 7z"/></svg>';
-  var PAGES = [['overview', 'Overview'], ['meetings', 'Meetings'], ['leads', 'Leads'], ['reviews', 'Reviews'], ['requests', 'Review requests'], ['activity', 'Activity'], ['settings', 'Settings']];
+  var PAGES = [['overview', 'Overview'], ['meetings', 'Meetings'], ['reviews', 'Reviews'], ['requests', 'Review requests'], ['activity', 'Activity'], ['settings', 'Settings']];
   var state = { page: 'overview', mview: 'upcoming', meetUp: 0, filter: 'pending', pending: 0, lastPending: null, me: null };
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
@@ -461,7 +344,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     PAGES.forEach(function (x) { $('p-' + x[0]).classList.toggle('on', x[0] === p); });
     var t = PAGES.filter(function (x) { return x[0] === p; })[0][1];
     $('title').textContent = t;
-    $('subtitle').textContent = { overview: 'Your meetings, reviews and website at a glance', meetings: 'Who you are meeting with, and how to reach them', leads: 'Local businesses that need a new website, ranked by opportunity', reviews: 'Approve, reject and publish customer reviews', requests: 'Text or email customers a link to review you', activity: 'Everything that has happened recently', settings: 'Notifications, password and account' }[p];
+    $('subtitle').textContent = { overview: 'Your meetings, reviews and website at a glance', meetings: 'Who you are meeting with, and how to reach them', reviews: 'Approve, reject and publish customer reviews', requests: 'Text or email customers a link to review you', activity: 'Everything that has happened recently', settings: 'Notifications, password and account' }[p];
     renderNav(); window.scrollTo(0, 0);
     var pr = load(p);
     try { history.replaceState(null, '', '#' + p); } catch (e) {}
@@ -473,7 +356,6 @@ document.getElementById('loginForm').addEventListener('submit', async function (
   function load(p) {
     if (p === 'overview') return loadOverview();
     if (p === 'meetings') return loadMeetings();
-    if (p === 'leads') return loadLeads();
     if (p === 'reviews') return loadReviews();
     if (p === 'requests') return loadRequests();
     if (p === 'activity') return loadActivity($('feed'), 80);
@@ -485,7 +367,6 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     try {
       var j = await api('overview'), s = j.stats, w = j.web;
       renderMeetMini(j.meetings);
-      renderLeadMini(j.leads);
       setPending(s.pending);
       var k = [
         ['reviews', 'Total reviews', s.total, s.approved + ' approved · ' + s.rejected + ' rejected'],
@@ -554,8 +435,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     book_click: ['cal', 'Book button clicked'], booking_completed: ['meetings', 'Consultation booked'], meeting_cancelled: ['x', 'Meeting cancelled'], meeting_rescheduled: ['clock', 'Meeting rescheduled'],
     meeting_completed: ['check', 'Meeting marked done'], meeting_no_show: ['x', 'Marked as no-show'], meeting_restored: ['meetings', 'Meeting restored'], meeting_deleted: ['trash', 'Meeting deleted'], meeting_texted: ['send', 'Texted a client'], webhook_rejected: ['lock', 'Blocked a fake Cal.com update'],
     login: ['lock', 'Signed in'], password_reset_sent: ['mail', 'Password reset link emailed'], login_failed: ['lock', 'Failed sign-in attempt'], logout: ['lock', 'Signed out'], password_changed: ['lock', 'Password changed'],
-    settings_changed: ['settings', 'Settings updated'], lead_search: ['leads', 'Lead search finished'], lead_status: ['leads', 'Lead status changed'],
-    lead_client: ['check', 'Lead became a client'], lead_deleted: ['trash', 'Lead deleted'], lead_keys: ['lock', 'Lead Finder keys updated'], test_email_sent: ['check', 'Test email sent'], notify_failed: ['x', 'Email could not be sent'], setup: ['check', 'Dashboard created']
+    settings_changed: ['settings', 'Settings updated'], test_email_sent: ['check', 'Test email sent'], notify_failed: ['x', 'Email could not be sent'], setup: ['check', 'Dashboard created']
   };
   async function loadActivity(el, n) {
     try {
@@ -712,241 +592,6 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     }
   });
 
-  // ---------- leads (Lead Finder) ----------
-  var L = { meta: null, rows: [], tab: 'all', sort: 'score', dir: 'desc', running: false, cancel: false, openId: null };
-  var WSB = { none_verified: ['w-bad', 'No website ✓'], none_google_only: ['w-bad', 'No website (Google)'], social_only: ['w-bad', 'Social only'],
-    unreachable: ['w-bad', 'Site broken'], placeholder: ['w-warn', 'Placeholder site'], found_unlisted: ['w-info', 'Site not on Google'],
-    has_website: ['w-n', 'Has website'], blocked_robots: ['w-n', 'Not analyzed'] };
-  var LTABS = [['all', 'All'], ['hot', 'Hot 70+'], ['nosite', 'No website'], ['booked', 'Booked a call'], ['Contacted', 'Contacted'], ['Interested', 'Interested'], ['Client', 'Clients'], ['fav', '★ Favorites']];
-  function wsTag(st) { var b = WSB[st] || ['w-n', st || '—']; return '<span class="wtag ' + b[0] + '">' + esc(b[1]) + '</span>'; }
-  function mtTag(m) { if (!m) return ''; var d = dt(m.start_at), lbl = m.status === 'booked' ? (d.getTime() > Date.now() ? 'Call ' + d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : 'Had a call') : (ML[m.status] || m.status);
-    return ' <span class="wtag w-ok" title="Matched by phone or email to a meeting">' + I.meetings.replace('<svg', '<svg width="11" height="11" style="vertical-align:-1px;margin-right:3px"') + esc(lbl) + '</span>'; }
-  function statusSel(l, cls) { return '<select class="' + cls + '" data-lst="' + l.id + '" data-s="' + esc(l.status) + '">' + (L.meta ? L.meta.statuses : ['New', 'Contacted', 'Interested', 'Not Interested', 'Client']).map(function (s) { return '<option' + (s === l.status ? ' selected' : '') + '>' + esc(s) + '</option>'; }).join('') + '</select>'; }
-  function lqs() {
-    var p = new URLSearchParams(), t = L.tab;
-    if ($('lq').value.trim()) p.set('q', $('lq').value.trim());
-    if ($('lfcat').value) p.set('category', $('lfcat').value);
-    if ($('lfcity').value) p.set('city', $('lfcity').value);
-    if (t === 'hot') p.set('min_score', '70'); else if (t === 'nosite') p.set('website_state', 'none_verified,none_google_only,social_only');
-    else if (t === 'booked') p.set('booked', '1'); else if (t === 'fav') p.set('favorite', '1'); else if (t !== 'all') p.set('status', t);
-    p.set('sort', L.sort); p.set('dir', L.dir);
-    return '&' + p.toString();
-  }
-  function keepOpts(sel, label, vals) { var cur = sel.value; sel.innerHTML = '<option value="">' + label + '</option>' + vals.map(function (v) { return '<option' + (v === cur ? ' selected' : '') + '>' + esc(v) + '</option>'; }).join(''); }
-  async function loadLeads() {
-    try {
-      var j = await api('leads', null, lqs()); L.meta = j; L.rows = j.leads;
-      if (!$('lcat').options.length) $('lcat').innerHTML = j.categories.map(function (c) { return '<option>' + esc(c) + '</option>'; }).join('') + '<option value="__custom">Other (type your own)…</option>';
-      var s = j.summary, sv = j.services;
-      $('lkeyNote').innerHTML = !sv.google_places ? '<div class="note" style="margin:0 0 14px">Add your <b>Google Places API key</b> to start finding leads. <button class="btn bo bsm" type="button" data-go="settings" style="margin-left:6px">Open Settings</button></div>'
-        : (!sv.web_search ? '<div class="note" style="margin:0 0 14px">Tip: add a Brave Search or Firecrawl key in Settings so “no website” leads get double-checked before you call them.</div>' : '');
-      $('lkpis').innerHTML = [['leads', 'Total leads', s.total, s.favorites + ' favorites'], ['fire', 'Hot leads to call', s.hot_new, s.hot + ' hot in total'], ['globe', 'No real website', s.no_site, 'No site, or social media only'], ['check', 'Clients won', s.by_status.Client || 0, (s.by_status.Interested || 0) + ' interested · ' + (s.by_status.Contacted || 0) + ' contacted']]
-        .map(function (x) { return '<div class="card kpi"><div class="l"><span class="ic">' + I[x[0]] + '</span>' + x[1] + '</div><div class="n">' + esc(x[2]) + '</div><div class="s">' + esc(x[3]) + '</div></div>'; }).join('');
-      $('ltabs').innerHTML = LTABS.map(function (t) { return '<button data-lt="' + t[0] + '" class="' + (L.tab === t[0] ? 'on' : '') + '">' + t[1] + '</button>'; }).join('');
-      keepOpts($('lfcat'), 'All categories', s.categories); keepOpts($('lfcity'), 'All cities', s.cities);
-      document.querySelectorAll('[data-ls]').forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-ls') === L.sort); b.textContent = b.textContent.replace(/ [↑↓]$/, '') + (b.getAttribute('data-ls') === L.sort ? (L.dir === 'asc' ? ' ↑' : ' ↓') : ''); });
-      renderLeadRows();
-    } catch (e) { $('llist').innerHTML = '<div class="err">' + esc(e.message) + '</div>'; }
-  }
-  function leadRow(l) {
-    return '<div class="ld" data-lid="' + l.id + '"><button class="star' + (l.favorite ? ' on' : '') + '" data-lfav="' + l.id + '" aria-label="Favorite">★</button>'
-      + '<span class="sc ' + esc(l.score_tier) + '">' + esc(l.score) + '</span>'
-      + '<div style="min-width:0"><div class="ld-n">' + esc(l.name) + '</div><div class="ld-s">' + esc(l.category || '') + ' · ' + esc(l.city || '') + (l.state ? ', ' + esc(l.state) : '') + '</div></div>'
-      + '<div class="hide-s hide-m">' + wsTag(l.website_state) + mtTag(l.meeting) + '</div>'
-      + '<div class="hide-s hide-m ld-s">' + (l.phone ? esc(prettyPhone(l.phone)) : '—') + (l.email ? ' · ✉' : '') + '</div>'
-      + '<div class="hide-s hide-m ld-s">' + (l.review_count != null ? esc(l.review_count) : '—') + (l.rating ? ' · ' + esc(l.rating) + '★' : '') + '</div>'
-      + '<div class="hide-s">' + statusSel(l, 'lsel') + '</div></div>';
-  }
-  function renderLeadRows() {
-    $('llist').innerHTML = L.rows.length ? L.rows.map(leadRow).join('') : '<div class="empty">' + (L.meta && L.meta.summary.total ? 'No leads match these filters.' : 'No leads yet. Enter a city and a category above, then click <b>Search</b>.') + '</div>';
-  }
-  function renderLeadMini(ld) {
-    if (!ld) return;
-    $('leadMini').innerHTML = ld.top.length ? ld.top.map(function (l) {
-      return '<div class="lcall"><span class="sc ' + esc(l.score_tier) + '">' + esc(l.score) + '</span><div class="who" style="min-width:0;flex:1"><div style="font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + esc(l.name) + '</div><div class="rv-b">' + esc(l.category || '') + ' · ' + esc(l.city || '') + ' · ' + wsTag(l.website_state) + '</div></div>'
-        + (l.phone ? '<a class="btn bo bsm" href="' + esc(telHref(l.phone)) + '">Call</a>' : '') + '<button class="btn bo bsm" data-lopen="' + l.id + '">View</button></div>'; }).join('')
-      : '<div class="empty" style="padding:18px">' + (ld.summary.total ? 'All your leads have been contacted. Run a new search on the Leads page.' : 'Find local businesses that need a website on the <b>Leads</b> page.') + '</div>';
-  }
-
-  // search: the browser drives it one business at a time, so it shows live progress and never hits server time limits
-  function llog(t, c) { var li = document.createElement('li'); li.textContent = t; if (c) li.className = c; $('llog').appendChild(li); $('llog').scrollTop = $('llog').scrollHeight; }
-  $('lcat').addEventListener('change', function () { $('lcustom').style.display = this.value === '__custom' ? 'block' : 'none'; });
-  $('lstop').addEventListener('click', function () { L.cancel = true; llog('Stopping after the businesses being checked now…', 'warn'); });
-  window.addEventListener('beforeunload', function (e) { if (L.running) { e.preventDefault(); e.returnValue = ''; } });
-  $('lform').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    var f = e.target, cat = f.category.value === '__custom' ? f.custom.value.trim() : f.category.value;
-    var o = { location: f.location.value.trim(), category: cat, count: Math.max(1, Math.min(500, +f.count.value || 20)), min_score: +f.min.value || 0, pagespeed: f.pagespeed.checked };
-    if (!o.location || !o.category) { toast('Enter a city and a category'); return; }
-    var plan;
-    try { plan = await api('lead_plan', { location: o.location, category: o.category }); } catch (x) { toast(x.message); return; }
-    var st = { found: 0, saved: 0, dup: 0, skip: 0 }, seen = {}, failed = null;
-    L.running = true; L.cancel = false;
-    $('lgo').disabled = true; $('lstop').disabled = false; $('lprog').style.display = 'block'; $('llog').innerHTML = ''; $('lspin').classList.remove('done');
-    $('ltitle').textContent = 'Finding ' + o.count + ' ' + o.category + ' leads in ' + o.location + '…';
-    function upd() { $('lcounts').innerHTML = 'Found <b>' + st.found + '</b> · Saved <b>' + st.saved + '</b>/' + o.count + ' · Duplicates <b>' + st.dup + '</b> · Skipped <b>' + st.skip + '</b>'; $('lbar').style.width = Math.min(100, st.saved / o.count * 100) + '%'; }
-    upd();
-    llog(plan.web_search ? 'Double-checking “no website” with ' + plan.web_search + ' web search.' : 'Web-search check is off, so “no website” is based on Google only. Add a Brave or Firecrawl key in Settings to verify.', plan.web_search ? '' : 'warn');
-    outer: for (var qi = 0; qi < plan.queries.length; qi++) {
-      var query = plan.queries[qi], token = null, pages = 0;
-      if (L.cancel || st.saved >= o.count) break;
-      llog('Searching Google: “' + query + '”');
-      do {
-        var res;
-        try { res = await api('lead_places', { query: query, pageToken: token }); } catch (x) { failed = x.message; llog(x.message, 'bad'); break outer; }
-        token = res.nextPageToken; pages++;
-        var fresh = [];
-        res.places.forEach(function (it) {
-          if (seen[it.place.place_id]) return; seen[it.place.place_id] = 1; st.found++;
-          if (it.duplicate) { st.dup++; llog('Already saved: ' + it.place.name + ' (same ' + it.duplicate + ')'); return; }
-          if (it.closed) { st.skip++; llog('Skipped ' + it.place.name + ': Google marks it ' + it.closed); return; }
-          fresh.push(it);
-        });
-        upd();
-        var i = 0, busy = 0;
-        var worker = async function () {
-          while (i < fresh.length && !L.cancel && st.saved + busy < o.count) {
-            var it = fresh[i++]; busy++;
-            llog('Checking ' + it.place.name + '…');
-            try {
-              var r = await api('lead_analyze', { place: it.place, sig: it.sig, category: o.category, location: o.location, pagespeed: o.pagespeed, min_score: o.min_score });
-              if (r.saved) { st.saved++; llog('Saved ' + r.lead.name + ': score ' + r.lead.score + ' (' + r.lead.score_tier + ')', 'ok'); addLiveLead(r.lead); }
-              else { if (r.skipped === 'duplicate') st.dup++; else st.skip++; llog('Skipped ' + it.place.name + ': ' + r.reason); }
-            } catch (x) { st.skip++; llog('Could not check ' + it.place.name + ': ' + x.message, 'bad'); }
-            busy--; upd();
-          }
-        };
-        await Promise.all([worker(), worker(), worker()]);
-        if (L.cancel || st.saved >= o.count) break outer;
-        if (token) await new Promise(function (r) { setTimeout(r, 1500); });
-      } while (token && pages < 3);
-    }
-    var status = failed ? 'error' : L.cancel ? 'cancelled' : 'done';
-    if (status === 'cancelled') llog('Search stopped.', 'warn');
-    if (status === 'done' && st.saved < o.count) llog('Google has no more new businesses for this search (' + st.saved + ' of ' + o.count + ' saved). Try a nearby city or another category.', 'warn');
-    $('ltitle').textContent = failed ? 'Search stopped with an error' : 'Done: ' + st.saved + ' new lead' + (st.saved === 1 ? '' : 's') + ' saved';
-    if (!failed) $('lbar').style.width = '100%';
-    $('lspin').classList.add('done'); $('lgo').disabled = false; $('lstop').disabled = true; L.running = false;
-    api('lead_search_done', { location: o.location, category: o.category, requested: o.count, saved: st.saved, duplicates: st.dup, skipped: st.skip, status: status }).catch(function () {});
-    if (state.page === 'leads') loadLeads();
-  });
-  function addLiveLead(l) {
-    if (state.page !== 'leads' || L.rows.some(function (x) { return x.id === l.id; })) return;
-    L.rows.push(l); L.rows.sort(function (a, b) { return b.score - a.score; });
-    renderLeadRows();
-    var el = document.querySelector('[data-lid="' + l.id + '"]'); if (el) el.classList.add('new');
-  }
-
-  // list interactions
-  var lsearch; $('lq').addEventListener('input', function () { clearTimeout(lsearch); lsearch = setTimeout(loadLeads, 250); });
-  $('lfcat').addEventListener('change', loadLeads); $('lfcity').addEventListener('change', loadLeads);
-  $('ltabs').addEventListener('click', function (e) { var b = e.target.closest('[data-lt]'); if (b) { L.tab = b.getAttribute('data-lt'); loadLeads(); } });
-  document.querySelector('.lhead').addEventListener('click', function (e) { var b = e.target.closest('[data-ls]'); if (!b) return; var k = b.getAttribute('data-ls');
-    if (L.sort === k) L.dir = L.dir === 'desc' ? 'asc' : 'desc'; else { L.sort = k; L.dir = k === 'name' || k === 'status' ? 'asc' : 'desc'; } loadLeads(); });
-  document.querySelectorAll('[data-exp]').forEach(function (b) { b.addEventListener('click', function () { location.href = 'api.php?a=leads_export&format=' + b.getAttribute('data-exp') + lqs(); }); });
-  async function setLead(id, body, msgText) {
-    try { await api('lead_update', Object.assign({ id: +id }, body)); if (msgText) toast(msgText); } catch (x) { toast(x.message); }
-  }
-  document.addEventListener('change', async function (e) {
-    var s = e.target.closest('[data-lst]'); if (!s) return;
-    s.setAttribute('data-s', s.value); await setLead(s.getAttribute('data-lst'), { status: s.value }, 'Marked ' + s.value);
-    if (state.page === 'leads') loadLeads();
-  });
-  document.addEventListener('click', async function (e) {
-    var fav = e.target.closest('[data-lfav]');
-    if (fav) { e.stopPropagation(); var on = !fav.classList.contains('on'); fav.classList.toggle('on', on); await setLead(fav.getAttribute('data-lfav'), { favorite: on }); return; }
-    if (e.target.closest('[data-lst]')) return;
-    var op = e.target.closest('[data-lopen]'); if (op) { openLead(op.getAttribute('data-lopen')); return; }
-    var row = e.target.closest('.ld'); if (row) openLead(row.getAttribute('data-lid'));
-  });
-
-  // lead detail panel
-  function closeLead() { $('ldw').classList.remove('on'); $('lscrim').classList.remove('on'); $('ldw').setAttribute('aria-hidden', 'true'); L.openId = null; }
-  $('lscrim').addEventListener('click', closeLead);
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && L.openId) closeLead(); });
-  function srcCls(s) { s = s || ''; return /^Verified/.test(s) ? 'v' : /^Unverified/.test(s) ? 'u' : 'n'; }
-  function ck(v, yes, no) { return v ? '<div><span class="y">✓</span>' + esc(yes) + '</div>' : '<div><span class="x">✕</span>' + esc(no) + '</div>'; }
-  function safeLink(u) { return /^https?:\/\//i.test(u || '') ? u : '#'; }
-  async function openLead(id) {
-    var j;
-    try { j = await api('lead', null, '&id=' + encodeURIComponent(id)); } catch (x) { toast(x.message); return; }
-    var l = j.lead, a = l.analysis || {}, ps = a.pagespeed || {}, ws = a.web_search;
-    L.openId = l.id;
-    var col = { Hot: '#E1325A', Warm: '#D97706', Cold: '#8A8A96' }[l.score_tier] || '#8A8A96';
-    var site = ['has_website', 'found_unlisted', 'placeholder'].indexOf(l.website_state) >= 0 && a.reachable;
-    var chip = function (u, t) { return u ? '<a class="chip" href="' + esc(safeLink(u)) + '" target="_blank" rel="noopener noreferrer">' + esc(t) + ' ↗</a>' : ''; };
-    var mt = l.meeting ? (function (m) { var d = dt(m.start_at); return '<div class="note" style="background:#E8F7EE;border-color:#BFE8CF;color:#11733A;margin-top:14px"><b>' + (m.status === 'booked' ? (d.getTime() > Date.now() ? 'Booked a call for ' : 'Had a call on ') : (ML[m.status] || m.status) + ' meeting · ') + esc(dayLabel(d) + ' at ' + tme(d)) + '</b>. Matched by phone or email. <button class="btn bo bsm" type="button" data-go="meetings" style="margin-left:6px">Open Meetings</button></div>'; })(l.meeting) : '';
-    var reasons = (l.score_reasons || []).map(function (r) { return '<li><b class="' + (r.points >= 0 ? 'p' : 'm') + '">' + (r.points > 0 ? '+' : '') + r.points + '</b><span>' + esc(r.reason) + '</span></li>'; }).join('');
-    var ana = site ? '<div class="chk">'
-        + ck(a.viewport, 'Mobile-friendly setup', 'Not mobile-friendly') + ck(a.https && !a.ssl_error, 'Secure (HTTPS)', a.ssl_error ? 'SSL certificate error' : 'Not secure (no HTTPS)')
-        + ck(a.click_to_call, 'Tap-to-call link', 'No tap-to-call link') + ck(a.contact_form || (a.booking || []).length, 'Contact form or booking', 'No contact form or booking')
-        + ck(a.title && a.meta_description, 'Page title + description', 'Missing title or description') + ck((a.h1 || []).length, 'Main headline (H1)', 'No main headline')
-        + ck(a.local_business_schema, 'Local business data for Google', 'No local business data') + ck(a.analytics, 'Analytics installed', 'No analytics')
-        + ck(!(a.outdated_signals || []).length, 'No outdated tech found', 'Outdated tech') + ck(!(a.broken_links || []).length, 'No broken links (' + (a.links_checked || 0) + ' checked)', (a.broken_links || []).length + ' broken link(s)')
-        + '</div><dl class="kv" style="margin-top:16px">'
-        + '<dt>Load time</dt><dd>' + (a.load_seconds != null ? esc(a.load_seconds) + 's (homepage)' : '—') + '</dd>'
-        + '<dt>PageSpeed</dt><dd>' + (ps.mobile_score != null ? esc(ps.mobile_score) + '/100 on mobile · LCP ' + esc(ps.lcp || '—') : ps.error ? esc(ps.error) : 'Not run. Tick PageSpeed, then Re-check') + '</dd>'
-        + '<dt>Copyright</dt><dd>' + (a.copyright_year ? esc(a.copyright_year) : 'Not found') + '</dd>'
-        + '<dt>Built with</dt><dd>' + esc(a.builder || a.generator || 'Unknown') + '</dd>'
-        + ((a.outdated_signals || []).length ? '<dt>Outdated</dt><dd>' + a.outdated_signals.map(esc).join('<br>') + '</dd>' : '')
-        + ((a.booking || []).length ? '<dt>Booking</dt><dd>' + a.booking.map(esc).join(', ') + '</dd>' : '')
-        + ((a.broken_links || []).length ? '<dt>Broken links</dt><dd>' + a.broken_links.map(function (b) { return esc(b.url) + ' (' + esc(b.status) + ')'; }).join('<br>') + '</dd>' : '')
-        + '<dt>Page title</dt><dd>' + esc(a.title || '—') + '</dd><dt>Checked</dt><dd>' + esc(a.checked_at || '') + '</dd></dl>'
-      : '<p class="rv-b" style="font-size:14px;margin:0">' + esc(l.website_state === 'social_only' ? 'Google lists a ' + (a.social_kind || 'social media page') + ' instead of a real website.'
-        : l.website_state === 'unreachable' ? 'The website could not be loaded: ' + (a.errors || []).join('; ')
-        : l.website_state === 'blocked_robots' ? (a.errors || [])[0] || 'Not analyzed.' : l.website_state === 'placeholder' ? 'Placeholder page: ' + (a.placeholder || '') : 'No website to analyze.') + '</p>';
-    ana += ws ? '<p class="rv-b" style="margin:12px 0 0">Web search check (' + esc(ws.provider) + '): ' + (ws.error ? esc(ws.error) : (ws.candidates_checked || []).length ? ws.candidates_checked.map(function (c) { return esc(c.url) + ' ' + (c.matched ? 'matched this business' : "didn't match, so it was ignored"); }).join('; ') : 'no website found for this business.') + '</p>'
-      : (l.website_state === 'none_google_only' ? '<div class="note">Not double-checked with a web search. Add a Brave or Firecrawl key in Settings to verify “no website”.</div>' : '');
-    $('ldwIn').innerHTML = '<div class="ldw-h"><div class="ring" style="--p:' + (l.score || 0) + ';--c:' + col + '"><b>' + esc(l.score) + '</b></div><div style="flex:1;min-width:0"><h2>' + esc(l.name) + '</h2><div class="rv-b" style="margin-top:3px">' + esc(l.category || '') + ' · ' + esc(l.address || 'Address not listed') + '</div>'
-      + '<div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap"><span class="sc ' + esc(l.score_tier) + '" style="width:auto;padding:0 10px;height:24px;font-size:12.5px">' + esc(l.score_tier) + ' lead</span>' + wsTag(l.website_state) + '</div></div>'
-      + '<button class="btn bo bsm" type="button" id="ldwX" aria-label="Close">' + I.x.replace('<svg', '<svg width="14" height="14"') + '</button></div>'
-      + '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;align-items:center"><div style="width:170px">' + statusSel(l, 'lsel') + '</div>'
-      + '<button class="btn bo bsm" type="button" id="ldwFav">' + (l.favorite ? '★ Favorited' : '☆ Favorite') + '</button><button class="btn bo bsm" type="button" id="ldwRe">Re-check website</button><span style="flex:1"></span><button class="btn bo bsm" type="button" id="ldwDel">' + I.trash.replace('<svg', '<svg width="14" height="14"') + 'Delete</button></div>'
-      + '<div class="chips">' + (l.phone ? '<a class="chip" href="' + esc(telHref(l.phone)) + '">' + I.phone.replace('<svg', '<svg width="13" height="13"') + 'Call ' + esc(prettyPhone(l.phone)) + '</a>' : '') + chip(l.google_maps_url, 'Google Maps') + chip(l.website, 'Website') + chip(l.facebook, 'Facebook') + chip(l.instagram, 'Instagram') + '</div>'
-      + mt
-      + '<h3>Website opportunity</h3><div class="pitch">' + esc(l.pitch || '') + '</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px"><span class="rv-b">' + esc(l.pitch_source || '') + '</span><button class="btn bo bsm" type="button" id="ldwCopy">Copy</button></div>'
-      + '<h3>Contact information</h3><dl class="kv">'
-      + '<dt>Phone</dt><dd>' + (l.phone ? esc(prettyPhone(l.phone)) : 'Not found') + '<span class="src ' + srcCls(l.phone_source) + '">' + esc(l.phone_source) + '</span></dd>'
-      + '<dt>Email</dt><dd>' + (l.email ? esc(l.email) : 'Not found publicly') + '<span class="src ' + srcCls(l.email_source) + '">' + esc(l.email ? l.email_source : "Only emails shown on the business's own website are collected") + '</span></dd>'
-      + '<dt>Website</dt><dd>' + (l.website ? esc(l.website) : 'None') + '<span class="src ' + srcCls(l.website_source) + '">' + esc(l.website_source) + '</span></dd>'
-      + '<dt>Facebook</dt><dd>' + (l.facebook ? esc(l.facebook) : 'Not found') + '<span class="src ' + srcCls(l.facebook_source) + '">' + esc(l.facebook_source) + '</span></dd>'
-      + '<dt>Instagram</dt><dd>' + (l.instagram ? esc(l.instagram) : 'Not found') + '<span class="src ' + srcCls(l.instagram_source) + '">' + esc(l.instagram_source) + '</span></dd>'
-      + '<dt>Google</dt><dd>' + (l.rating ? esc(l.rating) + '★ · ' : '') + esc(l.review_count || 0) + ' reviews<span class="src v">Verified: Google Business Profile</span></dd></dl>'
-      + '<h3>Why this score</h3><ul class="why">' + reasons + '</ul>'
-      + '<h3>Website check</h3>' + ana
-      + '<h3>Notes</h3><textarea id="ldwNotes" placeholder="Who you spoke with, best time to call, what they said…">' + esc(l.notes || '') + '</textarea><div class="rv-b" id="ldwNs">Saved automatically</div>';
-    $('ldw').classList.add('on'); $('lscrim').classList.add('on'); $('ldw').setAttribute('aria-hidden', 'false'); $('ldw').scrollTop = 0;
-    $('ldwX').onclick = closeLead;
-    $('ldwFav').onclick = async function () { l.favorite = !l.favorite; this.textContent = l.favorite ? '★ Favorited' : '☆ Favorite'; await setLead(l.id, { favorite: l.favorite }); if (state.page === 'leads') loadLeads(); };
-    $('ldwCopy').onclick = function () { (navigator.clipboard ? navigator.clipboard.writeText(l.pitch || '') : Promise.reject()).then(function () { toast('Copied'); }, function () { toast('Select the text and copy it'); }); };
-    $('ldwRe').onclick = async function () { var b = this; b.disabled = true; b.textContent = 'Checking…'; try { await api('lead_reanalyze', { id: l.id, pagespeed: $('lform').pagespeed.checked }); toast('Website re-checked'); openLead(l.id); if (state.page === 'leads') loadLeads(); } catch (x) { toast(x.message); b.disabled = false; b.textContent = 'Re-check website'; } };
-    $('ldwDel').onclick = async function () { if (this.dataset.sure !== '1') { this.dataset.sure = '1'; this.textContent = 'Tap again to delete'; this.classList.add('br'); return; } try { await api('lead_delete', { id: l.id }); toast('Lead deleted'); closeLead(); loadLeads(); } catch (x) { toast(x.message); } };
-    var nt; $('ldwNotes').oninput = function () { var v = this.value; $('ldwNs').textContent = 'Saving…'; clearTimeout(nt); nt = setTimeout(async function () { await setLead(l.id, { notes: v }); $('ldwNs').textContent = 'Saved'; }, 600); };
-  }
-  document.addEventListener('click', function (e) { if (L.openId && e.target.closest('#ldw [data-go]')) closeLead(); }, true);
-
-  // settings: API keys
-  var KEYHELP = { google_places: 'Required. Google Cloud → enable “Places API (New)” → Credentials → API key.', pagespeed: 'Optional. Leave empty to use the Google key (enable “PageSpeed Insights API” on it).',
-    brave: 'Recommended (or Firecrawl). Double-checks “no website” leads. brave.com/search/api', firecrawl: 'Alternative to Brave. firecrawl.dev', anthropic: 'Optional. Claude writes the opportunity summary. console.anthropic.com' };
-  async function loadKeys() {
-    try {
-      var j = await api('lead_keys'), k = j.keys;
-      $('keyFields').innerHTML = Object.keys(k).map(function (n) { var x = k[n];
-        return '<label class="field"><span class="krow"><span>' + esc(x.label) + (x.set ? ' <span class="tag t-approved" style="margin-left:6px">Saved ' + esc(x.hint) + '</span>' : (x.uses_google ? ' <span class="tag t-pub" style="margin-left:6px">Uses Google key</span>' : '')) + '</span>' + (x.set ? '<button type="button" data-kclear="' + n + '">Remove</button>' : '') + '</span>'
-          + '<input name="' + n + '" type="password" autocomplete="off" spellcheck="false" placeholder="' + (x.set ? 'Paste a new key to replace it' : 'Paste key') + '"><span class="hint">' + esc(KEYHELP[n] || '') + '</span></label>'; }).join('');
-    } catch (x) { $('keyFields').innerHTML = '<div class="err">' + esc(x.message) + '</div>'; }
-  }
-  $('keyForm').addEventListener('submit', async function (e) {
-    e.preventDefault(); var keys = {};
-    Array.prototype.forEach.call(e.target.querySelectorAll('input[type=password]'), function (i) { if (i.value.trim()) keys[i.name] = i.value.trim(); });
-    try { await api('lead_keys_save', { keys: keys }); msg($('keyMsg'), true, 'Saved.'); loadKeys(); } catch (x) { msg($('keyMsg'), false, x.message); }
-  });
-  $('keyFields').addEventListener('click', async function (e) {
-    var b = e.target.closest('[data-kclear]'); if (!b) return; e.preventDefault();
-    if (b.dataset.sure !== '1') { b.dataset.sure = '1'; b.textContent = 'Tap again to remove'; return; }
-    try { await api('lead_keys_save', { clear: [b.getAttribute('data-kclear')] }); toast('Key removed'); loadKeys(); } catch (x) { toast(x.message); }
-  });
-
   // ---------- review requests ----------
   var lastReq = null;
   function smsHref(phone, msg) { return 'sms:' + encodeURIComponent(phone) + '?&body=' + encodeURIComponent(msg); }
@@ -984,7 +629,6 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
   // ---------- settings ----------
   async function loadSettings() {
-    loadKeys();
     var j = await api('me'); state.me = j;
     var f = $('setForm'); f.notify_email.value = j.notify_email || ''; f.notify_on.checked = !!j.notify_on;
     $('pubLink').textContent = SITE + '/review.html';

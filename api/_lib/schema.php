@@ -16,12 +16,6 @@ function vero_install_schema(PDO $db, bool $sqlite): void {
         "CREATE TABLE IF NOT EXISTS meetings (id $pk, uid VARCHAR(64) NOT NULL UNIQUE, name VARCHAR(120) NOT NULL DEFAULT '', email VARCHAR(190) NOT NULL DEFAULT '', phone VARCHAR(40) NOT NULL DEFAULT '', business VARCHAR(160) NOT NULL DEFAULT '', notes TEXT NOT NULL, start_at DATETIME NOT NULL, end_at DATETIME NULL, meet_url VARCHAR(500) NOT NULL DEFAULT '', status VARCHAR(16) NOT NULL DEFAULT 'booked', source VARCHAR(10) NOT NULL DEFAULT 'site', verified SMALLINT NOT NULL DEFAULT 0, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL)$tail",
     ];
     foreach ($q as $sql) $db->exec($sql);
-    // Lead Finder tables (schema v3). Wrapped so a database quirk here can never break the rest of the dashboard.
-    $leadSql = [
-        "CREATE TABLE IF NOT EXISTS leads (id $pk, place_id VARCHAR(190) NULL UNIQUE, name VARCHAR(200) NOT NULL, category VARCHAR(80) NULL, google_type VARCHAR(120) NULL, search_location VARCHAR(200) NULL, address VARCHAR(300) NULL, city VARCHAR(120) NULL, state VARCHAR(40) NULL, phone VARCHAR(40) NULL, phone_norm VARCHAR(20) NULL, phone_source VARCHAR(200) NULL, email VARCHAR(190) NULL, email_source VARCHAR(500) NULL, website VARCHAR(500) NULL, domain VARCHAR(190) NULL, website_source VARCHAR(200) NULL, website_state VARCHAR(24) NULL, facebook VARCHAR(500) NULL, facebook_source VARCHAR(200) NULL, instagram VARCHAR(500) NULL, instagram_source VARCHAR(200) NULL, google_maps_url VARCHAR(500) NULL, rating DOUBLE NULL, review_count INT NULL, business_status VARCHAR(40) NULL, analysis_json MEDIUMTEXT NULL, score INT NULL, score_tier VARCHAR(8) NULL, score_reasons_json TEXT NULL, pitch TEXT NULL, pitch_source VARCHAR(80) NULL, status VARCHAR(20) NOT NULL DEFAULT 'New', favorite SMALLINT NOT NULL DEFAULT 0, notes TEXT NULL, google_fetched_at DATETIME NULL, analyzed_at DATETIME NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL)$tail",
-        "CREATE TABLE IF NOT EXISTS lead_searches (id $pk, location VARCHAR(200) NOT NULL, category VARCHAR(80) NOT NULL, requested INT NOT NULL DEFAULT 0, saved INT NOT NULL DEFAULT 0, duplicates INT NOT NULL DEFAULT 0, skipped INT NOT NULL DEFAULT 0, status VARCHAR(12) NOT NULL DEFAULT 'done', created_at DATETIME NOT NULL)$tail",
-    ];
-    foreach ($leadSql as $sql) { try { $db->exec($sql); } catch (Throwable $e) { error_log('VERO lead tables: ' . $e->getMessage()); } }
     $idx = [
         'CREATE INDEX idx_reviews_status ON reviews (status, published)',
         'CREATE INDEX idx_events_created ON events (created_at)',
@@ -29,9 +23,6 @@ function vero_install_schema(PDO $db, bool $sqlite): void {
         'CREATE INDEX idx_rate ON rate_hits (ip_hash, kind, created_at)',
         'CREATE INDEX idx_login ON login_attempts (ip_hash, created_at)',
         'CREATE INDEX idx_meet_start ON meetings (start_at)',
-        'CREATE INDEX idx_leads_phone ON leads (phone_norm)',
-        'CREATE INDEX idx_leads_domain ON leads (domain)',
-        'CREATE INDEX idx_leads_score ON leads (score)',
     ];
     foreach ($idx as $sql) { try { $db->exec($sql); } catch (Throwable $e) { /* already exists */ } }
 }
