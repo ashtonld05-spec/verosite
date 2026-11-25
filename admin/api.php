@@ -2,8 +2,9 @@
 // Admin JSON API. Every action except "login" requires a signed-in admin session + CSRF token.
 declare(strict_types=1);
 require __DIR__ . '/../api/_lib/bootstrap.php';
-require __DIR__ . '/../api/_lib/leads.php';
 admin_headers();
+// Lead Finder is loaded only for lead actions, so it can never affect sign-in or the rest of the dashboard.
+if (str_starts_with((string)($_GET['a'] ?? ''), 'lead')) require_once __DIR__ . '/../api/_lib/leads.php';
 if (!vero_config()) json_out(['error' => 'not_configured'], 503);
 admin_session_start();
 
@@ -149,8 +150,12 @@ switch ($action) {
         $st = $db->prepare("SELECT * FROM meetings WHERE status = 'booked' AND COALESCE(end_at, start_at) >= ? ORDER BY start_at ASC LIMIT 4");
         $st->execute([now_utc()]);
         $next = array_map('meeting_row', $st->fetchAll());
-        $top = array_map('lead_slim', array_slice(lead_list($db, ['status' => 'New', 'sort' => 'score']), 0, 4));
-        json_out(['stats' => stats($db), 'web' => website($db), 'meetings' => ['next' => $next, 'counts' => meeting_counts($db)], 'leads' => ['summary' => lead_summary($db), 'top' => $top]]);
+        $leadsCard = null;
+        try {
+            require_once __DIR__ . '/../api/_lib/leads.php';
+            $leadsCard = ['summary' => lead_summary($db), 'top' => array_map('lead_slim', array_slice(lead_list($db, ['status' => 'New', 'sort' => 'score']), 0, 4))];
+        } catch (Throwable $e) { $leadsCard = null; }
+        json_out(['stats' => stats($db), 'web' => website($db), 'meetings' => ['next' => $next, 'counts' => meeting_counts($db)], 'leads' => $leadsCard]);
 
     case 'meetings':
         $view = (string)($_GET['view'] ?? 'upcoming');
