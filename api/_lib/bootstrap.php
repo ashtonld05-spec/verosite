@@ -34,7 +34,7 @@ function vero_db(): PDO {
 }
 
 // Adds any tables introduced after the first setup (safe to run repeatedly).
-const VERO_SCHEMA_V = '2';
+const VERO_SCHEMA_V = '3';
 function vero_schema_ready(): void {
     static $done = false;
     if ($done) return;

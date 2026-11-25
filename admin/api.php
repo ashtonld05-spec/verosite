@@ -2,6 +2,7 @@
 // Admin JSON API. Every action except "login" requires a signed-in admin session + CSRF token.
 declare(strict_types=1);
 require __DIR__ . '/../api/_lib/bootstrap.php';
+require __DIR__ . '/../api/_lib/leads.php';
 admin_headers();
 if (!vero_config()) json_out(['error' => 'not_configured'], 503);
 admin_session_start();
@@ -147,7 +148,9 @@ switch ($action) {
     case 'overview':
         $st = $db->prepare("SELECT * FROM meetings WHERE status = 'booked' AND COALESCE(end_at, start_at) >= ? ORDER BY start_at ASC LIMIT 4");
         $st->execute([now_utc()]);
-        json_out(['stats' => stats($db), 'web' => website($db), 'meetings' => ['next' => array_map('meeting_row', $st->fetchAll()), 'counts' => meeting_counts($db)]]);
+        $next = array_map('meeting_row', $st->fetchAll());
+        $top = array_map('lead_slim', array_slice(lead_list($db, ['status' => 'New', 'sort' => 'score']), 0, 4));
+        json_out(['stats' => stats($db), 'web' => website($db), 'meetings' => ['next' => $next, 'counts' => meeting_counts($db)], 'leads' => ['summary' => lead_summary($db), 'top' => $top]]);
 
     case 'meetings':
         $view = (string)($_GET['view'] ?? 'upcoming');
@@ -309,6 +312,148 @@ switch ($action) {
         session_regenerate_id(true);
         log_event('password_changed', null, 'Admin password changed');
         json_out(['ok' => true]);
+
+    // ---------------- Lead Finder ----------------
+    case 'leads':
+        $q = ['q' => $_GET['q'] ?? '', 'category' => $_GET['category'] ?? '', 'city' => $_GET['city'] ?? '', 'status' => $_GET['status'] ?? '',
+            'favorite' => ($_GET['favorite'] ?? '') === '1', 'min_score' => $_GET['min_score'] ?? '', 'website_state' => $_GET['website_state'] ?? '',
+            'booked' => ($_GET['booked'] ?? '') === '1', 'sort' => $_GET['sort'] ?? 'score', 'dir' => $_GET['dir'] ?? 'desc'];
+        json_out(['leads' => array_map('lead_slim', lead_list($db, $q)), 'summary' => lead_summary($db), 'services' => lead_services(),
+            'categories' => array_keys(LEAD_CATEGORIES), 'statuses' => LEAD_STATUSES, 'website_states' => LEAD_WEBSITE_LABELS]);
+
+    case 'lead':
+        $l = lead_get($db, (int)($_GET['id'] ?? 0));
+        if (!$l) json_out(['error' => 'Lead not found.'], 404);
+        json_out(['lead' => $l, 'website_states' => LEAD_WEBSITE_LABELS]);
+
+    case 'lead_update':
+        require_method('POST');
+        $d = body_json();
+        $id = (int)($d['id'] ?? 0);
+        $l = lead_get($db, $id);
+        if (!$l) json_out(['error' => 'Lead not found.'], 404);
+        $set = []; $vals = [];
+        if (array_key_exists('status', $d)) {
+            if (!in_array($d['status'], LEAD_STATUSES, true)) json_out(['error' => 'Unknown status.'], 422);
+            $set[] = 'status = ?'; $vals[] = $d['status'];
+            if ($d['status'] !== $l['status']) log_event($d['status'] === 'Client' ? 'lead_client' : 'lead_status', $id, $l['name'] . ' → ' . $d['status']);
+        }
+        if (array_key_exists('favorite', $d)) { $set[] = 'favorite = ?'; $vals[] = !empty($d['favorite']) ? 1 : 0; }
+        if (array_key_exists('notes', $d)) { $set[] = 'notes = ?'; $vals[] = clean_text($d['notes'], 5000); }
+        if ($set) { $vals[] = now_utc(); $vals[] = $id; $db->prepare('UPDATE leads SET ' . implode(', ', $set) . ', updated_at = ? WHERE id = ?')->execute($vals); }
+        json_out(['ok' => true, 'lead' => lead_slim(lead_get($db, $id))]);
+
+    case 'lead_delete':
+        require_method('POST');
+        $d = body_json();
+        $l = lead_get($db, (int)($d['id'] ?? 0));
+        if (!$l) json_out(['error' => 'Lead not found.'], 404);
+        $db->prepare('DELETE FROM leads WHERE id = ?')->execute([$l['id']]);
+        log_event('lead_deleted', $l['id'], $l['name']);
+        json_out(['ok' => true]);
+
+    case 'lead_reanalyze':
+        require_method('POST');
+        @set_time_limit(180);
+        $d = body_json();
+        $l = lead_get($db, (int)($d['id'] ?? 0));
+        if (!$l) json_out(['error' => 'Lead not found.'], 404);
+        $unlisted = $l['website_state'] === 'found_unlisted';
+        $listed = (bool)preg_match('/^(Verified: Google|Google lists)/', (string)$l['website_source']);
+        $place = ['place_id' => $l['place_id'], 'name' => $l['name'], 'address' => $l['address'], 'city' => $l['city'], 'state' => $l['state'], 'phone' => $l['phone'],
+            'website' => ($listed || $unlisted) ? $l['website'] : null, 'google_maps_url' => $l['google_maps_url'], 'rating' => $l['rating'],
+            'review_count' => $l['review_count'], 'business_status' => $l['business_status'], 'google_type' => $l['google_type']];
+        try {
+            $new = lead_build($place, (string)$l['category'], (string)$l['search_location'], !empty($d['pagespeed']), $unlisted ? $l['website_source'] : null);
+        } catch (Throwable $e) { json_out(['error' => 'Could not re-check: ' . $e->getMessage()], 502); }
+        if ($unlisted && $new['website_state'] === 'has_website') {
+            $new['website_state'] = 'found_unlisted';
+            [$new['score'], $new['score_tier'], $new['score_reasons']] = lead_score($new, $new['analysis']);
+        }
+        lead_update_analysis($db, $l['id'], $new);
+        json_out(['ok' => true, 'lead' => lead_get($db, $l['id'])]);
+
+    case 'lead_plan':
+        require_method('POST');
+        $d = body_json();
+        $loc = clean_text($d['location'] ?? '', 200); $cat = clean_text($d['category'] ?? '', 80);
+        if ($loc === '' || $cat === '') json_out(['error' => 'Enter a city or state and a business category.'], 422);
+        if (lead_key('google_places') === '') json_out(['error' => 'Add your Google Places API key first: Settings → Lead Finder API keys.'], 422);
+        json_out(['queries' => lead_queries($loc, $cat), 'web_search' => lead_search_provider()]);
+
+    case 'lead_places':
+        require_method('POST');
+        $d = body_json();
+        try { $r = lead_places_search(clean_text($d['query'] ?? '', 300), isset($d['pageToken']) ? clean_text($d['pageToken'], 2000) : null); }
+        catch (Throwable $e) { json_out(['error' => $e->getMessage()], 502); }
+        $out = [];
+        foreach ($r['places'] as $p) {
+            if ($p['place_id'] === '' || $p['name'] === '') continue;
+            $dom = $p['website'] && !lead_classify_url($p['website']) ? lead_reg_domain($p['website']) : null;
+            $dup = lead_find_dup($db, $p['place_id'], lead_norm_phone($p['phone']), $dom);
+            $closed = $p['business_status'] && $p['business_status'] !== 'OPERATIONAL' ? strtolower(str_replace('_', ' ', $p['business_status'])) : null;
+            $out[] = ['place' => $p, 'sig' => lead_sign($p), 'duplicate' => $dup['why'] ?? null, 'closed' => $closed];
+        }
+        json_out(['places' => $out, 'nextPageToken' => $r['next']]);
+
+    case 'lead_analyze':
+        require_method('POST');
+        @set_time_limit(180);
+        $d = body_json();
+        $p = is_array($d['place'] ?? null) ? $d['place'] : null;
+        if (!$p || !hash_equals(lead_sign($p), (string)($d['sig'] ?? ''))) json_out(['error' => 'Invalid business data.'], 400);
+        $dom = !empty($p['website']) && !lead_classify_url($p['website']) ? lead_reg_domain($p['website']) : null;
+        if ($dup = lead_find_dup($db, $p['place_id'], lead_norm_phone($p['phone']), $dom)) json_out(['skipped' => 'duplicate', 'reason' => 'same ' . $dup['why'] . ' as a saved lead']);
+        try { $l = lead_build($p, clean_text($d['category'] ?? '', 80), clean_text($d['location'] ?? '', 200), !empty($d['pagespeed'])); }
+        catch (Throwable $e) { json_out(['error' => 'Analysis failed: ' . $e->getMessage()], 502); }
+        $min = (int)($d['min_score'] ?? 0);
+        if ($min && $l['score'] < $min) json_out(['skipped' => 'low_score', 'reason' => "score {$l['score']} is below your minimum of $min"]);
+        if ($dup = lead_find_dup($db, $l['place_id'], $l['phone_norm'], $l['domain'])) json_out(['skipped' => 'duplicate', 'reason' => 'same ' . $dup['why'] . ' as a saved lead']);
+        try { $id = lead_insert($db, $l); }
+        catch (PDOException $e) { json_out(['skipped' => 'duplicate', 'reason' => 'already saved']); }
+        json_out(['saved' => true, 'lead' => lead_slim(lead_get($db, $id))]);
+
+    case 'lead_search_done':
+        require_method('POST');
+        $d = body_json();
+        $loc = clean_text($d['location'] ?? '', 200); $cat = clean_text($d['category'] ?? '', 80);
+        $status = in_array($d['status'] ?? '', ['done', 'cancelled', 'error'], true) ? $d['status'] : 'done';
+        $db->prepare('INSERT INTO lead_searches (location, category, requested, saved, duplicates, skipped, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)')
+           ->execute([$loc, $cat, (int)($d['requested'] ?? 0), (int)($d['saved'] ?? 0), (int)($d['duplicates'] ?? 0), (int)($d['skipped'] ?? 0), $status, now_utc()]);
+        log_event('lead_search', null, "$cat in $loc · " . (int)($d['saved'] ?? 0) . ' new lead' . ((int)($d['saved'] ?? 0) === 1 ? '' : 's'));
+        json_out(['ok' => true]);
+
+    case 'leads_export':
+        $q = ['q' => $_GET['q'] ?? '', 'category' => $_GET['category'] ?? '', 'city' => $_GET['city'] ?? '', 'status' => $_GET['status'] ?? '',
+            'favorite' => ($_GET['favorite'] ?? '') === '1', 'min_score' => $_GET['min_score'] ?? '', 'website_state' => $_GET['website_state'] ?? '',
+            'booked' => ($_GET['booked'] ?? '') === '1', 'sort' => $_GET['sort'] ?? 'score', 'dir' => $_GET['dir'] ?? 'desc'];
+        $rows = lead_export_rows(lead_list($db, $q));
+        $stamp = gmdate('Y-m-d');
+        if (($_GET['format'] ?? '') === 'xlsx') {
+            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+            header("Content-Disposition: attachment; filename=\"vero-leads-$stamp.xlsx\"");
+            echo lead_xlsx($rows); exit;
+        }
+        header('Content-Type: text/csv; charset=utf-8');
+        header("Content-Disposition: attachment; filename=\"vero-leads-$stamp.csv\"");
+        echo lead_csv($rows); exit;
+
+    case 'lead_keys':
+        json_out(['keys' => lead_keys_status(), 'services' => lead_services(), 'history' => $db->query('SELECT * FROM lead_searches ORDER BY id DESC LIMIT 10')->fetchAll()]);
+
+    case 'lead_keys_save':
+        require_method('POST');
+        $d = body_json();
+        $changed = [];
+        foreach (LEAD_KEY_NAMES as $k => $label) {
+            if (!empty($d['clear']) && in_array($k, (array)$d['clear'], true)) { lead_set_key($k, ''); $changed[] = $label . ' removed'; continue; }
+            $v = trim((string)($d['keys'][$k] ?? ''));
+            if ($v === '') continue;
+            if (strlen($v) > 300 || preg_match('/\s/', $v)) json_out(['error' => $label . ' key does not look right.'], 422);
+            lead_set_key($k, $v); $changed[] = $label;
+        }
+        if ($changed) log_event('lead_keys', null, 'API keys updated: ' . implode(', ', $changed));
+        json_out(['ok' => true, 'keys' => lead_keys_status(), 'services' => lead_services()]);
 
     case 'logout':
         require_method('POST');
