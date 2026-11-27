@@ -163,13 +163,8 @@ section#industries,section#work,section#services,section#why,section#process,sec
 @media (max-width:640px){
 section#industries,section#work,section#services,section#why,section#process,section#results,section#about,section#faq,section#contact{padding-top:60px !important;padding-bottom:60px !important}
 #home [style*="gap: 28px; margin-top: 40px"]{display:none !important}
-#industries p,#industries .vind-more{display:none !important}
+#industries p{display:none !important}
 #industries [style*="minmax(240px, 1fr)"]{grid-template-columns:1fr 1fr !important;gap:10px !important;margin-top:24px !important}
-#industries .vtile{padding:16px 14px !important;border-radius:16px !important}
-#industries .vtile > div:first-child{width:38px !important;height:38px !important;border-radius:11px !important}
-#industries .vtile > div:first-child svg{width:20px;height:20px}
-#industries .vtile h3{font-size:16px !important;margin:12px 0 0 !important}
-#industries .vtile > div[style*="flex: 1"]{display:none}
 .vm-vals{display:none !important}
 .vm-prev{max-height:185px !important;-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent) !important;mask-image:linear-gradient(180deg,#000 70%,transparent) !important}
 .vm-txt > div:first-child,.vm-txt > p:last-child{display:none !important}
@@ -837,6 +832,18 @@ section#industries,section#work,section#services,section#why,section#process,sec
 .vres-card:hover{transform:none}
 .vres-cta a{grid-column:1 / -1}
 }
+
+/* industries: first 6, then Show more */
+.vind-grid:not(.vind-all) .vind:nth-child(n+7){display:none}
+.vind-all .vind:nth-child(n+7){animation:vindIn .45s ease both}
+@keyframes vindIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.vind-more-wrap{display:flex;justify-content:center;margin-top:24px}
+.vind-more{display:inline-flex;align-items:center;gap:8px;background:#FFFFFF;color:#0A0A0C;border:1.5px solid #0A0A0C;border-radius:999px;padding:13px 26px;font-family:inherit;font-weight:600;font-size:15px;cursor:pointer;transition:background .25s ease,color .25s ease}
+.vind-more:hover{background:#0A0A0C;color:#FFFFFF}
+.vind-more:focus-visible{outline:3px solid #A1A1AA;outline-offset:3px}
+.vind-all ~ .vind-more-wrap .vind-more svg,.vind-more[aria-expanded="true"] svg{transform:rotate(180deg)}
+.vind-more svg{transition:transform .25s ease}
+@media (max-width:640px){.vind-more-wrap{margin-top:16px}.vind-more{width:100%;justify-content:center}}
 </style>
 <style>.vnavlink[href="pricing.html#services"]{color:#FFFFFF !important;position:relative}.vnavlink[href="pricing.html#services"]::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;border-radius:2px;background:#FFFFFF}</style>
 <meta name="keywords" content="small business website design, local business website, custom website design, contractor website design, restaurant website, salon website, dental website, real estate website, affordable website design, $800 website">
@@ -1654,7 +1661,8 @@ class Component extends DCLogic {
       fab: this.state.fab,
       allInd: this.state.allInd,
       allIndExp: this.state.allInd ? 'true' : 'false',
-      indBtn: this.state.allInd ? 'Show fewer industries' : 'View all industries',
+      indBtn: this.state.allInd ? 'Show less' : 'Show more',
+      indCls: this.state.allInd ? 'vind-grid vind-all' : 'vind-grid',
       toggleInd: function () { self.setState({ allInd: !self.state.allInd }); },
       menuOpen: this.state.menuOpen,
       menuExpanded: this.state.menuOpen ? 'true' : 'false',
